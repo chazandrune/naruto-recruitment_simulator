@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html class="gray0">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>高级招募模拟器-火影忍者手游</title>
+		<meta name="description" content="金币有限，高招看脸，究竟是欧皇？还是非酋？高级招募模拟器了解一下">
+		<meta name="keywords" content="火影忍者,手游,高级招募,欧皇,非酋,十连抽,高级招募模拟器,高招模拟器,模拟器,火影忍者高招模拟器,火影手游高招模拟器,火影高级招募模拟,火影抽卡模拟器" />
+		<meta itemprop="image" content="images/juanzhou_gaoji.png" />
+		<meta name="author" content="某熊" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<link rel="icon" type="image/jpeg" href="images/juanzhou_gaoji.png">
+		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
+		<script type="text/javascript" src="js/fastclick.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/preload.js"></script>
+	</head>
+
+	<body>
+    <!--[if lt IE 9]>
+      <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
+      <style>
+        .browser-tips{ position:fixed; top:0; left:0; right:0; bottom:0;text-align:center;font-size:20px; line-height:30px; color:#fff; background-color:#000; padding-top:300px; z-index:999999999; }
+      </sytle>
+    <![endif]-->
+<!-- loading 结束 -->
+		<script type="text/javascript">
+			window.onload=function(){
+				setTimeout(function(){
+					$("#LoadingBar p").html("今天的脸是否白点了呢");
+				},3000)
+				setTimeout(function(){
+					$("#LoadingBar").fadeOut(300);
+				},5000)//5000
+				setTimeout(function(){
+					$(".guide_wrap").addClass("animated");
+					$(".guide_wrap").show();
+				},6000)
+				setTimeout(function(){
+					$(".guide_wrap").fadeOut(300);
+				},11000)
+			}
+		</script>
+
+<!-- 图像预加载 -->
+		<style>
+		.preloaditems{ position:fixed; top: -100000rem; width:0; height: 0; overflow:hidden;}
+		</style>
+		<div class="preloaditems">
+		   	<img src="images/shareImage.jpg" alt="高级招募券" />
+			<img src="images/piece_bg.png" alt="忍者碎片">
+			<img src="images/piece_fg.png" alt="忍者碎片">
+			<img src="images/charactors.png" alt="高级招募忍者">
+			<img src="images/bg.png" alt="高级招募背景">
+			<img src="images/bg_shu.png" alt="高级招募背景_竖屏">
+			<img src="images/pop_big_bg.png" alt="模拟弹窗背景_大">
+			<img src="images/pop_small_bg.png" alt="模拟弹窗背景_小">
+			<img src="images/yanwu.png" alt="碎片烟雾">
+			<img src="images/biaoqing.png" alt="表情图片">
+			<img src="images/baoxiang.png" alt="宝箱图标">
+			<img src="images/baoxiang_big.png" alt="宝箱大图片">
+		</div>
+<!-- 版本 -->
+		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.5</a></p></div>
+<!-- main -->
+		<div class="box">
+			<div class="tishi">
+				<img class="tishi_01" src="images/tishi_01.png" alt="成功购买1个幻彩石赠送招募忍者碎片"/>
+				<img class="tishi_10" src="images/tishi_10.png" alt="成功购买10个幻彩石赠送招募忍者碎片"/>
+			</div>
+			<div class="resultlist_wrap">
+				<div class="resultlist">
+					<p style="font-size: .26rem;padding-top:.9rem;">仅供娱乐，请勿当真</p>
+				</div>
+			</div>
+			<div class="btns">
+				<div class="btn ease1" id="reset" title="重置">重置</div>
+				<div class="btn ease1" id="clik" title="单抽"><i class="icon icon_gaozhaoquan">1</i><span class="txt">招募1次</span></div>
+				<div class="btn ease1" id="clik10" title="十连"><i class="icon icon_gaozhaoquan">10</i><span class="txt">招募10次</span></div>
+                <div class="tips_bisong" id="tips_bisong"></div>
+			</div>
+		</div>
+<!-- 统计数据 -->
+		<div class="tongjilist_wrap on ease3">
+			<div class="tongjilist">
+				<div class="mb50">
+					<dl class="mb10">
+						<dt><i class="icon icon_gaozhaoquan"></i></dt>
+						<dd><p>招募次数</p><p id="cishu">0</p></dd>
+					</dl>
+					<dl class="mb10">
+						<dt><i class="icon icon_jinbi"></i></dt>
+						<dd><p>消耗金币</p><p id="cishujinbi">0</p></dd>
+					</dl>
+				</div>
+				<p class="mb10">累计获得</p>
+				<p class="mb10"><i class="icon icon_s"></i>碎片：<span id="num_s">0</span></p>
+				<p class="mb10"><i class="icon icon_a"></i>碎片：<span id="num_a">0</span></p>
+				<p class="mb10"><i class="icon icon_b"></i>碎片：<span id="num_b">0</span></p>
+				<p class="mb10"><i class="icon icon_c"></i>碎片：<span id="num_c">0</span></p>
+			</div>
+		</div>
+		<div class="tongjilist_btns on">
+			<div class="btn btn_back ease3"><i class="icon icon_back"></i><span class="txt">收起数据</span></div>
+			<div class="btn btn_front ease3"><span class="txt">数据统计</span><i class="icon icon_front"></i></div>
+		</div>
+        
+<!-- 弹窗遮罩 -->
+<div class="pop_mask"></div>        
+<!-- 关于 -->
+		<div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
+		<div class="pop pop_big pop_info animated zoomIn">
+			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
+			<div class="text_wrap">
+				<div class="text_body">
+					<p>各位忍者学员：</p>
+					<p><br></p>
+					<p>1、本程序没有切换10次出整卡功能，也无玄学操作，仅用于鉴定欧皇和非酋。</p>
+					<p>2、本程序参照官方概率数据，如下：3.5%概率出现S级忍者碎片，11.5%出现A级忍者碎片，40%出现B级忍者碎片，45%概率出现C级忍者碎片。</p>
+					<p>3、至于出现的是哪位忍者碎片以及出现几片……你开心就好。</p>
+					<p>4、素材源于腾讯《火影忍者手游》，非官方出品，仅供娱乐，请勿当真！</p>
+					<p>最后祝大家学习进步、工作顺利、身体健康、游戏愉快~<i class="biaoqing biaoqing_01"></i></p>
+					<p style="margin-bottom: 60rem"><br></p>
+					<p><br></p>
+					<p><br></p>
+					<p>好吧，只是一时兴起，凭兴趣做了这么个小小的高级招募模拟器，开心快乐最重要！</p>
+					<p><br></p>
+					<p><br></p>
+					<p style="text-align: right;">爱火影、爱游戏的某熊</p>
+					<p style="text-align: right;">2018年5月</p>
+					<p><br></p>
+					<p><br></p>
+				</div>
+			</div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+<!-- 设置 -->
+		<div class="btn btn_setting ease1"><i class="icon icon_setting"></i></div>
+		<div class="pop pop_small pop_setting animated zoomIn">
+			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_setting.png" alt="设置"></div>
+			<div class="text_wrap">
+				<div class="text_body">
+                    <!--音效开关-->
+                    <div class="btn btn_switch btn_bisong ease1 on">
+                        <i class="icon icon_checkbox"></i><span class="txt">10次必送S碎片(默认开启)</span>
+                    </div>
+                    <div class="btn btn_switch btn_sad ease1">
+                        <i class="icon icon_checkbox"></i><span class="txt">脸黑反馈</span>
+                    </div>
+                    <div class="btn btn_switch btn_audio ease1">
+                        <div id="audios" class="audios"></div>
+                        <i class="icon icon_checkbox"></i><span class="txt">音效</span>
+                    </div>
+                    <!-- <div class="btn btn_bgm ease3">
+                        <i class="icon icon_checkbox"></i><span class="txt">音乐</span>
+                    </div> -->
+				</div>
+			</div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+<!-- 首付奖励 -->
+		<div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">首付奖励</span></div>
+        <div class="pop pop_big pop_baoxiang animated zoomIn">
+			<div class="text_wrap">
+            	<div class="text_body">
+					<p>请根据自己的V等级领取相应的奖励</p>
+					<p><br></p>
+                <div class="baoxianglist_wrap">
+                    <div class="baoxianglist">
+                        <div class="item btn ease1" id="baoxiang01"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V0-V4领取"></div><div class="txt">v0-v4领取<br><font style="color:#ee1a1a;">(S级碎片×25)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang02"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V5-V9领取"></div><div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(S级碎片×28)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang03"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V10-V14领取"></div><div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(S级碎片×33)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang04"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V15领取"></div><div class="txt">v15领取<br><font style="color:#ee1a1a;">(S级碎片×38)</font></div></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+        </div>
+
+<!-- 指引 -->
+		<div class="guide_wrap fadeInDown">
+        	<div class="guide_small"><em class="jiao"></em><div class="text_body">已开启10次必出S碎片</div></div>
+        </div>
+<!-- 恭喜 -->
+		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
+		
+	</body>
+</html>
+<script type="text/javascript" src="js/custom.js"></script>
+
+<!-- 流量统计 -->
+<!--<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?45dff23f70debe0220b7cfcdf874d141";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>-->
+
+
