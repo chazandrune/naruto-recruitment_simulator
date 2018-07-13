@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>本页面实现通过js加载图像返回页面加载百分比</title>
+<link href="css/animate.min.css">
+<script src="js/jquery1.111.min.js"></script>
+<style>
+* {
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, figure {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100% !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: text;
+  -webkit-touch-callout: none;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit;
+}
+
+strong, i, em {
+  font-weight: normal;
+  font-style: normal;
+}
+
+input, select, form {
+  vertical-align: middle;
+  outline: none;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+}
+
+a, button, input, select, textarea, a:focus, button:focus, input:focus, select:focus, textarea:focus, [onclick] {
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+a {
+  -webkit-touch-callout: none;
+  text-decoration: none;
+  color: #666666;
+  outline: 0;
+}
+body {
+  background-color: #0d132a;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
+.alert {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+  display: none;
+  position: fixed;
+  z-index: 201;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transform: translate3d(0, 0, 2px);
+  transform: translate3d(0, 0, 2px);
+}
+.alert.show {
+  display: block;
+}
+.alert.hide {
+  /* display: none; */
+}
+
+#loading {
+  background-color: #000;
+  z-index: 300;
+}
+#loading.hide .loading-light {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.loading {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loading-current{ line-height:30px; height:30px;}
+.loading-bar{ width:300px; height:5px; background:#fff; margin:10px auto; border-radius:10px; overflow:hidden; position:relative;}
+.loading-line{width:0; height:100%; background:#f00; position:absolute; left:0; top:0; text-align:right;}
+.loading-logs{ position:fixed; left:0; bottom:0; color:#fff; z-index:301;}
+</style>
+</head>
+
+<body>
+	<div id="loading" class="alert show">
+		<div class="loading">
+            <p class="loading-current">正在加载<span></span></p>
+            <div class="loading-bar"><div class="loading-line"></div></div>
+			<p><span class="loading-num">0%</span></p>
+		</div>
+	</div>
+
+<div class="loading-logs"></div>
+
+
+<script>
+// loading
+	!(function(){
+		var imgPath = 'images/',
+			sourceArr = ['0.png','1.png','2.png','3.png','4.png','5.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','front.png','gou.png','gou_kuang.png','guide_bg.png','huohua.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.gif','loading.png','loading_bg.png','loading_new.png','logo_naruto.png','ninja.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','rank_a.png','rank_b.png','rank_c.png','rank_s.png','rank_ss.png','s.png','setting.png','shareImage.png','shareImage.jpg','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_notice.png','title_setting.png','txt_chenggong.png','txt_wode.png','user_avatar.png','yanwu.png'];
+		loading();
+		function loading(){
+			for (var i = 0; i < sourceArr.length; i++) {
+				sourceArr[i] = imgPath + sourceArr[i];
+			}
+			var loadImage = function(path, callback) {
+				var img = new Image();
+				img.onload = function() {
+					img.onload = null;
+					callback(path);
+				}
+				img.src = path;
+			}
+			var imgLoader = function(imgs, callback) {
+				var len = imgs.length,
+					i = 0;
+				while (imgs.length) {
+					loadImage(imgs.shift(), function(path) {
+						callback(path, ++i, len);
+					});
+				}
+			}
+			imgLoader(sourceArr, function(path, curNum, total) {
+				var percent = curNum / total;
+				//console.log(path);
+				console.log(percent);
+				$('.loading-logs').append("<p>"+path+"</p>");
+				$('.loading-current span').text(path);
+				$('.loading-num').text(Math.floor(percent * 100)+'%');
+				$('.loading-line').css("width",Math.floor(percent * 100)+'%');
+				if (percent == 1) {
+					//$('#loading').addClass('hide').removeClass('show');
+					$('.loading-num').text('加载完毕！');
+					$('.loading-current').text(" ");
+				}
+			});
+		}
+	})();
+</script>
+</body>
+</html>

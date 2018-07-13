@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" type="image/png" href="">
+<title>恭喜我招募新忍者</title>
+<meta name="description" content="虽然我没有这个忍者，但是我可以假装有啊，火影忍者手游招募新忍者分享图生成器来啦">
+<meta name="keywords" content="火影新忍者，招募新忍者，分享图生成,新忍者分享,恭喜获得新忍者,新忍者分享图，火影忍者手游招募新忍者，火影手游新忍者">
+<meta name="author" content="某熊">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no">
+<link rel="icon" type="image/jpeg" href="images/juanzhou_gaoji.png">
+<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+<link rel="stylesheet" href="css/style_ninjashare.css?v=1.0" type="text/css">
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/html2canvas_2.js"></script>
+<script type="text/javascript">
+//js本地图片预览，兼容ie[6-9]、火狐、Chrome17+、Opera11+、Maxthon3
+function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
+    var allowExtention=".jpg,jpeg,JPG,JPEG,.bmp,.gif,.png"; //允许上传文件的后缀名document.getElementById("hfAllowPicSuffix").value;
+    var extention=fileObj.value.substring(fileObj.value.lastIndexOf(".")+1).toLowerCase();            
+    var browserVersion= window.navigator.userAgent.toUpperCase();
+    if(allowExtention.indexOf(extention)>-1){ 
+        if(fileObj.files){ //HTML5实现预览，兼容chrome、火狐7+等
+            if(window.FileReader){
+                var reader = new FileReader(); 
+                reader.onload = function(e){
+                    document.getElementById(imgPreviewId).setAttribute("src",e.target.result);
+                    document.getElementById(imgPreviewId2).setAttribute("src",e.target.result);
+                }  
+                reader.readAsDataURL(fileObj.files[0]);
+            }else if(browserVersion.indexOf("SAFARI")>-1){
+                alert("不支持Safari6.0以下浏览器的图片预览!");
+            }
+        }else if (browserVersion.indexOf("MSIE")>-1){
+            if(browserVersion.indexOf("MSIE 6")>-1){//ie6
+                document.getElementById(imgPreviewId).setAttribute("src",fileObj.value);
+                document.getElementById(imgPreviewId2).setAttribute("src",fileObj.value);
+            }else{//ie[7-9]
+                fileObj.select();
+                if(browserVersion.indexOf("MSIE 9")>-1)
+                    fileObj.blur();//不加上document.selection.createRange().text在ie9会拒绝访问
+                var newPreview =document.getElementById(divPreviewId+"New");
+                if(newPreview==null){
+                    newPreview =document.createElement("div");
+                    newPreview.setAttribute("id",divPreviewId+"New");
+                    newPreview.style.width = document.getElementById(imgPreviewId).width+"px";
+                    newPreview.style.height = document.getElementById(imgPreviewId).height+"px";
+                    newPreview.style.border="solid 1px #d2e2e2";
+                }
+                newPreview.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='" + document.selection.createRange().text + "')";                            
+                var tempDivPreview=document.getElementById(divPreviewId);
+                tempDivPreview.parentNode.insertBefore(newPreview,tempDivPreview);
+                tempDivPreview.style.display="none";                    
+            }
+        }else if(browserVersion.indexOf("FIREFOX")>-1){//firefox
+            var firefoxVersion= parseFloat(browserVersion.toLowerCase().match(/firefox\/([\d.]+)/)[1]);
+            if(firefoxVersion<7){//firefox7以下版本
+                document.getElementById(imgPreviewId).setAttribute("src",fileObj.files[0].getAsDataURL());
+                document.getElementById(imgPreviewId2).setAttribute("src",fileObj.files[0].getAsDataURL());
+            }else{//firefox7.0+                    
+                document.getElementById(imgPreviewId).setAttribute("src",window.URL.createObjectURL(fileObj.files[0]));
+                document.getElementById(imgPreviewId2).setAttribute("src",window.URL.createObjectURL(fileObj.files[0]));
+            }
+        }else{
+            document.getElementById(imgPreviewId).setAttribute("src",fileObj.value);
+            document.getElementById(imgPreviewId2).setAttribute("src",fileObj.value);
+        }         
+    }else{
+        alert("仅支持"+allowExtention+"为后缀名的文件!");
+        fileObj.value="";//清空选中文件
+        if(browserVersion.indexOf("MSIE")>-1){                        
+            fileObj.select();
+            document.selection.clear();
+        }                
+        fileObj.outerHTML=fileObj.outerHTML;
+    }
+}
+</script>
+<script type="text/javascript" src="js/preload_ninjashare.js"></script>
+
+</head>
+
+
+<body>
+<div class="loadingbarbox"><div class="loadingline"></div></div>
+    <!--[if lt IE 9]>
+      <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
+      <style>
+        .browser-tips{ position:fixed; top:0; left:0; right:0; bottom:0;text-align:center;font-size:20px; line-height:30px; color:#fff; background-color:#000; padding-top:300px; z-index:999999999; }
+      </sytle>
+    <![endif]-->
+
+<!-- 图像预加载 -->
+		<style>
+		.preloaditems{ position:fixed; top: -100000px; width:0; height: 0; overflow:hidden;}
+		</style>
+		<div class="preloaditems">
+		   	<img src="images/ninja/ninja_avatar_01.png" alt="">
+			<img src="images/ninja/ninja_avatar_02.png" alt="">
+			<img src="images/ninja/ninja_avatar_03.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"10%"},100)</script>
+			<img src="images/ninja/ninja_avatar_04.png" alt="">
+			<img src="images/ninja/ninja_avatar_05.png" alt="">
+			<img src="images/ninja/ninja_avatar_06.png" alt="">
+			<img src="images/ninja/ninja_avatar_07.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"20%"},100)</script>
+			<img src="images/ninja/ninja_avatar_08.png" alt="">
+			<img src="images/ninja/ninja_avatar_09.png" alt="">
+			<img src="images/ninja/ninja_avatar_10.png" alt="">
+			<img src="images/ninja/ninja_avatar_11.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"30%"},100)</script>
+			<img src="images/ninja/ninja_avatar_12.png" alt="">
+			<img src="images/ninja/ninja_avatar_13.png" alt="">
+			<img src="images/ninja/ninja_name_01.png" alt="">
+			<img src="images/ninja/ninja_name_02.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"50%"},100)</script>
+			<img src="images/ninja/ninja_name_03.png" alt="">
+			<img src="images/ninja/ninja_name_04.png" alt="">
+			<img src="images/ninja/ninja_name_05.png" alt="">
+			<img src="images/ninja/ninja_name_06.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"60%"},100)</script>
+			<img src="images/ninja/ninja_name_07.png" alt="">
+			<img src="images/ninja/ninja_name_08.png" alt="">
+			<img src="images/ninja/ninja_name_09.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"70%"},100)</script>
+			<img src="images/ninja/ninja_name_10.png" alt="">
+			<img src="images/ninja/ninja_name_11.png" alt="">
+			<img src="images/ninja/ninja_name_12.png" alt="">
+			<img src="images/ninja/ninja_name_13.png" alt="">
+			<img src="images/rank_a.png" alt="">
+			<img src="images/rank_b.png" alt="">
+			<img src="images/rank_c.png" alt="">
+			<img src="images/rank_s.png" alt="">
+			<img src="images/1.png" alt="">
+			<img src="images/2.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"80%"},100)</script>
+			<img src="images/3.png" alt="">
+			<img src="images/4.png" alt="">
+			<img src="images/5.png" alt="">
+			<img src="images/6.png" alt="">
+			<img src="images/7.png" alt="">
+			<img src="images/8.png" alt="">
+			<img src="images/9.png" alt="">
+			<img src="images/0.png" alt="">
+			<script>$(".loadingbarbox .loadingline").animate({width:"100%"},100).delay(1000).fadeOut(500);</script>
+		</div>
+<!-- loading 结束 -->
+		<script type="text/javascript">
+			window.onload=function(){
+				setTimeout(function(){
+					$("#LoadingBar p").html("准备就绪");
+				},500)
+				setTimeout(function(){
+					$("#LoadingBar").fadeOut(300);
+				},1000)//5000
+			}
+		</script>
+
+
+
+
+<div class="container_box_scroll">
+<div class="container">
+    <ul class="thepic" id="thepic">
+        <li class="bg_share"><img src="images/bg_share.png"></li>
+        <!--忍者立绘-->
+        <li class="ninja_avatar"><img src="images/ninja/ninja_avatar_01.png"></li>
+        <!--忍者名称-->
+        <li class="ninja_name"><img src="images/ninja/ninja_name_01.png"></li>
+        <li class="txt_wode"><img src="images/txt_wode.png"></li>
+        <!--这是我的第几个忍者-->
+        <li class="txt_wode_num" id="txt_wode_num">
+            <img src="images/1.png"><img src="images/0.png"><img src="images/0.png">
+        </li>
+        <li class="txt_chenggong"><img src="images/txt_chenggong.png"></li>
+        <!--忍者等级-->
+        <li class="txt_chenggong_rank"><img src="images/rank_a.png"></li>
+        <li class="bg_huaban"><img src="images/bg_huaban.png"></li>
+        <li class="logo_naruto"><img src="images/logo_naruto.png"></li>
+        <!--用户信息-->
+        <li class="user_info">
+        	<div class="avatar"><img id="user_avatar" class="user_avatar" src="images/user_avatar.png"></div>
+            <div class="user_txt"><p class="level">lv.<span id="level">128</span></p><p class="nickname" id="nickname">某熊</p></div>
+        </li>
+    </ul>
+</div>
+</div>
+
+<div class="pop_mask"></div>
+<!--表单-->
+<!--<div class="btn btn_setting ease1"><i class="icon icon_setting"></i></div>-->
+<div class="pop pop_smalllong pop_setting animated zoomIn on">
+    <!--<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_setting.png" alt="设置"></div>-->
+    <div class="title_small">新忍者分享图生成工具v1.0</div>
+    <div class="text_wrap">
+        <div class="text_body">
+            <p style="margin-bottom:20px;">本工具需要自行填写个人相关信息，当然，你也可以选择不填写(*￣∇￣*) </p>
+            <div class="container_form">
+                <div class="form_item">
+                	<label class="dt">玩家头像</label>
+                    <div class="dd"><div class="btn_upload"><img id="user_avatar2" src=""><a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a></div></div>
+                </div>
+                <div class="form_item">
+                	<label class="dt">玩家昵称</label>
+                	<div class="dd"><input maxlength="6" type="text" name="nickname" id="input_nickname" class="input_text" placeholder="最多6个字符" onBlur="exeTextKeyUp($(this));tongbu($('#nickname'),this)" data-default="某熊" /></div>
+                </div>
+                <div class="form_item">
+                	<label class="dt">玩家等级</label>
+                	<div class="dd"><input maxscore="130" type="number" name="level" id="input_level" class="input_text" placeholder="最高130级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="128" /></div>
+                </div>
+                <div class="form_item">
+                	<label class="dt">忍者数量</label>
+                    <div class="dd"><input maxscore="141" type="number" name="ninja_number" id="input_ninja_number" class="input_text" placeholder="最多141个" oninput="MaxScore($(this));" onBlur="tongbuimg($('#txt_wode_num'),this)" data-default="110" /></div>
+                </div>
+                
+                <div class="form_item">
+                	<label class="dt">选择忍者</label>
+                    <div class="dd"><select name="ninja_select" id="select_ninja_select" class="select_text">
+                        <option value="01" data-rank="a">宇智波佐助[万花筒写轮眼]</option>
+                        <option value="02" data-rank="b">鬼灯水月[鹰]</option>
+                        <option value="03" data-rank="s">艾[四代目雷影]</option>
+                        <option value="09" data-rank="s">自来也[仙人模式]</option>
+                        <option value="12" data-rank="a">迈特凯[惊门]</option>
+                        <option value="13" data-rank="s">千手扉间</option>
+                        <option value="05" data-rank="a">绝</option>
+                        <option value="06" data-rank="b">漩涡鸣人[第四尾]</option>
+                        <option value="07" data-rank="a">达鲁伊</option>
+                        <option value="08" data-rank="a">阿飞</option>
+                        <option value="10" data-rank="a">蝎[百机操演]</option>
+                        <option value="11" data-rank="s">猿飞日斩</option>
+                        <option value="04" data-rank="ss">福禄丸</option>
+                    </select></div>
+                </div>
+                <div class="btns">
+                    <!--<a class="btn ease1" href="javascript:void(0);" id="suijixuan" onClick="suijixuan()">随机选</a>-->
+                    <a class="btn ease1" href="javascript:void(0);" id="btn_import" title="生成">生成</a>
+                </div>
+                <script>
+                    $('#btn_import').on('click',function(){
+						//suijixuan();
+                        setTimeout(function(){print();},300);
+                    })
+                </script>
+                
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>-->
+</div>
+<!--表单-->
+
+
+<!--存放导出canvas的容器-->
+<div id="canvas_import" class="canvas_import"></div>
+
+<!--存放导出图片的容器-->
+<div class="pop pop_resultpic animated zoomIn">
+<div class="imgbox"><img id="avatar_import" src="" style="width:100%; height:auto;"></div>
+<div class="btns"><a class="btn btn_reset ease1" href="ninjashare.html">重来一次</a></div>
+<p class="hints phone">长按图片保存或者发送给朋友</p>
+<p class="hints pc">右键图片保存</p>
+</div>
+
+<!--返回按钮-->
+<div class="tongjilist_btns">
+    <a href="index.html" class="btn btn_back ease3" title="返回高级招募模拟器"><i class="icon icon_back"></i><span class="txt">返回招募</span></a>
+</div>
+
+<script type="text/javascript" src="js/custom_ninjashare.js?v=1.0"></script>
+</body>
+</html>
+
+<!-- 流量统计 -->
+<!--<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?45dff23f70debe0220b7cfcdf874d141";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>-->
