@@ -1,10 +1,15 @@
 //在页面未加载完毕之前显示的loading Html自定义内容
+var msg = ["正在加载图像...","正在读取字体...","正在玩命加载...","今天是欧皇还是非酋"];
+//alert(msg[Math.floor(Math.random() * msg.length)]);
 var _LoadingHtml = '<div id="LoadingBar"><div class="div txt-c animated fadeIn"><div class="load-container load8"><div class="loader">Loading</div></div><p>啊……一天不抽手就痒了</p><span id="cantwaiting"></span></div></div>';
 //呈现loading效果
 document.write(_LoadingHtml);
+setInterval(function(){
+	$("#LoadingBar p").html(msg[Math.floor(Math.random() * msg.length)]);
+},1500)
 setTimeout(function(){
 	$("#LoadingBar p").html("服务器打瞌睡了……");
-},10000)
+},20000)
 
 //解决移动端300ms延迟点击
 FastClick.attach(document.body);

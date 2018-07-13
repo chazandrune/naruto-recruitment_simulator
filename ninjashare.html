@@ -246,23 +246,6 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
             <p style="margin-bottom:20px;">本工具需要自行填写个人相关信息，当然，你也可以选择不填写(*￣∇￣*) </p>
             <div class="container_form">
                 <div class="form_item">
-                	<label class="dt">玩家头像</label>
-                    <div class="dd"><div class="btn_upload"><img id="user_avatar2" src=""><a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a></div></div>
-                </div>
-                <div class="form_item">
-                	<label class="dt">玩家昵称</label>
-                	<div class="dd"><input maxlength="6" type="text" name="nickname" id="input_nickname" class="input_text" placeholder="最多6个字符" onBlur="exeTextKeyUp($(this));tongbu($('#nickname'),this)" data-default="某熊" /></div>
-                </div>
-                <div class="form_item">
-                	<label class="dt">玩家等级</label>
-                	<div class="dd"><input maxscore="130" type="number" name="level" id="input_level" class="input_text" placeholder="最高130级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="128" /></div>
-                </div>
-                <div class="form_item">
-                	<label class="dt">忍者数量</label>
-                    <div class="dd"><input maxscore="141" type="number" name="ninja_number" id="input_ninja_number" class="input_text" placeholder="最多141个" oninput="MaxScore($(this));" onBlur="tongbuimg($('#txt_wode_num'),this)" data-default="110" /></div>
-                </div>
-                
-                <div class="form_item">
                 	<label class="dt">选择忍者</label>
                     <div class="dd"><select name="ninja_select" id="select_ninja_select" class="select_text">
                         <option value="01" data-rank="a">宇智波佐助[万花筒写轮眼]</option>
@@ -281,6 +264,23 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
                         <option value="04" data-rank="ss">福禄丸</option>
                     </select></div>
                 </div>
+                <div class="form_item">
+                	<label class="dt">玩家头像</label>
+                    <div class="dd"><div class="btn_upload"><img id="user_avatar2" src=""><a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a></div></div>
+                </div>
+                <div class="form_item">
+                	<label class="dt">玩家昵称</label>
+                	<div class="dd"><input maxlength="6" type="text" name="nickname" id="input_nickname" class="input_text" placeholder="最多6个字符" onBlur="exeTextKeyUp($(this));tongbu($('#nickname'),this)" data-default="某熊" /></div>
+                </div>
+                <div class="form_item">
+                	<label class="dt">玩家等级</label>
+                	<div class="dd"><input maxscore="130" type="number" name="level" id="input_level" class="input_text" placeholder="最高130级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="128" /></div>
+                </div>
+                <div class="form_item">
+                	<label class="dt">忍者数量</label>
+                    <div class="dd"><input maxscore="141" type="number" name="ninja_number" id="input_ninja_number" class="input_text" placeholder="最多141个" oninput="MaxScore($(this));" onBlur="tongbuimg($('#txt_wode_num'),this)" data-default="110" /></div>
+                </div>
+                
                 <div class="btns">
                     <!--<a class="btn ease1" href="javascript:void(0);" id="suijixuan" onClick="suijixuan()">随机选</a>-->
                     <a class="btn ease1" href="javascript:void(0);" id="btn_import" title="生成">生成</a>

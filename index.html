@@ -32,7 +32,7 @@
 		<script type="text/javascript">
 			window.onload=function(){
 				setTimeout(function(){
-					$("#LoadingBar p").html("今天的脸是否白点了呢");
+					$("#LoadingBar p").html("准备就绪");
 				},3000)
 				setTimeout(function(){
 					$("#LoadingBar").fadeOut(300);
@@ -88,7 +88,7 @@
 <!-- 统计数据 -->
 		<div class="tongjilist_wrap on ease3">
 			<div class="tongjilist">
-				<div class="mb50">
+				<div class="mb20">
 					<dl class="mb10">
 						<dt><i class="icon icon_gaozhaoquan"></i></dt>
 						<dd><p>招募次数</p><p id="cishu">0</p></dd>
@@ -98,7 +98,9 @@
 						<dd><p>消耗金币</p><p id="cishujinbi">0</p></dd>
 					</dl>
 				</div>
-				<p class="mb10">累计获得</p>
+				<!--<p class="mb10">累计获得</p>-->
+                <!--<p class="mb20"><em class="icon icon_s_new"><em class="img"></em><em class="fg"></em></em> × <span id="num_s_new">0</span></p>-->
+                <p class="mb20"><em class="icon icon_a_new"><em class="img"></em><em class="fg"></em></em> × <span id="num_a_new">0</span></p>
 				<p class="mb10"><i class="icon icon_s"></i>碎片：<span id="num_s">0</span></p>
 				<p class="mb10"><i class="icon icon_a"></i>碎片：<span id="num_a">0</span></p>
 				<p class="mb10"><i class="icon icon_b"></i>碎片：<span id="num_b">0</span></p>
@@ -165,8 +167,8 @@
 		</div>
 <!-- 忍者分享图生成工具 -->
 		<a href="ninjashare.html" class="btn btn_ninja ease1"><i class="icon icon_ninja"></i></a>
-<!-- 首付奖励 -->
-		<div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">首付奖励</span></div>
+<!-- 首付S奖励 -->
+		<div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
         <div class="pop pop_big pop_baoxiang animated zoomIn">
 			<div class="text_wrap">
             	<div class="text_body">
@@ -178,6 +180,25 @@
                         <div class="item btn ease1" id="baoxiang02"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V5-V9领取"></div><div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(S级碎片×28)</font></div></div>
                         <div class="item btn ease1" id="baoxiang03"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V10-V14领取"></div><div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(S级碎片×33)</font></div></div>
                         <div class="item btn ease1" id="baoxiang04"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V15领取"></div><div class="txt">v15领取<br><font style="color:#ee1a1a;">(S级碎片×38)</font></div></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+        </div>
+<!-- 首付A奖励 -->
+		<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
+        <div class="pop pop_big pop_baoxiang_a animated zoomIn">
+			<div class="text_wrap">
+            	<div class="text_body">
+					<p>请根据自己的V等级领取相应的奖励</p>
+					<p><br></p>
+                <div class="baoxianglist_wrap">
+                    <div class="baoxianglist">
+                        <div class="item btn ease1" id="baoxiang_a01"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V0-V4领取"></div><div class="txt">v0-v4领取<br><font style="color:#ee1a1a;">(A级碎片×10)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang_a02"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V5-V9领取"></div><div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(A级碎片×11)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang_a03"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V10-V14领取"></div><div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(A级碎片×13)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang_a04"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V15领取"></div><div class="txt">v15领取<br><font style="color:#ee1a1a;">(A级碎片×15)</font></div></div>
                     </div>
                 </div>
                 </div>

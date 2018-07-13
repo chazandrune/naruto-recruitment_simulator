@@ -228,6 +228,12 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_jinbi{ background-image:url(../images/coin.png); }
 .icon.icon_s{ background-image:url(../images/s.png); }
 .icon.icon_a{ background-image:url(../images/a.png); }
+.icon.icon_s_new,
+.icon.icon_a_new{ width:.72rem; height:.72rem; padding:.03rem; background:url(../images/piece_bg.png) no-repeat center; background-size:100% 100%; position:relative;}
+.icon.icon_s_new .img,
+.icon.icon_a_new .img{ position:absolute; left:50%; top:50%; margin-left:-.36rem; margin-top:-.36rem; background-repeat:no-repeat; background-position:center; background-size:100% 100%; display:block; width:.72rem; height:.72rem;}
+.icon.icon_s_new .fg,
+.icon.icon_a_new .fg{display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; background-image: url(../images/piece_fg.png); position: absolute; left: 0; top: 0;}
 .icon.icon_b{ background-image:url(../images/b.png); }
 .icon.icon_c{ background-image:url(../images/c.png); }
 .icon.icon_back{ background-image:url(../images/back.png); }
@@ -323,18 +329,24 @@ filter: brightness(1.2); }
 .resultlist .item .fg:after{content:''; display: block; position: absolute; left: .02rem; bottom: .02rem; }
 .resultlist .item .fg .num{ display: block; position: absolute; right: .02rem; bottom: .02rem; font-size: .18rem; text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; font-weight: bold; }
 .resultlist .text{ font-size: .16rem;line-height: .30rem;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; text-align: center; }
-.resultlist .item .img{ background-image:url(../images/charactors.png); background-size: 14.40rem 2.88rem; }
+.resultlist .item .img,
+.icon.icon_s_new .img,
+.icon.icon_a_new .img{ background-image:url(../images/charactors.png); background-size: 14.40rem 2.88rem; }
 .resultlist .item_s .img{  background-position: 0 0; }/*1,1*/
 .resultlist .item_s .img0{ background-position: -.72rem 0; }/*1,2*/
 .resultlist .item_s .img1{  background-position: -1.44rem 0; }/*1,3*/
 .resultlist .item_s .img2{ background-position: -2.16rem 0;  }/*1,4*/
 .resultlist .item_s .img3{ background-position: -2.88rem 0;  }/*1,5*/
 .resultlist .item_s .img4{ background-position: -3.6rem 0;  }/*1,6*/
-.resultlist .item_s .img5{ background-position: -4.32rem 0;  }/*1,7  当前s忍者*/
+.resultlist .item_s .img5,
+.icon.icon_s_new .img{ background-position: -4.32rem 0;  }/*1,7  当前s忍者*/
 .resultlist .item_a .img{  background-position: -1.44rem -.72rem; }/*2,3 当前a忍者（容易）*/
+.resultlist .item_a .img5,
+.resultlist .item_a .img6,
+.resultlist .item_a .img7,
 .resultlist .item_a .img8,
-.resultlist .item_a .img7
-{  background-position: -2.16rem -.72rem; }/*2,4 当前a忍者（稀有）*/
+.resultlist .item_a .img9,
+.icon.icon_a_new .img{  background-position: -2.88rem -.72rem; }/*2,5 当前a忍者（稀有）*/
 .resultlist .item_b .img{  background-position: 0 -1.44rem; }/*3,1 b忍者（容易）*/
 .resultlist .item_b .img0{  background-position: -.72rem -1.44rem; }/*3,2 b忍者2*/
 .resultlist .item_b .img1{  background-position: -1.44rem -1.44rem; }/*3,3 b忍者3*/
@@ -410,12 +422,16 @@ filter: brightness(1.2); }
 /*忍者分享图生成工具*/
 .btn_ninja{position: fixed; right:.7rem; top:.1rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 /*弹窗 宝箱*/
-.btn_baoxiang{position: fixed; right:.1rem; top:1.4rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
+.btn_baoxiang{position: fixed; right:.1rem; top:2.1rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
 .btn_baoxiang .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .btn_baoxiang .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
 .baoxianglist .item{ display:inline-block; width:20%; margin:.3rem 2%; text-align:center; }
 .baoxianglist .item .pic{ width:100%;}
 .baoxianglist .item .pic img{ max-width:100%; height:auto;}
+.btn_baoxiang_a{position: fixed; right:.1rem; top:1.4rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
+.btn_baoxiang_a .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
+.btn_baoxiang_a .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
+
 
 
 

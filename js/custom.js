@@ -143,7 +143,24 @@
 		}
 	})
 	
-	//首付奖励弹窗
+	//a首付奖励弹窗
+	$(".btn_baoxiang_a,.pop_baoxiang_a .btn_close").on('click',function(){
+		if($(".pop_baoxiang_a").hasClass("on")){
+			playaudio(3);
+			$(".pop_baoxiang_a").addClass("zoomOut");
+			setTimeout(function(){
+				$(".pop_baoxiang_a").removeClass("on");
+			},500)
+			$(".pop_mask").fadeOut(100);
+		}else{
+			playaudio(2);
+			$(".pop_baoxiang_a").addClass("on");
+			$(".pop_baoxiang_a").removeClass("zoomOut");
+			$(".pop_mask").fadeIn(100);
+		}
+	})
+
+	//s首付奖励弹窗
 	$(".btn_baoxiang,.pop_baoxiang .btn_close").on('click',function(){
 		if($(".pop_baoxiang").hasClass("on")){
 			playaudio(3);
@@ -184,6 +201,7 @@ var i = parseInt($("#cishu").html());
 //各种碎片数量
 var num_s = parseInt($("#num_s").html());
 var num_a = parseInt($("#num_a").html());
+var num_a_new = parseInt($("#num_a_new").html());
 var num_b = parseInt($("#num_b").html());
 var num_c = parseInt($("#num_c").html());
 //悲剧指数
@@ -258,11 +276,13 @@ function chongzhi(){
 	$("#cishujinbi").html("0");
 	$("#num_s").html("0");
 	$("#num_a").html("0");
+	$("#num_a_new").html("0");
 	$("#num_b").html("0");
 	$("#num_c").html("0");
 	i = 0;
 	num_s = 0;
 	num_a = 0;
+	num_a_new = 0;
 	num_b = 0;
 	num_c = 0;
 	sad = 0;
@@ -323,22 +343,22 @@ function showsad(){
 	}
 }
 
-//领取首付奖励
-//全局定义是否领取首付奖励，初始状态为0
+//领取S首付奖励
+//全局定义是否领取S首付奖励，初始状态为0
 var isaddsuipian = 0;
 function addsuipian(n){
-	//增加碎片数量
+	//增加s碎片数量
 	num_s = num_s + n;
 	$("#num_s").html(num_s);
-	//是否领取首付奖励状态变为1
+	//是否领取s首付奖励状态变为1
 	isaddsuipian = 1;
-	//首付弹窗消失
+	//s首付弹窗消失
 	$(".pop_baoxiang").addClass("zoomOut");
 	setTimeout(function(){
 		$(".pop_baoxiang").removeClass("on");
 	},500)
 	$(".pop_mask").fadeOut(100);
-	//首付奖励按钮消失
+	//s首付奖励按钮消失
 	$(".btn_baoxiang").hide(100);
 	//恭喜文字提示
 	gongxi("#congratulation","已领取首付奖励 <span>S级忍者碎片 × "+n+"</span>");
@@ -364,6 +384,49 @@ $("#baoxiang04").on('click',function(){
 	addsuipian(38);	
 })
 
+//领取A首付奖励
+//全局定义是否领取A首付奖励，初始状态为0
+var isaddsuipian_a = 0;
+function addsuipian_a(n){
+	//增加a碎片数量
+	num_a = num_a + n;
+	num_a_new = num_a_new + n;
+	$("#num_a").html(num_a);
+	$("#num_a_new").html(num_a_new);
+	//是否领取A首付奖励状态变为1
+	isaddsuipian_a = 1;
+	//A首付弹窗消失
+	$(".pop_baoxiang_a").addClass("zoomOut");
+	setTimeout(function(){
+		$(".pop_baoxiang_a").removeClass("on");
+	},500)
+	$(".pop_mask").fadeOut(100);
+	//a首付奖励按钮消失
+	$(".btn_baoxiang_a").hide(100);
+	//恭喜文字提示
+	gongxi("#congratulation","已领取首付奖励 <span>A级忍者碎片 × "+n+"</span>");
+}
+//V0-V4领取
+$("#baoxiang_a01").on('click',function(){
+	playaudio(3);
+	addsuipian_a(10);	
+})
+//V5-V9领取
+$("#baoxiang_a02").on('click',function(){
+	playaudio(3);
+	addsuipian_a(11);	
+})
+//V10-V14领取
+$("#baoxiang_a03").on('click',function(){
+	playaudio(3);
+	addsuipian_a(13);	
+})
+//V15领取
+$("#baoxiang_a04").on('click',function(){
+	playaudio(3);
+	addsuipian_a(15);	
+})
+
 
 //返回结果进入数据统计
 function A(){
@@ -383,12 +446,13 @@ function A(){
 				num_this = 1;
 				num_s++;
 			}
-			//只出雷影
+			//m为定值，指定s忍者，不随机
 			var m = 5;
 			//console.log("n="+n+"(小于5为5片)");
 			writelog("S碎片 × "+num_this,"s",num_this,m);
 			$("#num_s").html(num_s);
-			gongxi("#congratulation","恭喜你获得 <span>S级忍者碎片 × "+num_this+"</span>");
+			$("#num_s_new").html(num_s);
+			gongxi("#congratulation","恭喜你获得 <span>四代目雷影碎片 × "+num_this+"</span>");
 			sad = 0;
 			//return;
 		}else if(3.5 < raNum && raNum <= 15){
@@ -405,6 +469,13 @@ function A(){
 			var m = parseInt(Math.random()*10);
 			writelog("A碎片 × "+num_this,"a",num_this,m);
 			$("#num_a").html(num_a);
+			//这里判断是否为新A，m值需要与css设定相对应，目前两a概率各50%
+			if(m == 5 || m==6 || m==7 ||m==8||m==9){
+				//是新a，恭喜公告出现，并且额外计入新a计数器
+				gongxi("#congratulation","恭喜你获得 <span>宇智波佐助[万花筒写轮眼]碎片 × "+num_this+"</span>");
+				num_a_new = num_a_new + num_this;
+				$("#num_a_new").html(num_a_new);
+			}
 			//return;
 		}else if(15 < raNum && raNum <= 55){
 			//出现2片和1片的概率
@@ -445,11 +516,17 @@ function A(){
 		sad++;
 		showsad();
 		
-		//如果抽够100次会有首付奖励出现
-		if(i>=100 && isaddsuipian == 0 ){
+		//如果抽够50次会有A首付奖励出现
+		if(i>=50 && isaddsuipian_a == 0 ){
+			$(".btn_baoxiang_a").show(100);
+		}else{
+			$(".btn_baoxiang_a").hide(100);
+		}
+		//如果抽够100次会有S首付奖励出现
+		/*if(i>=100 && isaddsuipian == 0 ){
 			$(".btn_baoxiang").show(100);
 		}else{
 			$(".btn_baoxiang").hide(100);
-		}
+		}*/
 		
 }
