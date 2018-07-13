@@ -99,7 +99,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 		<style>
 		.preloaditems{ position:fixed; top: -100000px; width:0; height: 0; overflow:hidden;}
 		</style>
-		<div class="preloaditems">
+<!--		<div class="preloaditems">
 		   	<img src="images/ninja/ninja_avatar_01.png" alt="">
 			<img src="images/ninja/ninja_avatar_02.png" alt="">
 			<img src="images/ninja/ninja_avatar_03.png" alt="">
@@ -148,7 +148,51 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 			<img src="images/9.png" alt="">
 			<img src="images/0.png" alt="">
 			<script>$(".loadingbarbox .loadingline").animate({width:"100%"},100).delay(1000).fadeOut(500);</script>
-		</div>
+		</div>-->
+<script>
+// loading
+	!(function(){
+		var imgPath = 'images/',
+			sourceArr = ['0.png','1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','front.png','gou.png','gou_kuang.png','guide_bg.png','huohua.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.gif','loading.png','loading_bg.png','loading_new.png','logo_naruto.png','ninja.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','rank_a.png','rank_b.png','rank_c.png','rank_s.png','rank_ss.png','s.png','setting.png','shareImage.png','shareImage.jpg','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_notice.png','title_setting.png','txt_chenggong.png','txt_wode.png','user_avatar.png','yanwu.png','ninja/ninja_avatar_01.png','ninja/ninja_avatar_02.png','ninja/ninja_avatar_03.png','ninja/ninja_avatar_04.png','ninja/ninja_avatar_05.png','ninja/ninja_avatar_06.png','ninja/ninja_avatar_07.png','ninja/ninja_avatar_08.png','ninja/ninja_avatar_09.png','ninja/ninja_avatar_10.png','ninja/ninja_avatar_11.png','ninja/ninja_avatar_12.png','ninja/ninja_avatar_13.png','ninja/ninja_avatar_14.png','ninja/ninja_name_01.png','ninja/ninja_name_02.png','ninja/ninja_name_03.png','ninja/ninja_name_04.png','ninja/ninja_name_05.png','ninja/ninja_name_06.png','ninja/ninja_name_07.png','ninja/ninja_name_08.png','ninja/ninja_name_09.png','ninja/ninja_name_10.png','ninja/ninja_name_11.png','ninja/ninja_name_12.png','ninja/ninja_name_13.png','ninja/ninja_name_14.png'];
+		loading();
+		function loading(){
+			for (var i = 0; i < sourceArr.length; i++) {
+				sourceArr[i] = imgPath + sourceArr[i];
+			}
+			var loadImage = function(path, callback) {
+				var img = new Image();
+				img.onload = function() {
+					img.onload = null;
+					callback(path);
+				}
+				img.src = path;
+			}
+			var imgLoader = function(imgs, callback) {
+				var len = imgs.length,
+					i = 0;
+				while (imgs.length) {
+					loadImage(imgs.shift(), function(path) {
+						callback(path, ++i, len);
+					});
+				}
+			}
+			imgLoader(sourceArr, function(path, curNum, total) {
+				var percent = curNum / total;
+				//console.log(path);
+				//console.log(percent);
+				//$('.loading-logs').append("<p>"+path+"</p>");
+				//$('.loading-current span').text(path);
+				//$('.loading-num').text(Math.floor(percent * 100)+'%');
+				$('.loadingbarbox .loadingline').animate({width:Math.floor(percent * 100)+'%'},100);
+				if (percent == 1) {
+					//$('#loading').addClass('hide').removeClass('show');
+					$('.loadingbarbox').fadeOut(500);
+					//$('.loading-current').text(" ");
+				}
+			});
+		}
+	})();
+</script>
 <!-- loading 结束 -->
 		<script type="text/javascript">
 			window.onload=function(){
