@@ -1,5 +1,5 @@
 # naruto-recruitment_simulator
-## 火影忍者高级招募模拟器
+## 火影忍者高级招募模拟器（码云版）
 
 
 ### 更新日志
