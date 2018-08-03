@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js/jquery1.111.min.js"></script>
+</head>
+
+<body>
+<div id="text"></div>
+<script>
+
+     var c = document.cookie;
+     if (c.indexOf('isfirstvisited=false') != -1) {  //访问过的情况
+         //alert("请30分钟后访问");
+		 $("#text").html("请30秒后访问！cookietime="+aaa)
+     }
+     else {  //没有访问过，设置cookie
+         var d = new Date();
+         d.setTime(d.getTime() + 30*1000);  //cookie有效期30分钟
+         document.cookie = 'isfirstvisited=false;expires=' + d.toGMTString();
+		 $("#text").html("正常访问！")
+
+     }
+
+
+</script>
+</body>
+</html>

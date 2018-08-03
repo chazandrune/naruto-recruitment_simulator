@@ -109,15 +109,32 @@
 		$(".tongjilist_wrap").toggleClass("on");
 		playaudio(2);
 	})
-	//关于弹窗
+	//公告弹窗
+	$(".btn_notice,.pop_notice .btn_close").on('click',function(){
+		if($(".pop_notice").hasClass("on")){
+			playaudio(3);
+			$(".pop_notice").addClass("zoomOut");
+			$(".pop_mask").fadeOut(100);
+			setTimeout(function(){
+				$(".pop_notice").removeClass("on");
+			},500)
+		}else{
+			playaudio(2);
+			$(".pop_notice").addClass("on");
+			$(".pop_notice").removeClass("zoomOut");
+			$(".pop_mask").fadeIn(100);
+		}
+	})
+	
+	//信息弹窗
 	$(".btn_info,.pop_info .btn_close").on('click',function(){
 		if($(".pop_info").hasClass("on")){
 			playaudio(3);
 			$(".pop_info").addClass("zoomOut");
+			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_info").removeClass("on");
 			},500)
-			$(".pop_mask").fadeOut(100);
 		}else{
 			playaudio(2);
 			$(".pop_info").addClass("on");
@@ -131,10 +148,10 @@
 		if($(".pop_setting").hasClass("on")){
 			playaudio(3);
 			$(".pop_setting").addClass("zoomOut");
+			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_setting").removeClass("on");
 			},500)
-			$(".pop_mask").fadeOut(100);
 		}else{
 			playaudio(2);
 			$(".pop_setting").addClass("on");
@@ -148,10 +165,10 @@
 		if($(".pop_baoxiang_a").hasClass("on")){
 			playaudio(3);
 			$(".pop_baoxiang_a").addClass("zoomOut");
+			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_baoxiang_a").removeClass("on");
 			},500)
-			$(".pop_mask").fadeOut(100);
 		}else{
 			playaudio(2);
 			$(".pop_baoxiang_a").addClass("on");
@@ -165,10 +182,10 @@
 		if($(".pop_baoxiang").hasClass("on")){
 			playaudio(3);
 			$(".pop_baoxiang").addClass("zoomOut");
+			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_baoxiang").removeClass("on");
 			},500)
-			$(".pop_mask").fadeOut(100);
 		}else{
 			playaudio(2);
 			$(".pop_baoxiang").addClass("on");
@@ -238,7 +255,7 @@ $('#clik10').on('click',function() {
 	
 	playaudio(2);
 	$(".btns,.btn_setting").hide();
-	setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},5500);
+	setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},4500);
 	$(".resultlist").html("");
 	$(".box").addClass("shilian");
 	$(".box").removeClass("danchou");
@@ -263,7 +280,7 @@ $('#clik10').on('click',function() {
 			//返回结果
 			A();
 		}
-	}, 500);
+	}, 400);
 
 });
 
@@ -333,6 +350,17 @@ function gongxi(obj,t){
 	$(obj).delay(100).hide("300");
 }
 
+//toast提示
+function toast(obj,t){
+	clearTimeout(timer);
+	$(obj).html(t);
+	$(obj).parent().stop(true,true);
+	$(obj).parent().fadeIn(0);
+	var timer = setTimeout(function(){
+		$(obj).parent().fadeOut(300);
+	},1000)
+}
+
 //悲剧指数反馈
 function showsad(){
 	if($(".btn_sad").hasClass("on")){
@@ -353,11 +381,13 @@ function addsuipian(n){
 	//是否领取s首付奖励状态变为1
 	isaddsuipian = 1;
 	//s首付弹窗消失
-	$(".pop_baoxiang").addClass("zoomOut");
+	setTimeout(function(){
+		$(".pop_baoxiang").addClass("zoomOut");
+		$(".pop_mask").fadeOut(100);
+	},1000)
 	setTimeout(function(){
 		$(".pop_baoxiang").removeClass("on");
-	},500)
-	$(".pop_mask").fadeOut(100);
+	},1500)
 	//s首付奖励按钮消失
 	$(".btn_baoxiang").hide(100);
 	//恭喜文字提示
@@ -366,22 +396,46 @@ function addsuipian(n){
 //V0-V4领取
 $("#baoxiang01").on('click',function(){
 	playaudio(3);
-	addsuipian(25);	
+	if(isaddsuipian == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian(25);	
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 //V5-V9领取
 $("#baoxiang02").on('click',function(){
 	playaudio(3);
-	addsuipian(28);	
+	if(isaddsuipian == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian(28);	
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 //V10-V14领取
 $("#baoxiang03").on('click',function(){
 	playaudio(3);
-	addsuipian(33);	
+	if(isaddsuipian == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian(33);	
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 //V15领取
 $("#baoxiang04").on('click',function(){
 	playaudio(3);
-	addsuipian(38);	
+	if(isaddsuipian == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian(38);	
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 
 //领取A首付奖励
@@ -396,11 +450,13 @@ function addsuipian_a(n){
 	//是否领取A首付奖励状态变为1
 	isaddsuipian_a = 1;
 	//A首付弹窗消失
-	$(".pop_baoxiang_a").addClass("zoomOut");
+	setTimeout(function(){
+		$(".pop_baoxiang_a").addClass("zoomOut");
+		$(".pop_mask").fadeOut(100);
+	},1000)
 	setTimeout(function(){
 		$(".pop_baoxiang_a").removeClass("on");
-	},500)
-	$(".pop_mask").fadeOut(100);
+	},1500)
 	//a首付奖励按钮消失
 	$(".btn_baoxiang_a").hide(100);
 	//恭喜文字提示
@@ -409,22 +465,46 @@ function addsuipian_a(n){
 //V0-V4领取
 $("#baoxiang_a01").on('click',function(){
 	playaudio(3);
-	addsuipian_a(10);	
+	if(isaddsuipian_a == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian_a(10);
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 //V5-V9领取
 $("#baoxiang_a02").on('click',function(){
 	playaudio(3);
-	addsuipian_a(11);	
+	if(isaddsuipian_a == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian_a(11);
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 //V10-V14领取
 $("#baoxiang_a03").on('click',function(){
 	playaudio(3);
-	addsuipian_a(13);	
+	if(isaddsuipian_a == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian_a(13);
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 //V15领取
 $("#baoxiang_a04").on('click',function(){
 	playaudio(3);
-	addsuipian_a(15);	
+	if(isaddsuipian_a == 0){
+		//宝箱变为打开状态
+		$(this).addClass("open");
+		addsuipian_a(15);
+	}else{
+		toast("#toast","首付奖励只能领取一次！");
+	}
 })
 
 
@@ -472,7 +552,7 @@ function A(){
 			//这里判断是否为新A，m值需要与css设定相对应，目前两a概率各50%
 			if(m == 5 || m==6 || m==7 ||m==8||m==9){
 				//是新a，恭喜公告出现，并且额外计入新a计数器
-				gongxi("#congratulation","恭喜你获得 <span>宇智波佐助[万花筒写轮眼]碎片 × "+num_this+"</span>");
+				gongxi("#congratulation","恭喜你获得 <span>鹰小队佐助碎片 × "+num_this+"</span>");
 				num_a_new = num_a_new + num_this;
 				$("#num_a_new").html(num_a_new);
 			}

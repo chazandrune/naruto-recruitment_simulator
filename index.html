@@ -17,17 +17,63 @@
 		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
 		<script type="text/javascript" src="js/fastclick.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script type="text/javascript" src="js/preload.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=071702">
+		<script type="text/javascript" src="js/preload.js?v=071702"></script>
 	</head>
 
 	<body>
+<div class="loadingbarbox"><div class="loadingline"></div></div>
     <!--[if lt IE 9]>
       <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
       <style>
         .browser-tips{ position:fixed; top:0; left:0; right:0; bottom:0;text-align:center;font-size:20px; line-height:30px; color:#fff; background-color:#000; padding-top:300px; z-index:999999999; }
       </sytle>
     <![endif]-->
+<!-- 图像预加载 -->
+<script>
+// loading
+	!(function(){
+		var imgPath = 'images/',
+			sourceArr = ['shareImage.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','baoxiang_big_01.png','baoxiang_big_02.png','baoxiang_big_03.png','baoxiang_big_04.png','baoxiang_big_01_open.png','baoxiang_big_02_open.png','baoxiang_big_03_open.png','baoxiang_big_04_open.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','close.png','coin.png','front.png','info.png','juanzhou_gaoji.png','loading.png','loading_bg.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','s.png','setting.png','shoufujiangli_bg.png','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_info.png','title_notice.png','title_setting.png','title_shoufujiangli.png','yanwu.png',];
+		loading();
+		function loading(){
+			for (var i = 0; i < sourceArr.length; i++) {
+				sourceArr[i] = imgPath + sourceArr[i];
+			}
+			var loadImage = function(path, callback) {
+				var img = new Image();
+				img.onload = function() {
+					img.onload = null;
+					callback(path);
+				}
+				img.src = path;
+			}
+			var imgLoader = function(imgs, callback) {
+				var len = imgs.length,
+					i = 0;
+				while (imgs.length) {
+					loadImage(imgs.shift(), function(path) {
+						callback(path, ++i, len);
+					});
+				}
+			}
+			imgLoader(sourceArr, function(path, curNum, total) {
+				var percent = curNum / total;
+				//console.log(path);
+				//console.log(percent);
+				//$('.loading-logs').append("<p>"+path+"</p>");
+				//$('.loading-current span').text(path);
+				//$('.loading-num').text(Math.floor(percent * 100)+'%');
+				$('.loadingbarbox .loadingline').animate({width:Math.floor(percent * 100)+'%'},100);
+				if (percent == 1) {
+					//$('#loading').addClass('hide').removeClass('show');
+					$('.loadingbarbox').fadeOut(500);
+					//$('.loading-current').text(" ");
+				}
+			});
+		}
+	})();
+</script>
 <!-- loading 结束 -->
 		<script type="text/javascript">
 			window.onload=function(){
@@ -37,6 +83,7 @@
 				setTimeout(function(){
 					$("#LoadingBar").fadeOut(300);
 				},5000)//5000
+				//指引的浮现
 				setTimeout(function(){
 					$(".guide_wrap").addClass("animated");
 					$(".guide_wrap").show();
@@ -47,26 +94,9 @@
 			}
 		</script>
 
-<!-- 图像预加载 -->
-		<style>
-		.preloaditems{ position:fixed; top: -100000rem; width:0; height: 0; overflow:hidden;}
-		</style>
-		<div class="preloaditems">
-		   	<img src="images/shareImage.jpg" alt="高级招募券" />
-			<img src="images/piece_bg.png" alt="忍者碎片">
-			<img src="images/piece_fg.png" alt="忍者碎片">
-			<img src="images/charactors.png" alt="高级招募忍者">
-			<img src="images/bg.png" alt="高级招募背景">
-			<img src="images/bg_shu.png" alt="高级招募背景_竖屏">
-			<img src="images/pop_big_bg.png" alt="模拟弹窗背景_大">
-			<img src="images/pop_small_bg.png" alt="模拟弹窗背景_小">
-			<img src="images/yanwu.png" alt="碎片烟雾">
-			<img src="images/biaoqing.png" alt="表情图片">
-			<img src="images/baoxiang.png" alt="宝箱图标">
-			<img src="images/baoxiang_big.png" alt="宝箱大图片">
-		</div>
+
 <!-- 版本 -->
-		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.5</a></p></div>
+		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.5.2</a></p></div>
 <!-- main -->
 		<div class="box">
 			<div class="tishi">
@@ -86,7 +116,7 @@
 			</div>
 		</div>
 <!-- 统计数据 -->
-		<div class="tongjilist_wrap on ease3">
+		<div class="tongjilist_wrap ease3 on">
 			<div class="tongjilist">
 				<div class="mb20">
 					<dl class="mb10">
@@ -112,37 +142,65 @@
 			<div class="btn btn_front ease3"><span class="txt">数据统计</span><i class="icon icon_front"></i></div>
 		</div>
         
+<!-- 右上角图标容器 第1列 -->
+		<div class="thebtns thebtns_01">
+        	<div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
+            <div class="btn btn_setting ease1"><i class="icon icon_setting"></i></div>
+            <div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
+		<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
+        </div>
+<!-- 右上角图标容器 第2列 -->
+        <div class="thebtns thebtns_02">
+        	<div class="btn btn_notice ease1"><i class="icon icon_notice"></i></div>
+            <!--<a href="ninjashare.html" class="btn btn_ninja ease1"><i class="icon icon_ninja"></i></a>-->
+        </div>
 <!-- 弹窗遮罩 -->
 <div class="pop_mask"></div>        
-<!-- 关于 -->
-		<div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
-		<div class="pop pop_big pop_info animated zoomIn">
+<!-- 重要通知 -->
+		<div class="pop pop_big pop_notice animated zoomIn">
 			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
+			<div class="text_wrap">
+				<div class="text_body">
+					<p><font color="#e94130">小小的服务器已经被学员们挤爆了!</font><i class="biaoqing biaoqing_02"></i></p>
+                    <p>无奈之下，我已经对页面进行缩水:</p>
+					<p>1、首先削掉字体包，感觉没多少人注意到吧</p>
+					<p>2、削掉音效包，没卵用还占资源</p>
+                    <p>3、新忍者分享图生成工具，没有字体包留着也不健全，嗯……刚上线就下线</p>
+					<p><br></p>
+                    <p>这样做其实只是减缓每名学员的消耗，服务器依然存在再次被挤爆的可能……希望不久的将来能够不断完善</p>
+					<p><br></p>
+					<p style="text-align: right;">爱火影、爱游戏的某熊</p>
+					<p style="text-align: right;">2018年7月16日</p>
+					<p><br></p>
+				</div>
+			</div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+
+<!-- 关于弹窗 -->
+		<div class="pop pop_big pop_info animated zoomIn">
+			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_info.png" alt="信息"></div>
 			<div class="text_wrap">
 				<div class="text_body">
 					<p>各位忍者学员：</p>
 					<p><br></p>
 					<p>1、本程序没有切换10次出整卡功能，也无玄学操作，仅用于鉴定欧皇和非酋。</p>
-					<p>2、本程序参照官方概率数据，如下：3.5%概率出现S级忍者碎片，11.5%出现A级忍者碎片，40%出现B级忍者碎片，45%概率出现C级忍者碎片。</p>
+					<p>2、本程序参照官方概率数据，如下：<font color="#e94130">3.5%</font>概率出现S级忍者碎片，<font color="#e94130">11.5%</font>出现A级忍者碎片，<font color="#e94130">40%</font>出现B级忍者碎片，<font color="#e94130">45%</font>概率出现C级忍者碎片。</p>
 					<p>3、至于出现的是哪位忍者碎片以及出现几片……你开心就好。</p>
 					<p>4、素材源于腾讯《火影忍者手游》，非官方出品，仅供娱乐，请勿当真！</p>
 					<p>最后祝大家学习进步、工作顺利、身体健康、游戏愉快~<i class="biaoqing biaoqing_01"></i></p>
-					<p style="margin-bottom: 60rem"><br></p>
-					<p><br></p>
-					<p><br></p>
-					<p>好吧，只是一时兴起，凭兴趣做了这么个小小的高级招募模拟器，开心快乐最重要！</p>
 					<p><br></p>
 					<p><br></p>
 					<p style="text-align: right;">爱火影、爱游戏的某熊</p>
 					<p style="text-align: right;">2018年5月</p>
 					<p><br></p>
 					<p><br></p>
+					<p><br></p>
 				</div>
 			</div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
-<!-- 设置 -->
-		<div class="btn btn_setting ease1"><i class="icon icon_setting"></i></div>
+<!-- 设置弹窗 -->
 		<div class="pop pop_small pop_setting animated zoomIn">
 			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_setting.png" alt="设置"></div>
 			<div class="text_wrap">
@@ -154,32 +212,54 @@
                     <div class="btn btn_switch btn_sad ease1">
                         <i class="icon icon_checkbox"></i><span class="txt">脸黑反馈</span>
                     </div>
-                    <div class="btn btn_switch btn_audio ease1">
+                    <!-- <div class="btn btn_switch btn_audio ease1">
                         <div id="audios" class="audios"></div>
                         <i class="icon icon_checkbox"></i><span class="txt">音效</span>
                     </div>
-                    <!-- <div class="btn btn_bgm ease3">
+                    <div class="btn btn_bgm ease3">
                         <i class="icon icon_checkbox"></i><span class="txt">音乐</span>
                     </div> -->
 				</div>
 			</div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
-<!-- 忍者分享图生成工具 -->
-		<a href="ninjashare.html" class="btn btn_ninja ease1"><i class="icon icon_ninja"></i></a>
 <!-- 首付S奖励 -->
-		<div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
         <div class="pop pop_big pop_baoxiang animated zoomIn">
+			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>
 			<div class="text_wrap">
             	<div class="text_body">
 					<p>请根据自己的V等级领取相应的奖励</p>
 					<p><br></p>
                 <div class="baoxianglist_wrap">
                     <div class="baoxianglist">
-                        <div class="item btn ease1" id="baoxiang01"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V0-V4领取"></div><div class="txt">v0-v4领取<br><font style="color:#ee1a1a;">(S级碎片×25)</font></div></div>
-                        <div class="item btn ease1" id="baoxiang02"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V5-V9领取"></div><div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(S级碎片×28)</font></div></div>
-                        <div class="item btn ease1" id="baoxiang03"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V10-V14领取"></div><div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(S级碎片×33)</font></div></div>
-                        <div class="item btn ease1" id="baoxiang04"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V15领取"></div><div class="txt">v15领取<br><font style="color:#ee1a1a;">(S级碎片×38)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang01">
+                        	<div class="pic">
+                            	<img src="images/baoxiang_big_01.png" class="img" alt="宝箱V0-V4领取">
+                            	<img src="images/baoxiang_big_01_open.png" class="img_open" alt="宝箱V0-V4领取">
+                            </div>
+                            <div class="txt">v0-v4领取<br><font style="color:#ee1a1a;">(S级碎片×25)</font></div>
+                        </div>
+                        <div class="item btn ease1" id="baoxiang02">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_02.png" class="img" alt="宝箱V5-V9领取">
+                                <img src="images/baoxiang_big_02_open.png" class="img_open" alt="宝箱V5-V9领取">
+                            </div>
+                            <div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(S级碎片×28)</font></div>
+                        </div>
+                        <div class="item btn ease1" id="baoxiang03">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_03.png" class="img" alt="宝箱V10-V14领取">
+                                <img src="images/baoxiang_big_03_open.png" class="img_open" alt="宝箱V10-V14领取">
+                            </div>
+                            <div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(S级碎片×33)</font></div>
+                        </div>
+                        <div class="item btn ease1" id="baoxiang04">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_04.png" class="img" alt="宝箱V15领取">
+                                <img src="images/baoxiang_big_04_open.png" class="img_open" alt="宝箱V15领取">
+                            </div>
+                            <div class="txt">v15领取<br><font style="color:#ee1a1a;">(S级碎片×38)</font></div>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -187,18 +267,42 @@
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
         </div>
 <!-- 首付A奖励 -->
-		<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
         <div class="pop pop_big pop_baoxiang_a animated zoomIn">
+			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>
 			<div class="text_wrap">
             	<div class="text_body">
 					<p>请根据自己的V等级领取相应的奖励</p>
 					<p><br></p>
                 <div class="baoxianglist_wrap">
                     <div class="baoxianglist">
-                        <div class="item btn ease1" id="baoxiang_a01"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V0-V4领取"></div><div class="txt">v0-v4领取<br><font style="color:#ee1a1a;">(A级碎片×10)</font></div></div>
-                        <div class="item btn ease1" id="baoxiang_a02"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V5-V9领取"></div><div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(A级碎片×11)</font></div></div>
-                        <div class="item btn ease1" id="baoxiang_a03"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V10-V14领取"></div><div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(A级碎片×13)</font></div></div>
-                        <div class="item btn ease1" id="baoxiang_a04"><div class="pic"><img src="images/baoxiang_big.png" class="宝箱V15领取"></div><div class="txt">v15领取<br><font style="color:#ee1a1a;">(A级碎片×15)</font></div></div>
+                        <div class="item btn ease1" id="baoxiang_a01">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_01.png" class="img" alt="宝箱V0-V4领取">
+                                <img src="images/baoxiang_big_01_open.png" class="img_open" alt="宝箱V0-V4领取">
+                            </div>
+                            <div class="txt">v0-v4领取<br><font style="color:#ee1a1a;">(A级碎片×10)</font></div>
+                        </div>
+                        <div class="item btn ease1" id="baoxiang_a02">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_02.png" class="img" alt="宝箱V5-V9领取">
+                                <img src="images/baoxiang_big_02_open.png" class="img_open" alt="宝箱V5-V9领取">
+                            </div>
+                            <div class="txt">v5-v9领取<br><font style="color:#ee1a1a;">(A级碎片×11)</font></div>
+                        </div>
+                        <div class="item btn ease1" id="baoxiang_a03">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_03.png" class="img" alt="宝箱V10-V14领取">
+                                <img src="images/baoxiang_big_03_open.png" class="img_open" alt="宝箱V10-V14领取">
+                            </div>
+                            <div class="txt">v10-v14领取<br><font style="color:#ee1a1a;">(A级碎片×13)</font></div>
+                        </div>
+                        <div class="item btn ease1" id="baoxiang_a04">
+                            <div class="pic">
+                                <img src="images/baoxiang_big_04.png" class="img" alt="宝箱V15领取">
+                                <img src="images/baoxiang_big_04_open.png" class="img_open" alt="宝箱V15领取">
+                            </div>
+                            <div class="txt">v15领取<br><font style="color:#ee1a1a;">(A级碎片×15)</font></div>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -207,15 +311,18 @@
         </div>
 
 <!-- 指引 -->
-		<div class="guide_wrap fadeInDown">
-        	<div class="guide_small"><em class="jiao"></em><div class="text_body">新忍者分享图生成工具！</div></div>
-        </div>
+		<!--<div class="guide_wrap fadeInDown">
+        	<div class="guide_small" style="right:1.4rem; top:.1rem;"><em class="jiao"></em><div class="text_body">新忍者分享图生成工具！</div></div>
+        </div>-->
 <!-- 恭喜 -->
 		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
-		
+<!-- toast -->
+		<div class="toast_wrap"><span class="toast" id="toast"></span></div>
+
 	</body>
 </html>
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/custom.js?v=071702"></script>
+
 
 <!-- 流量统计 -->
 <!--<script>

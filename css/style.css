@@ -1,13 +1,13 @@
 
 @font-face {
     font-family: "FZYHJW";
-    src: url("FZYHJW.eot"); /* IE9 */
-    src: url("FZYHJW.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    /*src: url("FZYHJW.eot");  IE9 */
+    /*src: url("FZYHJW.eot?#iefix") format("embedded-opentype"),  IE6-IE8 */
     
-    url("FZYHJW.woff") format("woff"), /* chrome、firefox */
-    url("FZYHJW.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    /*url("FZYHJW.woff") format("woff"),  chrome、firefox */
+    /*url("FZYHJW.ttf") format("truetype"),  chrome、firefox、opera、Safari, Android, iOS 4.2+ */
     
-    url("FZYHJW.svg#FZYHJW") format("svg"); /* iOS 4.1- */
+    /*url("FZYHJW.svg#FZYHJW") format("svg");  iOS 4.1- */
     font-style: normal;
     font-weight: normal;
 }
@@ -27,7 +27,7 @@ html{ height: 100%; width: 100%; overflow:hidden;-moz-user-select: none; -khtml-
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
     filter: grayscale(100%); }
-body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat center; background-size: cover;font-family:"FZYHJW","微软雅黑",Helvetica,Arial;}
+body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat center; background-size: cover;font-family:/*"FZYHJW",*/"微软雅黑",Helvetica,Arial;}
 .gray0,
 .gray1,
 .gray2{-webkit-filter: grayscale(0%);
@@ -161,6 +161,9 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 #LoadingBar{ position:fixed; width:100%; height:100%; background:#000; color:#fff; text-align:center; left:0; top:0; bottom:0; right:0; z-index:9999; font-size:.26rem; line-height:.3rem;}
 #LoadingBar .div{ width:3rem; height:1rem; position:absolute; left:50%; top:50%; margin-left:-1.5rem; margin-top:-.5rem;}
 
+.loadingbarbox{ position:fixed; width:100%; height:4px; z-index:10000; top:0; left:0; right:0;}
+.loadingbarbox .loadingline{ display:block; height:4px; background:#eb3713; position:relative;}
+.loadingbarbox .loadingline:after{ content:''; display:block; position:absolute; right:0; top:0; width:4px; height:4px; background:#fb8871; box-shadow:0 0 2px #fb8871;}
 
 
 
@@ -239,6 +242,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_back{ background-image:url(../images/back.png); }
 .icon.icon_front{ background-image:url(../images/front.png); }
 .icon.icon_info{ background-image:url(../images/info.png); }
+.icon.icon_notice{ background-image:url(../images/notice.png); }
 .icon.icon_setting{ background-image:url(../images/setting.png); }
 .icon.icon_ninja{ background-image:url(../images/ninja.png); }
 .icon.icon_baoxiang{ background-image:url(../images/baoxiang.png); }
@@ -340,13 +344,14 @@ filter: brightness(1.2); }
 .resultlist .item_s .img4{ background-position: -3.6rem 0;  }/*1,6*/
 .resultlist .item_s .img5,
 .icon.icon_s_new .img{ background-position: -4.32rem 0;  }/*1,7  当前s忍者*/
-.resultlist .item_a .img{  background-position: -1.44rem -.72rem; }/*2,3 当前a忍者（容易）*/
+.resultlist .item_a .img{  background-position: -3.6rem -.72rem; }/*2,6 当前副a忍者（容易）*/
+.resultlist .item_a .img4,
 .resultlist .item_a .img5,
 .resultlist .item_a .img6,
 .resultlist .item_a .img7,
 .resultlist .item_a .img8,
 .resultlist .item_a .img9,
-.icon.icon_a_new .img{  background-position: -2.88rem -.72rem; }/*2,5 当前a忍者（稀有）*/
+.icon.icon_a_new .img{  background-position: -2.88rem -.72rem; }/*2,5 当前新a忍者（稀有）*/
 .resultlist .item_b .img{  background-position: 0 -1.44rem; }/*3,1 b忍者（容易）*/
 .resultlist .item_b .img0{  background-position: -.72rem -1.44rem; }/*3,2 b忍者2*/
 .resultlist .item_b .img1{  background-position: -1.44rem -1.44rem; }/*3,3 b忍者3*/
@@ -360,7 +365,7 @@ filter: brightness(1.2); }
 .resultlist .item_c .img3{  background-position: -3.6rem -2.16rem; }/*4,6 c忍者5*/
 .resultlist .item_c .img4{  background-position: -4.32rem -2.16rem; }/*4,7 c忍者6*/
 .resultlist .item_c .img5{  background-position: -5.04rem -2.16rem; }/*4,8 c忍者7*/
-.resultlist .item_c .img6{  background-position: -5.76rem -2.16rem; }/*4,9 c忍者8*/
+.resultlist .item_c .img6{  background-position: -8.64rem -2.16rem; }/*4,13 c忍者8*/
 .resultlist .item_c .img7{  background-position: -6.48rem -2.16rem; }/*4,10 c忍者9*/
 .resultlist .item_c .img8{  background-position: -7.92rem -2.16rem; }/*4,11 c忍者10*/
 .resultlist .item .fg:after{ width: .30rem; height: .33rem; background-size: .30rem .33rem; }
@@ -386,11 +391,17 @@ filter: brightness(1.2); }
 */
 
 
+/* 右上角的按钮容器*/
+.thebtns{ position:fixed; top:.1rem;  width:.6rem; height:auto;}
+.thebtns_01{  right:.1rem;}
+.thebtns_02{  right:.7rem; }
 
 
-/*弹窗 关于*/
-.btn_info{ position: fixed; right:.1rem; top:.1rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
-.btn_info .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
+/*弹窗 关于和公告*/
+.btn_info,
+.btn_notice{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.btn_info .icon,
+.btn_notice .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .layui-layer{ background: none; box-shadow: none; }
 .layui-layer-msg{ border-radius: .1rem; background-color:rgba(0,0,0,.6); }
 .layui-layer-dialog .layui-layer-content{ font-size: .16rem; line-height: .30rem; }
@@ -402,7 +413,7 @@ filter: brightness(1.2); }
 .pop_big .title{ position: absolute; left: -.4rem; top: -.2rem; width: 3rem; height: 1rem; }
 .pop_big .title .title_bg,
 .pop_big .title .title_txt{ position: absolute; left: 0; bottom: 0; width: 100%; height: auto;}
-.pop_big .title .title_txt{ width: 56%; left:13%; }
+.pop_big .title .title_txt{ height:100%; width: auto; left:13%; }
 .pop_big .title .title_bg{ opacity: .6; }
 .pop .btn_close{ position: absolute; right: .0rem; top: .0rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 .pop .btns{ }
@@ -410,7 +421,7 @@ filter: brightness(1.2); }
 .pop .text_body{font-size: .18rem; line-height: .26rem; color: #000;overflow: auto;  position: absolute; left: .4rem; right: .4rem; top: .8rem;bottom:.3rem; letter-spacing: .01rem; }
 
 /*弹窗 设置*/
-.btn_setting{ position: fixed; right:.1rem; top:.7rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.btn_setting{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 .btn_setting .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .pop_small .title{ position: absolute; left: -.4rem; top: -.2rem; width: 3rem; height: 1rem; }
 .pop_small .title .title_bg,
@@ -420,15 +431,19 @@ filter: brightness(1.2); }
 .pop_small .text_body{ left:.2rem; right:.2rem; bottom:.2rem;}
 
 /*忍者分享图生成工具*/
-.btn_ninja{position: fixed; right:.7rem; top:.1rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.btn_ninja{position: relative;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 /*弹窗 宝箱*/
-.btn_baoxiang{position: fixed; right:.1rem; top:2.1rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
+.btn_baoxiang{position: relative;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
 .btn_baoxiang .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .btn_baoxiang .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
-.baoxianglist .item{ display:inline-block; width:20%; margin:.3rem 2%; text-align:center; }
+.baoxianglist { background:url(../images/shoufujiangli_bg.png) no-repeat top center; background-size:contain; padding-top:.21rem; text-align:center;}
+.baoxianglist .item{ display:inline-block; width:20%; margin:.0rem 2%; text-align:center;cursor: pointer; }
 .baoxianglist .item .pic{ width:100%;}
-.baoxianglist .item .pic img{ max-width:100%; height:auto;}
-.btn_baoxiang_a{position: fixed; right:.1rem; top:1.4rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
+.baoxianglist .item .pic img{ max-width:100%; height:auto; display:block; margin:0 auto;}
+.baoxianglist .item .pic .img_open{ display:none;}
+.baoxianglist .item.open .pic .img_open{ display:block;}
+.baoxianglist .item.open .pic .img{ display:none;}
+.btn_baoxiang_a{position: relative;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
 .btn_baoxiang_a .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .btn_baoxiang_a .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
 
@@ -458,16 +473,21 @@ filter: brightness(1.2); }
 100% { transform:translate3d(-.05rem,0,0); }
 }
 .guide_wrap{ display:none;}
-.guide_small{ background:rgba(25,25,25,.9); background-repeat:no-repeat; background-position:center; background-size:100% 100%; border:.02rem #7d5b3c solid; border-radius:.05rem; color:#fff;font-size: .18rem; line-height: .26rem; padding:.1rem; animation:xuanfu 2.5s ease-in-out infinite; position:fixed; right:1.4rem; top:.1rem;}
+.guide_small{ background:rgba(25,25,25,.9); background-repeat:no-repeat; background-position:center; background-size:100% 100%; border:.02rem #7d5b3c solid; border-radius:.05rem; color:#fff;font-size: .18rem; line-height: .26rem; padding:.1rem; animation:xuanfu 2.5s ease-in-out infinite; position:fixed;}
 .guide_small .jiao{ display:block; position:absolute; right:-.1rem; top:.14rem; width:0; height:0; border-width:.1rem .0rem .1rem .1rem;border-style:dashed dashed dashed solid; border-color:transparent transparent transparent #7d5b3c;}
 .guide_small .jiao:after{ content:''; display:block; position:absolute; top:-.1rem; right:.02rem; width:0; height:0; border-width:.1rem .0rem .1rem .1rem; border-style:dashed dashed dashed solid; border-color:transparent transparent transparent #151515; }
 
 
 
 /*恭喜提示*/
-.congratulation_wrap{ position:fixed; z-index:1000; left:20%; right:20%; top:5%; height:.5rem;line-height:.5rem;  text-align:center; }
+.congratulation_wrap{ position:fixed; z-index:1000; left:20%; right:20%; top:5%; height:.5rem;line-height:.5rem;  text-align:center; font-size:0; }
 .congratulation{ display:inline-block; height:.3rem; line-height:.3rem; color:#fff; font-size:.20rem; background-image:url(../images/tips_bg.png); background-size:100% 100%; text-align:center;opacity:0;padding:.08rem .6rem;}
 .congratulation span{ color:#ea9237;}
+
+/*toast提示*/
+.toast_wrap{ position:fixed; z-index:1000; left:10%; right:10%; top:40%; height:.5rem;line-height:.5rem;  text-align:center; font-size:0; display:none; }
+.toast{ display:inline-block; height:.3rem; line-height:.3rem; color:#fff; font-size:.20rem; background-image:url(../images/tips_bg.png); background-size:100% 100%; text-align:center;/*opacity:0;*/padding:.08rem .6rem;}
+.toast span{ color:#ea9237;}
 
 
 /*兼容分辨率*/
