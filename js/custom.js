@@ -60,6 +60,14 @@
 	    preload: true,
 	    volume: 1
 	});
+	const bgmSprite = new Howl({
+	    src: ['audio/open2.mp3'],
+	    sprite: {
+	        open2: [0, 1900]
+	    },
+	    preload: true,
+	    volume: 1
+	});
 	function playaudio(p){
 		var canshu = p
 		if($(".btn_audio").hasClass("on")){
@@ -92,16 +100,16 @@
 	// 背景音乐开关
 	// $("body").append("<audio id='bgm' preload='auto' loop='loop' src="+mid[0]+"></audio>");
 	// var bgm = $("#bgm")[0];
-	// $(".btn_bgm").on("click",function(){
-	// 		playaudio(2);
-	// 	if($(this).hasClass("on")){
-	// 		$(this).removeClass("on");
-	// 		bgm.pause();
-	// 	}else{
-	// 		$(this).addClass("on");
-	// 		bgm.play();
-	// 	}
-	// })
+	$(".btn_bgm").on("click",function(){
+			playaudio(2);
+		if($(this).hasClass("on")){
+			$(this).removeClass("on");
+			bgmSprite.pause();
+		}else{
+			$(this).addClass("on");
+			bgmSprite.play('open2');
+		}
+	})
 	
 	//每10抽必送S级碎片开关
 	$(".btn_bisong").on("click",function(){
