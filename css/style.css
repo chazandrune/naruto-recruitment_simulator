@@ -1,13 +1,11 @@
 
 @font-face {
-    font-family: "FZYHJW";
-    /*src: url("FZYHJW.eot");  IE9 */
-    /*src: url("FZYHJW.eot?#iefix") format("embedded-opentype"),  IE6-IE8 */
-    
-    /*url("FZYHJW.woff") format("woff"),  chrome、firefox */
-    /*url("FZYHJW.ttf") format("truetype"),  chrome、firefox、opera、Safari, Android, iOS 4.2+ */
-    
-    /*url("FZYHJW.svg#FZYHJW") format("svg");  iOS 4.1- */
+    /*font-family: "FZYHJW";
+    src: url("FZYHJW.eot");
+    src: url("FZYHJW.eot?#ie/*fix") format("embedded-opentype"),
+    url("FZYHJW.woff") format("woff"),
+    url("FZYHJW.ttf") format("truetype"),
+    url("FZYHJW.svg#FZYHJW") format("svg");*/
     font-style: normal;
     font-weight: normal;
 }
@@ -68,18 +66,18 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .mb20{ margin-bottom: .20rem; }
 .mb50{ margin-bottom: .50rem; }
 .ease1{
-	-webkit-transition:all 0.1s ease-out;
-	-khtml-transition:all 0.1s ease-out;
-	-moz-transition: all 0.1s ease-out;
-	-o-transition: all 0.1s ease-out;
-	transition: all 0.1s ease-out;
+  -webkit-transition:all 0.1s ease-out;
+  -khtml-transition:all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
 }
 .ease3{
-	-webkit-transition:all 0.3s ease-out;
-	-khtml-transition:all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	transition: all 0.3s ease-out;
+  -webkit-transition:all 0.3s ease-out;
+  -khtml-transition:all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 /*load*/
@@ -125,7 +123,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 
 
 .load8 .loader {
-	width: 100%; height: 100%;
+  width: 100%; height: 100%;
   position: relative;
   text-indent: -9999em;
   background: url(../images/loading.png) no-repeat center;
@@ -134,7 +132,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
   animation: load1 2s infinite linear;
 }
 .load8 .loader2 {
-	width: .9rem; height: .9rem;
+  width: .9rem; height: .9rem;
   position: relative;
   text-indent: -9999em;
   background: url(../images/loading_new.png) no-repeat center;
@@ -143,7 +141,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
   animation: load2 1s infinite linear steps(1,start);
 }
 .load-container{
-	margin:0 auto .2rem;
+  margin:0 auto .2rem;
     width: .9rem;
     height: .9rem;
     position: relative;
@@ -185,9 +183,9 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .tongjilist_btns .btn_front{ cursor: pointer; display: block;height: .6rem; line-height: .6rem; position:absolute;bottom:0rem; left: 0; right: 0; text-align: center; color: #fff; font-size: .20rem; }
 .tongjilist_btns .btn_front{ right: 1100%; left: -1000%; }
 .tongjilist_btns .btn_front .txt{ padding-right: .4rem; }
-.tongjilist_btns .btn_front .icon{ position: absolute; right: .1rem; top: 50%; margin-top: -.2rem; }
+.tongjilist_btns .btn_front .icon{ position: absolute; right: .1rem; top: 50%; width:.4rem; height: .4rem; margin-top: -.2rem; }
 .tongjilist_btns .btn_back .txt{ padding-left: .4rem; }
-.tongjilist_btns .btn_back .icon{ position: absolute; left: .1rem; top: 50%; margin-top: -.2rem; }
+.tongjilist_btns .btn_back .icon{ position: absolute; left: .1rem; top: 50%; width:.4rem; height: .4rem; margin-top: -.2rem; }
 .tongjilist_btns.on .btn_front{ right: 0; left: 0; }
 .tongjilist_btns.on .btn_back{ right: 110%; left: -1000%; }
 
@@ -203,31 +201,32 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 
 .btns{ font-size: 0; text-align: center; width: 100%;}
 .btns .btn{ 
-	width: 1.85rem; 
-	height: .70rem; 
-	margin: .10rem;
-	line-height: .70rem;
-	display: inline-block; 
-	font-size: .22rem; 
-	text-align: center; 
-	color:#fffd78; 
-	text-shadow: 0 .02rem #562603, .02rem 0 #562603, -.02rem 0 #562603, 0 -.02rem #562603;
-	background-image: url(../images/btn_bg.png); background-repeat: no-repeat; 
-	background-size: contain;
-	background-position: left top; 
-	cursor:pointer;
- }	
+  width: 1.85rem; 
+  height: .70rem; 
+  margin: .10rem;
+  line-height: .70rem;
+  display: inline-block; 
+  font-size: .22rem; 
+  text-align: center; 
+  color:#fffd78; 
+  text-shadow: 0 .02rem #562603, .02rem 0 #562603, -.02rem 0 #562603, 0 -.02rem #562603;
+  background-image: url(../images/btn_bg.png); background-repeat: no-repeat; 
+  background-size: contain;
+  background-position: left top; 
+  cursor:pointer;
+ }  
 .btn:active{ 
-	transform: scale(0.9,0.9);
-	-webkit-transform: scale(0.9,0.9);
-	-o-webkit-transform: scale(0.9,0.9);
-	-moz-webkit-transform: scale(0.9,0.9); 
+  transform: scale(0.9,0.9);
+  -webkit-transform: scale(0.9,0.9);
+  -o-webkit-transform: scale(0.9,0.9);
+  -moz-webkit-transform: scale(0.9,0.9); 
 }
-.icon{ display: inline-block; width: .40rem; height: .40rem; background-size:contain; background-repeat: no-repeat; background-position: center; vertical-align: middle; margin-top: -.1rem; font-style: normal; font-size: .14rem; line-height: .55rem; color:#fff; text-align: right;}
+.icon{ display: inline-block; width: .32rem; height: .32rem; background-size:contain; background-repeat: no-repeat; background-position: center; vertical-align: middle; margin-top: -.1rem; font-style: normal; font-size: .14rem; line-height: .55rem; color:#fff; text-align: right;}
 .icon.icon_gaozhaoquan{ background-image:url(../images/juanzhou_gaoji.png); }
 .icon.icon_xiandingquan{ background-image:url(../images/juanzhou_xianding.png); }
 .icon.icon_puzhaoquan{ background-image:url(../images/juanzhou_putong.png); }
-.icon.icon_puzhaoquan{ background-image:url(../images/juanzhou_putong.png); }
+.icon.icon_sina{ background-image:url(../images/icon_sina.png); }
+.icon.icon_weixin{ background-image:url(../images/icon_weixin.png); }
 .icon.icon_jinbi{ background-image:url(../images/coin.png); }
 .icon.icon_s{ background-image:url(../images/s.png); }
 .icon.icon_a{ background-image:url(../images/a.png); }
@@ -245,15 +244,19 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_notice{ background-image:url(../images/notice.png); }
 .icon.icon_setting{ background-image:url(../images/setting.png); }
 .icon.icon_ninja{ background-image:url(../images/ninja.png); }
+.icon.icon_feed{ background-image:url(../images/feed.png); }
 .icon.icon_baoxiang{ background-image:url(../images/baoxiang.png); }
 .icon.icon_close{ background-image:url(../images/close.png); }
 .icon_checkbox{ background-image:url(../images/checkbox_off.png);}
 .on>.icon_checkbox{ background-image:url(../images/checkbox_on.png);}
-.biaoqing{ background: url(../images/biaoqing.png) no-repeat; background-size: 3.2rem .6rem; display: inline-block; width: .8rem; height: .6rem; vertical-align: middle; margin-bottom: .2rem; }
+.biaoqing{ background: url(../images/biaoqing.png) no-repeat; background-size: 6.4rem .6rem; display: inline-block; width: .8rem; height: .6rem; vertical-align: middle; margin-bottom: .2rem; }
 .biaoqing_01{ background-position: 0 0; }
 .biaoqing_02{ background-position: -.8rem 0; }
 .biaoqing_03{ background-position: -1.6rem 0; }
 .biaoqing_04{ background-position: -2.4rem 0; }
+.biaoqing_05{ background-position: -3.2rem 0; }
+.biaoqing_06{ background-position: -4rem 0; }
+.biaoqing_07{ background-position: -4.8rem 0; }
 
 
 
@@ -322,7 +325,7 @@ filter: brightness(1.2); }
 /*.huohua{ width: .85rem; height: 1.28rem; background-image:url(../images/huohua.png); background-repeat: no-repeat; background-position:-1000px -1000px; animation:huohua 1s steps(1,start); background-size:5.12rem 2.56rem; }*/
 .yanwu{ width: 1rem; height: 1rem; background-image:url(../images/yanwu.png); background-repeat: no-repeat; background-position:-1000px -1000px; animation:yanwu 1.2s steps(1,start); background-size:4rem 4rem; }
 
-.resultlist_wrap{ background:rgba(0,0,0,.3);height:2.5rem; display: block; width: 100%; }
+.resultlist_wrap{ /*background:rgba(0,0,0,.3);*/ background:url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem; height:2.5rem; display: block; width: 100%; }
 .resultlist{ color: #fff; text-align:center; font-size: 0; width: 6.1rem;  margin: 0 auto;}
 
 .resultlist .item_wrap{display:inline-block;width: 1rem;margin: .05rem .1rem; }
@@ -336,38 +339,33 @@ filter: brightness(1.2); }
 .resultlist .item .img,
 .icon.icon_s_new .img,
 .icon.icon_a_new .img{ background-image:url(../images/charactors.png); background-size: 14.40rem 2.88rem; }
-.resultlist .item_s .img{  background-position: 0 0; }/*1,1*/
-.resultlist .item_s .img0{ background-position: -.72rem 0; }/*1,2*/
-.resultlist .item_s .img1{  background-position: -1.44rem 0; }/*1,3*/
-.resultlist .item_s .img2{ background-position: -2.16rem 0;  }/*1,4*/
-.resultlist .item_s .img3{ background-position: -2.88rem 0;  }/*1,5*/
-.resultlist .item_s .img4{ background-position: -3.6rem 0;  }/*1,6*/
-.resultlist .item_s .img5,
-.icon.icon_s_new .img{ background-position: -4.32rem 0;  }/*1,7  当前s忍者*/
-.resultlist .item_a .img{  background-position: -3.6rem -.72rem; }/*2,6 当前副a忍者（容易）*/
-.resultlist .item_a .img4,
-.resultlist .item_a .img5,
-.resultlist .item_a .img6,
-.resultlist .item_a .img7,
-.resultlist .item_a .img8,
-.resultlist .item_a .img9,
-.icon.icon_a_new .img{  background-position: -2.88rem -.72rem; }/*2,5 当前新a忍者（稀有）*/
-.resultlist .item_b .img{  background-position: 0 -1.44rem; }/*3,1 b忍者（容易）*/
-.resultlist .item_b .img0{  background-position: -.72rem -1.44rem; }/*3,2 b忍者2*/
-.resultlist .item_b .img1{  background-position: -1.44rem -1.44rem; }/*3,3 b忍者3*/
-.resultlist .item_b .img2{  background-position: -2.16rem -1.44rem; }/*3,4 b忍者4*/
-.resultlist .item_b .img3{  background-position: -2.88rem -1.44rem; }/*3,5 b忍者5*/
-.resultlist .item_b .img4{  background-position: -4.32rem -1.44rem; }/*3,7 b忍者6*/
-.resultlist .item_c .img{  background-position: 0 -2.16rem; }/*4,1 c忍者1*/
-.resultlist .item_c .img0{  background-position: -.72rem -2.16rem; }/*4,2 c忍者2*/
-.resultlist .item_c .img1{  background-position: -1.44rem -2.16rem; }/*4,3 c忍者3*/
-.resultlist .item_c .img2{  background-position: -2.88rem -2.16rem; }/*4,5 c忍者4*/
-.resultlist .item_c .img3{  background-position: -3.6rem -2.16rem; }/*4,6 c忍者5*/
-.resultlist .item_c .img4{  background-position: -4.32rem -2.16rem; }/*4,7 c忍者6*/
-.resultlist .item_c .img5{  background-position: -5.04rem -2.16rem; }/*4,8 c忍者7*/
-.resultlist .item_c .img6{  background-position: -8.64rem -2.16rem; }/*4,13 c忍者8*/
-.resultlist .item_c .img7{  background-position: -6.48rem -2.16rem; }/*4,10 c忍者9*/
-.resultlist .item_c .img8{  background-position: -7.92rem -2.16rem; }/*4,11 c忍者10*/
+.resultlist .item_s .img{  background-position: 0 0; }
+.resultlist .item_s .img1,
+.icon.icon_s_new .img{ background-position: -5.04rem 0;  }/*1,8  当前s忍者（千手柱间）*/
+.resultlist .item_a .img{  background-position: 0rem -.72rem; }
+.resultlist .item_a .img1,
+.icon.icon_a_new .img{  background-position: -4.32rem -.72rem; }/*2,7 当前新a忍者（照美冥）*/
+.resultlist .item_a .img2{  background-position: -3.6rem -.72rem; }/*2,6 当前副a忍者（大罗）*/
+.resultlist .item_b .img{  background-position: 0 -1.44rem; }
+.resultlist .item_b .img1{  background-position: -0rem -1.44rem; }/*3,1 b忍者1（鸣人疾风传）*/
+.resultlist .item_b .img2{  background-position: -1.44rem -1.44rem; }/*3,3 b忍者2（雏田疾风传）*/
+.resultlist .item_b .img3{  background-position: -0.72rem -1.44rem; }/*3,2 b忍者3（小樱疾风传）*/
+.resultlist .item_b .img4{  background-position: -6.48rem -1.44rem; }/*3,10 b忍者4（暗卡）*/
+.resultlist .item_b .img5{  background-position: -7.92rem -1.44rem; }/*3,12 b忍者5（井野疾风传）*/
+.resultlist .item_b .img6{  background-position: -7.2rem -1.44rem; }/*3,11 b忍者6（君麻吕）*/
+.resultlist .item_c .img{  background-position: 0 -2.16rem; }
+.resultlist .item_c .img1{  background-position: -.72rem -2.16rem; }/*4,2 c忍者1（伊鲁卡）*/
+.resultlist .item_c .img2{  background-position: -1.44rem -2.16rem; }/*4,3 c忍者2（多由也）*/
+.resultlist .item_c .img3{  background-position: -7.92rem -2.16rem; }/*4,12 c忍者3（金槌）*/
+.resultlist .item_c .img4{  background-position: -2.88rem -2.16rem; }/*4,5 c忍者4（日向花火）*/
+.resultlist .item_c .img5{  background-position: -9.36rem -2.16rem; }/*4,14 c忍者5（勘九郎）*/
+.resultlist .item_c .img6{  background-position: -4.32rem -2.16rem; }/*4,7 c忍者6（左近右近）*/
+.resultlist .item_c .img7{  background-position: -2.16rem -2.16rem; }/*4,4 c忍者7（鬼童丸）*/
+.resultlist .item_c .img8{  background-position: -8.64rem -2.16rem; }/*4,13 c忍者8（水木）*/
+.resultlist .item_c .img9{  background-position: -0rem -2.16rem; }/*4,1 c忍者9（鸣人）*/
+.resultlist .item_c .img10{  background-position: -6.48rem -2.16rem; }/*4,10 c忍者10（小樱）*/
+.resultlist .item_c .img11{  background-position: -10.08rem -2.16rem; }/*4,15 c忍者11（萨克镫）*/
+.resultlist .item_c .img12{  background-position: -7.2rem -2.16rem; }/*4,11 c忍者12（静音）*/
 .resultlist .item .fg:after{ width: .30rem; height: .33rem; background-size: .30rem .33rem; }
 .resultlist .item_s .fg:after{ background-image:url(../images/s.png); }
 .resultlist .item_a .fg:after{ background-image:url(../images/a.png); }
@@ -416,9 +414,11 @@ filter: brightness(1.2); }
 .pop_big .title .title_txt{ height:100%; width: auto; left:13%; }
 .pop_big .title .title_bg{ opacity: .6; }
 .pop .btn_close{ position: absolute; right: .0rem; top: .0rem;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.pop .btn_close .icon{position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .pop .btns{ }
 .pop .text_wrap{ position: relative; height: 100%; width: 100%; }
 .pop .text_body{font-size: .18rem; line-height: .26rem; color: #000;overflow: auto;  position: absolute; left: .4rem; right: .4rem; top: .8rem;bottom:.3rem; letter-spacing: .01rem; }
+.pop .text_body img{ max-width: 100%; }
 
 /*弹窗 设置*/
 .btn_setting{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
@@ -431,7 +431,13 @@ filter: brightness(1.2); }
 .pop_small .text_body{ left:.2rem; right:.2rem; bottom:.2rem;}
 
 /*忍者分享图生成工具*/
-.btn_ninja{position: relative;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+/*问卷调查按钮*/
+.btn_ninja,
+.btn_feed{position: relative;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.btn_ninja .icon,
+.btn_feed .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
+/*问卷调查按钮*/
+
 /*弹窗 宝箱*/
 .btn_baoxiang{position: relative;cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
 .btn_baoxiang .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
@@ -447,7 +453,27 @@ filter: brightness(1.2); }
 .btn_baoxiang_a .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .btn_baoxiang_a .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
 
-
+/*弹窗 二维码*/
+.pop_gzh{width:4rem; height: 4rem;margin-left: -2rem;margin-top: -2rem; background: #fff;}
+.pop_gzh .text_body{ top: .1rem; left:.1rem; right:.1rem; bottom:.1rem;}
+.pop_gzh img{ width:100%; }
+.pop_gzh .btn_close{ right: -.1rem; top: -.1rem;}
+/*弹窗 新忍者*/
+.pop_newninja{ width:auto; height: auto; left: 0; right: 0; top: 0; bottom: 0; }
+.pop_newninja .text_body{ top: .1rem; left:.1rem; right:.1rem; bottom:.1rem; overflow:visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;}
+.pop_newninja img{ display: block; min-height: 100px; border: 3px #fff solid; box-shadow: 0px 20px 30px -10px rgba(0,0,0,.5);    background: url(../images/loading.gif) no-repeat center; }
 
 
 /*音效开关*/

@@ -60,6 +60,7 @@
 	    preload: true,
 	    volume: 1
 	});
+	// new 一个bgmSprite实例，背景音乐mp3里面的每段音效起始、持续时间赋值，并初始化好其他的属性。
 	const bgmSprite = new Howl({
 	    src: ['audio/open2.mp3'],
 	    sprite: {
@@ -101,6 +102,7 @@
 	// 背景音乐开关
 	// $("body").append("<audio id='bgm' preload='auto' loop='loop' src="+mid[0]+"></audio>");
 	// var bgm = $("#bgm")[0];
+	bgmSprite.play('open2');
 	$(".btn_bgm").on("click",function(){
 			playaudio(2);
 		if($(this).hasClass("on")){
@@ -156,6 +158,36 @@
 			$(".pop_notice").addClass("on");
 			$(".pop_notice").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
+		}
+	})
+
+	//公众号弹窗
+	$(".jump_gzh,.pop_gzh .btn_close").on('click',function(){
+		if($(".pop_gzh").hasClass("on")){
+			playaudio(3);
+			$(".pop_gzh").addClass("zoomOut");
+			setTimeout(function(){
+				$(".pop_gzh").removeClass("on");
+			},500)
+		}else{
+			playaudio(2);
+			$(".pop_gzh").addClass("on");
+			$(".pop_gzh").removeClass("zoomOut");
+		}
+	})
+
+	//新忍者弹窗
+	$(".pop_newninja .btn_close").on('click',function(){
+		if($(".pop_newninja").hasClass("on")){
+			playaudio(3);
+			$(".pop_newninja").addClass("zoomOut");
+			setTimeout(function(){
+				$(".pop_newninja").removeClass("on");
+			},500)
+		}else{
+			playaudio(2);
+			$(".pop_newninja").addClass("on");
+			$(".pop_newninja").removeClass("zoomOut");
 		}
 	})
 	
@@ -250,12 +282,19 @@ var raNum;
 var i = parseInt($("#cishu").html());
 //各种碎片数量
 var num_s = parseInt($("#num_s").html());
+var num_s_new = parseInt($("#num_s_new").html());
 var num_a = parseInt($("#num_a").html());
 var num_a_new = parseInt($("#num_a_new").html());
 var num_b = parseInt($("#num_b").html());
 var num_c = parseInt($("#num_c").html());
+//全局定义是否领取S首付奖励，初始状态为0
+var isaddsuipian = 0;
+//全局定义是否领取A首付奖励，初始状态为0
+var isaddsuipian_a = 0;
 //悲剧指数
 var sad = 0;
+//是否弹出过获得新忍者图 重置
+var istanchunewninja = 0;
 	
 //单抽操作
 $('#clik').on('click',function() {
@@ -288,7 +327,7 @@ $('#clik10').on('click',function() {
 	
 	playaudio(2);
 	$(".btns,.btn_setting").hide();
-	setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},4500);
+	setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},3700);
 	$(".resultlist").html("");
 	$(".box").addClass("shilian");
 	$(".box").removeClass("danchou");
@@ -313,7 +352,7 @@ $('#clik10').on('click',function() {
 			//返回结果
 			A();
 		}
-	}, 400);
+	}, 320);
 
 });
 
@@ -325,17 +364,26 @@ function chongzhi(){
 	$("#cishu").html("0");
 	$("#cishujinbi").html("0");
 	$("#num_s").html("0");
+	$("#num_s_new").html("0");
 	$("#num_a").html("0");
 	$("#num_a_new").html("0");
 	$("#num_b").html("0");
 	$("#num_c").html("0");
 	i = 0;
 	num_s = 0;
+	num_s_new = 0;
 	num_a = 0;
 	num_a_new = 0;
 	num_b = 0;
 	num_c = 0;
+	//是否领取首付 重置
+	isaddsuipian = 0;
+	isaddsuipian_a = 0;
+	//首付奖励宝箱变为关闭外观
+	$(".baoxianglist .item").removeClass("open");
 	sad = 0;
+	//是否弹出过获得新忍者图 重置
+	istanchunewninja = 0;
 }
 $('#reset').on('click',function() {
 	playaudio(4);
@@ -405,12 +453,12 @@ function showsad(){
 }
 
 //领取S首付奖励
-//全局定义是否领取S首付奖励，初始状态为0
-var isaddsuipian = 0;
 function addsuipian(n){
 	//增加s碎片数量
 	num_s = num_s + n;
+	num_s_new = num_s_new +n;
 	$("#num_s").html(num_s);
+	$("#num_s_new").html(num_s_new);
 	//是否领取s首付奖励状态变为1
 	isaddsuipian = 1;
 	//s首付弹窗消失
@@ -472,8 +520,6 @@ $("#baoxiang04").on('click',function(){
 })
 
 //领取A首付奖励
-//全局定义是否领取A首付奖励，初始状态为0
-var isaddsuipian_a = 0;
 function addsuipian_a(n){
 	//增加a碎片数量
 	num_a = num_a + n;
@@ -492,6 +538,14 @@ function addsuipian_a(n){
 	},1500)
 	//a首付奖励按钮消失
 	$(".btn_baoxiang_a").hide(100);
+	//如果照美冥碎片达到40 出现弹窗
+	if(num_a_new>=40 && istanchunewninja == 0 ){
+			playaudio(2);
+			$(".pop_newninja").addClass("on");
+			$(".pop_newninja").removeClass("zoomOut");
+			//$(".pop_mask").fadeIn(100);
+			istanchunewninja = 1;
+	}
 	//恭喜文字提示
 	gongxi("#congratulation","已领取首付奖励 <span>A级忍者碎片 × "+n+"</span>");
 }
@@ -546,7 +600,7 @@ function A(){
 	
 	console.log("随机数="+raNum+",次数="+i+",");
 	if(0 < raNum && raNum <= 3.5){
-			//出现5片和1片的概率，先判断是否抽到第10次，若是第10次则必出1片
+			//S忍 出现5片和1片的概率，先判断是否抽到第10次，若是第10次则必出1片
 			if( parseInt(i%10) == 0 ){
 				var n = 6;
 			}else{
@@ -559,17 +613,18 @@ function A(){
 				num_this = 1;
 				num_s++;
 			}
-			//m为定值，指定s忍者，不随机
-			var m = 5;
+			//m为定值，指定s忍者，不用随机数
+			var m = 1;
 			//console.log("n="+n+"(小于5为5片)");
 			writelog("S碎片 × "+num_this,"s",num_this,m);
 			$("#num_s").html(num_s);
-			$("#num_s_new").html(num_s);
-			gongxi("#congratulation","恭喜你获得 <span>四代目雷影碎片 × "+num_this+"</span>");
+			num_s_new = num_s_new + num_this;
+			$("#num_s_new").html(num_s_new);
+			gongxi("#congratulation","恭喜你获得 <span>千手柱间碎片 × "+num_this+"</span>");
 			sad = 0;
 			//return;
 		}else if(3.5 < raNum && raNum <= 15){
-			//出现4片和1片的概率
+			//A忍 出现4片和1片的概率
 			var n = parseInt(Math.random()*10);
 			if(n<5){
 				num_this = 4;
@@ -578,20 +633,21 @@ function A(){
 				num_this = 1;
 				num_a++;
 			}
-			//随机出现某个忍者
-			var m = parseInt(Math.random()*10);
+			//随机出现某个忍者 1-2
+			//var m = parseInt(Math.random()*10);
+			var m = parseInt(Math.random()*(2-1+1)+1,10);
 			writelog("A碎片 × "+num_this,"a",num_this,m);
 			$("#num_a").html(num_a);
 			//这里判断是否为新A，m值需要与css设定相对应，目前两a概率各50%
-			if(m == 5 || m==6 || m==7 ||m==8||m==9){
+			if(m == 1){
 				//是新a，恭喜公告出现，并且额外计入新a计数器
-				gongxi("#congratulation","恭喜你获得 <span>鹰小队佐助碎片 × "+num_this+"</span>");
+				gongxi("#congratulation","恭喜你获得 <span>五代目水影碎片 × "+num_this+"</span>");
 				num_a_new = num_a_new + num_this;
 				$("#num_a_new").html(num_a_new);
 			}
 			//return;
 		}else if(15 < raNum && raNum <= 55){
-			//出现2片和1片的概率
+			//B忍 出现2片和1片的概率
 			var n = parseInt(Math.random()*10);
 			if(n<5){
 				num_this = 2;
@@ -600,13 +656,14 @@ function A(){
 				num_this = 1;
 				num_b++;
 			}
-			//随机出现某个忍者
-			var m = parseInt(Math.random()*10);
+			//随机出现某个忍者 1-6
+			//var m = parseInt(Math.random()*10);
+			var m = parseInt(Math.random()*(6-1+1)+1,10);
 			writelog("B碎片 × "+num_this,"b",num_this,m);
 			$("#num_b").html(num_b);
 			//return;
 		}else if(55 < raNum && raNum <= 100){
-			//出现5片和1片的概率
+			//C忍 出现5片和1片的概率
 			var n = parseInt(Math.random()*10);
 			if(n<5){
 				num_this = 5;
@@ -615,13 +672,15 @@ function A(){
 				num_this = 1;
 				num_c++;
 			}
-			//随机出现某个忍者
-			var m = parseInt(Math.random()*10);
+			//随机出现某个忍者 1-12
+			//var m = parseInt(Math.random()*10);
+			var m = parseInt(Math.random()*(12-1+1)+1,10);
 			writelog("C碎片 × "+num_this,"c",num_this,m);
 			$("#num_c").html(num_c);
 			//return;
 		}
-		
+	console.log("s="+num_s+",a="+num_a+",a_new="+num_a_new+",b="+num_b+",c="+num_c+",");
+
 		//必送文字输出
 		writebisong();
 		
@@ -636,10 +695,18 @@ function A(){
 			$(".btn_baoxiang_a").hide(100);
 		}
 		//如果抽够100次会有S首付奖励出现
-		/*if(i>=100 && isaddsuipian == 0 ){
-			$(".btn_baoxiang").show(100);
-		}else{
-			$(".btn_baoxiang").hide(100);
-		}*/
-		
+		// if(i>=100 && isaddsuipian == 0 ){
+		// 	$(".btn_baoxiang").show(100);
+		// }else{
+		// 	$(".btn_baoxiang").hide(100);
+		// }
+		//如果照美冥碎片达到40 出现弹窗
+		if(num_a_new>=40 && istanchunewninja == 0 ){
+				playaudio(2);
+				gongxi("#congratulation","恭喜你成功招募 <span>照美冥[五代目水影]</span>");
+				$(".pop_newninja").addClass("on");
+				$(".pop_newninja").removeClass("zoomOut");
+				//$(".pop_mask").fadeIn(100);
+				istanchunewninja = 1;
+		}
 }

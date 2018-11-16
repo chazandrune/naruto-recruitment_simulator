@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
 		<script type="text/javascript" src="js/fastclick.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css?v=071702">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=111601">
 		<script type="text/javascript" src="js/preload.js?v=111601"></script>
 		<script type="text/javascript" src="js/howler.core.min.js"></script>
 	</head>
@@ -35,7 +35,7 @@
 // loading
 	!(function(){
 		var imgPath = 'images/',
-			sourceArr = ['shareImage.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','baoxiang_big_01.png','baoxiang_big_02.png','baoxiang_big_03.png','baoxiang_big_04.png','baoxiang_big_01_open.png','baoxiang_big_02_open.png','baoxiang_big_03_open.png','baoxiang_big_04_open.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','close.png','coin.png','front.png','info.png','juanzhou_gaoji.png','loading.png','loading_bg.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','s.png','setting.png','shoufujiangli_bg.png','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_info.png','title_notice.png','title_setting.png','title_shoufujiangli.png','yanwu.png',];
+			sourceArr = ['shareImage.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','baoxiang_big_01.png','baoxiang_big_02.png','baoxiang_big_03.png','baoxiang_big_04.png','baoxiang_big_01_open.png','baoxiang_big_02_open.png','baoxiang_big_03_open.png','baoxiang_big_04_open.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','feed.png','front.png','guide_bg.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.png','loading_bg.png','loading_new.png','ninja.png','notice.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','resultlist_bg.png','resultlist_bg2.png','s.png','setting.png','shoufujiangli_bg.png','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_info.png','title_notice.png','title_setting.png','title_shoufujiangli.png','v.png','yanwu.png','gongzhonghao_erweima.jpg','90061001_BG.png',];
 		loading();
 		function loading(){
 			for (var i = 0; i < sourceArr.length; i++) {
@@ -97,7 +97,7 @@
 
 
 <!-- 版本 -->
-		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.5.2</a></p></div>
+		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.6</a></p></div>
 <!-- main -->
 		<div class="box">
 			<div class="tishi">
@@ -130,7 +130,7 @@
 					</dl>
 				</div>
 				<!--<p class="mb10">累计获得</p>-->
-                <!--<p class="mb20"><em class="icon icon_s_new"><em class="img"></em><em class="fg"></em></em> × <span id="num_s_new">0</span></p>-->
+                <!-- <p class="mb20"><em class="icon icon_s_new"><em class="img"></em><em class="fg"></em></em> × <span id="num_s_new">0</span></p> -->
                 <p class="mb20"><em class="icon icon_a_new"><em class="img"></em><em class="fg"></em></em> × <span id="num_a_new">0</span></p>
 				<p class="mb10"><i class="icon icon_s"></i>碎片：<span id="num_s">0</span></p>
 				<p class="mb10"><i class="icon icon_a"></i>碎片：<span id="num_a">0</span></p>
@@ -147,32 +147,37 @@
 		<div class="thebtns thebtns_01">
         	<div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
             <div class="btn btn_setting ease1"><i class="icon icon_setting"></i></div>
-            <div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
-		<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
+            <!-- <div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div> -->
+			<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
         </div>
 <!-- 右上角图标容器 第2列 -->
         <div class="thebtns thebtns_02">
         	<div class="btn btn_notice ease1"><i class="icon icon_notice"></i></div>
+        	<!-- <a class="btn btn_feed ease1" href="https://www.wjx.cn/jq/27221880.aspx" target="_blank"><i class="icon icon_feed"></i></a> -->
             <!--<a href="ninjashare.html" class="btn btn_ninja ease1"><i class="icon icon_ninja"></i></a>-->
         </div>
 <!-- 弹窗遮罩 -->
-<div class="pop_mask"></div>        
+<div class="pop_mask"></div>
 <!-- 重要通知 -->
-		<div class="pop pop_big pop_notice animated zoomIn">
+		<div class="pop pop_big pop_notice animated zoomIn on">
 			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
 			<div class="text_wrap">
 				<div class="text_body">
-					<p><font color="#e94130">小小的服务器已经被学员们挤爆了!</font><i class="biaoqing biaoqing_02"></i></p>
-                    <p>无奈之下，我已经对页面进行缩水:</p>
-					<p>1、首先削掉字体包，感觉没多少人注意到吧</p>
-					<p>2、削掉音效包，没卵用还占资源</p>
-                    <p>3、新忍者分享图生成工具，没有字体包留着也不健全，嗯……刚上线就下线</p>
+					<p><font color="#e94130"></font><font color="#6bd675"></font><!-- <i class="biaoqing biaoqing_07"></i> --></p>
+					<p>周末来啦，水影也来啦！再更新一波！</p>
 					<p><br></p>
-                    <p>这样做其实只是减缓每名学员的消耗，服务器依然存在再次被挤爆的可能……希望不久的将来能够不断完善</p>
+					<p><font color="#e94130">更新内容</font></p>
+					<p>1、音效开启！手机、电脑均已支持音效，可以在设置面板中开启或关闭</p>
+					<p>2、上架照美冥[五代目水影]、君麻吕、鬼童丸；下架宇智波佐助[万花筒写轮眼]、大和、漩涡鸣人[忍者学员]</p>
+					<p>3、如果集齐照美冥碎片会有小彩蛋</p>
 					<p><br></p>
-					<p style="text-align: right;">爱火影、爱游戏的某熊</p>
-					<p style="text-align: right;">2018年7月16日</p>
+                    <p>其他说明</p>
+                    <p>问卷调查已经关闭了，大家如果还有槽想吐，就来<a href="###" class="jump_gzh" style="color: #e94130;" title="公众号">我的公众号</a>或者<a href="http://weibo.com/rune2010" style="color:#e94130;" title="微博" target="_blank">微博</a>吧！<i class="biaoqing biaoqing_07"></i></p>
+                    <p><br></p>
+					<p style="text-align: right;"><a href="http://weibo.com/rune2010" style="color:#111;" target="_blank">爱火影、爱游戏的某熊仔</a></p>
+					<p style="text-align: right;">2018年11月16日</p>
 					<p><br></p>
+					<div class="btns"><a href="http://weibo.com/rune2010" class="btn ease1" title="微博" target="_blank"><i class="icon icon_sina"></i>我是微博</a><a href="###" class="btn ease1 jump_gzh" title="公众号"><i class="icon icon_weixin"></i>我是公众号</a></div>
 				</div>
 			</div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
@@ -192,7 +197,7 @@
 					<p>最后祝大家学习进步、工作顺利、身体健康、游戏愉快~<i class="biaoqing biaoqing_01"></i></p>
 					<p><br></p>
 					<p><br></p>
-					<p style="text-align: right;">爱火影、爱游戏的某熊</p>
+					<p style="text-align: right;"><a href="http://weibo.com/rune2010" style="color:#111;" target="_blank">爱火影、爱游戏的某熊仔</a></p>
 					<p style="text-align: right;">2018年5月</p>
 					<p><br></p>
 					<p><br></p>
@@ -210,14 +215,14 @@
                     <div class="btn btn_switch btn_bisong ease1 on">
                         <i class="icon icon_checkbox"></i><span class="txt">10次必送S碎片(默认开启)</span>
                     </div>
-                    <div class="btn btn_switch btn_sad ease1">
+                    <!-- <div class="btn btn_switch btn_sad ease1">
                         <i class="icon icon_checkbox"></i><span class="txt">脸黑反馈</span>
-                    </div>
-                    <div class="btn btn_switch btn_audio ease1">
-                        <div id="audios" class="audios"></div>
+                    </div> -->
+                    <div class="btn btn_switch btn_audio ease1 on">
+                        <!-- <div id="audios" class="audios"></div> -->
                         <i class="icon icon_checkbox"></i><span class="txt">音效</span>
                     </div>
-                    <div class="btn btn_bgm ease3">
+                    <div class="btn btn_bgm ease3 on">
                         <i class="icon icon_checkbox"></i><span class="txt">音乐</span>
                     </div>
 				</div>
@@ -310,11 +315,21 @@
             </div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
         </div>
+<!-- 公众号弹窗 -->
+		<div class="pop pop_gzh animated zoomIn">
+			<div class="text_body"><p></p><img src="images/gongzhonghao_erweima.jpg" /></div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+<!-- 新忍者弹窗 -->
+		<div class="pop pop_newninja animated zoomIn">
+			<div class="text_body"><p></p><img src="images/90061001_BG.png" /></div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
 
 <!-- 指引 -->
-		<!--<div class="guide_wrap fadeInDown">
-        	<div class="guide_small" style="right:1.4rem; top:.1rem;"><em class="jiao"></em><div class="text_body">新忍者分享图生成工具！</div></div>
-        </div>-->
+		<div class="guide_wrap fadeInDown">
+        	<div class="guide_small" style="right:.7rem; top:.7rem;"><em class="jiao"></em><div class="text_body">音效开关在这里！</div></div>
+        </div>
 <!-- 恭喜 -->
 		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
 <!-- toast -->
@@ -322,11 +337,11 @@
 
 	</body>
 </html>
-<script type="text/javascript" src="js/custom.js?v=111604"></script>
+<script type="text/javascript" src="js/custom.js?v=111602"></script>
 
 
 <!-- 流量统计 -->
-<!--<script>
+<script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -334,6 +349,6 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script>-->
+</script>
 
 
