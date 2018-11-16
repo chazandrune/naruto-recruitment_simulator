@@ -21,7 +21,7 @@ document.body.addEventListener('touchstart', function () { });
 $(function(){
 	if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) { 
 		/*location.replace("http://www.huanyuweizhi.com/");*/  //此处填写跳转到的手机版网站页面
-		$(".btn_audio").remove();
+		//$(".btn_audio").remove();
 	}else{ 
 		//$('body').before('你现在用的是电脑访问的'); 
 	} 
