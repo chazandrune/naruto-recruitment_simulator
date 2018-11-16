@@ -102,7 +102,7 @@
 	// 背景音乐开关
 	// $("body").append("<audio id='bgm' preload='auto' loop='loop' src="+mid[0]+"></audio>");
 	// var bgm = $("#bgm")[0];
-	bgmSprite.play('open2');
+	// bgmSprite.play('open2');
 	$(".btn_bgm").on("click",function(){
 			playaudio(2);
 		if($(this).hasClass("on")){
