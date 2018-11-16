@@ -500,7 +500,7 @@ filter: brightness(1.2); }
 100% { transform:translate3d(-.05rem,0,0); }
 }
 .guide_wrap{ display:none;}
-.guide_small{ background:rgba(25,25,25,.9); background-repeat:no-repeat; background-position:center; background-size:100% 100%; border:.02rem #7d5b3c solid; border-radius:.05rem; color:#fff;font-size: .18rem; line-height: .26rem; padding:.1rem; animation:xuanfu 2.5s ease-in-out infinite; position:fixed; z-index: 999;}
+.guide_small{ background:rgba(25,25,25,.9); background-repeat:no-repeat; background-position:center; background-size:100% 100%; border:.02rem #7d5b3c solid; border-radius:.05rem; color:#fff;font-size: .18rem; line-height: .26rem; padding:.1rem; animation:xuanfu 2.5s ease-in-out infinite; position:fixed;}
 .guide_small .jiao{ display:block; position:absolute; right:-.1rem; top:.14rem; width:0; height:0; border-width:.1rem .0rem .1rem .1rem;border-style:dashed dashed dashed solid; border-color:transparent transparent transparent #7d5b3c;}
 .guide_small .jiao:after{ content:''; display:block; position:absolute; top:-.1rem; right:.02rem; width:0; height:0; border-width:.1rem .0rem .1rem .1rem; border-style:dashed dashed dashed solid; border-color:transparent transparent transparent #151515; }
 
