@@ -63,9 +63,10 @@
 	const bgmSprite = new Howl({
 	    src: ['audio/open2.mp3'],
 	    sprite: {
-	        open2: [0, 1900]
+	        open2: [0, 38995]
 	    },
 	    preload: true,
+	    loop:true,
 	    volume: 1
 	});
 	function playaudio(p){
