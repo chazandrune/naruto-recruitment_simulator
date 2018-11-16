@@ -41,29 +41,43 @@
 		window.attachEvent("onresize",adjust);
 	};
 	//音效开关
-	var mid = new Array();
-	mid[0]="audio/open2.mp3";
-	mid[1]="audio/smoke_2.mp3";
-	mid[2]="audio/menu_slct.mp3";
-	mid[3]="audio/menu_err.mp3";
-	mid[4]="audio/menu_cancel.mp3";
-	var audioid = 0;
+	// var mid = new Array();
+	// mid[0]="audio/open2.mp3";
+	// mid[1]="audio/smoke_2.mp3";
+	// mid[2]="audio/menu_slct.mp3";
+	// mid[3]="audio/menu_err.mp3";
+	// mid[4]="audio/menu_cancel.mp3";
+	// var audioid = 0;
+	// new 一个audioSprite实例，把合成的mp3里面的每段音效起始、持续时间赋值，并初始化好其他的属性。
+	const audioSprite = new Howl({
+	    src: ['audio/audiosprite.mp3'],
+	    sprite: {
+	        menu_cancel: [0, 1900],
+	        menu_err: [2289, 1965],
+	        menu_slct: [4254, 1642],
+	        smoke_2: [5896, 1568]
+	    },
+	    preload: true,
+	    volume: 1
+	});
 	function playaudio(p){
+		var canshu = p
 		if($(".btn_audio").hasClass("on")){
-			//$("#audios").append("<audio id='audio"+audioid+"' preload='auto' src="+mid[p]+"></audio>");
-			// var audio = $("#audios").find("audio");
-			// audio.attr('src', mid[p]);
-			// audio[0].play();
-			//audioid++;
-			if($("#audio"+p).hasClass("playing")){
-				$("#audio"+p).attr({'src':''});
-				$("#audio"+p)[0].pause();
-			}else{
-				$("#audio"+p).attr({'src':mid[p]});
-				$("#audio"+p)[0].play();
+			switch(canshu){
+				case 4:
+					audioSprite.play('menu_cancel');
+					break;
+				case 3:
+					audioSprite.play('menu_err');
+					break;
+				case 2:
+					audioSprite.play('menu_slct');
+					break;
+				case 1:
+					audioSprite.play('smoke_2');
+					break;
 			}
 			
-
 		}
 	}
 	$(".btn_audio").on("click",function(){
