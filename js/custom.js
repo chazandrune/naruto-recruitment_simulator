@@ -51,10 +51,19 @@
 	function playaudio(p){
 		if($(".btn_audio").hasClass("on")){
 			//$("#audios").append("<audio id='audio"+audioid+"' preload='auto' src="+mid[p]+"></audio>");
-			var audio = $("#audios").find("audio");
-			audio.attr('src', mid[p]);
-			audio[0].play();
+			// var audio = $("#audios").find("audio");
+			// audio.attr('src', mid[p]);
+			// audio[0].play();
 			//audioid++;
+			if($("#audio"+p).hasClass("playing")){
+				$("#audio"+p).attr({'src':''});
+				$("#audio"+p)[0].pause();
+			}else{
+				$("#audio"+p).attr({'src':mid[p]});
+				$("#audio"+p)[0].play();
+			}
+			
+
 		}
 	}
 	$(".btn_audio").on("click",function(){
