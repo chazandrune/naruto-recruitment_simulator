@@ -50,16 +50,17 @@
 	var audioid = 0;
 	function playaudio(p){
 		if($(".btn_audio").hasClass("on")){
-			$("#audios").append("<audio id='audio"+audioid+"' preload='auto' src="+mid[p]+"></audio>");
-			var audio = $("#audio"+audioid)[0];
-			audio.play();
-			audioid++;
+			//$("#audios").append("<audio id='audio"+audioid+"' preload='auto' src="+mid[p]+"></audio>");
+			var audio = $("#audios").find("audio");
+			audio.attr('src', mid[p]);
+			audio[0].play();
+			//audioid++;
 		}
 	}
 	$(".btn_audio").on("click",function(){
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
-			$("#audios").empty();
+			//$("#audios").empty();
 		}else{
 			$(this).addClass("on");
 			playaudio(2);
