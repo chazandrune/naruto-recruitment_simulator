@@ -191,8 +191,8 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .tongjilist_btns.on .btn_back{ right: 110%; left: -1000%; }
 
 .box{ position: fixed; top: 50%; margin-top: -2.4rem;  left: 0; right: 0; }
-.tishi{ text-align: center; height: 1.02rem; overflow: hidden;  }
-.tishi img{ display: none;  margin: 0 auto; width: 5.63rem; max-width: 100%;}
+.tishi{ text-align: center; height: 1rem; overflow: hidden;  }
+.tishi img{ display: none;  margin: 0 auto; width: auto; height: 100%; max-width: 100%;}
 .danchou .tishi img.tishi_01{ display: block;  }
 .danchou .tishi img.tishi_10{ display: none;  }
 .shilian .tishi img.tishi_10{ display: block; }

@@ -17,6 +17,11 @@
             $body.height(height);
             $body.css('transform' , 'none');
             $body.css('transform-origin' , '50% 50%');
+            //横屏下分辨率大于16:9（横向细长）的情况
+            //适配当下诸如iPhone X 19.488:9 以及其他Android 18:9/21:9的分辨率
+            if(width/height > 16/9){
+            	var fs = height*100/562;
+            }
         }
         else{
            //竖屏情况
@@ -32,6 +37,11 @@
             $body.css('left',  0-(height-width)/2 );
             $body.css('transform' , 'rotate(90deg)');
             $body.css('transform-origin' , '50% 50%');
+            //竖屏下分辨率大于16:9（竖向细长）的情况
+            //适配当下诸如iPhone X 19.488:9 以及其他Android 18:9/21:9的分辨率
+            if(height/width > 16/9){
+            	var fs = width*100/562;
+            }
         }
 		$('html').css('font-size',fs);
 	};
