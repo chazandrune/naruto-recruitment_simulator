@@ -116,7 +116,7 @@
 	// 背景音乐开关
 	// $("body").append("<audio id='bgm' preload='auto' loop='loop' src="+mid[0]+"></audio>");
 	// var bgm = $("#bgm")[0];
-	// bgmSprite.play('open2');
+	//bgmSprite.play('open2');
 	$(".btn_bgm").on("click",function(){
 			playaudio(2);
 		if($(this).hasClass("on")){
@@ -634,7 +634,7 @@ function A(){
 			$("#num_s").html(num_s);
 			num_s_new = num_s_new + num_this;
 			$("#num_s_new").html(num_s_new);
-			gongxi("#congratulation","恭喜你获得 <span>千手柱间碎片 × "+num_this+"</span>");
+			gongxi("#congratulation","恭喜你获得 <span>宇智波斑碎片 × "+num_this+"</span>");
 			sad = 0;
 			//return;
 		}else if(3.5 < raNum && raNum <= 15){
@@ -703,24 +703,24 @@ function A(){
 		showsad();
 		
 		//如果抽够50次会有A首付奖励出现
-		if(i>=50 && isaddsuipian_a == 0 ){
-			$(".btn_baoxiang_a").show(100);
-		}else{
-			$(".btn_baoxiang_a").hide(100);
-		}
+//		if(i>=50 && isaddsuipian_a == 0 ){
+//			$(".btn_baoxiang_a").show(100);
+//		}else{
+//			$(".btn_baoxiang_a").hide(100);
+//		}
 		//如果抽够100次会有S首付奖励出现
-		// if(i>=100 && isaddsuipian == 0 ){
-		// 	$(".btn_baoxiang").show(100);
-		// }else{
-		// 	$(".btn_baoxiang").hide(100);
-		// }
-		//如果照美冥碎片达到40 出现弹窗
-		if(num_a_new>=40 && istanchunewninja == 0 ){
-				playaudio(2);
-				gongxi("#congratulation","恭喜你成功招募 <span>照美冥[五代目水影]</span>");
-				$(".pop_newninja").addClass("on");
-				$(".pop_newninja").removeClass("zoomOut");
-				//$(".pop_mask").fadeIn(100);
-				istanchunewninja = 1;
+		if(i>=100 && isaddsuipian == 0 ){
+		 	$(".btn_baoxiang").show(100);
+		}else{
+		 	$(".btn_baoxiang").hide(100);
 		}
+		//如果照美冥碎片达到40 出现弹窗
+//		if(num_a_new>=40 && istanchunewninja == 0 ){
+//				playaudio(2);
+//				gongxi("#congratulation","恭喜你成功招募 <span>照美冥[五代目水影]</span>");
+//				$(".pop_newninja").addClass("on");
+//				$(".pop_newninja").removeClass("zoomOut");
+//				//$(".pop_mask").fadeIn(100);
+//				istanchunewninja = 1;
+//		}
 }

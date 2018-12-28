@@ -342,7 +342,7 @@ filter: brightness(1.2); }
 .icon.icon_a_new .img{ background-image:url(../images/charactors.png); background-size: 14.40rem 2.88rem; }
 .resultlist .item_s .img{  background-position: 0 0; }
 .resultlist .item_s .img1,
-.icon.icon_s_new .img{ background-position: -5.04rem 0;  }/*1,8  当前s忍者（千手柱间）*/
+.icon.icon_s_new .img{ background-position: -5.76rem 0;  }/*1,9  当前s忍者（宇智波斑）*/
 .resultlist .item_a .img{  background-position: 0rem -.72rem; }
 .resultlist .item_a .img1,
 .icon.icon_a_new .img{  background-position: -4.32rem -.72rem; }/*2,7 当前新a忍者（照美冥）*/
