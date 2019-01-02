@@ -248,6 +248,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_feed{ background-image:url(../images/feed.png); }
 .icon.icon_baoxiang{ background-image:url(../images/baoxiang.png); }
 .icon.icon_close{ background-image:url(../images/close.png); }
+.icon.icon_setninja{ background-image:url(../images/setninja.png); }
 .icon_checkbox{ background-image:url(../images/checkbox_off.png);}
 .on>.icon_checkbox{ background-image:url(../images/checkbox_on.png);}
 .biaoqing{ background: url(../images/biaoqing.png) no-repeat; background-size: 6.4rem .6rem; display: inline-block; width: .8rem; height: .6rem; vertical-align: middle; margin-bottom: .2rem; }
@@ -430,6 +431,60 @@ filter: brightness(1.2); }
 .pop_small .title .title_txt{ width: 56%; left:13%; }
 .pop_small .title .title_bg{ opacity: .6; }
 .pop_small .text_body{ left:.2rem; right:.2rem; bottom:.2rem;}
+.pop_setting .text_body .part_l{ position: absolute; right: 50%; top: 0; bottom: 0; left: 0; }
+.pop_setting .text_body .part_r{ position: absolute; left: 50%; top: 0; bottom: 0; right: 0; }
+.pop_setting .text_body .part_r .btns{ text-align: left; }
+/*音效开关*/
+.btn_switch,
+.btn_audio,
+.btn_bgm,
+.btn_bisong{ position:relative; cursor: pointer; display: inline-block; height: .6rem; line-height: .6rem; color: #000; font-size: .20rem;}
+.btn_switch .icon,
+.btn_audio .icon,
+.btn_bgm .icon,
+.btn_bisong .icon{ position:absolute; left: .1rem; top: 50%; margin-top: -.2rem;}
+.btn_switch .txt,
+.btn_audio .txt,
+.btn_bgm .txt,
+.btn_bisong .txt{ padding-left:.5rem; padding-right:.2rem;}
+.btn_audio.on {}
+.btns .btn_setninja{ position: relative; color: #faf3bc;}
+.btns .btn_setninja .icon{ height: .5rem; width: .5rem;line-height: .8rem; font-size: .18rem; position: absolute; left: .15rem; top: 50%; margin-top: -.25rem; }
+.btns .btn_setninja .txt{ padding-left: .5rem; }
+
+
+/*弹窗 忍者配置*/
+.pop_setninja{ width: 100%; height: 100%; left: 0; top: 0; right: 0; bottom: 0; background:rgba(0,0,0,.8);  }
+.pop_setninja .text_body{ position: absolute; left: 50%; top:50%; right:auto; bottom:auto; width:8rem; margin-left: -4rem; margin-top: -2.2rem;}
+.pop_setninja .text_body .hints_setninja{ color: #fff; position: absolute; right: 0; bottom: 0; line-height: .9rem; }
+.pop_setninja .tabbox{  width:100%;}
+.pop_setninja .tabbox .tabbox_hd{ height: .5rem; line-height: .5rem; font-size: 0; text-align:center; }
+.pop_setninja .tabbox .tabbox_hd .tabbox_hd_item{ color: #fffd78; display: inline-block; font-size:.20rem; padding: 0 .3rem; opacity: .5;  }
+.pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1;
+  transform: scale(1.2,1.2);
+  -webkit-transform: scale(1.2,1.2);
+  -o-webkit-transform: scale(1.2,1.2);
+  -moz-webkit-transform: scale(1.2,1.2);
+}
+.pop_setninja .tabbox .tabbox_bd{width:100%; height: 3rem; padding:.1rem 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem;}
+.pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow: auto; height: 3rem; }
+.pop_setninja .tabbox .tabbox_bd_item.active{ display: block; }
+.ninjalist {color: #fff; font-size: 0; width: 6.1rem;  margin: 0 auto; padding: .1rem 0;}
+.ninjalist .item_wrap{display:inline-block;width: 1rem;margin: .05rem .1rem; }
+.ninjalist .item{ width: .72rem; height: .72rem; padding: .03rem; background:url(../images/piece_bg_default.png) no-repeat center; background-size:100% 100%; position: relative; margin: 0 auto;  }
+.ninjalist .item .img{ display: block; width: .72rem; height: .72rem; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; position: absolute; left: 50%; top: 50%; margin-left:-.36rem; margin-top:-.36rem; }
+.ninjalist .item_wrap .item:after{content:''; display: none; position: absolute; width: .82rem; height: .82rem; left: 50%; top: 50%; margin-left: -.41rem; margin-top: -.41rem; background:url(../images/ninja_active.png); background-size: 100% 100%; }
+.ninjalist .item_wrap.active .item:after{ display: block; }
+.ninjalist .item .fg{display: block; width: 100%; height: 100%; position: absolute; left: 0; top: 0; background:url(../images/piece_fg_default.png) no-repeat center; background-size: 100% 100%;}
+.ninjalist .item .fg:after{content:''; display: block; position: absolute; left: .02rem; top: .02rem; }
+.ninjalist .item .img{ background-image:url(../images/charactors.png); background-size: 14.40rem 2.88rem; }
+.ninjalist .item .fg:after{ width: .30rem; height: .33rem; background-size: .30rem .33rem; }
+.tabbox_bd_item_s .ninjalist .item .fg:after{ background-image:url(../images/s.png); }
+.tabbox_bd_item_a .ninjalist .item .fg:after{ background-image:url(../images/a.png); }
+.tabbox_bd_item_b .ninjalist .item .fg:after{ background-image:url(../images/b.png); }
+.tabbox_bd_item_c .ninjalist .item .fg:after{ background-image:url(../images/c.png); }
+
+
 
 /*忍者分享图生成工具*/
 /*问卷调查按钮*/
@@ -477,20 +532,6 @@ filter: brightness(1.2); }
 .pop_newninja img{ display: block; min-height: 100px; border: 3px #fff solid; box-shadow: 0px 20px 30px -10px rgba(0,0,0,.5);    background: url(../images/loading.gif) no-repeat center; }
 
 
-/*音效开关*/
-.btn_switch,
-.btn_audio,
-.btn_bgm,
-.btn_bisong{ position:relative; cursor: pointer; display: inline-block; height: .6rem; line-height: .6rem; text-align: center;color: #000; font-size: .20rem;}
-.btn_switch .icon,
-.btn_audio .icon,
-.btn_bgm .icon,
-.btn_bisong .icon{ position:absolute; left: .1rem; top: 50%; margin-top: -.2rem;}
-.btn_switch .txt,
-.btn_audio .txt,
-.btn_bgm .txt,
-.btn_bisong .txt{ padding-left:.5rem; padding-right:.2rem;}
-.btn_audio.on {}
 
 /*指引*/
 @keyframes xuanfu

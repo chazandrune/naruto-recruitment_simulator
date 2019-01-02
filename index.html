@@ -22,6 +22,7 @@
 	</head>
 
 	<body>
+		<style type="text/css" id="ninjacss"></style>
 <div class="loadingbarbox"><div class="loadingline"></div></div>
     <!--[if lt IE 9]>
       <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
@@ -96,7 +97,7 @@
 
 
 <!-- 版本 -->
-		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.6</a></p></div>
+		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.7</a></p></div>
 <!-- main -->
 		<div class="box">
 			<div class="tishi">
@@ -147,7 +148,7 @@
         	<div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
             <div class="btn btn_setting ease1"><i class="icon icon_setting"></i></div>
             <div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
-			<!-- <div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div> -->
+			<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
         </div>
 <!-- 右上角图标容器 第2列 -->
         <div class="thebtns thebtns_02">
@@ -203,28 +204,195 @@
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
 <!-- 设置弹窗 -->
-		<div class="pop pop_small pop_setting animated zoomIn">
+		<div class="pop pop_big pop_setting animated zoomIn">
 			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_setting.png" alt="设置"></div>
 			<div class="text_wrap">
 				<div class="text_body">
-                    <!--音效开关-->
-                    <div class="btn btn_switch btn_bisong ease1 on">
-                        <i class="icon icon_checkbox"></i><span class="txt">10次必送S碎片(默认开启)</span>
-                    </div>
-                    <!-- <div class="btn btn_switch btn_sad ease1">
-                        <i class="icon icon_checkbox"></i><span class="txt">脸黑反馈</span>
-                    </div> -->
-                    <div class="btn btn_switch btn_audio ease1 on">
-                        <!-- <div id="audios" class="audios"></div> -->
-                        <i class="icon icon_checkbox"></i><span class="txt">音效</span>
-                    </div>
-                    <div class="btn btn_bgm ease3">
-                        <i class="icon icon_checkbox"></i><span class="txt">音乐</span>
-                    </div>
+                    <!--左-->
+                    <div class="part_l">
+	                    <div class="btn btn_switch btn_bisong ease1 on" style="display: none;">
+	                        <i class="icon icon_checkbox"></i><span class="txt">10次必送S碎片(默认开启)</span>
+	                    </div>
+	                    <div class="btn btn_switch btn_sad ease1" style="display: none;">
+	                        <i class="icon icon_checkbox"></i><span class="txt">脸黑反馈</span>
+	                    </div>
+	                    <div>
+	                    	<div class="btn btn_switch btn_audio ease1 on">
+		                        <i class="icon icon_checkbox"></i><span class="txt">音效</span>
+		                    </div>
+	                    </div>
+	                    <div>
+		                    <div class="btn btn_switch btn_bgm ease1">
+		                        <i class="icon icon_checkbox"></i><span class="txt">音乐</span>
+		                    </div>
+		                </div>
+	                    <div class="btn btn_switch btn_shoufu_s ease1">
+	                        <i class="icon icon_checkbox"></i><span class="txt">S首付奖励(高招100次出现)</span>
+	                    </div>
+	                    <div class="btn btn_switch btn_shoufu_a ease1">
+	                        <i class="icon icon_checkbox"></i><span class="txt">A首付奖励(高招50次出现)</span>
+	                    </div>
+                	</div>
+                	<div class="part_r">
+	                    <div class="btns">
+	                    	<div class="btn btn_setninja ease1" title="配置忍者"><i class="icon icon_setninja"></i><span class="txt">配置忍者</span></div>
+	                    </div>
+                	</div>
 				</div>
 			</div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
+<!-- 忍者配置弹窗 -->
+		<div class="pop pop_setninja animated zoomIn">
+			<div class="text_body">
+				<div class="tabbox">
+					<ul class="tabbox_hd">
+						<li class="tabbox_hd_item active">S级忍者</li>
+						<li class="tabbox_hd_item">A级忍者</li>
+					</ul>
+					<div class="tabbox_bd">
+						<div class="tabbox_bd_item tabbox_bd_item_s active">
+							<ul class="ninjalist">
+								<li class="item_wrap btn ease1 active" data-x="-5.76rem" data-y="0" data-name="宇智波斑">
+									<div class='item'>
+										<div class='img' style="background-position:-5.76rem 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-5.04rem" data-y="0" data-name="千手柱间">
+									<div class='item'>
+										<div class='img' style="background-position:-5.04rem 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-4.32rem" data-y="0" data-name="艾[四代目雷影]">
+									<div class='item'>
+										<div class='img' style="background-position:-4.32rem 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="0" data-y="0" data-name="佩恩[天道]">
+									<div class='item'>
+										<div class='img' style="background-position:0 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-0.72rem" data-y="0" data-name="纲手">
+									<div class='item'>
+										<div class='img' style="background-position:-0.72rem 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-1.44rem" data-y="0" data-name="千手扉间">
+									<div class='item'>
+										<div class='img' style="background-position:-1.44rem 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-2.16rem" data-y="0" data-name="自来也">
+									<div class='item'>
+										<div class='img' style="background-position:-2.16rem 0;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="tabbox_bd_item tabbox_bd_item_a">
+							<ul class="ninjalist">
+								<li class="item_wrap btn ease1 active" data-x="-4.32rem" data-y="-.72rem" data-name="照美冥[五代目水影]">
+									<div class='item'>
+										<div class='img' style="background-position:-4.32rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-2.88rem" data-y="-.72rem" data-name="宇智波佐助[万花筒写轮眼]">
+									<div class='item'>
+										<div class='img' style="background-position:-2.88rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
+									<div class='item'>
+										<div class='img' style="background-position:-.72rem -.72rem;"></div>
+										<div class='fg'></div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="btns"><div class="btn btn_done ease1" title="完成">完成</div></div>
+				<div class="hints_setninja">配置忍者会重置招募次数</div>
+			</div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+
 <!-- 首付S奖励 -->
         <div class="pop pop_big pop_baoxiang animated zoomIn">
 			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>

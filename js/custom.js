@@ -152,6 +152,30 @@
 		}
 	})
 
+	//S首付奖励开关
+	$(".btn_shoufu_s").on("click",function(){
+		playaudio(2);
+		if($(this).hasClass("on")){
+			$(this).removeClass("on");
+			ifshowshoufu_s();
+		}else{
+			$(this).addClass("on");
+			ifshowshoufu_s();
+		}
+	})
+
+	//A首付奖励开关
+	$(".btn_shoufu_a").on("click",function(){
+		playaudio(2);
+		if($(this).hasClass("on")){
+			$(this).removeClass("on");
+			ifshowshoufu_a();
+		}else{
+			$(this).addClass("on");
+			ifshowshoufu_a();
+		}
+	})
+
 	//统计数据收缩展开
 	$(".tongjilist_btns .btn").on('click',function(){
 		$(".tongjilist_btns").toggleClass("on");
@@ -302,13 +326,93 @@ var num_a_new = parseInt($("#num_a_new").html());
 var num_b = parseInt($("#num_b").html());
 var num_c = parseInt($("#num_c").html());
 //全局定义是否领取S首付奖励，初始状态为0
-var isaddsuipian = 0;
+var isaddsuipian_s = 0;
 //全局定义是否领取A首付奖励，初始状态为0
 var isaddsuipian_a = 0;
 //悲剧指数
 var sad = 0;
 //是否弹出过获得新忍者图 重置
 var istanchunewninja = 0;
+//全局定义新s名称、新a名称，默认给值为 当前忍者配置中默认选中的
+var name_s_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
+var name_a_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");;
+
+//忍者配置操作
+//tab切换
+$(".tabbox .tabbox_hd .tabbox_hd_item").on("click",function(){
+	playaudio(2);
+	var i = $(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".tabbox .tabbox_bd .tabbox_bd_item").eq(i).addClass("active").siblings().removeClass("active");
+})
+//定义几个暂存配置数据的变量，包含新S忍者头像的x坐标、y坐标、忍者名称，新A忍者头像的x坐标、y坐标、忍者名称
+var cache_s_x = $(".tabbox_bd_item_s .active").attr("data-x");
+var cache_s_y = $(".tabbox_bd_item_s .active").attr("data-y");
+var cache_s_name = $(".tabbox_bd_item_s .active").attr("data-name");
+var cache_a_x = $(".tabbox_bd_item_a .active").attr("data-x");
+var cache_a_y = $(".tabbox_bd_item_a .active").attr("data-y");
+var cache_a_name = $(".tabbox_bd_item_a .active").attr("data-name");
+console.log(cache_s_x+" "+cache_s_y+" "+cache_s_name+" "+cache_a_x+" "+cache_a_y+" "+cache_a_name);
+//选中忍者时，把数据存入到暂存变量中
+$(".pop_setninja .tabbox_bd_item_s .item_wrap").on("click",function(){
+	playaudio(2);
+	$(this).siblings().removeClass("active");
+	$(this).addClass("active");
+	cache_s_x = $(this).attr("data-x");
+	cache_s_y = $(this).attr("data-y");
+	cache_s_name = $(this).attr("data-name");
+})
+$(".pop_setninja .tabbox_bd_item_a .item_wrap").on("click",function(){
+	playaudio(2);
+	$(this).siblings().removeClass("active");
+	$(this).addClass("active");
+	cache_a_x = $(this).attr("data-x");
+	cache_a_y = $(this).attr("data-y");
+	cache_a_name = $(this).attr("data-name");
+})
+//忍者配置弹窗操作，除了控制弹窗的关闭外，还需要判断确认操作和放弃操作
+$(".btn_setninja,.pop_setninja .btn_close").on('click',function(){
+	if($(".pop_setninja").hasClass("on")){
+		//放弃配置忍者，重置暂存数据，默认回到第一个（需要注意的是默认最新忍者排在第一个，按照时间倒序排列忍者）
+		cache_s_x = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-x");
+		cache_s_y = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-y");
+		cache_s_name = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
+		$(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").addClass("active").siblings().removeClass("active");
+		cache_a_x = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-x");
+		cache_a_y = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-y");
+		cache_a_name = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-name");
+		$(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").addClass("active").siblings().removeClass("active");
+		$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
+		$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
+
+		playaudio(3);
+		$(".pop_setninja").addClass("zoomOut");
+		setTimeout(function(){
+			$(".pop_setninja").removeClass("on");
+		},500)
+	}else{
+		playaudio(2);
+		$(".pop_setninja").addClass("on");
+		$(".pop_setninja").removeClass("zoomOut");
+	}
+})
+$(".pop_setninja .btn_done").on('click',function(){
+		//配置忍者生效
+		name_s_new = cache_s_name;
+		name_a_new = cache_a_name;
+		$("#ninjacss").text(".resultlist .item_s .img1,.icon.icon_s_new .img{ background-position: "+cache_s_x+" "+cache_s_y+";}.resultlist .item_a .img1,.icon.icon_a_new .img{  background-position: "+cache_a_x+" "+cache_a_y+"; }");
+		$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
+		$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
+		chongzhi();
+
+		//关闭弹窗
+		playaudio(3);
+		$(".pop_setninja").addClass("zoomOut");
+		setTimeout(function(){
+			$(".pop_setninja").removeClass("on");
+		},500)
+})
+
 	
 //单抽操作
 $('#clik').on('click',function() {
@@ -341,7 +445,7 @@ $('#clik10').on('click',function() {
 	
 	playaudio(2);
 	$(".btns,.btn_setting").hide();
-	setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},3700);
+	//setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},3700);
 	$(".resultlist").html("");
 	$(".box").addClass("shilian");
 	$(".box").removeClass("danchou");
@@ -350,6 +454,7 @@ $('#clik10').on('click',function() {
 	var timer = setInterval(function() {    
 		if (repeat == 0) {
 			clearInterval(timer);
+			$(".btns,.btn_setting").fadeIn(100);
 		} else {
 			repeat--;
 			//判断抽次数个位是否为9
@@ -466,15 +571,23 @@ function showsad(){
 	}
 }
 
+//定义事件：是否出现S首付
+function ifshowshoufu_s(){
+	if(i>=100 && isaddsuipian_s == 0 && $(".btn_shoufu_s").hasClass("on")){
+		$(".btn_baoxiang").show(100);
+	}else{
+		$(".btn_baoxiang").hide(100);
+	}	
+}
 //领取S首付奖励
-function addsuipian(n){
+function addsuipian_s(n){
 	//增加s碎片数量
 	num_s = num_s + n;
 	num_s_new = num_s_new +n;
 	$("#num_s").html(num_s);
 	$("#num_s_new").html(num_s_new);
 	//是否领取s首付奖励状态变为1
-	isaddsuipian = 1;
+	isaddsuipian_s = 1;
 	//s首付弹窗消失
 	setTimeout(function(){
 		$(".pop_baoxiang").addClass("zoomOut");
@@ -486,15 +599,15 @@ function addsuipian(n){
 	//s首付奖励按钮消失
 	$(".btn_baoxiang").hide(100);
 	//恭喜文字提示
-	gongxi("#congratulation","已领取首付奖励 <span>S级忍者碎片 × "+n+"</span>");
+	gongxi("#congratulation","已领取首付奖励 <span>"+name_s_new+"碎片 × "+n+"</span>");
 }
 //V0-V4领取
 $("#baoxiang01").on('click',function(){
 	playaudio(3);
-	if(isaddsuipian == 0){
+	if(isaddsuipian_s == 0){
 		//宝箱变为打开状态
 		$(this).addClass("open");
-		addsuipian(25);	
+		addsuipian_s(25);	
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
@@ -502,10 +615,10 @@ $("#baoxiang01").on('click',function(){
 //V5-V9领取
 $("#baoxiang02").on('click',function(){
 	playaudio(3);
-	if(isaddsuipian == 0){
+	if(isaddsuipian_s == 0){
 		//宝箱变为打开状态
 		$(this).addClass("open");
-		addsuipian(28);	
+		addsuipian_s(28);	
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
@@ -513,10 +626,10 @@ $("#baoxiang02").on('click',function(){
 //V10-V14领取
 $("#baoxiang03").on('click',function(){
 	playaudio(3);
-	if(isaddsuipian == 0){
+	if(isaddsuipian_s == 0){
 		//宝箱变为打开状态
 		$(this).addClass("open");
-		addsuipian(33);	
+		addsuipian_s(33);	
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
@@ -524,15 +637,23 @@ $("#baoxiang03").on('click',function(){
 //V15领取
 $("#baoxiang04").on('click',function(){
 	playaudio(3);
-	if(isaddsuipian == 0){
+	if(isaddsuipian_s == 0){
 		//宝箱变为打开状态
 		$(this).addClass("open");
-		addsuipian(38);	
+		addsuipian_s(38);	
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
 })
 
+//定义事件：是否出现A首付
+function ifshowshoufu_a(){
+	if(i>=50 && isaddsuipian_a == 0 && $(".btn_shoufu_a").hasClass("on")){
+		$(".btn_baoxiang_a").show(100);
+	}else{
+		$(".btn_baoxiang_a").hide(100);
+	}	
+}
 //领取A首付奖励
 function addsuipian_a(n){
 	//增加a碎片数量
@@ -552,16 +673,8 @@ function addsuipian_a(n){
 	},1500)
 	//a首付奖励按钮消失
 	$(".btn_baoxiang_a").hide(100);
-	//如果照美冥碎片达到40 出现弹窗
-	if(num_a_new>=40 && istanchunewninja == 0 ){
-			playaudio(2);
-			$(".pop_newninja").addClass("on");
-			$(".pop_newninja").removeClass("zoomOut");
-			//$(".pop_mask").fadeIn(100);
-			istanchunewninja = 1;
-	}
 	//恭喜文字提示
-	gongxi("#congratulation","已领取首付奖励 <span>A级忍者碎片 × "+n+"</span>");
+	gongxi("#congratulation","已领取首付奖励 <span>"+name_a_new+"碎片 × "+n+"</span>");
 }
 //V0-V4领取
 $("#baoxiang_a01").on('click',function(){
@@ -609,6 +722,9 @@ $("#baoxiang_a04").on('click',function(){
 })
 
 
+
+
+
 //返回结果进入数据统计
 function A(){
 	
@@ -634,7 +750,7 @@ function A(){
 			$("#num_s").html(num_s);
 			num_s_new = num_s_new + num_this;
 			$("#num_s_new").html(num_s_new);
-			gongxi("#congratulation","恭喜你获得 <span>宇智波斑碎片 × "+num_this+"</span>");
+			gongxi("#congratulation","恭喜你获得 <span>"+name_s_new+"碎片 × "+num_this+"</span>");
 			sad = 0;
 			//return;
 		}else if(3.5 < raNum && raNum <= 15){
@@ -655,7 +771,7 @@ function A(){
 			//这里判断是否为新A，m值需要与css设定相对应，目前两a概率各50%
 			if(m == 1){
 				//是新a，恭喜公告出现，并且额外计入新a计数器
-				gongxi("#congratulation","恭喜你获得 <span>五代目水影碎片 × "+num_this+"</span>");
+				gongxi("#congratulation","恭喜你获得 <span>"+name_a_new+"碎片 × "+num_this+"</span>");
 				num_a_new = num_a_new + num_this;
 				$("#num_a_new").html(num_a_new);
 			}
@@ -702,22 +818,16 @@ function A(){
 		sad++;
 		showsad();
 		
-		//如果抽够50次会有A首付奖励出现
-//		if(i>=50 && isaddsuipian_a == 0 ){
-//			$(".btn_baoxiang_a").show(100);
-//		}else{
-//			$(".btn_baoxiang_a").hide(100);
-//		}
-		//如果抽够100次会有S首付奖励出现
-		if(i>=100 && isaddsuipian == 0 ){
-		 	$(".btn_baoxiang").show(100);
-		}else{
-		 	$(".btn_baoxiang").hide(100);
-		}
+		//事件：A首付奖励是否出现
+		ifshowshoufu_a();
+
+		//事件：S首付奖励是否出现
+		ifshowshoufu_s();
+
 		//如果照美冥碎片达到40 出现弹窗
 //		if(num_a_new>=40 && istanchunewninja == 0 ){
 //				playaudio(2);
-//				gongxi("#congratulation","恭喜你成功招募 <span>照美冥[五代目水影]</span>");
+//				gongxi("#congratulation","恭喜你成功招募 <span>"+name_a_new+"[五代目水影]</span>");
 //				$(".pop_newninja").addClass("on");
 //				$(".pop_newninja").removeClass("zoomOut");
 //				//$(".pop_mask").fadeIn(100);
