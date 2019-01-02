@@ -4,8 +4,8 @@
 	//分辨率适应及横屏竖屏处理
     var adjust = function(){
 		var width = document.documentElement.clientWidth;
-		var height =  document.documentElement.clientHeight;
-        $body =  $('body');
+		var height = document.documentElement.clientHeight;
+        $body = $('body');
         if( width > height ){
            //横屏情况
 			if($(window).innerWidth() < 900){
@@ -53,7 +53,7 @@
 	window.onresize = adjust;
 	if ((navigator.userAgent.indexOf('MSIE') >= 0)&& (navigator.userAgent.indexOf('Opera') < 0)){
 		window.attachEvent("onresize",adjust);
-	};
+	}
 	//音效开关
 	// var mid = new Array();
 	// mid[0]="audio/open2.mp3";
@@ -85,7 +85,7 @@
 	    volume: 1
 	});
 	function playaudio(p){
-		var canshu = p
+		var canshu = p;
 		if($(".btn_audio").hasClass("on")){
 			switch(canshu){
 				case 4:
@@ -105,20 +105,20 @@
 		}
 	}
 	$(".btn_audio").on("click",function(){
-		if($(this).hasClass("on")){
+		if ($(this).hasClass("on") ){
 			$(this).removeClass("on");
 			//$("#audios").empty();
 		}else{
 			$(this).addClass("on");
 			playaudio(2);
 		}
-	})
+	});
 	// 背景音乐开关
 	// $("body").append("<audio id='bgm' preload='auto' loop='loop' src="+mid[0]+"></audio>");
 	// var bgm = $("#bgm")[0];
 	//bgmSprite.play('open2');
 	$(".btn_bgm").on("click",function(){
-			playaudio(2);
+		playaudio(2);
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			bgmSprite.pause();
@@ -126,7 +126,7 @@
 			$(this).addClass("on");
 			bgmSprite.play('open2');
 		}
-	})
+	});
 	
 	//每10抽必送S级碎片开关
 	$(".btn_bisong").on("click",function(){
@@ -138,7 +138,7 @@
 			$(this).addClass("on");
 			chongzhi();
 		}
-	})
+	});
 	
 	//黑脸反馈开关
 	$(".btn_sad").on("click",function(){
@@ -150,7 +150,7 @@
 			$(this).addClass("on");
 			showsad();
 		}
-	})
+	});
 
 	//S首付奖励开关
 	$(".btn_shoufu_s").on("click",function(){
@@ -162,7 +162,7 @@
 			$(this).addClass("on");
 			ifshowshoufu_s();
 		}
-	})
+	});
 
 	//A首付奖励开关
 	$(".btn_shoufu_a").on("click",function(){
@@ -174,7 +174,7 @@
 			$(this).addClass("on");
 			ifshowshoufu_a();
 		}
-	})
+	});
 
 	//统计数据收缩展开
 	$(".tongjilist_btns .btn").on('click',function(){
@@ -190,14 +190,14 @@
 			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_notice").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_notice").addClass("on");
 			$(".pop_notice").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
 		}
-	})
+	});
 
 	//公众号弹窗
 	$(".jump_gzh,.pop_gzh .btn_close").on('click',function(){
@@ -206,13 +206,13 @@
 			$(".pop_gzh").addClass("zoomOut");
 			setTimeout(function(){
 				$(".pop_gzh").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_gzh").addClass("on");
 			$(".pop_gzh").removeClass("zoomOut");
 		}
-	})
+	});
 
 	//新忍者弹窗
 	$(".pop_newninja .btn_close").on('click',function(){
@@ -227,7 +227,7 @@
 			$(".pop_newninja").addClass("on");
 			$(".pop_newninja").removeClass("zoomOut");
 		}
-	})
+	});
 	
 	//信息弹窗
 	$(".btn_info,.pop_info .btn_close").on('click',function(){
@@ -237,14 +237,14 @@
 			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_info").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_info").addClass("on");
 			$(".pop_info").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
 		}
-	})
+	});
 	
 	//设置弹窗
 	$(".btn_setting,.pop_setting .btn_close").on('click',function(){
@@ -254,14 +254,14 @@
 			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_setting").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_setting").addClass("on");
 			$(".pop_setting").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
 		}
-	})
+	});
 	
 	//a首付奖励弹窗
 	$(".btn_baoxiang_a,.pop_baoxiang_a .btn_close").on('click',function(){
@@ -271,14 +271,14 @@
 			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_baoxiang_a").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_baoxiang_a").addClass("on");
 			$(".pop_baoxiang_a").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
 		}
-	})
+	});
 
 	//s首付奖励弹窗
 	$(".btn_baoxiang,.pop_baoxiang .btn_close").on('click',function(){
@@ -288,14 +288,14 @@
 			$(".pop_mask").fadeOut(100);
 			setTimeout(function(){
 				$(".pop_baoxiang").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_baoxiang").addClass("on");
 			$(".pop_baoxiang").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
 		}
-	})
+	});
 	
 	
 
@@ -335,7 +335,7 @@ var sad = 0;
 var istanchunewninja = 0;
 //全局定义新s名称、新a名称，默认给值为 当前忍者配置中默认选中的
 var name_s_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
-var name_a_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");;
+var name_a_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
 
 //忍者配置操作
 //tab切换
@@ -344,7 +344,7 @@ $(".tabbox .tabbox_hd .tabbox_hd_item").on("click",function(){
 	var i = $(this).index();
 	$(this).addClass("active").siblings().removeClass("active");
 	$(".tabbox .tabbox_bd .tabbox_bd_item").eq(i).addClass("active").siblings().removeClass("active");
-})
+});
 //定义几个暂存配置数据的变量，包含新S忍者头像的x坐标、y坐标、忍者名称，新A忍者头像的x坐标、y坐标、忍者名称
 var cache_s_x = $(".tabbox_bd_item_s .active").attr("data-x");
 var cache_s_y = $(".tabbox_bd_item_s .active").attr("data-y");
@@ -361,7 +361,7 @@ $(".pop_setninja .tabbox_bd_item_s .item_wrap").on("click",function(){
 	cache_s_x = $(this).attr("data-x");
 	cache_s_y = $(this).attr("data-y");
 	cache_s_name = $(this).attr("data-name");
-})
+});
 $(".pop_setninja .tabbox_bd_item_a .item_wrap").on("click",function(){
 	playaudio(2);
 	$(this).siblings().removeClass("active");
@@ -369,10 +369,10 @@ $(".pop_setninja .tabbox_bd_item_a .item_wrap").on("click",function(){
 	cache_a_x = $(this).attr("data-x");
 	cache_a_y = $(this).attr("data-y");
 	cache_a_name = $(this).attr("data-name");
-})
+});
 //忍者配置弹窗操作，除了控制弹窗的关闭外，还需要判断确认操作和放弃操作
 $(".btn_setninja,.pop_setninja .btn_close").on('click',function(){
-	if($(".pop_setninja").hasClass("on")){
+	if( $(".pop_setninja").hasClass("on") ){
 		//放弃配置忍者，重置暂存数据，默认回到第一个（需要注意的是默认最新忍者排在第一个，按照时间倒序排列忍者）
 		cache_s_x = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-x");
 		cache_s_y = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-y");
@@ -389,13 +389,13 @@ $(".btn_setninja,.pop_setninja .btn_close").on('click',function(){
 		$(".pop_setninja").addClass("zoomOut");
 		setTimeout(function(){
 			$(".pop_setninja").removeClass("on");
-		},500)
+		},500);
 	}else{
 		playaudio(2);
 		$(".pop_setninja").addClass("on");
 		$(".pop_setninja").removeClass("zoomOut");
 	}
-})
+});
 $(".pop_setninja .btn_done").on('click',function(){
 		//配置忍者生效
 		name_s_new = cache_s_name;
@@ -410,8 +410,8 @@ $(".pop_setninja .btn_done").on('click',function(){
 		$(".pop_setninja").addClass("zoomOut");
 		setTimeout(function(){
 			$(".pop_setninja").removeClass("on");
-		},500)
-})
+		},500);
+});
 
 	
 //单抽操作
@@ -458,7 +458,7 @@ $('#clik10').on('click',function() {
 		} else {
 			repeat--;
 			//判断抽次数个位是否为9
-			if($(".btn_bisong").hasClass("on")&& parseInt(i%10) == 9 ){
+			if( $(".btn_bisong").hasClass("on") && parseInt(i%10) == 9 ){
 				//必出S，让raNum在0~3.5范围内即可
 				raNum = 1;
 			}else{
@@ -512,7 +512,7 @@ $('#reset').on('click',function() {
 
 //输出碎片
 function writelog(a,j,h,m){
-	$(".resultlist").append("<div class='animated fadeIn item_wrap'><div class='item item_"+j+"'><div class='img img"+m+"'></div><div class='fg'><p class='num'>"+h+"</p></div><div class='yanwu'></div></div><p class='text'>"+a+"</p></div>")
+	$(".resultlist").append("<div class='animated fadeIn item_wrap'><div class='item item_"+j+"'><div class='img img"+m+"'></div><div class='fg'><p class='num'>"+h+"</p></div><div class='yanwu'></div></div><p class='text'>"+a+"</p></div>");
 	// console.log(m);
 	playaudio(1);
 }
@@ -536,7 +536,7 @@ function writebisong(){
 //恭喜提示
 function gongxi(obj,t){
 	$(obj).show("300");
-	$(obj).animate({opacity:0},00);
+	$(obj).animate({opacity:0},0);
 	$(obj).queue(function () {
 		$(this).html(t);
         $(this).dequeue();
@@ -558,7 +558,7 @@ function toast(obj,t){
 	$(obj).parent().fadeIn(0);
 	var timer = setTimeout(function(){
 		$(obj).parent().fadeOut(300);
-	},1000)
+	},1000);
 }
 
 //悲剧指数反馈
@@ -592,10 +592,10 @@ function addsuipian_s(n){
 	setTimeout(function(){
 		$(".pop_baoxiang").addClass("zoomOut");
 		$(".pop_mask").fadeOut(100);
-	},1000)
+	},1000);
 	setTimeout(function(){
 		$(".pop_baoxiang").removeClass("on");
-	},1500)
+	},1500);
 	//s首付奖励按钮消失
 	$(".btn_baoxiang").hide(100);
 	//恭喜文字提示
@@ -611,7 +611,7 @@ $("#baoxiang01").on('click',function(){
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
-})
+});
 //V5-V9领取
 $("#baoxiang02").on('click',function(){
 	playaudio(3);

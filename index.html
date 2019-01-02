@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
 		<script type="text/javascript" src="js/fastclick.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css?v=122601">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=010202">
 		<script type="text/javascript" src="js/preload.js?v=111603"></script>
 	</head>
 
@@ -35,7 +35,7 @@
 // loading
 	!(function(){
 		var imgPath = 'images/',
-			sourceArr = ['shareImage.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','baoxiang_big_01.png','baoxiang_big_02.png','baoxiang_big_03.png','baoxiang_big_04.png','baoxiang_big_01_open.png','baoxiang_big_02_open.png','baoxiang_big_03_open.png','baoxiang_big_04_open.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','feed.png','front.png','guide_bg.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.png','loading_bg.png','loading_new.png','ninja.png','notice.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','resultlist_bg.png','resultlist_bg2.png','s.png','setting.png','shoufujiangli_bg.png','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_info.png','title_notice.png','title_setting.png','title_shoufujiangli.png','v.png','yanwu.png','gongzhonghao_erweima.jpg','90061001_BG.png',];
+			sourceArr = ['shareImage.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','baoxiang_big_01.png','baoxiang_big_02.png','baoxiang_big_03.png','baoxiang_big_04.png','baoxiang_big_01_open.png','baoxiang_big_02_open.png','baoxiang_big_03_open.png','baoxiang_big_04_open.png','bg.png','bg_shu.png','biaoqing.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','feed.png','front.png','guide_bg.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.png','loading_bg.png','loading_new.png','ninja.png','ninja_active.png','notice.png','piece_bg.png','piece_bg_default.png','piece_fg.png','piece_fg_default.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','resultlist_bg.png','resultlist_bg2.png','s.png','setting.png','setninja.png','shoufujiangli_bg.png','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_info.png','title_notice.png','title_setting.png','title_shoufujiangli.png','v.png','yanwu.png','gongzhonghao_erweima.jpg','90061001_BG.png',];
 		loading();
 		function loading(){
 			for (var i = 0; i < sourceArr.length; i++) {
@@ -160,7 +160,7 @@
 <div class="pop_mask"></div>
 <!-- 重要通知 -->
 		<div class="pop pop_big pop_notice animated zoomIn">
-			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
+			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
 			<div class="text_wrap">
 				<div class="text_body">
 					<p><font color="#e94130"></font><font color="#6bd675"></font><!-- <i class="biaoqing biaoqing_07"></i> --></p>
@@ -181,7 +181,7 @@
 
 <!-- 关于弹窗 -->
 		<div class="pop pop_big pop_info animated zoomIn">
-			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_info.png" alt="信息"></div>
+			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_info.png" alt="信息"></div>
 			<div class="text_wrap">
 				<div class="text_body">
 					<p>各位忍者学员：</p>
@@ -205,7 +205,7 @@
 		</div>
 <!-- 设置弹窗 -->
 		<div class="pop pop_big pop_setting animated zoomIn">
-			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_setting.png" alt="设置"></div>
+			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_setting.png" alt="设置"></div>
 			<div class="text_wrap">
 				<div class="text_body">
                     <!--左-->
@@ -235,7 +235,7 @@
                 	</div>
                 	<div class="part_r">
 	                    <div class="btns">
-	                    	<div class="btn btn_setninja ease1" title="配置忍者"><i class="icon icon_setninja"></i><span class="txt">配置忍者</span></div>
+	                    	<div class="btn btn_setninja ease1" title="忍者配置"><i class="icon icon_setninja"></i><span class="txt">忍者配置</span></div>
 	                    </div>
                 	</div>
 				</div>
@@ -254,45 +254,63 @@
 						<div class="tabbox_bd_item tabbox_bd_item_s active">
 							<ul class="ninjalist">
 								<li class="item_wrap btn ease1 active" data-x="-5.76rem" data-y="0" data-name="宇智波斑">
-									<div class='item'>
-										<div class='img' style="background-position:-5.76rem 0;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-5.76rem 0;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 								<li class="item_wrap btn ease1" data-x="-5.04rem" data-y="0" data-name="千手柱间">
-									<div class='item'>
-										<div class='img' style="background-position:-5.04rem 0;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-5.04rem 0;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 								<li class="item_wrap btn ease1" data-x="-4.32rem" data-y="0" data-name="艾[四代目雷影]">
-									<div class='item'>
-										<div class='img' style="background-position:-4.32rem 0;"></div>
-										<div class='fg'></div>
-									</div>
-								</li>
-								<li class="item_wrap btn ease1" data-x="0" data-y="0" data-name="佩恩[天道]">
-									<div class='item'>
-										<div class='img' style="background-position:0 0;"></div>
-										<div class='fg'></div>
-									</div>
-								</li>
-								<li class="item_wrap btn ease1" data-x="-0.72rem" data-y="0" data-name="纲手">
-									<div class='item'>
-										<div class='img' style="background-position:-0.72rem 0;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-4.32rem 0;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 								<li class="item_wrap btn ease1" data-x="-1.44rem" data-y="0" data-name="千手扉间">
-									<div class='item'>
-										<div class='img' style="background-position:-1.44rem 0;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-1.44rem 0;"></div>
+										<div class="fg"></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-7.92rem" data-y="0" data-name="神秘面具男">
+									<div class="item">
+										<div class="img" style="background-position:-7.92rem 0;"></div>
+										<div class="fg"></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-8.64rem" data-y="0" data-name="宇智波鼬[须佐能乎]">
+									<div class="item">
+										<div class="img" style="background-position:-8.64rem 0;"></div>
+										<div class="fg"></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="0" data-y="0" data-name="佩恩[天道]">
+									<div class="item">
+										<div class="img" style="background-position:0 0;"></div>
+										<div class="fg"></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-6.48rem" data-y="0" data-name="波风水门">
+									<div class="item">
+										<div class="img" style="background-position:-6.48rem 0;"></div>
+										<div class="fg"></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-7.2rem" data-y="0" data-name="大蛇丸">
+									<div class="item">
+										<div class="img" style="background-position:-7.2rem 0;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 								<li class="item_wrap btn ease1" data-x="-2.16rem" data-y="0" data-name="自来也">
-									<div class='item'>
-										<div class='img' style="background-position:-2.16rem 0;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-2.16rem 0;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 							</ul>
@@ -300,87 +318,63 @@
 						<div class="tabbox_bd_item tabbox_bd_item_a">
 							<ul class="ninjalist">
 								<li class="item_wrap btn ease1 active" data-x="-4.32rem" data-y="-.72rem" data-name="照美冥[五代目水影]">
-									<div class='item'>
-										<div class='img' style="background-position:-4.32rem -.72rem;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-4.32rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 								<li class="item_wrap btn ease1" data-x="-2.88rem" data-y="-.72rem" data-name="宇智波佐助[万花筒写轮眼]">
-									<div class='item'>
-										<div class='img' style="background-position:-2.88rem -.72rem;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-2.88rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+									<div class="item">
+										<div class="img" style="background-position:-.72rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-12.96rem" data-y="-.72rem" data-name="漩涡鸣人[仙人模式]">
+									<div class="item">
+										<div class="img" style="background-position:-12.96rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-15.12rem" data-y="-.72rem" data-name="旗木卡卡西[万花筒写轮眼]">
+									<div class="item">
+										<div class="img" style="background-position:-15.12rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-14.4rem" data-y="-.72rem" data-name="宇智波止水">
+									<div class="item">
+										<div class="img" style="background-position:-14.4rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-12.24rem" data-y="-.72rem" data-name="小南">
+									<div class="item">
+										<div class="img" style="background-position:-12.24rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-8.64rem" data-y="-.72rem" data-name="迪达拉">
+									<div class="item">
+										<div class="img" style="background-position:-8.64rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-6.48rem" data-y="-.72rem" data-name="宇智波鼬">
+									<div class="item">
+										<div class="img" style="background-position:-6.48rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
-									</div>
-								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
-									</div>
-								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
-									</div>
-								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
-									</div>
-								</li>
-								<li class="item_wrap btn ease1" data-x="-.72rem" data-y="-.72rem" data-name="奇拉比">
-									<div class='item'>
-										<div class='img' style="background-position:-.72rem -.72rem;"></div>
-										<div class='fg'></div>
+								<li class="item_wrap btn ease1" data-x="-5.76rem" data-y="-.72rem" data-name="迈特凯">
+									<div class="item">
+										<div class="img" style="background-position:-5.76rem -.72rem;"></div>
+										<div class="fg"></div>
 									</div>
 								</li>
 							</ul>
@@ -395,7 +389,7 @@
 
 <!-- 首付S奖励 -->
         <div class="pop pop_big pop_baoxiang animated zoomIn">
-			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>
+			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>
 			<div class="text_wrap">
             	<div class="text_body">
 					<p>请根据自己的V等级领取相应的奖励</p>
@@ -438,7 +432,7 @@
         </div>
 <!-- 首付A奖励 -->
         <div class="pop pop_big pop_baoxiang_a animated zoomIn">
-			<div class="title"><img class="title_bg" src="images/title_bg.png"><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>
+			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_shoufujiangli.png" alt="首付奖励"></div>
 			<div class="text_wrap">
             	<div class="text_body">
 					<p>请根据自己的V等级领取相应的奖励</p>
@@ -481,12 +475,12 @@
         </div>
 <!-- 公众号弹窗 -->
 		<div class="pop pop_gzh animated zoomIn">
-			<div class="text_body"><p></p><img src="images/gongzhonghao_erweima.jpg" /></div>
+			<div class="text_body"><p></p><img src="images/gongzhonghao_erweima.jpg" alt="公众号二维码"></div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
 <!-- 新忍者弹窗 -->
 		<div class="pop pop_newninja animated bounceIn">
-			<div class="text_body"><p></p><img src="images/90061001_BG.png" /></div>
+			<div class="text_body"><p></p><img src="images/90061001_BG.png" alt="照美冥招募图"></div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
 
@@ -502,7 +496,7 @@
 	</body>
 </html>
 <script type="text/javascript" src="js/howler.core.min.js"></script>
-<script type="text/javascript" src="js/custom.js?v=122601"></script>
+<script type="text/javascript" src="js/custom.js?v=010202"></script>
 
 
 <!-- 流量统计 -->
