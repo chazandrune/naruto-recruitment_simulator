@@ -499,13 +499,16 @@ function chongzhi(){
 	num_b = 0;
 	num_c = 0;
 	//是否领取首付 重置
-	isaddsuipian = 0;
+	isaddsuipian_s = 0;
 	isaddsuipian_a = 0;
 	//首付奖励宝箱变为关闭外观
 	$(".baoxianglist .item").removeClass("open");
 	sad = 0;
 	//是否弹出过获得新忍者图 重置
 	istanchunewninja = 0;
+	//重新判断首付奖励按钮是否出现
+	ifshowshoufu_s();
+	ifshowshoufu_a();
 }
 $('#reset').on('click',function() {
 	playaudio(4);
