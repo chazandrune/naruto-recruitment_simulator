@@ -297,7 +297,10 @@
 		}
 	});
 	
-	
+	//指引提示，点击关闭
+	$(".guide_wrap").on('click',function(){
+		$(this).hide(500);
+	});
 
 
 
