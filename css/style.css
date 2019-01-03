@@ -4,8 +4,8 @@
     src: url("FZYHJW.eot");
     src: url("FZYHJW.eot?#ie/*fix") format("embedded-opentype"),
     url("FZYHJW.woff") format("woff"),
-    url("FZYHJW.ttf") format("truetype"),
-    url("FZYHJW.svg#FZYHJW") format("svg");
+    url("FZYHJW.ttf") format("truetype")/*,
+    url("FZYHJW.svg#FZYHJW") format("svg")*/;
     font-style: normal;
     font-weight: normal;
 }
