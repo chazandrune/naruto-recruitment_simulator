@@ -359,7 +359,7 @@ var cache_s_name = $(".tabbox_bd_item_s .active").attr("data-name");
 var cache_a_x = $(".tabbox_bd_item_a .active").attr("data-x");
 var cache_a_y = $(".tabbox_bd_item_a .active").attr("data-y");
 var cache_a_name = $(".tabbox_bd_item_a .active").attr("data-name");
-console.log(cache_s_x+" "+cache_s_y+" "+cache_s_name+" "+cache_a_x+" "+cache_a_y+" "+cache_a_name);
+console.log("当前高招S忍者为"+cache_s_x+"，"+cache_s_y+"，"+cache_s_name+"当前高招A忍者为"+cache_a_x+"，"+cache_a_y+"，"+cache_a_name);
 //选中忍者时，把数据存入到暂存变量中
 $(".pop_setninja .tabbox_bd_item_s .item_wrap").on("click",function(){
 	playaudio(2);

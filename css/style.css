@@ -337,7 +337,7 @@ filter: brightness(1.2); }
 .resultlist .item .fg{display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; background-image: url(../images/piece_fg.png); position: absolute; left: 0; top: 0;  }
 .resultlist .item .fg:after{content:''; display: block; position: absolute; left: .02rem; bottom: .02rem; }
 .resultlist .item .fg .num{ display: block; position: absolute; right: .02rem; bottom: .02rem; font-size: .18rem; text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; font-weight: bold; }
-.resultlist .text{ font-size: .16rem;line-height: .30rem;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; text-align: center; }
+.resultlist .text{ font-size: .16rem;line-height: .30rem;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; text-align: center; white-space: nowrap; }
 .resultlist .item .img,
 .icon.icon_s_new .img,
 .icon.icon_a_new .img{ background-image:url(../images/charactors.png); background-size: 72.00rem 3.60rem; }
