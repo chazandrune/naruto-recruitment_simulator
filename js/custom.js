@@ -5,13 +5,14 @@
     var adjust = function(){
 		var width = document.documentElement.clientWidth;
 		var height = document.documentElement.clientHeight;
+		var fs = 100;
         $body = $('body');
         if( width > height ){
            //横屏情况
 			if($(window).innerWidth() < 900){
-				var fs = $(window).innerWidth()*100/900;
+				fs = $(window).innerWidth()*100/900;
 			}else{
-				var fs = 900*100/900;
+				fs = 900*100/900;
 			}
             $body.width(width);
             $body.height(height);
@@ -21,16 +22,16 @@
 	            //横屏下分辨率大于16:9（横向细长）的情况
 	            //适配当下诸如iPhone X 19.488:9 以及其他Android 18:9/21:9的分辨率
 	            if(width/height > 16/9){
-	            	var fs = height*100/562;
+	            	fs = height*100/562;
 	            }
 			}
         }
         else{
            //竖屏情况
 			if(height < 900){
-				var fs = height*100/900;
+				fs = height*100/900;
 			}else{
-				var fs = 900*100/900;
+				fs = 900*100/900;
 			}
             $body.width(height);
             $body.height(width);
@@ -43,7 +44,7 @@
 	            //竖屏下分辨率大于16:9（竖向细长）的情况
 	            //适配当下诸如iPhone X 19.488:9 以及其他Android 18:9/21:9的分辨率
 	            if(height/width > 16/9){
-	            	var fs = width*100/562;
+	            	fs = width*100/562;
 	            }
 			}
         }
@@ -63,7 +64,7 @@
 	// mid[4]="audio/menu_cancel.mp3";
 	// var audioid = 0;
 	// new 一个audioSprite实例，把合成的mp3里面的每段音效起始、持续时间赋值，并初始化好其他的属性。
-	const audioSprite = new Howl({
+	var audioSprite = new Howl({
 	    src: ['audio/audiosprite.mp3'],
 	    sprite: {
 	        menu_cancel: [0, 1900],
@@ -75,7 +76,7 @@
 	    volume: 1
 	});
 	// new 一个bgmSprite实例，背景音乐mp3里面的每段音效起始、持续时间赋值，并初始化好其他的属性。
-	const bgmSprite = new Howl({
+	var bgmSprite = new Howl({
 	    src: ['audio/open2.mp3'],
 	    sprite: {
 	        open2: [0, 38995]
@@ -85,9 +86,9 @@
 	    volume: 1
 	});
 	function playaudio(p){
-		var canshu = p;
+		//var canshu = p;
 		if($(".btn_audio").hasClass("on")){
-			switch(canshu){
+			switch(p){
 				case 4:
 					audioSprite.play('menu_cancel');
 					break;
@@ -151,6 +152,18 @@
 			showsad();
 		}
 	});
+	
+	//页面加载完毕执行，判断左侧统计橱窗中央是否显示当前高招忍者碎片
+	if($(".btn_shoufu_s").hasClass("on")){
+		$("#for_new_s").show();
+	}else{
+		$("#for_new_s").hide();
+	}
+	if($(".btn_shoufu_a").hasClass("on")){
+		$("#for_new_a").show();
+	}else{
+		$("#for_new_a").hide();
+	}
 
 	//S首付奖励开关
 	$(".btn_shoufu_s").on("click",function(){
@@ -158,10 +171,12 @@
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			ifshowshoufu_s();
+			//联动判断是否显示当前高招忍者碎片数目
 			$("#for_new_s").hide();
 		}else{
 			$(this).addClass("on");
 			ifshowshoufu_s();
+			//联动判断是否显示当前高招忍者碎片数目
 			$("#for_new_s").show();
 		}
 	});
@@ -172,10 +187,12 @@
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			ifshowshoufu_a();
+			//联动判断是否显示当前高招忍者碎片数目
 			$("#for_new_a").hide();
 		}else{
 			$(this).addClass("on");
 			ifshowshoufu_a();
+			//联动判断是否显示当前高招忍者碎片数目
 			$("#for_new_a").show();
 		}
 	});
@@ -185,7 +202,7 @@
 		$(".tongjilist_btns").toggleClass("on");
 		$(".tongjilist_wrap").toggleClass("on");
 		playaudio(2);
-	})
+	});
 	//公告弹窗
 	$(".btn_notice,.pop_notice .btn_close").on('click',function(){
 		if($(".pop_notice").hasClass("on")){
@@ -225,7 +242,7 @@
 			$(".pop_newninja").addClass("zoomOut");
 			setTimeout(function(){
 				$(".pop_newninja").removeClass("on");
-			},500)
+			},500);
 		}else{
 			playaudio(2);
 			$(".pop_newninja").addClass("on");
@@ -632,7 +649,7 @@ $("#baoxiang02").on('click',function(){
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
-})
+});
 //V10-V14领取
 $("#baoxiang03").on('click',function(){
 	playaudio(3);
@@ -643,7 +660,7 @@ $("#baoxiang03").on('click',function(){
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
-})
+});
 //V15领取
 $("#baoxiang04").on('click',function(){
 	playaudio(3);
@@ -654,7 +671,7 @@ $("#baoxiang04").on('click',function(){
 	}else{
 		toast("#toast","首付奖励只能领取一次！");
 	}
-})
+});
 
 //定义事件：是否出现A首付
 function ifshowshoufu_a(){
@@ -677,10 +694,10 @@ function addsuipian_a(n){
 	setTimeout(function(){
 		$(".pop_baoxiang_a").addClass("zoomOut");
 		$(".pop_mask").fadeOut(100);
-	},1000)
+	},1000);
 	setTimeout(function(){
 		$(".pop_baoxiang_a").removeClass("on");
-	},1500)
+	},1500);
 	//a首付奖励按钮消失
 	$(".btn_baoxiang_a").hide(100);
 	//恭喜文字提示

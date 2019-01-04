@@ -462,12 +462,9 @@ filter: brightness(1.2); }
 .pop_setninja .text_wrap .hints_setninja{ color: #fff; position: absolute; right: 0; top: 0; line-height: .5rem; font-size: .18rem; }
 .pop_setninja .tabbox{  width:100%;}
 .pop_setninja .tabbox .tabbox_hd{ height: .5rem; line-height: .5rem; font-size: 0; }
-.pop_setninja .tabbox .tabbox_hd .tabbox_hd_item{ color: #fffd78; display: inline-block; font-size:.22rem; padding: 0 .3rem; opacity: .5; cursor: pointer;  }
-.pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1;
-  -webkit-transform: scale(1.2,1.2);
-  transform: scale(1.2,1.2);
-  -o-webkit-transform: scale(1.2,1.2);
-  -moz-webkit-transform: scale(1.2,1.2);
+.pop_setninja .tabbox .tabbox_hd .tabbox_hd_item{ color: #fffd78; display: inline-block; font-size:.2rem; text-align: center;  cursor: pointer; opacity: .5; padding: 0 .3rem;}
+.pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1; 
+	-webkit-transform: scale(1.2,1.2); transform: scale(1.2,1.2);-o-webkit-transform: scale(1.2,1.2);-moz-webkit-transform: scale(1.2,1.2);
 }
 .pop_setninja .tabbox .tabbox_bd{width:100%; height: 3rem; padding:.1rem 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem;}
 .pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow: auto; height: 3rem; }
