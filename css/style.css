@@ -461,7 +461,7 @@ filter: brightness(1.2); }
 .pop_setninja .text_wrap{ position: absolute; left: 50%; top:50%; right:auto; bottom:auto; width:8rem; margin-left: -4rem; margin-top: -2.2rem;}
 .pop_setninja .text_wrap .hints_setninja{ color: #fff; position: absolute; right: 0; top: 0; line-height: .5rem; font-size: .18rem; }
 .pop_setninja .tabbox{  width:100%;}
-.pop_setninja .tabbox .tabbox_hd{ height: .5rem; line-height: .5rem; font-size: 0; }
+.pop_setninja .tabbox .tabbox_hd{ height: .5rem; line-height: .5rem; font-size: 0; padding-left: .2rem; }
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item{ color: #fffd78; display: inline-block; font-size:.2rem; text-align: center;  cursor: pointer; opacity: .5; padding: 0 .3rem;}
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1; 
 	-webkit-transform: scale(1.2,1.2); transform: scale(1.2,1.2);-o-webkit-transform: scale(1.2,1.2);-moz-webkit-transform: scale(1.2,1.2);

@@ -428,6 +428,7 @@ $(".pop_setninja .btn_done").on('click',function(){
 		$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
 		$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
 		chongzhi();
+		toast("#toast","招募次数已重置！");
 
 		//关闭弹窗
 		playaudio(3);
