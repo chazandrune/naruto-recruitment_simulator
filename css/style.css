@@ -237,6 +237,10 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_a_new .img{ position:absolute; left:50%; top:50%; margin-left:-.36rem; margin-top:-.36rem; background-repeat:no-repeat; background-position:center; background-size:100% 100%; display:block; width:.72rem; height:.72rem;}
 .icon.icon_s_new .fg,
 .icon.icon_a_new .fg{display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; background-image: url(../images/piece_fg.png); position: absolute; left: 0; top: 0;}
+/*.icon.icon_s_new .fg:after,
+.icon.icon_a_new .fg:after{content:''; display: block; position: absolute; left: .02rem; top: .02rem; width: .30rem; height: .33rem; background-size: .30rem .33rem;}
+.icon.icon_s_new .fg:after{background-image:url(../images/s.png);}
+.icon.icon_a_new .fg:after{background-image:url(../images/a.png);}*/
 .icon.icon_b{ background-image:url(../images/b.png); }
 .icon.icon_c{ background-image:url(../images/c.png); }
 .icon.icon_back{ background-image:url(../images/back.png); }
@@ -335,7 +339,7 @@ filter: brightness(1.2); }
 .resultlist .item{ width: .72rem; height: .72rem; padding: .03rem; background:url(../images/piece_bg.png) no-repeat center; background-size:100% 100%; position: relative; margin: 0 auto;  }
 .resultlist .item .img{ display: block; width: .72rem; height: .72rem; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; position: absolute; left: 50%; top: 50%; margin-left:-.36rem; margin-top:-.36rem; }
 .resultlist .item .fg{display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; background-image: url(../images/piece_fg.png); position: absolute; left: 0; top: 0;  }
-.resultlist .item .fg:after{content:''; display: block; position: absolute; left: .02rem; bottom: .02rem; }
+.resultlist .item .fg:after{content:''; display: block; position: absolute; left: .02rem; bottom: .02rem; width: .30rem; height: .33rem; background-size: .30rem .33rem;}
 .resultlist .item .fg .num{ display: block; position: absolute; right: .02rem; bottom: .02rem; font-size: .18rem; text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; font-weight: bold; }
 .resultlist .text{ font-size: .16rem;line-height: .30rem;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; text-align: center; white-space: nowrap; }
 .resultlist .item .img,
@@ -368,7 +372,6 @@ filter: brightness(1.2); }
 .resultlist .item_c .img10{  background-position: -6.48rem -2.16rem; }/*4,10 c忍者10（小樱）*/
 .resultlist .item_c .img11{  background-position: -10.08rem -2.16rem; }/*4,15 c忍者11（萨克镫）*/
 .resultlist .item_c .img12{  background-position: -7.2rem -2.16rem; }/*4,11 c忍者12（静音）*/
-.resultlist .item .fg:after{ width: .30rem; height: .33rem; background-size: .30rem .33rem; }
 .resultlist .item_s .fg:after{ background-image:url(../images/s.png); }
 .resultlist .item_a .fg:after{ background-image:url(../images/a.png); }
 .resultlist .item_b .fg:after{ background-image:url(../images/b.png); }
@@ -469,8 +472,8 @@ filter: brightness(1.2); }
 .pop_setninja .tabbox .tabbox_bd{width:100%; height: 3rem; padding:.1rem 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem;}
 .pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow: auto; height: 3rem; }
 .pop_setninja .tabbox .tabbox_bd_item.active{ display: block; }
-.ninjalist {color: #fff; font-size: 0; width: 6.1rem;  margin: 0 auto; padding: .1rem 0;}
-.ninjalist .item_wrap{display:inline-block;width: 1rem;margin: .05rem .1rem; cursor: pointer;  }
+.ninjalist {color: #fff; font-size: 0; width: 6.1rem;  margin: 0 auto; padding: 0rem 0;}
+.ninjalist .item_wrap{display:inline-block;width: 0.8rem;margin: .1rem .1rem; cursor: pointer;  }
 .ninjalist .item{ width: .72rem; height: .72rem; padding: .03rem; background:url(../images/piece_bg_default.png) no-repeat center; background-size:100% 100%; position: relative; margin: 0 auto;  }
 .ninjalist .item .img{ display: block; width: .72rem; height: .72rem; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; position: absolute; left: 50%; top: 50%; margin-left:-.36rem; margin-top:-.36rem; }
 .ninjalist .item_wrap .item:after{content:''; display: none; position: absolute; width: .82rem; height: .82rem; left: 50%; top: 50%; margin-left: -.41rem; margin-top: -.41rem; background:url(../images/ninja_active.png); background-size: 100% 100%; }
