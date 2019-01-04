@@ -158,9 +158,11 @@
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			ifshowshoufu_s();
+			$("#for_new_s").hide();
 		}else{
 			$(this).addClass("on");
 			ifshowshoufu_s();
+			$("#for_new_s").show();
 		}
 	});
 
@@ -170,9 +172,11 @@
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			ifshowshoufu_a();
+			$("#for_new_a").hide();
 		}else{
 			$(this).addClass("on");
 			ifshowshoufu_a();
+			$("#for_new_a").show();
 		}
 	});
 
