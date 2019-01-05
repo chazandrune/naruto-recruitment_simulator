@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="icon" type="image/png" href="">
+<link rel="icon" type="image/png" href="images/ninja.png">
 <title>恭喜我招募新忍者</title>
 <meta name="description" content="虽然我没有这个忍者，但是我可以假装有啊，火影忍者手游招募新忍者分享图生成器来啦">
 <meta name="keywords" content="火影新忍者，招募新忍者，分享图生成,新忍者分享,恭喜获得新忍者,新忍者分享图，火影忍者手游招募新忍者，火影手游新忍者">
@@ -211,24 +211,24 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 <div class="container_box_scroll">
 <div class="container">
     <ul class="thepic" id="thepic">
-        <li class="bg_share"><img src="images/bg_share.png"></li>
+        <li class="bg_share"><img src="images/bg_share.png" alt="背景图"></li>
         <!--忍者立绘-->
-        <li class="ninja_avatar"><img src="images/ninja/ninja_avatar_01.png"></li>
+        <li class="ninja_avatar"><img src="images/ninja/ninja_avatar_01.png" alt="鹰佐立绘"></li>
         <!--忍者名称-->
-        <li class="ninja_name"><img src="images/ninja/ninja_name_01.png"></li>
-        <li class="txt_wode"><img src="images/txt_wode.png"></li>
+        <li class="ninja_name"><img src="images/ninja/ninja_name_01.png" alt="鹰佐文字"></li>
+        <li class="txt_wode"><img src="images/txt_wode.png" alt="我的第几个忍者文字"></li>
         <!--这是我的第几个忍者-->
         <li class="txt_wode_num" id="txt_wode_num">
-            <img src="images/1.png"><img src="images/0.png"><img src="images/0.png">
+            <img src="images/1.png" alt="1"><img src="images/0.png" alt="0"><img src="images/0.png" alt="0">
         </li>
-        <li class="txt_chenggong"><img src="images/txt_chenggong.png"></li>
+        <li class="txt_chenggong"><img src="images/txt_chenggong.png" alt="成功招募什么级别忍者文字"></li>
         <!--忍者等级-->
-        <li class="txt_chenggong_rank"><img src="images/rank_a.png"></li>
-        <li class="bg_huaban"><img src="images/bg_huaban.png"></li>
-        <li class="logo_naruto"><img src="images/logo_naruto.png"></li>
+        <li class="txt_chenggong_rank"><img src="images/rank_a.png" alt="A级文字"></li>
+        <li class="bg_huaban"><img src="images/bg_huaban.png" alt="花瓣"></li>
+        <li class="logo_naruto"><img src="images/logo_naruto.png" alt="logo"></li>
         <!--用户信息-->
         <li class="user_info">
-        	<div class="avatar"><img id="user_avatar" class="user_avatar" src="images/user_avatar.png"></div>
+        	<div class="avatar"><img id="user_avatar" class="user_avatar" src="images/user_avatar.png" alt="用户头像"></div>
             <div class="user_txt"><p class="level">lv.<span id="level">128</span></p><p class="nickname" id="nickname">某熊</p></div>
         </li>
     </ul>
@@ -266,7 +266,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
                 </div>
                 <div class="form_item">
                 	<label class="dt">玩家头像</label>
-                    <div class="dd"><div class="btn_upload"><img id="user_avatar2" src=""><a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a></div></div>
+                    <div class="dd"><div class="btn_upload"><img id="user_avatar2" src="" alt="用户头像"><a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a></div></div>
                 </div>
                 <div class="form_item">
                 	<label class="dt">玩家昵称</label>
@@ -306,7 +306,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 
 <!--存放导出图片的容器-->
 <div class="pop pop_resultpic animated zoomIn">
-<div class="imgbox"><img id="avatar_import" src="" style="width:100%; height:auto;"></div>
+<div class="imgbox"><img id="avatar_import" src="" style="width:100%; height:auto;" alt="导出图像"></div>
 <div class="btns"><a class="btn btn_reset ease1" href="ninjashare.html">重来一次</a></div>
 <p class="hints phone">长按图片保存或者发送给朋友</p>
 <p class="hints pc">右键图片保存</p>
