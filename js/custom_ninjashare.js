@@ -200,19 +200,84 @@ function tongbuimg(e,obj){
 
 //更新分享图上的忍者立绘和忍者名称
 function updateimg(){
-	var ninjaval = $("#select_ninja_select").val();
-	var ninjarank = $("#select_ninja_select").find("option:selected").attr("data-rank");
-	console.log(ninjarank);
-	$('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaval+".png");
-	$('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
+	//var ninjaval = $("#select_ninja_select").val();
+	//var ninjarank = $("#select_ninja_select").find("option:selected").attr("data-rank");
+	// $('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaval+".png");
+	// $('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
+	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
+	var ninjaid = cache_id;
+	var ninjarank = cache_rank;
+	var ninjaname = cache_name;
+	$('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaid+".png");
+	$('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaid+".png");
 	$('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
-
+	$('#input_ninja').val(ninjaname);
 }
 
-//手动选择忍者
-$("#select_ninja_select").on('change',function(){
-	updateimg();
-})
+//select手动选择忍者
+// $("#select_ninja_select").on('change',function(){
+// 	updateimg();
+// })
+
+//忍者配置操作
+//tab切换
+$(".tabbox .tabbox_hd .tabbox_hd_item").on("click",function(){
+	//playaudio(2);
+	var i = $(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".tabbox .tabbox_bd .tabbox_bd_item").eq(i).addClass("active").siblings().removeClass("active");
+});
+//定义几个暂存配置数据的变量，包含新S忍者头像的x坐标、y坐标、忍者名称，新A忍者头像的x坐标、y坐标、忍者名称
+var cache_id = $(".pop_setninja .tabbox_bd_item .item_wrap.active").attr("data-id");
+var cache_rank = $(".pop_setninja .tabbox_bd_item .item_wrap.active").attr("data-rank");
+var cache_name = $(".pop_setninja .tabbox_bd_item .item_wrap.active").attr("data-name");
+//选中忍者时，把数据存入到暂存变量中
+$(".pop_setninja .tabbox_bd_item .item_wrap").on("click",function(){
+	//playaudio(2);
+	$(".pop_setninja .tabbox_bd_item .item_wrap").removeClass("active");
+	$(this).addClass("active");
+	cache_id = $(this).attr("data-id");
+	cache_rank = $(this).attr("data-rank");
+	cache_name = $(this).attr("data-name");
+});
+//忍者配置弹窗操作，除了控制弹窗的关闭外，还需要判断确认操作和放弃操作
+$(".btn_setninja,.pop_setninja .btn_close").on('click',function(){
+	if( $(".pop_setninja").hasClass("on") ){
+		//放弃配置忍者，重置暂存数据，默认回到第一个（需要注意的是默认最新忍者排在第一个，按照时间倒序排列忍者）
+		cache_id = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-id");
+		cache_rank = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-rank");
+		cache_name = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-name");
+		$(".pop_setninja .tabbox_bd_item .item_wrap").removeClass("active");
+		$(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").addClass("active");
+		$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
+		$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
+
+		//playaudio(3);
+		$(".pop_setninja").addClass("zoomOut");
+		setTimeout(function(){
+			$(".pop_setninja").removeClass("on");
+		},500);
+	}else{
+		//playaudio(2);
+		$(".pop_setninja").addClass("on");
+		$(".pop_setninja").removeClass("zoomOut");
+	}
+});
+$(".pop_setninja .btn_done").on('click',function(){
+		//配置忍者生效
+		updateimg();
+		//$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
+		//$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
+
+		//关闭弹窗
+		//playaudio(3);
+		$(".pop_setninja").addClass("zoomOut");
+		setTimeout(function(){
+			$(".pop_setninja").removeClass("on");
+		},500);
+});
+
+
 
 //定义随机选择忍者方法
 function suijixuan(){

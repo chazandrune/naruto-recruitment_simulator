@@ -197,6 +197,27 @@
 		}
 	});
 
+	//页面加载完毕执行，判断幸运模式是否开启
+	// if($(".btn_luckystar").hasClass("on")){
+	// 	$(".luckystars_warp").show();
+	// }else{
+	// 	$(".luckystars_warp").hide();
+	// }
+
+	//幸运模式开关
+	$(".btn_luckystar").on("click",function(){
+		playaudio(2);
+		if($(this).hasClass("on")){
+			$(this).removeClass("on");
+			doluckyevent();
+			chongzhi();
+		}else{
+			$(this).addClass("on");
+			doluckyevent();
+			chongzhi();
+		}
+	});
+
 	//统计数据收缩展开
 	$(".tongjilist_btns .btn").on('click',function(){
 		$(".tongjilist_btns").toggleClass("on");
@@ -340,6 +361,13 @@ console.log("页面打开时间："+t);
 
 //注意：要将raNum设置为全局变量，容易出错
 var raNum;
+//概率值 百分数
+var gailv_s = 3.5;
+var gailv_a = 11.5;
+var gailv_b = 40;
+var gailv_c = 100-gailv_s-gailv_a-gailv_b;
+//幸运值 影响概率
+var luckystar = 0;
 //抽次数
 var i = parseInt($("#cishu").html());
 //各种碎片数量
@@ -376,7 +404,7 @@ var cache_s_name = $(".tabbox_bd_item_s .active").attr("data-name");
 var cache_a_x = $(".tabbox_bd_item_a .active").attr("data-x");
 var cache_a_y = $(".tabbox_bd_item_a .active").attr("data-y");
 var cache_a_name = $(".tabbox_bd_item_a .active").attr("data-name");
-console.log("当前高招S忍者为"+cache_s_x+"，"+cache_s_y+"，"+cache_s_name+"当前高招A忍者为"+cache_a_x+"，"+cache_a_y+"，"+cache_a_name);
+console.log("当前高招S忍者为"+cache_s_x+"，"+cache_s_y+"，"+cache_s_name+";当前高招A忍者为"+cache_a_x+"，"+cache_a_y+"，"+cache_a_name);
 //选中忍者时，把数据存入到暂存变量中
 $(".pop_setninja .tabbox_bd_item_s .item_wrap").on("click",function(){
 	playaudio(2);
@@ -525,7 +553,10 @@ function chongzhi(){
 	isaddsuipian_a = 0;
 	//首付奖励宝箱变为关闭外观
 	$(".baoxianglist .item").removeClass("open");
+	//重置悲剧指数
 	sad = 0;
+	//重置幸运值
+	luckystar = 0;
 	//是否弹出过获得新忍者图 重置
 	istanchunewninja = 0;
 	//重新判断首付奖励按钮是否出现
@@ -578,7 +609,7 @@ function gongxi(obj,t){
 	$(obj).delay(100).hide("300");
 }
 
-//toast提示
+//toast提示，obj对象，t提示的内容
 function toast(obj,t){
 	clearTimeout(timer);
 	$(obj).html(t);
@@ -598,6 +629,70 @@ function showsad(){
 		sad = 0;
 	}
 }
+
+//幸运值反馈，影响概率值
+function doluckyevent(){
+	if($(".btn_luckystar").hasClass("on")){
+		//$(".luckystars_warp").show();
+		$(".luckystars").empty();
+		if(luckystar <= 0){
+			gailv_s = 3.5;
+			gailv_a = 11.5;
+			gailv_b = 40;
+			gailv_c = 100-gailv_s-gailv_a-gailv_b;
+		}else if(luckystar > 0 && luckystar <=2){
+			gailv_s = 8.5;
+			gailv_a = 16.5;
+			gailv_b = 40;
+			gailv_c = 100-gailv_s-gailv_a-gailv_b;
+			for (var i = 0; i >= 0; i--) {
+				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
+			}
+		}else if(luckystar > 2 && luckystar <=4){
+			gailv_s = 13.5;
+			gailv_a = 21.5;
+			gailv_b = 40;
+			gailv_c = 100-gailv_s-gailv_a-gailv_b;
+			for (var i = 1; i >= 0; i--) {
+				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
+			}
+		}else if(luckystar > 4 && luckystar <=6){
+			gailv_s = 18.5;
+			gailv_a = 26.5;
+			gailv_b = 40;
+			gailv_c = 100-gailv_s-gailv_a-gailv_b;
+			for (var i = 2; i >= 0; i--) {
+				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
+			}
+		}else if(luckystar > 6 && luckystar <=8){
+			gailv_s = 23.5;
+			gailv_a = 31.5;
+			gailv_b = 40;
+			gailv_c = 100-gailv_s-gailv_a-gailv_b;
+			for (var i = 3; i >= 0; i--) {
+				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
+			}
+		}else if(luckystar > 8){
+			gailv_s = 40.5;
+			gailv_a = 40.5;
+			gailv_b = 1;
+			gailv_c = 100-gailv_s-gailv_a-gailv_b;
+			//$(".luckystars").html("MAX");
+			for (var i = 4; i >= 0; i--) {
+				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
+			}
+		}
+	}else{
+		$(".luckystars_warp").hide();
+		$(".luckystars").empty();
+		gailv_s = 3.5;
+		gailv_a = 11.5;
+		gailv_b = 40;
+		gailv_c = 100-gailv_s-gailv_a-gailv_b;
+	}
+	//$(".luckystars").html(luckystar);
+}
+
 
 //定义事件：是否出现S首付
 function ifshowshoufu_s(){
@@ -757,14 +852,16 @@ $("#baoxiang_a04").on('click',function(){
 function A(){
 	
 	console.log("随机数="+raNum+",次数="+i+",");
-	if(0 < raNum && raNum <= 3.5){
+	if(0 < raNum && raNum <= gailv_s ){
 			//S忍 出现5片和1片的概率，先判断是否抽到第10次，若是第10次则必出1片
 			if( parseInt(i%10) == 0 ){
 				var n = 6;
 			}else{
-				var n = parseInt(Math.random()*10);
+				var n = parseInt(Math.random()*(2-1+1)+1,10);
+				//幸运值重置，10次必出的s，不会重置幸运值
+				luckystar = -1;
 			}
-			if(n<5){
+			if(n==1){
 				num_this = 5;
 				num_s = num_s+5;
 			}else{
@@ -781,10 +878,10 @@ function A(){
 			gongxi("#congratulation","恭喜你获得 <span>"+name_s_new+"碎片 × "+num_this+"</span>");
 			sad = 0;
 			//return;
-		}else if(3.5 < raNum && raNum <= 15){
+		}else if(gailv_s < raNum && raNum <= gailv_s+gailv_a){
 			//A忍 出现4片和1片的概率
-			var n = parseInt(Math.random()*10);
-			if(n<5){
+			var n = parseInt(Math.random()*(2-1+1)+1,10);
+			if(n==1){
 				num_this = 4;
 				num_a = num_a+4;
 			}else{
@@ -802,12 +899,14 @@ function A(){
 				gongxi("#congratulation","恭喜你获得 <span>"+name_a_new+"碎片 × "+num_this+"</span>");
 				num_a_new = num_a_new + num_this;
 				$("#num_a_new").html(num_a_new);
+				//幸运值重置
+				luckystar = -1;
 			}
 			//return;
-		}else if(15 < raNum && raNum <= 55){
+		}else if(gailv_s+gailv_a < raNum && raNum <= gailv_s+gailv_a+gailv_b){
 			//B忍 出现2片和1片的概率
-			var n = parseInt(Math.random()*10);
-			if(n<5){
+			var n = parseInt(Math.random()*(2-1+1)+1,10);
+			if(n==1){
 				num_this = 2;
 				num_b = num_b+2;
 			}else{
@@ -820,10 +919,10 @@ function A(){
 			writelog("B碎片 × "+num_this,"b",num_this,m);
 			$("#num_b").html(num_b);
 			//return;
-		}else if(55 < raNum && raNum <= 100){
+		}else if(gailv_s+gailv_a+gailv_b < raNum && raNum <= 100){
 			//C忍 出现5片和1片的概率
-			var n = parseInt(Math.random()*10);
-			if(n<5){
+			var n = parseInt(Math.random()*(2-1+1)+1,10);
+			if(n==1){
 				num_this = 5;
 				num_c = num_c+5;
 			}else{
@@ -845,6 +944,11 @@ function A(){
 		//悲剧指数体现
 		sad++;
 		showsad();
+
+		//幸运模式体现，如果抽不到s和新a，幸运值会增加1
+		luckystar++;
+		doluckyevent();
+		console.log("幸运值为"+luckystar+"；s概率目前为"+gailv_s+"；a目前概率为"+gailv_a+"；b目前概率为"+gailv_b+"；c目前概率为"+gailv_c);
 		
 		//事件：A首付奖励是否出现
 		ifshowshoufu_a();
