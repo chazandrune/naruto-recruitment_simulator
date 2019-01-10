@@ -210,11 +210,13 @@
 		if($(this).hasClass("on")){
 			$(this).removeClass("on");
 			doluckyevent();
-			chongzhi();
+			//chongzhi();
+		}else if($(this).hasClass("disabled")){
+			toast("#toast","只有非酋才能开启");
 		}else{
 			$(this).addClass("on");
 			doluckyevent();
-			chongzhi();
+			//chongzhi();
 		}
 	});
 
@@ -377,14 +379,20 @@ var num_a = parseInt($("#num_a").html());
 var num_a_new = parseInt($("#num_a_new").html());
 var num_b = parseInt($("#num_b").html());
 var num_c = parseInt($("#num_c").html());
+var num_s_new_zengjia = 0;
+var num_a_new_zengjia = 0;
 //全局定义是否领取S首付奖励，初始状态为0
 var isaddsuipian_s = 0;
 //全局定义是否领取A首付奖励，初始状态为0
 var isaddsuipian_a = 0;
 //悲剧指数
 var sad = 0;
-//是否弹出过获得新忍者图 重置
+//是否弹出过获得新忍者图
 var istanchunewninja = 0;
+//你真黑的次数计数
+var count_nizhenhei = 0;
+//是否弹出过你是真的黑toast
+var toast_nizhenhei = 0;
 //全局定义新s名称、新a名称，默认给值为 当前忍者配置中默认选中的
 var name_s_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
 var name_a_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
@@ -471,8 +479,8 @@ $(".pop_setninja .btn_done").on('click',function(){
 $('#clik').on('click',function() {
 	
 	playaudio(2);
-	$(".btns").hide();
-	setTimeout(function(){$(".btns").fadeIn(100);},500);
+	$(".box .btns").hide();
+	setTimeout(function(){$(".box .btns").fadeIn(100);},500);
 	$(".resultlist").html("");
 	$(".box").addClass("danchou");
 	$(".box").removeClass("shilian");
@@ -497,17 +505,43 @@ $('#clik').on('click',function() {
 $('#clik10').on('click',function() {
 	
 	playaudio(2);
-	$(".btns,.btn_setting").hide();
+	$(".box .btns,.btn_setting").hide();
 	//setTimeout(function(){$(".btns,.btn_setting").fadeIn(100);},3700);
 	$(".resultlist").html("");
 	$(".box").addClass("shilian");
 	$(".box").removeClass("danchou");
+	num_s_new_zengjia = 0;
+	num_a_new_zengjia = 0;
 	//重复10次
 	var repeat = 10;  // 限制执行次数为10次
 	var timer = setInterval(function() {    
 		if (repeat == 0) {
 			clearInterval(timer);
-			$(".btns,.btn_setting").fadeIn(100);
+			$(".box .btns,.btn_setting").fadeIn(100);
+			//脸黑指数+1,触发需要同时满足以下条件：
+			//1、招募次数大于等于1次
+			//2、欧皇模式未开启
+			//3、本次十连S碎片不大于1片并且新A碎片0片
+			//4、悲剧指数达到10
+			if(i>=1 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && sad >= 9 ){
+				count_nizhenhei++;
+				console.log("你真黑次数+1");
+			}
+			//连续3次脸黑指数+1，且在300抽以内不足100片S或者150抽以内抽不足40片A，将会解锁欧皇模式开关
+			if(count_nizhenhei >= 3 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && ((i <= 300 && num_s_new <100)||(i<=150 && num_a_new <40)) ){
+				if(toast_nizhenhei == 0){
+					toast("#toast","非酋你好...");
+					toast_nizhenhei = 1;
+				}
+				$(".btn_luckystar").removeClass("disabled");
+			}
+			if((num_s_new_zengjia > 4 || num_a_new_zengjia > 4) && $(".btn_luckystar").hasClass("on") == false){
+				if(count_nizhenhei>0){
+					count_nizhenhei = 0;
+					console.log("你真黑次数-1");
+				}
+			}
+			console.log("你真黑次数"+count_nizhenhei+"s增量"+num_s_new_zengjia+"a增量"+num_a_new_zengjia);
 		} else {
 			repeat--;
 			//判断抽次数个位是否为9
@@ -559,6 +593,10 @@ function chongzhi(){
 	luckystar = 0;
 	//是否弹出过获得新忍者图 重置
 	istanchunewninja = 0;
+	//你真黑的次数
+	var count_nizhenhei = 0;
+	//是否弹出过你是真的黑toast
+	var toast_nizhenhei = 0;
 	//重新判断首付奖励按钮是否出现
 	ifshowshoufu_s();
 	ifshowshoufu_a();
@@ -617,7 +655,7 @@ function toast(obj,t){
 	$(obj).parent().fadeIn(0);
 	var timer = setTimeout(function(){
 		$(obj).parent().fadeOut(300);
-	},1000);
+	},2000);
 }
 
 //悲剧指数反馈
@@ -626,13 +664,14 @@ function showsad(){
 		$("html").attr("class","gray"+sad);
 	}else{
 		$("html").attr("class","gray0");
-		sad = 0;
+		//sad = 0;
 	}
 }
 
 //幸运值反馈，影响概率值
 function doluckyevent(){
 	if($(".btn_luckystar").hasClass("on")){
+		$(".lucky_mode_text").show();
 		//$(".luckystars_warp").show();
 		$(".luckystars").empty();
 		if(luckystar <= 0){
@@ -683,7 +722,8 @@ function doluckyevent(){
 			}
 		}
 	}else{
-		$(".luckystars_warp").hide();
+		$(".lucky_mode_text").hide();
+		//$(".luckystars_warp").hide();
 		$(".luckystars").empty();
 		gailv_s = 3.5;
 		gailv_a = 11.5;
@@ -855,11 +895,12 @@ function A(){
 	if(0 < raNum && raNum <= gailv_s ){
 			//S忍 出现5片和1片的概率，先判断是否抽到第10次，若是第10次则必出1片
 			if( parseInt(i%10) == 0 ){
-				var n = 6;
+				var n = 2;
 			}else{
 				var n = parseInt(Math.random()*(2-1+1)+1,10);
 				//幸运值重置，10次必出的s，不会重置幸运值
 				luckystar = -1;
+				sad = -1;
 			}
 			if(n==1){
 				num_this = 5;
@@ -874,9 +915,9 @@ function A(){
 			writelog("S碎片 × "+num_this,"s",num_this,m);
 			$("#num_s").html(num_s);
 			num_s_new = num_s_new + num_this;
+			num_s_new_zengjia = num_s_new_zengjia + num_this;
 			$("#num_s_new").html(num_s_new);
 			gongxi("#congratulation","恭喜你获得 <span>"+name_s_new+"碎片 × "+num_this+"</span>");
-			sad = 0;
 			//return;
 		}else if(gailv_s < raNum && raNum <= gailv_s+gailv_a){
 			//A忍 出现4片和1片的概率
@@ -899,8 +940,10 @@ function A(){
 				gongxi("#congratulation","恭喜你获得 <span>"+name_a_new+"碎片 × "+num_this+"</span>");
 				num_a_new = num_a_new + num_this;
 				$("#num_a_new").html(num_a_new);
+				num_a_new_zengjia = num_a_new_zengjia + num_this;
 				//幸运值重置
 				luckystar = -1;
+				sad = -1;
 			}
 			//return;
 		}else if(gailv_s+gailv_a < raNum && raNum <= gailv_s+gailv_a+gailv_b){
@@ -944,6 +987,7 @@ function A(){
 		//悲剧指数体现
 		sad++;
 		showsad();
+		console.log("悲剧指数为"+sad);
 
 		//幸运模式体现，如果抽不到s和新a，幸运值会增加1
 		luckystar++;

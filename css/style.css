@@ -177,6 +177,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .luckystars_warp{ display: none; text-align: center; position: fixed; bottom: 0; left: 0; right: 0; height: .4rem; line-height: .4rem; font-size: .16rem; color: #fff; }
 .luckystars{ display: inline-block; }
 .luckystars img{ display: inline-block; width:.32rem; height: .32rem; vertical-align: top; }
+.lucky_mode_text{ display: none;color: #fff; opacity: .3; text-align: right; font-size: .14rem;  position: fixed; bottom: .2rem; line-height: .4rem; height: .4rem; right: 0; padding: 0 .1rem; }
 .tongjilist_wrap{ position: fixed; left: 0; top: 0; bottom: 0; background: rgba(0,0,0,.3); color:#fff; font-size: .18rem;}
 .tongjilist_wrap.on{ left: -50%; }
 .tongjilist{ padding: .20rem;}
@@ -454,6 +455,7 @@ filter: brightness(1.2); }
 .btn_bgm .txt,
 .btn_bisong .txt{ padding-left:.5rem; padding-right:.2rem;letter-spacing: 0;}
 .btn_audio.on {}
+.btn_switch.disabled{ opacity: .3; }
 .btns .btn_setninja{ position: relative; color: #faf3bc;letter-spacing: 0;}
 .btns .btn_setninja .icon{ height: .5rem; width: .5rem;line-height: .8rem; font-size: .18rem; position: absolute; left: .15rem; top: 50%; margin-top: -.25rem; }
 .btns .btn_setninja .txt{ padding-left: .5rem; letter-spacing: 0;}
