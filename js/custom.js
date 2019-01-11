@@ -209,28 +209,16 @@
 		//playaudio(2);
 		if($(this).hasClass("on")){
 			playaudio(2);
-			var surecloseluckystar = confirm("关闭此模式会重置招募次数，确定关闭吗？")
-			if(surecloseluckystar==true){
-				$(this).removeClass("on");
-				doluckyevent();
-				chongzhi();
-			}
-			//$(this).removeClass("on");
-			//doluckyevent();
+			$(this).removeClass("on");
+			doluckyevent();
 			//chongzhi();
 		}else if($(this).hasClass("disabled")){
 			playaudio(3);
 			toast("#toast","只有非酋才能开启");
 		}else{
 			playaudio(2);
-			var surecloseluckystar = confirm("开启此模式会重置招募次数，确定开启吗？")
-			if(surecloseluckystar==true){
-				$(this).addClass("on");
-				doluckyevent();
-				chongzhi();
-			}
-			//$(this).addClass("on");
-			//doluckyevent();
+			$(this).addClass("on");
+			doluckyevent();
 			//chongzhi();
 		}
 	});
