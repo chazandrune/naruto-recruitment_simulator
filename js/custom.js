@@ -206,14 +206,17 @@
 
 	//幸运模式开关
 	$(".btn_luckystar").on("click",function(){
-		playaudio(2);
+		//playaudio(2);
 		if($(this).hasClass("on")){
+			playaudio(2);
 			$(this).removeClass("on");
 			doluckyevent();
 			//chongzhi();
 		}else if($(this).hasClass("disabled")){
-			toast("#toast","只有非酋才能开启");
+			playaudio(3);
+			toast("#toast","只有脸黑的人才能开启");
 		}else{
+			playaudio(2);
 			$(this).addClass("on");
 			doluckyevent();
 			//chongzhi();
@@ -525,23 +528,24 @@ $('#clik10').on('click',function() {
 			//4、悲剧指数达到10
 			if(i>=1 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && sad >= 9 ){
 				count_nizhenhei++;
-				console.log("你真黑次数+1");
+				console.log("脸黑指数+1");
 			}
-			//连续3次脸黑指数+1，且在300抽以内不足100片S或者150抽以内抽不足40片A，将会解锁欧皇模式开关
-			if(count_nizhenhei >= 3 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && ((i <= 300 && num_s_new <100)||(i<=150 && num_a_new <40)) ){
+			//解锁欧皇模式
+			if(count_nizhenhei >= 3 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && ((i <= 100 && num_s_new <50)||(i<=50 && num_a_new <20)) ){
 				if(toast_nizhenhei == 0){
 					toast("#toast","非酋你好...");
 					toast_nizhenhei = 1;
 				}
 				$(".btn_luckystar").removeClass("disabled");
 			}
+			//重置脸黑指数
 			if((num_s_new_zengjia > 4 || num_a_new_zengjia > 4) && $(".btn_luckystar").hasClass("on") == false){
 				if(count_nizhenhei>0){
 					count_nizhenhei = 0;
-					console.log("你真黑次数-1");
+					console.log("脸黑指数重置");
 				}
 			}
-			console.log("你真黑次数"+count_nizhenhei+"s增量"+num_s_new_zengjia+"a增量"+num_a_new_zengjia);
+			console.log("脸黑指数"+count_nizhenhei+"s增量"+num_s_new_zengjia+"a增量"+num_a_new_zengjia);
 		} else {
 			repeat--;
 			//判断抽次数个位是否为9
