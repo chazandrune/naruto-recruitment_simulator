@@ -13,8 +13,8 @@
 }
 /*::selection { background:transparent; color:#fff; }
 ::-moz-selection { background:transparent; color:#fff; }
-::-webkit-selection { background:transparent; color:#fff; }
-::-webkit-scrollbar{display:none;}*/
+::-webkit-selection { background:transparent; color:#fff; }*/
+::-webkit-scrollbar{display:none;}
 input::-webkit-input-placeholder{color:#888;}
 input::-moz-placeholder{color:#888;   /* Mozilla Firefox 19+ */}
 input:-moz-placeholder{color:#888;    /* Mozilla Firefox 4 to 18 */}
@@ -233,7 +233,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .pop .btn_close{ position: absolute; right: 0; top: 0;cursor: pointer; display: block; width:60px;height: 60px; line-height: 60px; text-align: center; color: #fff; font-size: 16px; }
 .pop .btns{ }
 .pop .text_wrap{ position: relative; height: 100%; width: 100%; }
-.pop .text_body{font-size: 14px; line-height: 20px; color: #888;overflow: auto;  position: absolute; left: 40px; right: 40px; top: 60px;bottom:30px; letter-spacing: 1px; }
+.pop .text_body{font-size: 14px; line-height: 20px; color: #888;overflow-y: auto;  position: absolute; left: 40px; right: 40px; top: 60px;bottom:30px; letter-spacing: 1px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
 
 /*弹窗 设置*/
 .btn_setting{position: fixed; right:10px; top:70px;cursor: pointer; display: block; width:60px;height: 60px; line-height: 60px; text-align: center; color: #fff; font-size: 16px;}
@@ -258,7 +258,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
   -webkit-transform: scale(1.2,1.2); transform: scale(1.2,1.2);-o-webkit-transform: scale(1.2,1.2);-moz-webkit-transform: scale(1.2,1.2);
 }
 .pop_setninja .tabbox .tabbox_bd{width:100%; height: 300px; padding:10px 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 100% 150px;}
-.pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow: auto; height: 300px; }
+.pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow-y: auto; height: 300px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
 .pop_setninja .tabbox .tabbox_bd_item.active{ display: block; }
 .ninjalist {color: #fff; font-size: 0; width: auto;  margin: 0 auto; padding: 0 0;}
 .ninjalist .item_wrap{display:inline-block;width: 80px;margin: 10px 10px; cursor: pointer;  }
