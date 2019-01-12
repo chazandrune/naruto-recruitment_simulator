@@ -338,7 +338,9 @@ filter: brightness(1.2); }
 .resultlist_wrap{ /*background:rgba(0,0,0,.3);*/ background:url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem; height:2.5rem; display: block; width: 100%; }
 .resultlist{ color: #fff; text-align:center; font-size: 0; width: 6.1rem;  margin: 0 auto;}
 
-.resultlist .item_wrap{display:inline-block;width: 1rem;margin: .05rem .1rem; }
+.resultlist .item_wrap{display:inline-block;width: 1rem;margin: .05rem .1rem;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s; }
 .resultlist .item_wrap .yanwu{ position: absolute; bottom:-.1rem;left: 50%; margin-left: -.5rem;
   -webkit-transform: scale(1.4,1.4);
   transform: scale(1.4,1.4);

@@ -531,7 +531,7 @@ $('#clik10').on('click',function() {
 				console.log("脸黑指数+1");
 			}
 			//解锁欧皇模式
-			if(count_nizhenhei >= 3 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && ((i <= 100 && num_s_new <50)||(i<=50 && num_a_new <20)) ){
+			if(count_nizhenhei >= 3 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false ){
 				if(toast_nizhenhei == 0){
 					toast("#toast","非酋你好...");
 					toast_nizhenhei = 1;
