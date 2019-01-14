@@ -498,7 +498,7 @@
 
 <!-- 指引 -->
 		<div class="guide_wrap fadeInDown">
-        	<div class="guide_small" style="right:1.3rem; top:.7rem;"><em class="jiao"></em><div class="text_body">快速完成周年密令！</div></div>
+        	<div class="guide_small" style="right:1.3rem; top:.7rem;"><em class="jiao"></em><div class="text_body"><p>快速完成周年密令！</p><p id="count" style="color:#6bd675; text-align: center;"></p></div></div>
         </div>
 <!-- 恭喜 -->
 		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
@@ -509,6 +509,18 @@
 </html>
 <script type="text/javascript" src="js/howler.core.min.js"></script>
 <script type="text/javascript" src="js/custom.js?v=011202"></script>
+<script type="text/javascript" src="js/jcountdown.min.js"></script> 
+<script type="text/javascript">
+	$("#count").countdown({
+		//to change lunch date just replace the current date with yours .
+		date: "2019-01-16 00:00",
+		//minus:true,
+		leadingZero: true,
+		//offset:"0",
+		direction:"down",
+		htmlTemplate: "<span>%{d}</span>天<span>%{h}</span>:<span>%{m}</span>:<span>%{s}</span>"
+	});
+</script>
 
 
 <!-- 流量统计 -->
