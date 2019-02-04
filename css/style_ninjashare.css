@@ -233,7 +233,7 @@ body{ height: 100%; width: 100%; position:fixed; left: 0; right: 0; top: 0; bott
 .pop .btn_close{ position: absolute; right: 0; top: 0;cursor: pointer; display: block; width:60px;height: 60px; line-height: 60px; text-align: center; color: #fff; font-size: 16px; }
 .pop .btns{ }
 .pop .text_wrap{ position: relative; height: 100%; width: 100%; }
-.pop .text_body{font-size: 14px; line-height: 20px; color: #888;overflow-y: auto;  position: absolute; left: 40px; right: 40px; top: 60px;bottom:30px; letter-spacing: 1px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
+.pop .text_body{font-size: 14px; line-height: 20px; color: #888;overflow-y: auto;  position: absolute; left: 40px; right: 40px; top: 50px;bottom:30px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
 
 /*弹窗 设置*/
 .btn_setting{position: fixed; right:10px; top:70px;cursor: pointer; display: block; width:60px;height: 60px; line-height: 60px; text-align: center; color: #fff; font-size: 16px;}
