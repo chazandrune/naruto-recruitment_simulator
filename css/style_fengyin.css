@@ -293,8 +293,13 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 
 @keyframes jinru
 {
-0% { opacity:0;}
+0% {opacity:0; }
 100% { opacity: 100%;}
+}
+@keyframes xiaoshi
+{
+0% { -webkit-filter: brightness(10);filter: brightness(10);}
+100% { -webkit-filter: brightness(1);filter: brightness(1);}
 }
 @keyframes faguang
 {
