@@ -174,10 +174,14 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 /*main*/
 .copyright{ color: #fff; opacity: .3; text-align: right; font-size: .14rem; position:fixed; bottom: 0; left: 0; right: 0; height: .4rem; line-height:.4rem; padding:0 .1rem; }
 .copyright a{ color:#fff;}
-.luckystars_warp{ display: none; text-align: center; position: fixed; bottom: 0; left: 0; right: 0; height: .4rem; line-height: .4rem; font-size: .16rem; color: #fff; }
-.luckystars{ display: inline-block; }
-.luckystars img{ display: inline-block; width:.32rem; height: .32rem; vertical-align: top; }
-.lucky_mode_text{ display: none;color: #fff; opacity: .3; text-align: right; font-size: .14rem;  position: fixed; bottom: .2rem; line-height: .4rem; height: .4rem; right: 0; padding: 0 .1rem; }
+.luckystars_warp{text-align: center; position: fixed; top: 50%; margin-top: -2.9rem; left: 50%; margin-left: -3.3rem; height: 1.7rem; width: 1.7rem; background: url(../images/luckybar_bg.png) no-repeat center; background-size: 100% 100%;  }
+.luckystars_bar_box{ display: block; width: .94rem; height: .94rem; position:absolute; left: 50%; margin-left: -.47rem; bottom:.43rem; border-radius: 50%; overflow: hidden; }
+.luckystars_bar{ display:block; width: 100%; height: 0; position:absolute; bottom: 0; left: 0; right: 0; background-image: url(../images/luckybar_bar.png); background-size:100% auto; background-position:bottom center;animation:faguang 1.5s ease-in-out infinite;}
+.luckystars_bar:after{ content:" "; display: block; position: absolute; top: 0; left: 0; right: 0; height: .02rem; border-radius: 50%; animation:shanyao 1.5s ease-in-out infinite; }
+.luckystars_warp .fg{ display: block; width: 100%; height: 100%; position: absolute; left: 0; right: 0; bottom: 0rem; background: url(../images/luckybar_fg.png) no-repeat center; background-size: 100% 100%; }
+.luckystars_warp .luckystars_num_box{ display: block; width: 100%; height: .2rem; line-height: .2rem; position: absolute; bottom: .5rem; text-align: center; font-size: .2rem; color: #faea72; }
+.luckystars_num{ position:relative; z-index: 0; }
+.luckystars_num::before{content:attr(data-text); position: absolute; left: 0; z-index: -1;-webkit-text-stroke: .04rem #562603; }
 .tongjilist_wrap{ position: fixed; left: 0; top: 0; bottom: 0; background: rgba(0,0,0,.3); color:#fff; font-size: .18rem;}
 .tongjilist_wrap.on{ left: -50%; }
 .tongjilist{ padding: .20rem;}
@@ -201,8 +205,12 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 .danchou .tishi img.tishi_10{ display: none;  }
 .shilian .tishi img.tishi_10{ display: block; }
 .shilian .tishi img.tishi_01{ display: none; }
-.shilian .resultlist{ padding-top: .1rem; text-align: left;}
-.danchou .resultlist{ padding-top: .70rem; }
+.shilian .resultlist{ /*padding-top: .1rem;*/ text-align: left;}
+.danchou .resultlist{ padding-top: .40rem; }
+.tishi_hdjl{ padding-top: .1rem; overflow: hidden; text-align:center; }
+.tishi_hdjl img{ display: none;  margin: 0 auto; width: auto; height: .5rem; }
+.danchou .tishi_hdjl img.txt_huodejiangli,
+.shilian .tishi_hdjl img.txt_huodejiangli{ display: block; }
 
 .btns{ font-size: 0; text-align: center; width: 100%;}
 .btns .btn{ 
@@ -230,6 +238,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 .icon.icon_gaozhaoquan{ background-image:url(../images/juanzhou_gaoji.png); }
 .icon.icon_xiandingquan{ background-image:url(../images/juanzhou_xianding.png); }
 .icon.icon_puzhaoquan{ background-image:url(../images/juanzhou_putong.png); }
+.icon.icon_fengyinbaoxiang{ background-image:url(../images/fengyinbaoxiang.png); }
 .icon.icon_jiefengquan{ background-image:url(../images/jiefengquan.png); }
 .icon.icon_xinwu{ background-image:url(../images/xinwu.png); }
 .icon.icon_sina{ background-image:url(../images/icon_sina.png); }
@@ -238,11 +247,11 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 .icon.icon_s{ background-image:url(../images/s.png); }
 .icon.icon_a{ background-image:url(../images/a.png); }
 .icon.icon_s_new,
-.icon.icon_a_new{ width:.72rem; height:.72rem; padding:.03rem; background:url(../images/piece_bg.png) no-repeat center; background-size:100% 100%; position:relative;}
+.icon.icon_a_new{ width:.72rem; height:.72rem; padding:.03rem; background:url(../images/piece_bg2.png) no-repeat center; background-size:100% 100%; position:relative;}
 .icon.icon_s_new .img,
 .icon.icon_a_new .img{ position:absolute; left:50%; top:50%; margin-left:-.36rem; margin-top:-.36rem; background-repeat:no-repeat; background-position:center; background-size:100% 100%; display:block; width:.72rem; height:.72rem;}
 .icon.icon_s_new .fg,
-.icon.icon_a_new .fg{display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; background-image: url(../images/piece_fg.png); position: absolute; left: 0; top: 0;}
+.icon.icon_a_new .fg{display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; background-image: url(../images/piece_fg2.png); position: absolute; left: 0; top: 0;}
 /*.icon.icon_s_new .fg:after,
 .icon.icon_a_new .fg:after{content:''; display: block; position: absolute; left: .02rem; top: .02rem; width: .30rem; height: .33rem; background-size: .30rem .33rem;}
 .icon.icon_s_new .fg:after{background-image:url(../images/s.png);}
@@ -272,10 +281,12 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 
 
 
-#clik,#clik10 { position: relative;color: #faf3bc;}
+#clik,#clik10 { position: relative;/*color: #faf3bc;*/}
 #clik .txt,#clik10 .txt{ padding-left: .5rem; }
 #clik .icon,#clik10 .icon{ height:.5rem; width: .5rem; line-height: .8rem; font-size: .18rem; position: absolute; left:.2rem; top: 50%; margin-top: -.25rem;  }
-#reset {color: #faf3bc;}
+#reset {/*color: #faf3bc;*/}
+#clik{ display:none; }
+#clik_free{  }
 
 .tips_bisong{ font-size:.22rem; line-height:.2rem; text-align:center; color:#fff;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; display: none;}
 .tips_bisong span{ color:#f4c327;}
@@ -294,6 +305,18 @@ filter: brightness(1.2);}
 -webkit-filter: brightness(1);
 filter: brightness(1); }
 100% {  box-shadow: 0 0 .5rem rgba(255,185,62,.8);
+-webkit-filter: brightness(1.2);
+filter: brightness(1.2); }
+}
+@keyframes shanyao
+{
+0% {background-color:#f5edb2;box-shadow: 0 0 .02rem rgba(255,185,62,.8);
+-webkit-filter: brightness(1.2);
+filter: brightness(1.2);}
+50% { background-color:#79744f;box-shadow: 0 0 .05rem rgba(255,185,62,.5);
+-webkit-filter: brightness(1);
+filter: brightness(1); }
+100% { background-color:#f5edb2;box-shadow: 0 0 .02rem rgba(255,185,62,.8);
 -webkit-filter: brightness(1.2);
 filter: brightness(1.2); }
 }
@@ -332,22 +355,33 @@ filter: brightness(1.2); }
 97.25% { background-position: -2rem -3rem; }
 100% { background-position: -3rem -3rem; }
 }
-
+@keyframes yanwu2
+{
+0% { background-position: 0 0; }
+12.5% { background-position: -1rem 0; }
+25% { background-position: -2rem 0; }
+37.5% { background-position: -3rem 0; }
+50% { background-position: -4rem 0; }
+62.5% { background-position: -5rem 0rem; }
+75% { background-position: -6rem 0rem; }
+87.5% { background-position:-7rem  0rem; }
+100% { background-position:-8rem  0rem; }
+}
 
 /*.huohua{ width: .85rem; height: 1.28rem; background-image:url(../images/huohua.png); background-repeat: no-repeat; background-position:-1000px -1000px; animation:huohua 1s steps(1,start); background-size:5.12rem 2.56rem; }*/
 .yanwu{ width: 1rem; height: 1rem; background-image:url(../images/yanwu.png); background-repeat: no-repeat; background-position:-1000px -1000px; animation:yanwu 1.2s steps(1,start); background-size:4rem 4rem; }
 
-.resultlist_wrap{ /*background:rgba(0,0,0,.3);*/ background:url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem; height:2.5rem; display: block; width: 100%; }
+.resultlist_wrap{ /*background:rgba(0,0,0,.3);*/ background:url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 8rem 1.5rem; height:2.8rem; display: block; width: 100%; }
 .resultlist{ color: #fff; text-align:center; font-size: 0; width: 6.1rem;  margin: 0 auto;}
 
-.resultlist .item_wrap{display:inline-block;width: 1rem;margin: .05rem .1rem;
+.resultlist .item_wrap{display:inline-block;width: 1rem;margin: .14rem .1rem;
     -webkit-animation-duration: .5s;
     animation-duration: .5s; }
 .resultlist .item_wrap .yanwu{ position: absolute; bottom:-.1rem;left: 50%; margin-left: -.5rem;
-  -webkit-transform: scale(1.4,1.4);
-  transform: scale(1.4,1.4);
-  -o-webkit-transform: scale(1.4,1.4);
-  -moz-webkit-transform: scale(1.4,1.4);  }
+  -webkit-transform: scale(1.2,1.2);
+  transform: scale(1.2,1.2);
+  -o-webkit-transform: scale(1.2,1.2);
+  -moz-webkit-transform: scale(1.2,1.2);  }
 .resultlist .item{ width: .72rem; height: .72rem; padding: .03rem; background:url(../images/piece_bg.png) no-repeat center; background-size:100% 100%; position: relative; margin: 0 auto;  }
 .resultlist .item.item_s{ background-image:url(../images/piece_bg2.png);}
 .resultlist .item .img{ display: block; width: .72rem; height: .72rem; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; position: absolute; left: 50%; top: 50%; margin-left:-.36rem; margin-top:-.36rem; }
@@ -367,16 +401,16 @@ filter: brightness(1.2); }
 .icon.icon_a_new .img{  background-position: -4.32rem -.72rem; }/*2,7 当前新a忍者（照美冥）*/
 .resultlist .item_a .img2{  background-position: -3.6rem -.72rem; }/*2,6 当前副a忍者（大罗）*/
 .resultlist .item_b .img{  background-position: 0 -1.44rem; }
-.resultlist .item_b .img1{  background-position: -0rem -1.44rem; }/*3,1 b忍者1（鸣人疾风传）*/
-.resultlist .item_b .img2{  background-position: -21.6rem -1.44rem; }/*3,31 b忍者2（勘九郎疾风传）*/
-.resultlist .item_b .img3{  background-position: -0.72rem -1.44rem; }/*3,2 b忍者3（小樱疾风传）*/
+.resultlist .item_b .img1{  background-position: -7.2rem -1.44rem; }/*3,11 b忍者1（君麻吕）*/
+.resultlist .item_b .img2{  background-position: -20.16rem -1.44rem; }/*3,29 b忍者2（漩涡玖辛奈）*/
+.resultlist .item_b .img3{  background-position: -12.24rem -1.44rem; }/*3,18 b忍者3（白）*/
 .resultlist .item_b .img4{  background-position: -6.48rem -1.44rem; }/*3,10 b忍者4（暗卡）*/
 .resultlist .item_b .img5{  background-position: -7.92rem -1.44rem; }/*3,12 b忍者5（井野疾风传）*/
 .resultlist .item_b .img6{  background-position: -7.2rem -1.44rem; }/*3,11 b忍者6（君麻吕）*/
 .resultlist .item_c .img{  background-position: 0 -2.16rem; }
-.resultlist .item_c .img1{  background-position: -.72rem -2.16rem; }/*4,2 c忍者1（伊鲁卡）*/
-.resultlist .item_c .img2{  background-position: -1.44rem -2.16rem; }/*4,3 c忍者2（多由也）*/
-.resultlist .item_c .img3{  background-position: -15.84rem -2.16rem; }/*4,23 c忍者3（犬冢牙）*/
+.resultlist .item_c .img1{  background-position: -18rem -2.16rem; }/*4,26 c忍者1（手鞠）*/
+.resultlist .item_c .img2{  background-position: -7.2rem -2.16rem; }/*4,11 c忍者2（静音）*/
+.resultlist .item_c .img3{  background-position: -16.56rem -2.16rem; }/*4,24 c忍者3（天天）*/
 .resultlist .item_c .img4{  background-position: -2.88rem -2.16rem; }/*4,5 c忍者4（日向花火）*/
 .resultlist .item_c .img5{  background-position: -9.36rem -2.16rem; }/*4,14 c忍者5（勘九郎）*/
 .resultlist .item_c .img6{  background-position: -4.32rem -2.16rem; }/*4,7 c忍者6（左近右近）*/
@@ -410,15 +444,14 @@ filter: brightness(1.2); }
 
 /* 右上角的按钮容器*/
 .thebtns{ position:fixed; top:.1rem;  width:.6rem; height:auto;}
+.thebtns .btn{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.thebtns .btn .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
+.thebtns>.btn>.txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.4rem;line-height:.3rem;}
 .thebtns_01{  right:.1rem;}
 .thebtns_02{  right:.7rem; }
 
 
 /*弹窗 关于和公告*/
-.btn_info,
-.btn_notice{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
-.btn_info .icon,
-.btn_notice .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .layui-layer{ background: none; box-shadow: none; }
 .layui-layer-msg{ border-radius: .1rem; background-color:rgba(0,0,0,.6); }
 .layui-layer-dialog .layui-layer-content{ font-size: .16rem; line-height: .30rem; }
@@ -440,8 +473,6 @@ filter: brightness(1.2); }
 .pop .text_body img{ max-width: 100%; }
 
 /*弹窗 设置*/
-.btn_setting{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
-.btn_setting .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .pop_small .title{ position: absolute; left: -.4rem; top: -.2rem; width: 3rem; height: 1rem; }
 .pop_small .title .title_bg,
 .pop_small .title .title_txt{ position: absolute; left: 0; bottom: 0; width: 100%; height: auto;}
@@ -508,9 +539,8 @@ filter: brightness(1.2); }
 /*问卷调查按钮*/
 
 /*弹窗 宝箱*/
-.btn_baoxiang{position: relative;cursor: pointer; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
-.btn_baoxiang .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
-.btn_baoxiang .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
+.thebtns .btn_baoxiang,
+.thebtns .btn_baoxiang_a{display:none; }
 .baoxianglist { background:url(../images/shoufujiangli_bg.png) no-repeat top center; background-size:contain; padding-top:.21rem; text-align:center;}
 .baoxianglist .item{ display:inline-block; width:20%; margin:.0rem 2%; text-align:center;cursor: pointer; }
 .baoxianglist .item .pic{ width:100%;}
@@ -518,9 +548,7 @@ filter: brightness(1.2); }
 .baoxianglist .item .pic .img_open{ display:none;}
 .baoxianglist .item.open .pic .img_open{ display:block;}
 .baoxianglist .item.open .pic .img{ display:none;}
-.btn_baoxiang_a{position: relative;cursor: pointer; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
-.btn_baoxiang_a .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
-.btn_baoxiang_a .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
+.btn_baoxiang.opened:after{ content:''; display: block; width: 100%; height: 100%;position: absolute; top: 0; left: 0; background:url(../images/yiling.png) no-repeat center; background-size: contain; }
 
 /*弹窗 二维码*/
 .pop_gzh{width:4rem; height: 4rem;margin-left: -2rem;margin-top: -2rem; background: #fff;}
@@ -584,7 +612,7 @@ filter: brightness(1.2); }
 /*屏幕方向判断*/
 @media screen and (orientation: portrait) {  
   /*竖屏 css*/ 
-body{ background-image: url(../images/bg_shu.png); }
+body{ background-image: url(../images/bg_fengyin_shu.png); }
 }   
 @media screen and (orientation: landscape) {  
   /*横屏 css*/ 

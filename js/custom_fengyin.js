@@ -129,18 +129,6 @@
 		}
 	});
 	
-	//每10抽必送S级碎片开关
-	$(".btn_bisong").on("click",function(){
-		playaudio(2);
-		if($(this).hasClass("on")){
-			$(this).removeClass("on");
-			chongzhi();
-		}else{
-			$(this).addClass("on");
-			chongzhi();
-		}
-	});
-	
 	//黑脸反馈开关
 	$(".btn_sad").on("click",function(){
 		playaudio(2);
@@ -197,29 +185,28 @@
 		}
 	});
 
-	//页面加载完毕执行，判断幸运模式是否开启
-	// if($(".btn_luckystar").hasClass("on")){
-	// 	$(".luckystars_warp").show();
-	// }else{
-	// 	$(".luckystars_warp").hide();
-	// }
+	//页面加载完毕执行，判断免费抽开关是否开启
+	if($(".btn_free").hasClass("on")){
+		$("#clik").hide();
+		$("#clik_free").css("display","inline-block");
+	}else{
+		$("#clik").css("display","inline-block");
+		$("#clik_free").hide();
+	}
 
-	//幸运模式开关
-	$(".btn_luckystar").on("click",function(){
-		//playaudio(2);
+	//免费抽开关
+	$(".btn_free").on("click",function(){
+		playaudio(2);
 		if($(this).hasClass("on")){
-			playaudio(2);
 			$(this).removeClass("on");
-			doluckyevent();
-			//chongzhi();
-		}else if($(this).hasClass("disabled")){
-			playaudio(3);
-			toast("#toast","只有非酋才能开启");
+			$("#clik").css("display","inline-block");
+			$("#clik_free").hide();
+			chongzhi();
 		}else{
-			playaudio(2);
 			$(this).addClass("on");
-			doluckyevent();
-			//chongzhi();
+			$("#clik").hide();
+			$("#clik_free").css("display","inline-block");
+			chongzhi();
 		}
 	});
 
@@ -327,21 +314,16 @@
 		}
 	});
 
-	//s首付奖励弹窗
-	$(".btn_baoxiang,.pop_baoxiang .btn_close").on('click',function(){
-		if($(".pop_baoxiang").hasClass("on")){
+	//解封奖励领取
+	$(".btn_baoxiang").on('click',function(){
 			playaudio(3);
-			$(".pop_baoxiang").addClass("zoomOut");
-			$(".pop_mask").fadeOut(100);
-			setTimeout(function(){
-				$(".pop_baoxiang").removeClass("on");
-			},500);
-		}else{
-			playaudio(2);
-			$(".pop_baoxiang").addClass("on");
-			$(".pop_baoxiang").removeClass("zoomOut");
-			$(".pop_mask").fadeIn(100);
-		}
+			if(isaddsuipian_s == 0){
+				//宝箱变为打开状态
+				$(this).removeClass("tada","infinite").addClass("opened");
+				addsuipian_s(1);
+			}else{
+				toast("#toast","解封奖励只能领取一次！");
+			}
 	});
 	
 	//指引提示，点击关闭
@@ -371,10 +353,13 @@ var gailv_s = 10;
 var gailv_a = 0;
 var gailv_b = 40;
 var gailv_c = 100-gailv_s-gailv_a-gailv_b;
-//幸运值 影响概率
+//幸运值
 var luckystar = 0;
 //抽次数
 var i = parseInt($("#cishu").html());
+var i_free = 0;
+//免费抽的次数
+var num_free = parseInt($("#clik_free .num_free").html());
 //各种碎片数量
 var num_s = parseInt($("#num_s").html());
 var num_s_new = parseInt($("#num_s_new").html());
@@ -400,82 +385,6 @@ var toast_nizhenhei = 0;
 var name_s_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
 var name_a_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
 
-//忍者配置操作
-//tab切换
-$(".tabbox .tabbox_hd .tabbox_hd_item").on("click",function(){
-	playaudio(2);
-	var i = $(this).index();
-	$(this).addClass("active").siblings().removeClass("active");
-	$(".tabbox .tabbox_bd .tabbox_bd_item").eq(i).addClass("active").siblings().removeClass("active");
-});
-//定义几个暂存配置数据的变量，包含新S忍者头像的x坐标、y坐标、忍者名称，新A忍者头像的x坐标、y坐标、忍者名称
-var cache_s_x = $(".tabbox_bd_item_s .active").attr("data-x");
-var cache_s_y = $(".tabbox_bd_item_s .active").attr("data-y");
-var cache_s_name = $(".tabbox_bd_item_s .active").attr("data-name");
-var cache_a_x = $(".tabbox_bd_item_a .active").attr("data-x");
-var cache_a_y = $(".tabbox_bd_item_a .active").attr("data-y");
-var cache_a_name = $(".tabbox_bd_item_a .active").attr("data-name");
-console.log("当前高招S忍者为"+cache_s_x+"，"+cache_s_y+"，"+cache_s_name+";当前高招A忍者为"+cache_a_x+"，"+cache_a_y+"，"+cache_a_name);
-//选中忍者时，把数据存入到暂存变量中
-$(".pop_setninja .tabbox_bd_item_s .item_wrap").on("click",function(){
-	playaudio(2);
-	$(this).siblings().removeClass("active");
-	$(this).addClass("active");
-	cache_s_x = $(this).attr("data-x");
-	cache_s_y = $(this).attr("data-y");
-	cache_s_name = $(this).attr("data-name");
-});
-$(".pop_setninja .tabbox_bd_item_a .item_wrap").on("click",function(){
-	playaudio(2);
-	$(this).siblings().removeClass("active");
-	$(this).addClass("active");
-	cache_a_x = $(this).attr("data-x");
-	cache_a_y = $(this).attr("data-y");
-	cache_a_name = $(this).attr("data-name");
-});
-//忍者配置弹窗操作，除了控制弹窗的关闭外，还需要判断确认操作和放弃操作
-$(".btn_setninja,.pop_setninja .btn_close").on('click',function(){
-	if( $(".pop_setninja").hasClass("on") ){
-		//放弃配置忍者，重置暂存数据，默认回到第一个（需要注意的是默认最新忍者排在第一个，按照时间倒序排列忍者）
-		cache_s_x = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-x");
-		cache_s_y = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-y");
-		cache_s_name = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
-		$(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").addClass("active").siblings().removeClass("active");
-		cache_a_x = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-x");
-		cache_a_y = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-y");
-		cache_a_name = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-name");
-		$(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").addClass("active").siblings().removeClass("active");
-		$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
-		$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
-
-		playaudio(3);
-		$(".pop_setninja").addClass("zoomOut");
-		setTimeout(function(){
-			$(".pop_setninja").removeClass("on");
-		},500);
-	}else{
-		playaudio(2);
-		$(".pop_setninja").addClass("on");
-		$(".pop_setninja").removeClass("zoomOut");
-	}
-});
-$(".pop_setninja .btn_done").on('click',function(){
-		//配置忍者生效
-		name_s_new = cache_s_name;
-		name_a_new = cache_a_name;
-		$("#ninjacss").text(".resultlist .item_s .img1,.icon.icon_s_new .img{ background-position: "+cache_s_x+" "+cache_s_y+";}.resultlist .item_a .img1,.icon.icon_a_new .img{  background-position: "+cache_a_x+" "+cache_a_y+"; }");
-		$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
-		$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
-		chongzhi();
-		toast("#toast","招募次数已重置！");
-
-		//关闭弹窗
-		playaudio(3);
-		$(".pop_setninja").addClass("zoomOut");
-		setTimeout(function(){
-			$(".pop_setninja").removeClass("on");
-		},500);
-});
 
 	
 //单抽操作
@@ -488,19 +397,52 @@ $('#clik').on('click',function() {
 	$(".box").addClass("danchou");
 	$(".box").removeClass("shilian");
 
-	//判断抽次数个位是否为9
-	if( $(".btn_bisong").hasClass("on") && parseInt(i%10) == 9 ){
-		//必出S，让raNum在0~3.5范围内即可
+	//判断幸运值是否满100
+	if( luckystar >= 100 ){
+		//必出忍者信物，让raNum在0~3.5范围内即可
 		raNum = 1;
 	}else{
 		//随机数生成
 		raNum = Math.random()*100;
 	}
 	i++;
-	$("#cishu").html(i);
-	$("#cishujinbi").html(i*168);
+	$("#cishu").html(i+i_free);
+	$("#cishujinbi").html(i*120);
 	//返回结果
 	A();
+
+});
+//免费单抽操作，即不计算金币
+$('#clik_free').on('click',function() {
+	
+	playaudio(2);
+	$(".box .btns").hide();
+	setTimeout(function(){$(".box .btns").fadeIn(100);},500);
+	$(".resultlist").html("");
+	$(".box").addClass("danchou");
+	$(".box").removeClass("shilian");
+
+	//判断幸运值是否满100
+	if( luckystar >= 100 ){
+		//必出忍者信物，让raNum在0~3.5范围内即可
+		raNum = 1;
+	}else{
+		//随机数生成
+		raNum = Math.random()*100;
+	}
+	i_free++;
+	$("#cishu").html(i+i_free);
+	//$("#cishujinbi").html(i*120);
+	//返回结果
+	A();
+
+	//判断是否用尽免费7次
+	num_free = num_free-1;
+	$("#clik_free .num_free").html(num_free);
+	if(num_free<1 ){
+		$('#clik_free').hide();
+		$('#clik').css("display","inline-block");
+	}
 
 });
 
@@ -521,48 +463,23 @@ $('#clik10').on('click',function() {
 		if (repeat == 0) {
 			clearInterval(timer);
 			$(".box .btns,.btn_setting").fadeIn(100);
-			//脸黑指数+1,触发需要同时满足以下条件：
-			//1、招募次数大于等于1次
-			//2、欧皇模式未开启
-			//3、本次十连S碎片不大于1片并且新A碎片0片
-			//4、悲剧指数达到10
-			if(i>=1 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false && sad >= 9 ){
-				count_nizhenhei++;
-				console.log("脸黑指数+1");
-			}
-			//解锁欧皇模式
-			if(count_nizhenhei >= 3 && (num_s_new_zengjia <= 1 && num_a_new_zengjia < 1) && $(".btn_luckystar").hasClass("on") == false ){
-				if(toast_nizhenhei == 0){
-					toast("#toast","非酋你好...");
-					toast_nizhenhei = 1;
-				}
-				$(".btn_luckystar").removeClass("disabled");
-			}
-			//重置脸黑指数
-			if((num_s_new_zengjia > 4 || num_a_new_zengjia > 4) && $(".btn_luckystar").hasClass("on") == false){
-				if(count_nizhenhei>0){
-					count_nizhenhei = 0;
-					console.log("脸黑指数重置");
-				}
-			}
-			console.log("脸黑指数"+count_nizhenhei+"s增量"+num_s_new_zengjia+"a增量"+num_a_new_zengjia);
 		} else {
 			repeat--;
-			//判断抽次数个位是否为9
-			if( $(".btn_bisong").hasClass("on") && parseInt(i%10) == 9 ){
-				//必出S，让raNum在0~3.5范围内即可
+			//判断幸运值是否满100
+			if( luckystar >= 100 ){
+				//必出忍者信物，让raNum在0~3.5范围内即可
 				raNum = 1;
 			}else{
 				//随机数生成
 				raNum = Math.random()*100;
 			}
 			i++;
-			$("#cishu").html(i);
-			$("#cishujinbi").html(i*168);
+			$("#cishu").html(i+i_free);
+			$("#cishujinbi").html(i*120);
 			//返回结果
 			A();
 		}
-	}, 320);
+	}, 500);
 
 });
 
@@ -579,7 +496,21 @@ function chongzhi(){
 	$("#num_a_new").html("0");
 	$("#num_b").html("0");
 	$("#num_c").html("0");
+	$(".luckystars_num").html("0/100").attr("data-text","0/100");
+	$(".luckystars_bar").css("height","0");
+	$(".btn_baoxiang").addClass("tada","infinite").removeClass("opened");
+	if($(".btn_free").hasClass("on")){
+		$("#clik").hide();
+		$("#clik_free").css("display","inline-block");
+	}else{
+		$("#clik").css("display","inline-block");
+		$("#clik_free").hide();
+	}
+	$(".btn_baoxiang").hide(100);
 	i = 0;
+	i_free = 0;
+	num_free = 7;
+	$("#clik_free .num_free").html(num_free);
 	num_s = 0;
 	num_s_new = 0;
 	num_a = 0;
@@ -603,7 +534,6 @@ function chongzhi(){
 	var toast_nizhenhei = 0;
 	//重新判断首付奖励按钮是否出现
 	ifshowshoufu_s();
-	ifshowshoufu_a();
 }
 $('#reset').on('click',function() {
 	playaudio(4);
@@ -618,21 +548,6 @@ function writelog(a,j,h,m){
 	playaudio(1);
 }
 
-//输出必送S级忍者碎片文字提醒
-function writebisong(){
-	var num_bisong = 9 - parseInt(i%10);
-	//判断是否开启10次必出s碎片，若开启则输出文字提醒，不开启则清空文字
-	if($(".btn_bisong").hasClass("on")){
-		if( parseInt(i%10) == 9){
-			$('#tips_bisong').html('本次招募必送S级忍者碎片');
-		}else{
-			$('#tips_bisong').html('再招募<span>'+num_bisong+'</span>次后，下次招募必送S级忍者碎片');
-		}
-	}else{
-		$('#tips_bisong').html('');
-	}
-	
-}
 
 //恭喜提示
 function gongxi(obj,t){
@@ -674,76 +589,18 @@ function showsad(){
 
 //幸运值反馈，影响概率值
 function doluckyevent(){
-	if($(".btn_luckystar").hasClass("on")){
-		$(".lucky_mode_text").show();
-		$(".luckystars_warp").show();
-		$(".luckystars").empty();
-		if(luckystar <= 0){
-			gailv_s = 3.5;
-			gailv_a = 11.5;
-			gailv_b = 40;
-			gailv_c = 100-gailv_s-gailv_a-gailv_b;
-		}else if(luckystar > 0 && luckystar <=2){
-			gailv_s = 8.5;
-			gailv_a = 16.5;
-			gailv_b = 40;
-			gailv_c = 100-gailv_s-gailv_a-gailv_b;
-			for (var i = 0; i >= 0; i--) {
-				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
-			}
-		}else if(luckystar > 2 && luckystar <=4){
-			gailv_s = 13.5;
-			gailv_a = 21.5;
-			gailv_b = 40;
-			gailv_c = 100-gailv_s-gailv_a-gailv_b;
-			for (var i = 1; i >= 0; i--) {
-				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
-			}
-		}else if(luckystar > 4 && luckystar <=6){
-			gailv_s = 18.5;
-			gailv_a = 26.5;
-			gailv_b = 40;
-			gailv_c = 100-gailv_s-gailv_a-gailv_b;
-			for (var i = 2; i >= 0; i--) {
-				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
-			}
-		}else if(luckystar > 6 && luckystar <=8){
-			gailv_s = 23.5;
-			gailv_a = 31.5;
-			gailv_b = 40;
-			gailv_c = 100-gailv_s-gailv_a-gailv_b;
-			for (var i = 3; i >= 0; i--) {
-				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
-			}
-		}else if(luckystar > 8){
-			gailv_s = 40.5;
-			gailv_a = 40.5;
-			gailv_b = 1;
-			gailv_c = 100-gailv_s-gailv_a-gailv_b;
-			//$(".luckystars").html("MAX");
-			for (var i = 4; i >= 0; i--) {
-				$(".luckystars").append('<img src="images/luckystar.png" alt="幸运星">');
-			}
-		}
-	}else{
-		$(".lucky_mode_text").hide();
-		//$(".luckystars_warp").hide();
-		$(".luckystars").empty();
-		gailv_s = 3.5;
-		gailv_a = 11.5;
-		gailv_b = 40;
-		gailv_c = 100-gailv_s-gailv_a-gailv_b;
-	}
-	//$(".luckystars").html(luckystar);
+	$(".luckystars_bar").css("height",luckystar+"%");
+	$(".luckystars_num").html(luckystar+"/100");
+	$(".luckystars_num").attr("data-text",luckystar+"/100");
 }
 
 
-//定义事件：是否出现S首付
+//定义事件：是否出现解封奖励
 function ifshowshoufu_s(){
-	if(i>=100 && isaddsuipian_s == 0 && $(".btn_shoufu_s").hasClass("on")){
+	if(i+i_free>=60 && isaddsuipian_s == 0 && $(".btn_shoufu_s").hasClass("on")){
 		$(".btn_baoxiang").show(100);
 	}else{
-		$(".btn_baoxiang").hide(100);
+		//$(".btn_baoxiang").hide(100);
 	}	
 }
 //领取S首付奖励
@@ -753,140 +610,14 @@ function addsuipian_s(n){
 	num_s_new = num_s_new +n;
 	$("#num_s").html(num_s);
 	$("#num_s_new").html(num_s_new);
-	//是否领取s首付奖励状态变为1
+	//是否领取解封奖励状态变为1
 	isaddsuipian_s = 1;
-	//s首付弹窗消失
-	setTimeout(function(){
-		$(".pop_baoxiang").addClass("zoomOut");
-		$(".pop_mask").fadeOut(100);
-	},1000);
-	setTimeout(function(){
-		$(".pop_baoxiang").removeClass("on");
-	},1500);
-	//s首付奖励按钮消失
-	$(".btn_baoxiang").hide(100);
+	//解封奖励变为已领取状态
+	$(".btn_baoxiang").addClass("opened");
 	//恭喜文字提示
-	gongxi("#congratulation","已领取首付奖励 <span>"+name_s_new+"碎片 × "+n+"</span>");
+	gongxi("#congratulation","已领取解封60次奖励 <span>忍者信物 × "+n+"</span>");
 }
-//V0-V4领取
-$("#baoxiang01").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_s == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_s(25);	
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-});
-//V5-V9领取
-$("#baoxiang02").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_s == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_s(28);	
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-});
-//V10-V14领取
-$("#baoxiang03").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_s == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_s(33);	
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-});
-//V15领取
-$("#baoxiang04").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_s == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_s(38);	
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-});
 
-//定义事件：是否出现A首付
-function ifshowshoufu_a(){
-	if(i>=50 && isaddsuipian_a == 0 && $(".btn_shoufu_a").hasClass("on")){
-		$(".btn_baoxiang_a").show(100);
-	}else{
-		$(".btn_baoxiang_a").hide(100);
-	}	
-}
-//领取A首付奖励
-function addsuipian_a(n){
-	//增加a碎片数量
-	num_a = num_a + n;
-	num_a_new = num_a_new + n;
-	$("#num_a").html(num_a);
-	$("#num_a_new").html(num_a_new);
-	//是否领取A首付奖励状态变为1
-	isaddsuipian_a = 1;
-	//A首付弹窗消失
-	setTimeout(function(){
-		$(".pop_baoxiang_a").addClass("zoomOut");
-		$(".pop_mask").fadeOut(100);
-	},1000);
-	setTimeout(function(){
-		$(".pop_baoxiang_a").removeClass("on");
-	},1500);
-	//a首付奖励按钮消失
-	$(".btn_baoxiang_a").hide(100);
-	//恭喜文字提示
-	gongxi("#congratulation","已领取首付奖励 <span>"+name_a_new+"碎片 × "+n+"</span>");
-}
-//V0-V4领取
-$("#baoxiang_a01").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_a == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_a(10);
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-})
-//V5-V9领取
-$("#baoxiang_a02").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_a == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_a(11);
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-})
-//V10-V14领取
-$("#baoxiang_a03").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_a == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_a(13);
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-})
-//V15领取
-$("#baoxiang_a04").on('click',function(){
-	playaudio(3);
-	if(isaddsuipian_a == 0){
-		//宝箱变为打开状态
-		$(this).addClass("open");
-		addsuipian_a(15);
-	}else{
-		toast("#toast","首付奖励只能领取一次！");
-	}
-})
 
 
 
@@ -903,9 +634,10 @@ function A(){
 			}else{
 				var n = parseInt(Math.random()*(2-1+1)+1,10);
 			}
-			//幸运值重置
+			//抽到信物，幸运值重置
 			luckystar = 0;
-			sad = 0;
+			doluckyevent();
+			console.log("幸运值为"+luckystar+"；s概率目前为"+gailv_s+"；a目前概率为"+gailv_a+"；b目前概率为"+gailv_b+"；c目前概率为"+gailv_c);
 			if(n==1){
 				num_this = 2;
 				num_s = num_s+2;
@@ -921,42 +653,19 @@ function A(){
 			num_s_new = num_s_new + num_this;
 			num_s_new_zengjia = num_s_new_zengjia + num_this;
 			$("#num_s_new").html(num_s_new);
-			gongxi("#congratulation","恭喜你获得 <span>"+name_s_new+"碎片 × "+num_this+"</span>");
-			//return;
-		}else if(gailv_s < raNum && raNum <= gailv_s+gailv_a){
-			//A忍 出现4片和1片的概率
-			var n = parseInt(Math.random()*(2-1+1)+1,10);
-			if(n==1){
-				num_this = 4;
-				num_a = num_a+4;
-			}else{
-				num_this = 1;
-				num_a++;
-			}
-			//随机出现某个忍者 1-2
-			//var m = parseInt(Math.random()*10);
-			var m = parseInt(Math.random()*(2-1+1)+1,10);
-			writelog("A碎片 × "+num_this,"a",num_this,m);
-			$("#num_a").html(num_a);
-			//这里判断是否为新A，m值需要与css设定相对应，目前两a概率各50%
-			if(m == 1){
-				//是新a，恭喜公告出现，并且额外计入新a计数器
-				gongxi("#congratulation","恭喜你获得 <span>"+name_a_new+"碎片 × "+num_this+"</span>");
-				num_a_new = num_a_new + num_this;
-				$("#num_a_new").html(num_a_new);
-				num_a_new_zengjia = num_a_new_zengjia + num_this;
-				//幸运值重置
-				luckystar = -1;
-				sad = -1;
-			}
+			//gongxi("#congratulation","恭喜你获得 <span>"+name_s_new+"碎片 × "+num_this+"</span>");
 			//return;
 		}else if(gailv_s+gailv_a < raNum && raNum <= gailv_s+gailv_a+gailv_b){
 			//B忍
 			num_this = 1;
 			num_b++;
-			//随机出现某个忍者 1-4
+			//抽不到忍者信物，幸运值+5
+			luckystar=luckystar+5;
+			doluckyevent();
+			console.log("幸运值为"+luckystar+"；信物目前为"+gailv_s+"；a目前概率为"+gailv_a+"；b目前概率为"+gailv_b+"；c目前概率为"+gailv_c);
+			//随机出现某个忍者 1-3
 			//var m = parseInt(Math.random()*10);
-			var m = parseInt(Math.random()*(4-1+1)+1,10);
+			var m = parseInt(Math.random()*(3-1+1)+1,10);
 			writelog("B碎片 × "+num_this,"b",num_this,m);
 			$("#num_b").html(num_b);
 			//return;
@@ -964,41 +673,20 @@ function A(){
 			//C忍
 			num_this = 1;
 			num_c++;
-			//随机出现某个忍者 1-2
+			//抽不到忍者信物，幸运值+5
+			luckystar=luckystar+5;
+			doluckyevent();
+			console.log("幸运值为"+luckystar+"；信物目前为"+gailv_s+"；a目前概率为"+gailv_a+"；b目前概率为"+gailv_b+"；c目前概率为"+gailv_c);
+			//随机出现某个忍者 1-3
 			//var m = parseInt(Math.random()*10);
-			var m = parseInt(Math.random()*(2-1+1)+1,10);
+			var m = parseInt(Math.random()*(3-1+1)+1,10);
 			writelog("C碎片 × "+num_this,"c",num_this,m);
 			$("#num_c").html(num_c);
 			//return;
 		}
-	console.log("s="+num_s+",a="+num_a+",a_new="+num_a_new+",b="+num_b+",c="+num_c+",");
-
-		//必送文字输出
-		writebisong();
-		
-		//悲剧指数体现
-		sad++;
-		showsad();
-		console.log("悲剧指数为"+sad);
-
-		//幸运模式体现，如果抽不到s和新a，幸运值会增加1
-		luckystar++;
-		doluckyevent();
-		console.log("幸运值为"+luckystar+"；s概率目前为"+gailv_s+"；a目前概率为"+gailv_a+"；b目前概率为"+gailv_b+"；c目前概率为"+gailv_c);
-		
-		//事件：A首付奖励是否出现
-		ifshowshoufu_a();
-
-		//事件：S首付奖励是否出现
+	//console.log("s="+num_s+",a="+num_a+",a_new="+num_a_new+",b="+num_b+",c="+num_c+",");
+				
+		//事件：解封奖励是否出现
 		ifshowshoufu_s();
 
-		//如果照美冥碎片达到40 出现弹窗
-//		if(num_a_new>=40 && istanchunewninja == 0 ){
-//				playaudio(2);
-//				gongxi("#congratulation","恭喜你成功招募 <span>"+name_a_new+"[五代目水影]</span>");
-//				$(".pop_newninja").addClass("on");
-//				$(".pop_newninja").removeClass("zoomOut");
-//				//$(".pop_mask").fadeIn(100);
-//				istanchunewninja = 1;
-//		}
 }

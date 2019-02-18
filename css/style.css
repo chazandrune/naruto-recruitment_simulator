@@ -230,6 +230,9 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_gaozhaoquan{ background-image:url(../images/juanzhou_gaoji.png); }
 .icon.icon_xiandingquan{ background-image:url(../images/juanzhou_xianding.png); }
 .icon.icon_puzhaoquan{ background-image:url(../images/juanzhou_putong.png); }
+.icon.icon_fengyinbaoxiang{ background-image:url(../images/fengyinbaoxiang.png); }
+.icon.icon_jiefengquan{ background-image:url(../images/jiefengquan.png); }
+.icon.icon_xinwu{ background-image:url(../images/xinwu.png); }
 .icon.icon_sina{ background-image:url(../images/icon_sina.png); }
 .icon.icon_weixin{ background-image:url(../images/icon_weixin.png); }
 .icon.icon_jinbi{ background-image:url(../images/coin.png); }
@@ -270,10 +273,10 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 
 
 
-#clik,#clik10 { position: relative;color: #faf3bc;}
+#clik,#clik10 { position: relative;/*color: #faf3bc;*/}
 #clik .txt,#clik10 .txt{ padding-left: .5rem; }
 #clik .icon,#clik10 .icon{ height:.5rem; width: .5rem; line-height: .8rem; font-size: .18rem; position: absolute; left:.2rem; top: 50%; margin-top: -.25rem;  }
-#reset {color: #faf3bc;}
+#reset {/*color: #faf3bc;*/}
 
 .tips_bisong{ font-size:.22rem; line-height:.2rem; text-align:center; color:#fff;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000;}
 .tips_bisong span{ color:#f4c327;}
@@ -406,15 +409,14 @@ filter: brightness(1.2); }
 
 /* 右上角的按钮容器*/
 .thebtns{ position:fixed; top:.1rem;  width:.6rem; height:auto;}
+.thebtns .btn{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.thebtns .btn .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
+.thebtns>.btn>.txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.4rem;line-height:.3rem;}
 .thebtns_01{  right:.1rem;}
 .thebtns_02{  right:.7rem; }
 
 
 /*弹窗 关于和公告*/
-.btn_info,
-.btn_notice{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
-.btn_info .icon,
-.btn_notice .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .layui-layer{ background: none; box-shadow: none; }
 .layui-layer-msg{ border-radius: .1rem; background-color:rgba(0,0,0,.6); }
 .layui-layer-dialog .layui-layer-content{ font-size: .16rem; line-height: .30rem; }
@@ -436,8 +438,6 @@ filter: brightness(1.2); }
 .pop .text_body img{ max-width: 100%; }
 
 /*弹窗 设置*/
-.btn_setting{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
-.btn_setting .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .pop_small .title{ position: absolute; left: -.4rem; top: -.2rem; width: 3rem; height: 1rem; }
 .pop_small .title .title_bg,
 .pop_small .title .title_txt{ position: absolute; left: 0; bottom: 0; width: 100%; height: auto;}
@@ -504,9 +504,8 @@ filter: brightness(1.2); }
 /*问卷调查按钮*/
 
 /*弹窗 宝箱*/
-.btn_baoxiang{position: relative;cursor: pointer; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
-.btn_baoxiang .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
-.btn_baoxiang .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
+.thebtns .btn_baoxiang,
+.thebtns .btn_baoxiang_a{display:none; }
 .baoxianglist { background:url(../images/shoufujiangli_bg.png) no-repeat top center; background-size:contain; padding-top:.21rem; text-align:center;}
 .baoxianglist .item{ display:inline-block; width:20%; margin:.0rem 2%; text-align:center;cursor: pointer; }
 .baoxianglist .item .pic{ width:100%;}
@@ -514,9 +513,6 @@ filter: brightness(1.2); }
 .baoxianglist .item .pic .img_open{ display:none;}
 .baoxianglist .item.open .pic .img_open{ display:block;}
 .baoxianglist .item.open .pic .img{ display:none;}
-.btn_baoxiang_a{position: relative;cursor: pointer; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; display:none; }
-.btn_baoxiang_a .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
-.btn_baoxiang_a .txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.5rem;line-height:.3rem;}
 
 /*弹窗 二维码*/
 .pop_gzh{width:4rem; height: 4rem;margin-left: -2rem;margin-top: -2rem; background: #fff;}
