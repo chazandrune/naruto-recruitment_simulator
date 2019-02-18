@@ -175,12 +175,12 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg_fengyin.png) n
 .copyright{ color: #fff; opacity: .3; text-align: right; font-size: .14rem; position:fixed; bottom: 0; left: 0; right: 0; height: .4rem; line-height:.4rem; padding:0 .1rem; }
 .copyright a{ color:#fff;}
 .luckystars_warp{text-align: center; position: fixed; top: 50%; margin-top: -2.9rem; left: 50%; margin-left: -3.3rem; height: 1.7rem; width: 1.7rem; background: url(../images/luckybar_bg.png) no-repeat center; background-size: 100% 100%;  }
-.luckystars_bar_box{ display: block; width: .94rem; height: .94rem; position:absolute; left: 50%; margin-left: -.47rem; bottom:.43rem; border-radius: 50%; overflow: hidden; }
-.luckystars_bar{ display:block; width: 100%; height: 0; position:absolute; bottom: 0; left: 0; right: 0; background-image: url(../images/luckybar_bar.png); background-size:100% auto; background-position:bottom center;animation:faguang 1.5s ease-in-out infinite;}
+.luckystars_bar_box{ display: block; width: .94rem; height: .94rem; position:absolute; left: 50%; margin-left: -.47rem; bottom:.43rem; border-radius: 50%; overflow: hidden;transform: rotate(0deg); }
+.luckystars_bar{ display:block; width: 100%; height: 0; position:absolute; bottom: 0; left: 0; right: 0; background-image: url(../images/luckybar_bar.png); background-size:100% auto; background-position:bottom center;animation:faguang 1.5s ease-in-out infinite; overflow:hidden;}
 .luckystars_bar:after{ content:" "; display: block; position: absolute; top: 0; left: 0; right: 0; height: .02rem; border-radius: 50%; animation:shanyao 1.5s ease-in-out infinite; }
 .luckystars_warp .fg{ display: block; width: 100%; height: 100%; position: absolute; left: 0; right: 0; bottom: 0rem; background: url(../images/luckybar_fg.png) no-repeat center; background-size: 100% 100%; }
-.luckystars_warp .luckystars_num_box{ display: block; width: 100%; height: .2rem; line-height: .2rem; position: absolute; bottom: .5rem; text-align: center; font-size: .2rem; color: #faea72; }
-.luckystars_num{ position:relative; z-index: 0; }
+.luckystars_warp .luckystars_num_box{ display: block; width: 100%; height: .2rem; line-height: .2rem; position: absolute; bottom: .5rem; text-align: center; font-size: .2rem; color: #faea72; z-index: 1; }
+.luckystars_num{ position:relative; z-index: 1; }
 .luckystars_num::before{content:attr(data-text); position: absolute; left: 0; z-index: -1;-webkit-text-stroke: .04rem #562603; }
 .tongjilist_wrap{ position: fixed; left: 0; top: 0; bottom: 0; background: rgba(0,0,0,.3); color:#fff; font-size: .18rem;}
 .tongjilist_wrap.on{ left: -50%; }
