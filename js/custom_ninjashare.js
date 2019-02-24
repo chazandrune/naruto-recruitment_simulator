@@ -59,7 +59,20 @@
 		},500)
 		
 	})
-	
+
+
+	//重来按钮
+	$("#retry").on('click',function(){
+		$(".pop_setting").addClass("on");
+		$(".pop_setting").removeClass("zoomOut");
+		$(".pop_mask").fadeIn(100);
+		
+		$(".pop_resultpic").addClass("zoomOut");
+		setTimeout(function(){
+			$(".pop_resultpic").removeClass("on");
+		},500)
+		
+	})	
 
 
 ////////////////////////////////textarea input框剩余字数效果///////////////////////////////////
