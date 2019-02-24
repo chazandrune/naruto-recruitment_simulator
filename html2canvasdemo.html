@@ -61,16 +61,16 @@
         var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
         document.body.appendChild(img);
         //创建一个a标签
-        var dlLink = document.createElement('a');
-        // download 属性规定被下载的超链接目标。
-        dlLink.download = 'down';
-        dlLink.href = img.src;
-        // HTMLElement.dataset属性允许无论是在读取模式和写入模式下访问在 HTML或 DOM中的元素上设置的所有自定义数据属性(data-*)集。
-        dlLink.dataset.downloadurl = ["image/jpeg", dlLink.download, dlLink.href].join(':');
-        document.body.appendChild(dlLink);
-        // 自动点击a标签
-        dlLink.click();
-        document.body.removeChild(dlLink);
+//        var dlLink = document.createElement('a');
+//        // download 属性规定被下载的超链接目标。
+//        dlLink.download = 'down';
+//        dlLink.href = img.src;
+//        // HTMLElement.dataset属性允许无论是在读取模式和写入模式下访问在 HTML或 DOM中的元素上设置的所有自定义数据属性(data-*)集。
+//        dlLink.dataset.downloadurl = ["image/jpeg", dlLink.download, dlLink.href].join(':');
+//        document.body.appendChild(dlLink);
+//        // 自动点击a标签
+//        dlLink.click();
+//        document.body.removeChild(dlLink);
       });
     }
   </script>
