@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>web实时长图实践</title>
+  <style>
+    * {margin: 0;padding: 0;box-sizing: border-box;}
+    html,body {width: 100%;}
+    img {width: 100%;}
+  </style>
+</head>
+
+<body>
+  <!-- 需求：在事件触发时，自动生成一个大事件长图 
+       方案：在浏览器端尝试dom转图片的两种方案：-->
+  <!-- html2canvas一个在浏览器端通过JS对整个或部分页面进行“截屏”的库。 -->
+  <!-- html2canvas使用方法简单，截屏的核心代码如下： -->
+  <img id="short" src="./001010.png" alt="短图">
+  <img id="long" src="./daygame.jpg" alt="长图">
+  <div id="text">
+      <p>你好</p>
+      <p>你</p>
+    </div>
+  <button onclick="convert2canvas()">点击按钮将网页保存为图片</button>
+  <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+  <script src="./canvas2image.js"></script>
+  <script>
+    function convert2canvas() {
+      var cntElem = document.getElementById('long');
+      var shareContent = cntElem; //需要截图的包裹的（原生的）DOM 对象
+      var width = shareContent.offsetWidth; //获取dom 宽度
+      var height = shareContent.offsetHeight; //获取dom 高度
+      var canvas = document.createElement("canvas"); //创建一个canvas节点
+      var scale = 2; //定义任意放大倍数 支持小数
+      canvas.width = width * scale; //定义canvas 宽度 * 缩放
+      canvas.height = height * scale; //定义canvas高度 *缩放
+      canvas.getContext("2d").scale(scale, scale); //获取context,设置scale 
+      var opts = {
+        backgroundColor:'#ffffff',
+        scale: scale, // 添加的scale 参数
+        canvas: canvas, //自定义 canvas
+        // logging: true, //日志开关，便于查看html2canvas的内部执行流程
+        width: width, //dom 原始宽度
+        height: height,
+        useCORS: true // 【重要】开启跨域配置
+      };
+
+      html2canvas(shareContent, opts).then(function (canvas) {
+
+        var context = canvas.getContext('2d');
+        // 【重要】关闭抗锯齿
+        context.mozImageSmoothingEnabled = false;
+        context.webkitImageSmoothingEnabled = false;
+        context.msImageSmoothingEnabled = false;
+        context.imageSmoothingEnabled = false;
+
+        // 【重要】默认转化的格式为png,也可设置为其他格式
+        var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
+        document.body.appendChild(img);
+        //创建一个a标签
+        var dlLink = document.createElement('a');
+        // download 属性规定被下载的超链接目标。
+        dlLink.download = 'down';
+        dlLink.href = img.src;
+        // HTMLElement.dataset属性允许无论是在读取模式和写入模式下访问在 HTML或 DOM中的元素上设置的所有自定义数据属性(data-*)集。
+        dlLink.dataset.downloadurl = ["image/jpeg", dlLink.download, dlLink.href].join(':');
+        document.body.appendChild(dlLink);
+        // 自动点击a标签
+        dlLink.click();
+        document.body.removeChild(dlLink);
+      });
+    }
+  </script>
+</body>
+
+</html>

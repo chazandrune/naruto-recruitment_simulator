@@ -312,7 +312,7 @@ function printimg(){
 	$(".pop_resultpic").removeClass("zoomOut");
 	$(".pop_mask").fadeIn(100);
 
-	html2canvas( $('#thepic')[0],{scale:2,logging:true,useCORS:true,width:2272,height:1280} ).then(function(canvas){
+	html2canvas( $('#thepic')[0],{scale:2,logging:true,useCORS:true,width:1136,height:640} ).then(function(canvas){
     		//document.body.appendChild(canvas);
 			//$('#canvas_import').empty();
 			$('#canvas_import').append(canvas);
