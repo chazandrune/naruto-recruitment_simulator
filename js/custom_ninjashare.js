@@ -305,14 +305,14 @@ function suijixuan(){
 }
 
 //输出最终图像
-function print(){
+function printimg(){
 	//$('.container_form').slideUp();
 	$('.container_box_scroll').slideUp();
 	$(".pop_resultpic").addClass("on");
 	$(".pop_resultpic").removeClass("zoomOut");
 	$(".pop_mask").fadeIn(100);
 
-	html2canvas( $('#thepic')[0],{scale:2,logging:true,useCORS:true,width:2272px,height:1280px} ).then(function(canvas){
+	html2canvas( $('#thepic')[0],{scale:2,logging:true,useCORS:true,width:2272,height:1280} ).then(function(canvas){
     		//document.body.appendChild(canvas);
 			//$('#canvas_import').empty();
 			$('#canvas_import').append(canvas);
