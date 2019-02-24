@@ -18,15 +18,15 @@
        方案：在浏览器端尝试dom转图片的两种方案：-->
   <!-- html2canvas一个在浏览器端通过JS对整个或部分页面进行“截屏”的库。 -->
   <!-- html2canvas使用方法简单，截屏的核心代码如下： -->
-  <img id="short" src="./001010.png" alt="短图">
-  <img id="long" src="./daygame.jpg" alt="长图">
+  <img id="short" src="images/bg.png" alt="短图">
+  <img id="long" src="images/bg_shu.jpg" alt="长图">
   <div id="text">
       <p>你好</p>
       <p>你</p>
     </div>
   <button onclick="convert2canvas()">点击按钮将网页保存为图片</button>
   <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
-  <script src="./canvas2image.js"></script>
+  <script src="js/canvas2image.js"></script>
   <script>
     function convert2canvas() {
       var cntElem = document.getElementById('long');
