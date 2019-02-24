@@ -300,6 +300,7 @@ function print(){
 
 	html2canvas( $('#thepic')[0],{scale:2,logging:false,useCORS:true} ).then(function(canvas){
     		//document.body.appendChild(canvas);
+			$('#canvas_import').empty();
 			$('#canvas_import').append(canvas);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
 	});
