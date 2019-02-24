@@ -311,11 +311,14 @@ function printimg(){
 	$(".pop_resultpic").addClass("on");
 	$(".pop_resultpic").removeClass("zoomOut");
 	$(".pop_mask").fadeIn(100);
-
-	html2canvas( $('#thepic')[0],{scale:2,logging:true,useCORS:true,width:1136,height:640} ).then(function(canvas){
+	
+	var canvas = document.createElement("canvas");
+	canvas.width = 1136 * 2;
+	canvas.height = 640 * 2;
+	
+	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
     		//document.body.appendChild(canvas);
-			//$('#canvas_import').empty();
-			$('#canvas_import').append(canvas);
+			//$('#canvas_import').append(canvas);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
 	});
 	$(".pop_setting").addClass("zoomOut");
