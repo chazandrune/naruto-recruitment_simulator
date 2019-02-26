@@ -229,7 +229,7 @@ function updateimg(){
 	$('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
 	$('#input_ninja').val(ninjaname);
 	$(".ninja_avatar img,.ninja_name img,.txt_chenggong_rank img").load(function(){
-		console.log("图片加载完成")；
+		console.log("图片加载完成");
 		$(".loadtoast").hide();
 		//关闭忍者配置弹窗
 		$(".pop_setninja").addClass("zoomOut");
