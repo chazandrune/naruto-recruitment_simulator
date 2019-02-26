@@ -220,6 +220,7 @@ function updateimg(){
 	// $('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaval+".png");
 	// $('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
 	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
+	$(".loadtoast").show();
 	var ninjaid = cache_id;
 	var ninjarank = cache_rank;
 	var ninjaname = cache_name;
@@ -227,6 +228,16 @@ function updateimg(){
 	$('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaid+".png");
 	$('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
 	$('#input_ninja').val(ninjaname);
+	$(".ninja_avatar img,.ninja_name img,.txt_chenggong_rank img").load(function(){
+		console.log("图片加载完成")；
+		$(".loadtoast").hide();
+		//关闭忍者配置弹窗
+		$(".pop_setninja").addClass("zoomOut");
+		setTimeout(function(){
+			$(".pop_setninja").removeClass("on");
+		},500);
+
+	})
 }
 
 //select手动选择忍者
@@ -284,12 +295,7 @@ $(".pop_setninja .btn_done").on('click',function(){
 		//$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
 		//$(".tabbox .tabbox_bd .tabbox_bd_item:eq(0)").addClass("active").siblings().removeClass("active");
 
-		//关闭弹窗
-		//playaudio(3);
-		$(".pop_setninja").addClass("zoomOut");
-		setTimeout(function(){
-			$(".pop_setninja").removeClass("on");
-		},500);
+
 });
 
 
