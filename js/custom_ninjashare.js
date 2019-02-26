@@ -313,7 +313,7 @@ function printimg(){
 	$(".pop_resultpic").removeClass("zoomOut");
 	$(".pop_mask").fadeIn(100);
 	
-	var canvas = document.createElement("canvas");
+	var canvas = document.getElementById('canvas_import').createElement("canvas");
 	canvas.width = 1136;
 	canvas.height = 640;
 	
