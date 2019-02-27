@@ -14,7 +14,7 @@
 /*::selection { background:transparent; color:#fff; }
 ::-moz-selection { background:transparent; color:#fff; }
 ::-webkit-selection { background:transparent; color:#fff; }*/
-::-webkit-scrollbar{display:none;}
+/*::-webkit-scrollbar{display:none;}*/
 input::-webkit-input-placeholder{color:#888;}
 input::-moz-placeholder{color:#888;   /* Mozilla Firefox 19+ */}
 input:-moz-placeholder{color:#888;    /* Mozilla Firefox 4 to 18 */}
