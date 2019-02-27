@@ -62,8 +62,8 @@
 	
 	//重来按钮
 	$("#reset").on('click',function(){
-		$(".pop_setting").addClass("on");
-		$(".pop_setting").removeClass("zoomOut");
+		$(".pop_form").addClass("on");
+		$(".pop_form").removeClass("zoomOut");
 		$(".pop_mask").fadeIn(100);
 		
 		$(".pop_resultpic").addClass("zoomOut");
@@ -76,8 +76,8 @@
 
 	//重来按钮
 	$("#retry").on('click',function(){
-		$(".pop_setting").addClass("on");
-		$(".pop_setting").removeClass("zoomOut");
+		$(".pop_form").addClass("on");
+		$(".pop_form").removeClass("zoomOut");
 		$(".pop_mask").fadeOut(100);
 		//$('#canvas_import').empty();
 		$('#avatar_import').attr('src','');
@@ -342,9 +342,9 @@ function printimg(){
 	//$('.container_form').slideUp();
 	//$('.container_box_scroll').slideUp();
 	//关闭表单弹窗
-	$(".pop_setting").addClass("zoomOut");
+	$(".pop_form").addClass("zoomOut");
 	//setTimeout(function(){
-		$(".pop_setting").removeClass("on");
+		$(".pop_form").removeClass("on");
 	//},500)
 	$(".pop_mask").fadeOut(100);
 	//loading正在生成
