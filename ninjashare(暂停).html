@@ -14,7 +14,7 @@
 <meta name="format-detection" content="telephone=no, email=no">
 <link rel="icon" type="image/jpeg" href="images/juanzhou_gaoji.png">
 <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-<link rel="stylesheet" type="text/css" href="css/style_ninjashare.css?v=022703">
+<link rel="stylesheet" type="text/css" href="css/style_ninjashare.css?v=022704">
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 <script type="text/javascript" src="js/html2canvas.js"></script>
@@ -81,13 +81,13 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
     }
 }
 </script>
-<script type="text/javascript" src="js/preload_ninjashare.js"></script>
+<script type="text/javascript" src="js/preload_ninjashare.js?v=022701"></script>
 
 </head>
 
 
 <body>
-<div class="loadingbarbox"><div class="loadingline"></div></div>
+<div class="loadingbarbox"><div class="loadingline"></div><p><span class="loading-num">0%</span></p></div>
     <!--[if lt IE 9]>
       <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
       <style>
@@ -202,7 +202,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 				//console.log(percent);
 				//$('.loading-logs').append("<p>"+path+"</p>");
 				//$('.loading-current span').text(path);
-				//$('.loading-num').text(Math.floor(percent * 100)+'%');
+				$('.loading-num').text(Math.floor(percent * 100)+'%');
 				$('.loadingbarbox .loadingline').animate({width:Math.floor(percent * 100)+'%'},100);
 				if (percent == 1) {
 					//$('#loading').addClass('hide').removeClass('show');
@@ -216,6 +216,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 <!-- loading 结束 -->
 		<script type="text/javascript">
 			window.onload=function(){
+                clearInterval(changeloadingtext);
 				setTimeout(function(){
 					$("#LoadingBar p").html("准备就绪");
 				},500)
@@ -480,7 +481,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
         </div>
 
 <!--图像加载loading-->
-<div class="loadtoast"><div class="load-container load8"><div class="loader">Loading</div></div></div>
+<div class="loadtoast"><div class="load-container load8"><div class="loader">Loading</div></div><p>正在生成</p></div>
 
 <!--存放导出canvas的容器-->
 <div id="canvas_import" class="canvas_import"></div>
@@ -498,7 +499,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
     <a href="index.html" class="btn btn_back ease3" title="返回高级招募模拟器"><i class="icon icon_back"></i><span class="txt">返回招募</span></a>
 </div>
 
-<script type="text/javascript" src="js/custom_ninjashare.js?v=022701"></script>
+<script type="text/javascript" src="js/custom_ninjashare.js?v=022702"></script>
 </body>
 </html>
 

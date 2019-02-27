@@ -4,7 +4,7 @@ var msg = ["正在加载图像...","正在读取字体...","正在玩命加载..
 var _LoadingHtml = '<div id="LoadingBar"><div class="div txt-c animated fadeIn"><div class="load-container load8"><div class="loader">Loading</div></div><p>正在加载资源...</p><span id="cantwaiting"></span></div></div>';
 //呈现loading效果
 document.write(_LoadingHtml);
-setInterval(function(){
+var changeloadingtext = setInterval(function(){
 	$("#LoadingBar p").html(msg[Math.floor(Math.random() * msg.length)]);
 },1000)
 setTimeout(function(){
