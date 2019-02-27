@@ -329,9 +329,9 @@ function printimg(){
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
 	});
 	$(".pop_setting").addClass("zoomOut");
-	setTimeout(function(){
+	//setTimeout(function(){
 		$(".pop_setting").removeClass("on");
-	},500)
+	//},500)
 	$(".pop_mask").fadeOut(100);
 
 }
