@@ -209,13 +209,21 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
                     //$('.loadingbarbox').fadeOut(500);
                     //$('.loading-num').fadeOut(300);
 					//$('.loading-current').text(" ");
+                    clearInterval(changeloadingtext);
+                    setTimeout(function(){
+                        $("#LoadingBar p").html("准备就绪");
+                    },500)
+                    setTimeout(function(){
+                        $("#LoadingBar").fadeOut(300);
+                        $(".loadingbarbox").fadeOut(300);
+                    },1000)//5000
 				}
 			});
 		}
 	})();
 </script>
 <!-- loading 结束 -->
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			window.onload=function(){
                 clearInterval(changeloadingtext);
 				setTimeout(function(){
@@ -227,7 +235,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 				},1000)//5000
 			}
 		</script>
-
+ -->
 
 
 
