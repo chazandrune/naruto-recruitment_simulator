@@ -280,7 +280,7 @@ body{ height: 100%; width: 100%; position:fixed; left: 0; right: 0; top: 0; bott
 .canvas_import{ display:none; text-align:center;}
 .canvas_import canvas{}
 .pop_resultpic{ position:fixed; left:10%; top:0; right:10%; bottom:0;}
-.pop_resultpic .imgbox{ margin-bottom:10px; height:100%; width:100%;background:url(../images/loading.gif) no-repeat center;
+.pop_resultpic .imgbox{ margin-bottom:10px; height:100%; width:100%;/*background:url(../images/loading.gif) no-repeat center;*/
 	display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
