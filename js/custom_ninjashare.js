@@ -5,10 +5,10 @@
     var adjust = function(){
 		var width = document.documentElement.clientWidth;
 		var height =  document.documentElement.clientHeight;
-		if(height < 900){
-			var fs = height*100/900;
+		if(height < 1000){
+			var fs = height*100/1000;
 		}else{
-			var fs = 900*100/900;
+			var fs = 1000*100/1000;
 		}
 		$('html').css('font-size',fs);
 	};
