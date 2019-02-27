@@ -14,7 +14,7 @@
 <meta name="format-detection" content="telephone=no, email=no">
 <link rel="icon" type="image/jpeg" href="images/juanzhou_gaoji.png">
 <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-<link rel="stylesheet" type="text/css" href="css/style_ninjashare.css?v=022706">
+<link rel="stylesheet" type="text/css" href="css/style_ninjashare.css?v=022707">
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 <script type="text/javascript" src="js/html2canvas.js"></script>
@@ -206,9 +206,8 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 				$('.loadingbarbox .loadingline').animate({width:Math.floor(percent * 100)+'%'},100);
 				if (percent == 1) {
 					//$('#loading').addClass('hide').removeClass('show');
-					setTimeout(function(){
-                        $('.loadingbarbox').fadeOut(500);
-                    },500)
+                    //$('.loadingbarbox').fadeOut(500);
+                    //$('.loading-num').fadeOut(300);
 					//$('.loading-current').text(" ");
 				}
 			});

@@ -129,6 +129,7 @@ body{ height: 100%; width: 100%; position:fixed; left: 0; right: 0; top: 0; bott
 .loadingbarbox{ position:fixed; width:100%; height:4px; z-index:10000; top:50%; margin-top:100px; left:20%; right:20%;}
 .loadingbarbox .loadingline{ display:block; height:4px; background:#eb3713; position:relative;}
 .loadingbarbox .loadingline:after{ content:''; display:block; position:absolute; right:0; top:0; width:4px; height:4px; background:#fb8871; box-shadow:0 0 2px #fb8871;}
+.loadingbarbox .loading-num{ columns: #fff; text-align: center; }
 
 
 
