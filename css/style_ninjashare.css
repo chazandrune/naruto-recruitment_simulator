@@ -126,7 +126,7 @@ body{ height: 100%; width: 100%; position:fixed; left: 0; right: 0; top: 0; bott
 #LoadingBar{ position:fixed; width:100%; height:100%; background:#000; color:#fff; text-align:center; left:0; top:0; bottom:0; right:0; z-index:9999; font-size:16px; line-height:30px;}
 #LoadingBar .div{ width:300px; height:100px; position:absolute; left:50%; top:50%; margin-left:-150px; margin-top:-50px;}
 
-.loadingbarbox{ position:fixed; height:4px; z-index:10000; top:50%; margin-top:100px; left:20%; right:20%;}
+.loadingbarbox{ position:fixed; height:4px; z-index:10000; top:50%; margin-top:100px; left:20%; right:20%; background-color: #333;}
 .loadingbarbox .loadingline{ display:block; height:4px; background:#eb3713; position:relative;}
 .loadingbarbox .loadingline:after{ content:''; display:block; position:absolute; right:0; top:0; width:4px; height:4px; background:#fb8871; box-shadow:0 0 2px #fb8871;}
 .loadingbarbox p{color: #fff; text-align: center; }
