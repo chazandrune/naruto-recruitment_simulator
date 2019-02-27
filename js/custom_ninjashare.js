@@ -152,7 +152,9 @@ function MaxScore(e){
 });*/
 
 
-	
+$("input").on("blur",function(){
+	window.scroll(0,0);//失焦后强制让页面归位
+});	
 
 	
 	
