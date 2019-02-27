@@ -195,6 +195,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 	-o-webkit-transform: scale(0.9,0.9);
 	-moz-webkit-transform: scale(0.9,0.9); 
 }
+.btns .btn.blue{background-image: url(../images/btn_bg_blue.png);}
 .icon{ display: inline-block; width: 40px; height: 40px; background-size:contain; background-repeat: no-repeat; background-position: center; vertical-align: middle; margin-top: -10px; font-style: normal; font-size: 14px; line-height: 55px; color:#fff; text-align: right;}
 .icon.icon_gaozhaoquan{ background-image:url(../images/juanzhou_gaoji.png); }
 .icon.icon_xiandingquan{ background-image:url(../images/juanzhou_xianding.png); }
