@@ -15,6 +15,8 @@
 ::-moz-selection { background:transparent; color:#fff; }
 ::-webkit-selection { background:transparent; color:#fff; }*/
 ::-webkit-scrollbar{ width:.1rem;}
+::-webkit-scrollbar-thumb{ background: #fff; opacity: .3;}
+::-webkit-scrollbar-track{ background: #000; opacity: .3;}
 input::-webkit-input-placeholder{color:#888;}
 input::-moz-placeholder{color:#888;   /* Mozilla Firefox 19+ */}
 input:-moz-placeholder{color:#888;    /* Mozilla Firefox 4 to 18 */}
