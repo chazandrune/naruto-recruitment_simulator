@@ -321,12 +321,8 @@ function printimg(){
 		$(".pop_setting").removeClass("on");
 	//},500)
 	$(".pop_mask").fadeOut(100);
-
-
+	//loading正在生成
 	$(".loadtoast").show();
-	$(".pop_resultpic").addClass("on");
-	$(".pop_resultpic").removeClass("zoomOut");
-	$(".pop_mask").fadeIn(100);
 	
 	var canvas = document.createElement("canvas");
 	canvas.width = 1136;
@@ -337,6 +333,10 @@ function printimg(){
 			//$('#canvas_import').append(canvas);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
     		$(".loadtoast").hide();
+    		//出结果
+			$(".pop_resultpic").addClass("on");
+			$(".pop_resultpic").removeClass("zoomOut");
+			$(".pop_mask").fadeIn(100);
 	});
 
 }
