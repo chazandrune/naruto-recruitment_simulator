@@ -5,10 +5,10 @@
     var adjust = function(){
 		var width = document.documentElement.clientWidth;
 		var height =  document.documentElement.clientHeight;
-		if( height < 1000 && height >= 700){
+		if( height < 1000 && height >= 600){
 			var fs = height*100/1000;
-		}else if( height < 700 ){
-			var fs = 700*100/1000;
+		}else if( height < 600 ){
+			var fs = 600*100/1000;
 		}else{
 			var fs = 1000*100/1000;
 		}
