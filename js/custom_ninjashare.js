@@ -76,6 +76,12 @@
 		
 	})	
 
+	//生成按钮
+    $('#btn_import,#refresh').on('click',function(){
+		//suijixuan();
+        setTimeout(function(){printimg();},300);
+    })
+
 
 ////////////////////////////////textarea input框剩余字数效果///////////////////////////////////
 function exeTextKeyUp(t){

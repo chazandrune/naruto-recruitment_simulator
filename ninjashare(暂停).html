@@ -323,12 +323,6 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
                     <!--<a class="btn ease1" href="javascript:void(0);" id="suijixuan" onClick="suijixuan()">随机选</a>-->
                     <a class="btn ease1" href="javascript:void(0);" id="btn_import" title="生成">生成</a>
                 </div>
-                <script>
-                    $('#btn_import').on('click',function(){
-						//suijixuan();
-                        setTimeout(function(){printimg();},300);
-                    })
-                </script>
                 
             </div>
 
@@ -499,7 +493,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 <!--存放导出图片的容器-->
 <div class="pop pop_resultpic animated zoomIn">
 <div class="imgbox"><img id="avatar_import" src="" style="width:100%; height:auto;" alt="导出图像"></div>
-<div class="btns"><a id="retry" class="btn btn_reset ease1" href="javascript:void(0);">重来一次</a></div>
+<div class="btns"><a id="retry" class="btn btn_reset ease1" href="javascript:void(0);">重来一次</a><a id="refresh" class="btn btn_reset ease1" href="javascript:void(0);">再次生成</a></div>
 <p class="hints phone">长按图片保存或者发送给朋友</p>
 <p class="hints pc">右键图片保存</p>
 </div>
@@ -509,7 +503,7 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
     <a href="index.html" class="btn btn_back ease3" title="返回高级招募模拟器"><i class="icon icon_back"></i><span class="txt">返回招募</span></a>
 </div>
 
-<script type="text/javascript" src="js/custom_ninjashare.js?v=022705"></script>
+<script type="text/javascript" src="js/custom_ninjashare.js?v=022706"></script>
 </body>
 </html>
 
