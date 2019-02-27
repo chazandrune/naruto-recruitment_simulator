@@ -129,15 +129,15 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .loadingbarbox{ position:fixed; height:4px; z-index:10000; top:50%; margin-top:100px; left:20%; right:20%; background-color: #333;}
 .loadingbarbox .loadingline{ display:block; height:4px; background:#eb3713; position:relative;}
 .loadingbarbox .loadingline:after{ content:''; display:block; position:absolute; right:0; top:0; width:4px; height:4px; background:#fb8871; box-shadow:0 0 2px #fb8871;}
-.loadingbarbox p{color: #fff; text-align: center;font-family:"微软雅黑",Helvetica,Arial; }
+.loadingbarbox p{color: #fff; font-size: 16px; text-align: center;font-family:"微软雅黑",Helvetica,Arial; }
 
 
 
 /*main*/
-.tongjilist_btns { width: 140px; height:60px; position: fixed; top: 0; left: 0; }
-.tongjilist_btns .btn_back{ cursor: pointer; display: block;height: 60px; line-height: 60px; position:absolute;bottom:0; left: 0; right: 0; text-align: center; color: #fff; font-size: 20px; }
-.tongjilist_btns .btn_back .txt{ padding-left: 40px; }
-.tongjilist_btns .btn_back .icon{ position: absolute; left: 10px; top: 50%; margin-top: -20px; }
+.tongjilist_btns { width: 1.4rem; height: .6rem; position: fixed; top: .1rem; left: .1rem; }
+.tongjilist_btns .btn_back{ cursor: pointer; display: block;height: .6rem; line-height: .6rem; position:absolute;bottom:0; left: 0; right: 0; text-align: center; color: #fff; font-size: .2rem; }
+.tongjilist_btns .btn_back .txt{ padding-left: .4rem; }
+.tongjilist_btns .btn_back .icon{ position: absolute; left: .1rem; top: 50%; margin-top: -.16rem; }
 
 
 .container_form{ width:100%; overflow:hidden;}
@@ -174,20 +174,21 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 
 
 
-.btns{ font-size: 0; text-align: center; width: 100%; padding:10px 0;}
+.btns{ font-size: 0; text-align: center; width: 100%; }
 .btns .btn{ 
-	width: 120px; 
-	height: 50px; 
-	line-height: 50px;
-	display: inline-block; 
-	font-size: 18px; 
-	text-align: center; 
-	color:#fffd78; 
-	text-shadow: 0 2px #562603, 2px 0 #562603, -2px 0 #562603, 0 -2px #562603;
-	background-image: url(../images/btn_bg.png); background-repeat: no-repeat; 
-	background-size: contain;
-	background-position: center; 
-	cursor:pointer;
+  width: 1.85rem; 
+  height: .70rem; 
+  margin: .10rem;
+  line-height: .70rem;
+  display: inline-block; 
+  font-size: .22rem; 
+  text-align: center; 
+  color:#fffd78; 
+  text-shadow: 0 .02rem #562603, .02rem 0 #562603, -.02rem 0 #562603, 0 -.02rem #562603;
+  background-image: url(../images/btn_bg.png); background-repeat: no-repeat; 
+  background-size: contain;
+  background-position: left top; 
+  cursor:pointer;
  }	
 .btn:active{ 
 	transform: scale(0.9,0.9);
@@ -195,8 +196,8 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 	-o-webkit-transform: scale(0.9,0.9);
 	-moz-webkit-transform: scale(0.9,0.9); 
 }
-.btns .btn.blue{background-image: url(../images/btn_bg_blue.png);color:#d0e6ff;text-shadow: 0 2px #092257, 2px 0 #092257, -2px 0 #092257, 0 -2px #092257; }
-.icon{ display: inline-block; width: 40px; height: 40px; background-size:contain; background-repeat: no-repeat; background-position: center; vertical-align: middle; margin-top: -10px; font-style: normal; font-size: 14px; line-height: 55px; color:#fff; text-align: right;}
+.btns .btn.blue{background-image: url(../images/btn_bg_blue.png);color:#d0e6ff;text-shadow: 0 02rem #092257, 02rem 0 #092257, -02rem 0 #092257, 0 -02rem #092257; }
+.icon{ display: inline-block; width: .32rem; height: .32rem; background-size:contain; background-repeat: no-repeat; background-position: center; vertical-align: middle; margin-top: -10px; font-style: normal; font-size: 14px; line-height: 55px; color:#fff; text-align: right;}
 .icon.icon_gaozhaoquan{ background-image:url(../images/juanzhou_gaoji.png); }
 .icon.icon_xiandingquan{ background-image:url(../images/juanzhou_xianding.png); }
 .icon.icon_puzhaoquan{ background-image:url(../images/juanzhou_putong.png); }
@@ -216,7 +217,13 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .on>.icon_checkbox{ background-image:url(../images/checkbox_on.png);}
 
 
-
+/* 右上角的按钮容器*/
+.thebtns{ position:fixed; top:.1rem;  width:.6rem; height:auto;}
+.thebtns .btn{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
+.thebtns .btn .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
+.thebtns>.btn>.txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.4rem;line-height:.3rem;}
+.thebtns_01{  right:.1rem;}
+.thebtns_02{  right:.7rem; }
 
 /*弹窗 关于*/
 .layui-layer{ background: none; box-shadow: none; }
@@ -236,6 +243,10 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .pop .btns{ }
 .pop .text_wrap{ position: relative; height: 100%; width: 100%; }
 .pop .text_body{font-size: 14px; line-height: 20px; color: #888;overflow-y: auto;  position: absolute; left: 40px; right: 40px; top: 50px;bottom:30px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
+.pop .text_body img{ max-width: 100%; }
+
+.pop_info{ width: 100%; height: 100%; left: 0; right: 0; top: 0; bottom: 0; background:#000; }
+.pop_info .text_body{ left: 0; right: 0; padding: 0 .1rem; }
 
 /*弹窗 设置*/
 .btn_setting{position: fixed; right:10px; top:70px;cursor: pointer; display: block; width:60px;height: 60px; line-height: 60px; text-align: center; color: #fff; font-size: 16px;}
@@ -245,7 +256,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .pop_smalllong .title .title_txt{ position: absolute; left: 0; bottom: 0; width: 100%; height: auto;}
 .pop_smalllong .title .title_txt{ width: 56%; left:13%; }
 .pop_smalllong .title .title_bg{ opacity: .6; }
-.pop_smalllong .title_small{ position:absolute; left:10px; right:10px; text-align:center; top:0; height:40px; line-height:40px; color:#fff;}
+.pop_smalllong .title_small{ position:absolute; left:10px; right:10px; text-align:center; top:0; height:40px; line-height:40px; color:#fff; font-size: 16px;}
 .pop_smalllong .text_body{ left:20px; right:20px; bottom:20px;}
 .pop_setting{ top:60px; margin-top:0;}
 
@@ -256,6 +267,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .pop_setninja .tabbox{  width:100%;}
 .pop_setninja .tabbox .tabbox_hd{ height: 50px; line-height: 50px; font-size: 0; text-align: center; }
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item{ color: #fffd78; display: inline-block; font-size:20px; text-align: center;  cursor: pointer; opacity: .9; padding: 0 10px;}
+
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1; background: url(../images/tab_bg_active.png) no-repeat bottom center; background-size: 100% 50px;
   -webkit-transform: scale(1.2,1.2); transform: scale(1.2,1.2);-o-webkit-transform: scale(1.2,1.2);-moz-webkit-transform: scale(1.2,1.2);
 }
@@ -277,7 +289,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 
 .loadtoast{ display: none; position: absolute; left:0;right:0; top: 0; bottom: 0; background:rgba(0,0,0,.5); z-index: 1000; }
 .loadtoast .load-container{ position: absolute; left: 50%; margin-left:-45px; top: 50%; margin-top: -45px; }
-.loadtoast p{position: absolute; left: 0; right:0; top: 50%; margin-top: 50px; text-align: center; color: #fff;}
+.loadtoast p{position: absolute; left: 0; right:0; top: 50%; margin-top: 50px; text-align: center; font-size:16px; color: #fff;}
 .loadtoast p a{ color:#fffd78; }
 
 .canvas_import{ display:none; text-align:center;}

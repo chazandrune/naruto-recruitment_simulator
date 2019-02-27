@@ -2,11 +2,11 @@
 // 时间：20180703
 // 作者：某熊
 	//分辨率适应及横屏竖屏处理
-/*    var adjust = function(){
+    var adjust = function(){
 		var width = document.documentElement.clientWidth;
 		var height =  document.documentElement.clientHeight;
-		if($(window).innerWidth() < 900){
-			var fs = $(window).innerWidth()*100/900;
+		if(height < 900){
+			var fs = height*100/900;
 		}else{
 			var fs = 900*100/900;
 		}
@@ -16,7 +16,7 @@
 	window.onresize = adjust;
 	if ((navigator.userAgent.indexOf('MSIE') >= 0)&& (navigator.userAgent.indexOf('Opera') < 0)){
 		window.attachEvent("onresize",adjust);
-	};*/
+	};
 	//关于弹窗
 	$(".btn_info,.pop_info .btn_close").on('click',function(){
 		if($(".pop_info").hasClass("on")){
@@ -46,6 +46,19 @@
 			$(".pop_mask").fadeIn(100);
 		}
 	})
+	
+	//公众号弹窗
+	$(".jump_gzh,.pop_gzh .btn_close").on('click',function(){
+		if($(".pop_gzh").hasClass("on")){
+			$(".pop_gzh").addClass("zoomOut");
+			setTimeout(function(){
+				$(".pop_gzh").removeClass("on");
+			},500);
+		}else{
+			$(".pop_gzh").addClass("on");
+			$(".pop_gzh").removeClass("zoomOut");
+		}
+	});
 	
 	//重来按钮
 	$("#reset").on('click',function(){
