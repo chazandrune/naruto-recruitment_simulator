@@ -8,7 +8,9 @@ var changeloadingtext = setInterval(function(){
 	$("#LoadingBar p").html(msg[Math.floor(Math.random() * msg.length)]);
 },1000)
 setTimeout(function(){
-	$("#LoadingBar p").html("服务器几乎睡着了……");
+	if($("#LoadingBar").is(":visible")){
+		$("#LoadingBar p").html("服务器几乎睡着了……");
+	}	
 },20000)
 
 //解决移动端300ms延迟点击
