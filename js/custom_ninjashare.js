@@ -229,7 +229,7 @@ function updateimg(){
 	// $('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
 	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
 	$(".loadtoast p").html("正在配置");
-	var shengchengchaoshi = setTimeout(function(){
+	var gengxinchaoshi = setTimeout(function(){
 		$(".loadtoast p").html('响应过慢，<a onclick="location.reload()">点击刷新</a>');
 	},5000)
 	$(".loadtoast").show();
@@ -243,6 +243,7 @@ function updateimg(){
 	$(".ninja_avatar img,.ninja_name img,.txt_chenggong_rank img").load(function(){
 		console.log("图片加载完成");
 		$(".loadtoast").hide();
+		clearTimeout(gengxinchaoshi);
 		//关闭忍者配置弹窗
 		$(".pop_setninja").addClass("zoomOut");
 		setTimeout(function(){
@@ -347,9 +348,9 @@ function printimg(){
 	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
     		//document.body.appendChild(canvas);
 			//$('#canvas_import').append(canvas);
-			clearTimeout(shengchengchaoshi);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
     		$(".loadtoast").hide();
+			clearTimeout(shengchengchaoshi);
     		//最终结果图片弹出
 			$(".pop_resultpic").addClass("on");
 			$(".pop_resultpic").removeClass("zoomOut");
