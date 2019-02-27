@@ -159,7 +159,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.ninja_avatar{ left:0; right:0; top:0; bottom:0;}
 .container ul li.ninja_name{ left:0; right:0; top:0; bottom:0;}
 .container ul li.txt_wode{ left:162px; top:458px;}
-.container ul li.txt_wode_num{ left:240px; top:487px; width:55px; text-align:center; font-size:0;}
+.container ul li.txt_wode_num{ left:240px; top:480px; width:55px; text-align:center; font-size:0;}
 .container ul li.txt_wode_num img{ display:inline-block; margin-left:-5px;}
 .container ul li.txt_chenggong{ left:125px; top:416px;}
 .container ul li.txt_chenggong_rank{ left:328px; top:380px;}
