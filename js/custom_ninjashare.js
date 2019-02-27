@@ -229,6 +229,9 @@ function updateimg(){
 	// $('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
 	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
 	$(".loadtoast p").html("正在配置");
+	var shengchengchaoshi = setTimeout(function(){
+		$(".loadtoast p").html('响应过慢，<a onclick="location.reload()">点击刷新</a>');
+	},5000)
 	$(".loadtoast").show();
 	var ninjaid = cache_id;
 	var ninjarank = cache_rank;
