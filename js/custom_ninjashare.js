@@ -220,6 +220,7 @@ function updateimg(){
 	// $('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaval+".png");
 	// $('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
 	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
+	$(".loadtoast p").html("正在配置");
 	$(".loadtoast").show();
 	var ninjaid = cache_id;
 	var ninjarank = cache_rank;
@@ -322,8 +323,12 @@ function printimg(){
 	//},500)
 	$(".pop_mask").fadeOut(100);
 	//loading正在生成
+	$(".loadtoast p").html("正在生成");
 	$(".loadtoast").show();
-	
+	var shengchengchaoshi = setTimeout(function(){
+		$(".loadtoast p").html('响应过慢，<a onclick="location.reload()">点击刷新</a>');
+	},5000)
+
 	var canvas = document.createElement("canvas");
 	canvas.width = 1136;
 	canvas.height = 640;
@@ -331,9 +336,10 @@ function printimg(){
 	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
     		//document.body.appendChild(canvas);
 			//$('#canvas_import').append(canvas);
+			clearTimeout(shengchengchaoshi);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
     		$(".loadtoast").hide();
-    		//出结果
+    		//最终结果图片弹出
 			$(".pop_resultpic").addClass("on");
 			$(".pop_resultpic").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);

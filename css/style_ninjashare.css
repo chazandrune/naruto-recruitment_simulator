@@ -277,6 +277,7 @@ body{ height: 100%; width: 100%; position:fixed; left: 0; right: 0; top: 0; bott
 .loadtoast{ display: none; position: fixed; left:0;right:0; top: 0; bottom: 0; background:rgba(0,0,0,.5); z-index: 1000; }
 .loadtoast .load-container{ position: absolute; left: 50%; margin-left:-45px; top: 50%; margin-top: -45px; }
 .loadtoast p{position: absolute; left: 0; right:0; top: 50%; margin-top: 50px; text-align: center; color: #fff;}
+.loadtoast p a{ color:#fffd78; }
 
 .canvas_import{ display:none; text-align:center;}
 .canvas_import canvas{}
