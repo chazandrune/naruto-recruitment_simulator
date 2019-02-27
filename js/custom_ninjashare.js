@@ -315,6 +315,15 @@ function suijixuan(){
 function printimg(){
 	//$('.container_form').slideUp();
 	//$('.container_box_scroll').slideUp();
+	//关闭表单弹窗
+	$(".pop_setting").addClass("zoomOut");
+	//setTimeout(function(){
+		$(".pop_setting").removeClass("on");
+	//},500)
+	$(".pop_mask").fadeOut(100);
+
+
+	$(".loadtoast").show();
 	$(".pop_resultpic").addClass("on");
 	$(".pop_resultpic").removeClass("zoomOut");
 	$(".pop_mask").fadeIn(100);
@@ -327,12 +336,8 @@ function printimg(){
     		//document.body.appendChild(canvas);
 			//$('#canvas_import').append(canvas);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
+    		$(".loadtoast").hide();
 	});
-	$(".pop_setting").addClass("zoomOut");
-	//setTimeout(function(){
-		$(".pop_setting").removeClass("on");
-	//},500)
-	$(".pop_mask").fadeOut(100);
 
 }
 
