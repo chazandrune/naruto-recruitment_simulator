@@ -206,7 +206,9 @@ function PreviewImage(fileObj,imgPreviewId,imgPreviewId2,divPreviewId){
 				$('.loadingbarbox .loadingline').animate({width:Math.floor(percent * 100)+'%'},100);
 				if (percent == 1) {
 					//$('#loading').addClass('hide').removeClass('show');
-					$('.loadingbarbox').fadeOut(500);
+					setTimeout(function(){
+                        $('.loadingbarbox').fadeOut(500);
+                    },500)
 					//$('.loading-current').text(" ");
 				}
 			});
