@@ -136,7 +136,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 
 
 /*main*/
-.tongjilist_btns { width: 1.4rem; height: .6rem; position: fixed; top: .1rem; left: .1rem; }
+.tongjilist_btns { width: 1.4rem; height: .6rem; position: absolute; top: .1rem; left: .1rem; }
 .tongjilist_btns .btn_back{ cursor: pointer; display: block;height: .6rem; line-height: .6rem; position:absolute;bottom:0; left: 0; right: 0; text-align: center; color: #fff; font-size: .2rem; }
 .tongjilist_btns .btn_back .txt{ padding-left: .4rem; }
 .tongjilist_btns .btn_back .icon{ position: absolute; left: .1rem; top: 50%; margin-top: -.16rem; }
@@ -223,7 +223,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 
 
 /* 右上角的按钮容器*/
-.thebtns{ position:fixed; top:.1rem;  width:.6rem; height:auto;}
+.thebtns{ position:absolute; top:.1rem;  width:.6rem; height:auto;}
 .thebtns .btn{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 .thebtns .btn .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .thebtns>.btn>.txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.4rem;line-height:.3rem;}
