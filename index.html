@@ -17,13 +17,13 @@
 		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
 		<script type="text/javascript" src="js/fastclick.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css?v=011202">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=2019022801">
 		<script type="text/javascript" src="js/preload.js?v=111603"></script>
 	</head>
 
 	<body>
 		<style type="text/css" id="ninjacss"></style>
-<div class="loadingbarbox"><div class="loadingline"></div></div>
+<div class="loadingbarbox"><div class="loadingline"></div><p><span class="loading-num">0%</span></p></div>
     <!--[if lt IE 9]>
       <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
       <style>
@@ -64,12 +64,19 @@
 				//console.log(percent);
 				//$('.loading-logs').append("<p>"+path+"</p>");
 				//$('.loading-current span').text(path);
-				//$('.loading-num').text(Math.floor(percent * 100)+'%');
-				$('.loadingbarbox .loadingline').animate({width:Math.floor(percent * 100)+'%'},100);
+				$('.loading-num').text(Math.floor(percent * 100)+'%');
+				$('.loadingbarbox .loadingline').css({width:Math.floor(percent * 100)+'%'});
 				if (percent == 1) {
 					//$('#loading').addClass('hide').removeClass('show');
-					$('.loadingbarbox').fadeOut(500);
 					//$('.loading-current').text(" ");
+                    clearInterval(changeloadingtext);
+                    setTimeout(function(){
+                        $("#LoadingBar p").html("准备就绪");
+                    },500)
+                    setTimeout(function(){
+                        $("#LoadingBar").fadeOut(300);
+                        $(".loadingbarbox").fadeOut(300);
+                    },1000)//5000
 				}
 			});
 		}

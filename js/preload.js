@@ -4,11 +4,13 @@ var msg = ["正在加载图像..."/*,"正在读取字体..."*/,"正在玩命加�
 var _LoadingHtml = '<div id="LoadingBar"><div class="div txt-c animated fadeIn"><div class="load-container load8"><div class="loader">Loading</div></div><p>啊……一天不抽手就痒了</p><span id="cantwaiting"></span></div></div>';
 //呈现loading效果
 document.write(_LoadingHtml);
-setInterval(function(){
+var changeloadingtext = setInterval(function(){
 	$("#LoadingBar p").html(msg[Math.floor(Math.random() * msg.length)]);
 },2000)
 setTimeout(function(){
-	$("#LoadingBar p").html("服务器打瞌睡了……");
+	if($("#LoadingBar").is(":visible")){
+		$("#LoadingBar p").html("服务器几乎睡着了……");
+	}	
 },20000)
 
 //解决移动端300ms延迟点击
@@ -16,6 +18,10 @@ FastClick.attach(document.body);
 
 //解决移动端按钮按下效果bug
 document.body.addEventListener('touchstart', function () { }); 
+//解决微信禁止上下滑动
+// document.body.addEventListener('touchmove', function (e) {
+//   e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+// }, {passive: false});
 
 //判断是否是pc
 $(function(){
