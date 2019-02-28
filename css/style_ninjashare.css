@@ -129,9 +129,9 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 #LoadingBar .div{ width:300px; height:100px; position:absolute; left:50%; top:50%; margin-left:-150px; margin-top:-50px;}
 
 .loadingbarbox{ position:fixed; height:8px; z-index:10000; top:50%; margin-top:100px; left:20%; right:20%; background-color: #333;border-radius: 8px; border: 2px #fffd78 solid; }
-.loadingbarbox .loadingline{ display:block; height:8px; background:#eb3713; position:relative;border-radius: 8px; }
-.loadingbarbox .loadingline:after{ content:''; display:block; position:absolute; right:0; top:0; width:8px; height:8px; border-radius: 8px; background:#fb8871; box-shadow:0 0 2px #fb8871;}
-.loadingbarbox p{color: #fff; font-size: 12px; position: relative; height: 10px; line-height: 10px; margin-top: -10px; text-align: center;font-family:"微软雅黑",Helvetica,Arial;text-shadow: 0 .02rem #562603, .02rem 0 #562603, -.02rem 0 #562603, 0 -.02rem #562603; }
+.loadingbarbox .loadingline{ display:block; height:8px; background:#eb3713;background-image: -webkit-linear-gradient(0deg,#eb3713,#feab3a); position:relative;border-radius: 8px; }
+.loadingbarbox .loadingline:after{ content:''; display:none; position:absolute; right:0; top:0; width:8px; height:8px; border-radius: 8px; background:#fff; opacity: .3; box-shadow:0 0 2px #fff;}
+.loadingbarbox p{color: #fffd78; font-size: 12px; position: relative; height: 10px; line-height: 10px; margin-top: -10px; text-align: center;font-family:"微软雅黑",Helvetica,Arial;text-shadow: 0 .02rem #562603, .02rem 0 #562603, -.02rem 0 #562603, 0 -.02rem #562603; }
 
 
 
