@@ -77,13 +77,21 @@
                         $("#LoadingBar").fadeOut(300);
                         $(".loadingbarbox").fadeOut(300);
                     },1000)//5000
+					//指引的浮现
+					setTimeout(function(){
+						$(".guide_wrap").addClass("animated");
+						$(".guide_wrap").show();
+					},6000)
+					setTimeout(function(){
+						$(".guide_wrap").fadeOut(500);
+					},15000)
 				}
 			});
 		}
 	})();
 </script>
 <!-- loading 结束 -->
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			window.onload=function(){
 				setTimeout(function(){
 					$("#LoadingBar p").html("准备就绪");
@@ -91,16 +99,8 @@
 				setTimeout(function(){
 					$("#LoadingBar").fadeOut(300);
 				},5000)//5000
-				//指引的浮现
-				setTimeout(function(){
-					$(".guide_wrap").addClass("animated");
-					$(".guide_wrap").show();
-				},6000)
-				setTimeout(function(){
-					$(".guide_wrap").fadeOut(500);
-				},15000)
 			}
-		</script>
+		</script> -->
 
 
 <!-- 版本 -->
