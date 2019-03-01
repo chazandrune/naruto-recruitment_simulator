@@ -231,7 +231,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .thebtns_01{  right:.1rem;}
 .thebtns_02{  right:.7rem; }
 .thebtns_01_l{  left:.1rem; width: auto; height: .6rem;  }
-.thebtns_01_l .btn{ display: inline-block;vertical-align: top; font-size: 0; }
+.thebtns_01_l .btn{ display: inline-block;vertical-align: top; }
 
 /*弹窗 关于*/
 .layui-layer{ background: none; box-shadow: none; }
