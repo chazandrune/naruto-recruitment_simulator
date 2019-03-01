@@ -230,7 +230,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .thebtns>.btn>.txt{ white-space:nowrap; display:block; width:1rem; position:absolute; left:50%; margin-left:-.5rem; top:.4rem;line-height:.3rem;}
 .thebtns_01{  right:.1rem;}
 .thebtns_02{  right:.7rem; }
-.thebtns_01_l{  left:.1rem; width: auto; height: .6rem;  }
+.thebtns_01_l{  right:.7rem; width: auto; height: .6rem;  }
 .thebtns_01_l .btn{ display: inline-block;vertical-align: top; }
 
 /*弹窗 关于*/
