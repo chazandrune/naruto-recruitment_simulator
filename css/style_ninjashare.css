@@ -15,10 +15,10 @@
 ::-webkit-scrollbar{ width:5px;}
 ::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.3); }
 ::-webkit-scrollbar-track{ background: rgba(0,0,0,.1);}
-input::-webkit-input-placeholder{color:#888;}
-input::-moz-placeholder{color:#888;   /* Mozilla Firefox 19+ */}
-input:-moz-placeholder{color:#888;    /* Mozilla Firefox 4 to 18 */}
-input:-ms-input-placeholder{color:#888;  /* Internet Explorer 10-11 */}
+input::-webkit-input-placeholder{color:#675d3b;}
+input::-moz-placeholder{color:#675d3b;   /* Mozilla Firefox 19+ */}
+input:-moz-placeholder{color:#675d3b;    /* Mozilla Firefox 4 to 18 */}
+input:-ms-input-placeholder{color:#675d3b;  /* Internet Explorer 10-11 */}
 
 *{margin: 0; padding: 0;-webkit-tap-highlight-color:transparent; }
 a{ text-decoration:none;}
