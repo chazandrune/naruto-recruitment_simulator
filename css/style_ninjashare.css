@@ -237,8 +237,8 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .layui-layer{ background: none; box-shadow: none; }
 .layui-layer-msg{ border-radius: .1rem; background-color:rgba(0,0,0,.6); }
 .layui-layer-dialog .layui-layer-content{ font-size: .16rem; line-height: .30rem; }
-.pop_mask{ display:none; position:absolute; left:0; top:0; right:0; bottom:0; z-index:998; background:#000; opacity:.8;}
-.pop{ display: none; position:absolute; top:50%; left:50%; z-index:999;background-repeat:no-repeat;background-position: center; animation-duration: .2s; }
+.pop_mask{ display:none; position:fixed; left:0; top:0; right:0; bottom:0; z-index:998; background:#000; opacity:.8;}
+.pop{ display: none; position:fixed; top:50%; left:50%; z-index:999;background-repeat:no-repeat;background-position: center; animation-duration: .2s; }
 .pop_smalllong{ /*增加1.5倍*/ width:4.8rem; height: 6.9rem; background-image: url(../images/pop_smalllong_bg.png); background-size:100% 100%; margin-left: -2.4rem;margin-top: -1.875rem;}
 .pop_big{ width:800px; height: 400px; background-image: url(../images/pop_big_bg.png); background-size: 100% 100%; margin-left: -400px;margin-top: -200px;}
 .pop.on{ display: block; }
@@ -293,18 +293,18 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .pop_smalllong .text_body{ left:.3rem; right:.3rem; bottom:.3rem;}
 .pop_form{ top:.8rem; margin-top:0;}
 
-/*弹窗 忍者配置*/
+/*弹窗 选择忍者*/
 .pop_setninja{ width: 100%; height: 100%; left: 0; top: 0; right: 0; bottom: 0; background:rgba(0,0,0,.8);  }
-.pop_setninja .text_wrap{ position: absolute; left: 50%; top:20px; right:auto; bottom:auto; width:320px; margin-left: -160px; }
+.pop_setninja .text_wrap{ position: absolute; left: 50%; top:20px; right:auto; bottom:20px; width:320px; height:auto; margin-left: -160px; }
 .pop_setninja .text_wrap .hints_setninja{ color: #fff; position: absolute; right: 0; top: 0; line-height: 50px; font-size: 18px; }
-.pop_setninja .tabbox{  width:100%;}
+.pop_setninja .tabbox{  width:100%; position: absolute; top: 0; bottom: 1rem; left: 0; right: 0;}
 .pop_setninja .tabbox .tabbox_hd{ height: 50px; line-height: 50px; font-size: 0; text-align: center; }
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item{ color: #fffd78; display: inline-block; font-size:20px; text-align: center;  cursor: pointer; opacity: .9; padding: 0 10px;}
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item .icon{ width:.5rem; height: .5rem; }
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1; background: url(../images/tab_bg_active.png) no-repeat bottom center; background-size: 100% 50px;
   -webkit-transform: scale(1.2,1.2); transform: scale(1.2,1.2);-o-webkit-transform: scale(1.2,1.2);-moz-webkit-transform: scale(1.2,1.2);
 }
-.pop_setninja .tabbox .tabbox_bd{width:100%; height: 300px; padding:10px 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 100% 150px;}
+.pop_setninja .tabbox .tabbox_bd{width:100%; position: absolute; top: 50px; bottom:0; left: 0; right: 0;  height: 300px; padding:10px 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 100% 150px;}
 .pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow-y: auto; height: 300px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
 .pop_setninja .tabbox .tabbox_bd_item.active{ display: block; }
 .ninjalist {color: #fff; font-size: 0; width: auto;  margin: 0 auto; padding: 0 0;}
@@ -342,7 +342,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;}
-.pop_resultpic img{ display:block; width:100%; height:auto; min-height:1rem;  text-align:center; border:.05rem #fff solid; box-shadow:0px .3rem .4rem -.2rem rgba(0,0,0,.5);}
+.pop_resultpic img{ display:block; width:100%; height:auto; min-height:1rem;  text-align:center; border:.05rem #fff solid; box-shadow:0px .3rem .4rem -.2rem rgba(0,0,0,.5); border-radius: .1rem;}
 .pop_resultpic .btns{ position:absolute; bottom:.7rem; left:0; right:0; text-align:center;}
 .pop_resultpic .hints{ position:absolute; bottom:.2rem; left:0; right:0; display:block; width:100%; color:#fff; text-align:center; font-size:.2rem; line-height:.3rem; }
 .pop_resultpic .hints.pc{ display:block;}
