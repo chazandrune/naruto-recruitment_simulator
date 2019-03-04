@@ -304,8 +304,8 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .pop_setninja .tabbox .tabbox_hd .tabbox_hd_item.active{ opacity: 1; background: url(../images/tab_bg_active.png) no-repeat bottom center; background-size: 100% 50px;
   -webkit-transform: scale(1.2,1.2); transform: scale(1.2,1.2);-o-webkit-transform: scale(1.2,1.2);-moz-webkit-transform: scale(1.2,1.2);
 }
-.pop_setninja .tabbox .tabbox_bd{width:100%; position: absolute; top: 50px; bottom:0; left: 0; right: 0;  height: 300px; padding:10px 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 100% 150px;}
-.pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow-y: auto; height: 300px;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
+.pop_setninja .tabbox .tabbox_bd{width:100%; position: absolute; top: 50px; bottom:0; left: 0; right: 0;  height: auto; padding:10px 0; background: url(../images/resultlist_bg.png) no-repeat top center,url(../images/resultlist_bg2.png) no-repeat bottom center; background-size: 100% 150px;}
+.pop_setninja .tabbox .tabbox_bd_item{ display: none; overflow-y: auto; height: auto;-webkit-overflow-scrolling: touch; overflow-scrolling: touch;  }
 .pop_setninja .tabbox .tabbox_bd_item.active{ display: block; }
 .ninjalist {color: #fff; font-size: 0; width: auto;  margin: 0 auto; padding: 0 0;}
 .ninjalist li.line{ width: 100%; height: .01rem; background:#fff; opacity: .3; }
@@ -320,6 +320,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .tabbox_bd_item_a .ninjalist .item .fg:after{ background-image:url(../images/a.png); }
 .tabbox_bd_item_b .ninjalist .item .fg:after{ background-image:url(../images/b.png); }
 .tabbox_bd_item_c .ninjalist .item .fg:after{ background-image:url(../images/c.png); }
+.pop_setninja .btn{ position: absolute; left: 0; right: 0; bottom: 0; }
 
 .loadtoast{ display: none; position: absolute; left:0;right:0; top: 0; bottom: 0; background:rgba(0,0,0,.5); z-index: 1000; }
 .loadtoast .load-container{ position: absolute; left: 50%; margin-left:-45px; top: 50%; margin-top: -45px; }
