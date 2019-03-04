@@ -317,7 +317,7 @@ function updateimg(){
 	$('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaid+".png");
 	$('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
 	$('#input_ninja').val(ninjaname);
-	$(".ninja_avatar img,.ninja_name img,.txt_chenggong_rank img").load(function(){
+	$(".ninja_avatar img,.ninja_name img,.txt_chenggong_rank img").onload = function(){
 		console.log("图片加载完成");
 		$(".loadtoast").hide();
 		clearTimeout(gengxinchaoshi);
@@ -327,7 +327,7 @@ function updateimg(){
 			$(".pop_setninja").removeClass("on");
 		},500);
 
-	})
+	}
 }
 
 //select手动选择忍者
