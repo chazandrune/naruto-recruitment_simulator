@@ -320,7 +320,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .tabbox_bd_item_a .ninjalist .item .fg:after{ background-image:url(../images/a.png); }
 .tabbox_bd_item_b .ninjalist .item .fg:after{ background-image:url(../images/b.png); }
 .tabbox_bd_item_c .ninjalist .item .fg:after{ background-image:url(../images/c.png); }
-.pop_setninja .btn{ position: absolute; left: 0; right: 0; bottom: 0; }
+.pop_setninja .text_wrap .btn{ position: absolute; left: 0; right: 0; bottom: 0; }
 
 .loadtoast{ display: none; position: absolute; left:0;right:0; top: 0; bottom: 0; background:rgba(0,0,0,.5); z-index: 1000; }
 .loadtoast .load-container{ position: absolute; left: 50%; margin-left:-45px; top: 50%; margin-top: -45px; }
