@@ -307,7 +307,7 @@ function updateimg(){
 	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
 	$(".loadtoast p").html("正在配置");
 	var gengxinchaoshi = setTimeout(function(){
-		$(".loadtoast p").html('响应过慢，<a onclick="location.reload()">点击刷新</a>');
+		$(".loadtoast p").html('响应较慢<br>你可以继续等待或者<a onclick="location.reload()">点击刷新</a>');
 	},5000)
 	$(".loadtoast").show();
 	var ninjaid = cache_id;
@@ -415,8 +415,8 @@ function printimg(){
 	$(".loadtoast p").html("正在生成");
 	$(".loadtoast").show();
 	var shengchengchaoshi = setTimeout(function(){
-		$(".loadtoast p").html('响应过慢，<a onclick="location.reload()">点击刷新</a>');
-	},5000)
+		$(".loadtoast p").html('响应较慢<br>你可以继续等待或者<a onclick="location.reload()">点击刷新</a>');
+	},10000)
 
 	var canvas = document.createElement("canvas");
 	canvas.width = 1136;
@@ -426,12 +426,12 @@ function printimg(){
     		//document.body.appendChild(canvas);
 			//$('#canvas_import').append(canvas);
     		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
-    		$(".loadtoast").hide();
-			clearTimeout(shengchengchaoshi);
     		//最终结果图片弹出
 			$(".pop_resultpic").addClass("on");
 			$(".pop_resultpic").removeClass("zoomOut");
 			$(".pop_mask").fadeIn(100);
+    		$(".loadtoast").hide();
+			clearTimeout(shengchengchaoshi);
 	});
 
 }
