@@ -227,7 +227,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .thebtns{ position:absolute; top:.1rem;  width:.6rem; height:auto;font-size: 0;}
 .thebtns .btn{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 .thebtns .btn .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
-.thebtns>.btn>.txt{ white-space:nowrap; display:block; width:.6rem; position:absolute; left:50%; margin-left:-.5rem; top:.4rem;line-height:.3rem;text-shadow: 0 .02rem #111, .02rem 0 #111, -.02rem 0 #111, 0 -.02rem #111;}
+.thebtns>.btn>.txt{ white-space:nowrap; display:block; width:.6rem; position:absolute; left:0; right:0; top:.4rem;line-height:.3rem;text-shadow: 0 .02rem #111, .02rem 0 #111, -.02rem 0 #111, 0 -.02rem #111;}
 .thebtns_01{  right:.1rem;}
 .thebtns_02{  right:.7rem; }
 .thebtns_01_l{  left:.1rem; width: auto; height: .6rem;  }
