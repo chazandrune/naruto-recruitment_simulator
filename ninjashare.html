@@ -164,10 +164,13 @@
                     setTimeout(function(){
                         $("#LoadingBar p").html("准备就绪");
                     },500)
-                    setTimeout(function(){
-                        $("#LoadingBar").fadeOut(300);
-                        $(".loadingbarbox").fadeOut(300);
-                    },1000)//5000
+                    window.onload = function(){
+                        console.log("页面加载完成");
+                        setTimeout(function(){
+                            $("#LoadingBar").fadeOut(300);
+                            $(".loadingbarbox").fadeOut(300);
+                        },1000)//5000                      
+                    }
 				}
 			});
 		}
