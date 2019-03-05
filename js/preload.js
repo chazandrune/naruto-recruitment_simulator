@@ -13,9 +13,6 @@ setTimeout(function(){
 	}	
 },20000)
 
-//解决移动端300ms延迟点击
-FastClick.attach(document.body);
-
 //判断是否是pc
 $(function(){
 	if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) { 

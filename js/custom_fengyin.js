@@ -1,6 +1,8 @@
 // 辅助程序开始
 // 时间：20180511
 // 作者：某熊
+//解决移动端300ms延迟点击
+FastClick.attach(document.body);
 //解决移动端按钮按下效果bug
 document.body.addEventListener('touchstart', function () { }); 
 //解决微信禁止上下滑动
