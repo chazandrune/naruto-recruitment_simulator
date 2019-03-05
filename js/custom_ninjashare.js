@@ -1,6 +1,14 @@
 // 辅助程序开始
 // 时间：20180703
 // 作者：某熊
+//解决移动端按钮按下效果bug
+document.body.addEventListener('touchstart', function () {},false); 
+//解决微信禁止上下滑动
+// document.body.addEventListener('touchmove', function (e) {
+//   e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+// }, {passive: false});
+
+
 	//分辨率适应及横屏竖屏处理
     var adjust = function(){
 		var width = document.documentElement.clientWidth;

@@ -16,13 +16,6 @@ setTimeout(function(){
 //解决移动端300ms延迟点击
 FastClick.attach(document.body);
 
-//解决移动端按钮按下效果bug
-document.body.addEventListener('touchstart', function () { }); 
-//解决微信禁止上下滑动
-// document.body.addEventListener('touchmove', function (e) {
-//   e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
-// }, {passive: false});
-
 //判断是否是pc
 $(function(){
 	if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) { 
