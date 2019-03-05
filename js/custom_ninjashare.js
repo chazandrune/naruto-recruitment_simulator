@@ -280,11 +280,6 @@ function tongbu(e,obj){
 	}else{
 		e.html(val)
 	}
-	$.get("https://service.youziku.com/home/get", function (data) {
-		let partName = "ajax2";
-		$youziku.submit(partName);
-	})
-
 }
 
 //定义我的第几个忍者图片数字输出
@@ -432,6 +427,12 @@ function printimg(){
 	var shengchengchaoshi = setTimeout(function(){
 		$(".loadtoast p").html('响应较慢<br>你可以继续等待或者<a onclick="location.reload()">点击刷新</a>');
 	},10000)
+
+	//有字库更新文字字体
+	$.get("https://service.youziku.com/home/get", function (data) {
+		let partName = "ajax2";
+		$youziku.submit(partName);
+	})
 
 	var canvas = document.createElement("canvas");
 	canvas.width = 1136;
