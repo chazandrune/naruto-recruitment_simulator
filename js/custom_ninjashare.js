@@ -280,6 +280,7 @@ function tongbu(e,obj){
 	}else{
 		e.html(val)
 	}
+	$youziku.load(".user_txt", "5578cf01d15f468c8d75307533698d07", "FZYiHei-M20S");
 	$youziku.draw();
 }
 
