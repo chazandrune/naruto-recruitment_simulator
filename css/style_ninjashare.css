@@ -1,14 +1,15 @@
-
+/*
 @font-face {
     font-family: "FZYHJW";
     src: url("FZYHJW.eot");
     src: url("FZYHJW.eot?#iefix") format("embedded-opentype"),
-    url("FZYHJW.woff") format("woff"); /*chrome、firefox */
+    url("FZYHJW.woff") format("woff"); *//*chrome、firefox */
     /*url("FZYHJW.ttf") format("truetype");*/
     /*url("FZYHJW.svg#FZYHJW") format("svg");*/   
-    font-style: normal;
+    /*font-style: normal;
     font-weight: normal;
-}
+}*/
+
 /*::selection { background:transparent; color:#fff; }
 ::-moz-selection { background:transparent; color:#fff; }
 ::-webkit-selection { background:transparent; color:#fff; }*/
