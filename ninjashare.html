@@ -174,11 +174,8 @@ function fastmode(){
 					//$('.loading-current').text(" ");
                     clearInterval(changeloadingtext);
                     setTimeout(function(){
-                        $("#LoadingBar p").html("正在进行最后部署");
+                        $("#LoadingBar p").html("还差一点");
                     },500)
-                    setTimeout(function(){
-                        $("#LoadingBar p").html("网络较慢，建议使用<a href='javascript:void(0)' onclick='fastmode();'>极速模式</a>");
-                    },1000)
                     window.onload = function(){
                         console.log("页面完全加载完成");
                         setTimeout(function(){
@@ -547,7 +544,7 @@ function fastmode(){
 <!--存放导出图片的容器-->
 <div class="pop pop_resultpic animated zoomIn">
 <div class="imgbox">
-    <img id="avatar_import" src="images/loading.gif" style="width:100%; height:auto;" alt="导出图像">
+    <img id="avatar_import" src="images/loading.gif" alt="导出图像">
     <p class="txt phone">长按图片保存或者发送给朋友</p>
     <p class="txt pc">右键图片另存为</p>
 </div>
