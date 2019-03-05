@@ -431,6 +431,7 @@ function printimg(){
 	//有字库更新文字字体
 	$.get("https://service.youziku.com/home/get", function (data) {
 		let partName = "ajax2";
+		console.log(data);
 		$youziku.submit(partName);
 	})
 
