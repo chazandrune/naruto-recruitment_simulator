@@ -17,13 +17,29 @@
 		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
 		<script type="text/javascript" src="js/fastclick.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style_fengyin.css?v=2019022803">
-		<script type="text/javascript" src="js/preload.js?v=111603"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/style_fengyin.css?v=2019022803"> -->
+		<script>
+		    document.write('<link rel="stylesheet" type="text/css" href="css/style_fengyin.css?v='+Math.random()+'"/>');
+		</script>
+		<!-- <script type="text/javascript" src="js/preload.js?v=111603"></script> -->
+		<script  type="text/javascript">
+		    document.write('<script type="text/javascript" src="js/preload.js?v='+Math.random()+'"><\/script>');
+		</script>
 	</head>
 
 	<body>
 		<style type="text/css" id="ninjacss"></style>
+<div id="LoadingBar">
+    <div class="div txt-c">
+        <div class="load-container load8">
+            <div class="loader">Loading</div>
+        </div>
+        <p>正在进入封印宝箱模拟器...</p>
+        <span id="cantwaiting"></span>
+    </div>
+</div>
 <div class="loadingbarbox"><div class="loadingline"></div><p><span class="loading-num">0%</span></p></div>
+<div class="loading-logs" style="display:none; position:fixed; left:0; bottom:0; color:#fff; z-index:30000; font-size: .1rem; font-family: '微软雅黑','Arial';"></div>
     <!--[if lt IE 9]>
       <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
       <style>
@@ -268,7 +284,7 @@
 
 <!-- 指引 -->
 		<div class="guide_wrap fadeInDown">
-        	<div class="guide_small" style="right:1.3rem; top:.7rem;"><em class="jiao"></em><div class="text_body">分享图生成器回归</div></div>
+        	<div class="guide_small" style="right:1.3rem; top:.7rem;"><em class="jiao"></em><div class="text_body">忍者分享图生成器回归</div></div>
         </div>
 <!-- 恭喜 -->
 		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
@@ -278,8 +294,10 @@
 	</body>
 </html>
 <script type="text/javascript" src="js/howler.core.min.js"></script>
-<script type="text/javascript" src="js/custom_fengyin.js?v=2019021801"></script>
-
+<!-- <script type="text/javascript" src="js/custom_fengyin.js?v=2019021801"></script> -->
+<script  type="text/javascript">
+    document.write('<script type="text/javascript" src="js/custom_fengyin.js?v='+Math.random()+'"><\/script>');
+</script>
 
 <!-- 流量统计 -->
 <script>

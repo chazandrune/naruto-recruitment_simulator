@@ -30,16 +30,16 @@
 
 <body>
 <div id="LoadingBar">
-    <div class="loading-logs" style=" position:fixed; left:0; bottom:0; color:#fff; z-index:30000; font-size: .1rem; font-family: '微软雅黑','Arial';"></div>
     <div class="div txt-c">
         <div class="load-container load8">
             <div class="loader">Loading</div>
         </div>
-        <p>正在加载资源...</p>
+        <p>正在进入忍者分享图生成器...</p>
         <span id="cantwaiting"></span>
     </div>
 </div>
 <div class="loadingbarbox"><div class="loadingline"></div><p><span class="loading-num">0%</span></p></div>
+<div class="loading-logs" style="display:none; position:fixed; left:0; bottom:0; color:#fff; z-index:30000; font-size: .1rem; font-family: '微软雅黑','Arial';"></div>
     <!--[if lt IE 9]>
       <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
       <style>
@@ -151,7 +151,7 @@
 				var percent = curNum / total;
 				//console.log(path);
 				//console.log(percent);
-				$('.loading-logs').append("<p>"+path+"</p>");
+				//$('.loading-logs').append("<p>"+path+"</p>");
 				//$('.loading-current span').text(path);
 				$('.loading-num').text(Math.floor(percent * 100)+'%');
 				$('.loadingbarbox .loadingline').css({width:Math.floor(percent * 100)+'%'});

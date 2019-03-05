@@ -1,9 +1,9 @@
 //在页面未加载完毕之前显示的loading Html自定义内容
-var msg = ["正在加载图像..."/*,"正在读取字体..."*/,"正在玩命加载...","正在加载音效...","今天是欧皇还是非酋"];
+var msg = ["正在加载图像..."/*,"正在读取字体..."*/,"正在玩命加载...","正在加载音效...","正在加载资源..."];
 //alert(msg[Math.floor(Math.random() * msg.length)]);
-var _LoadingHtml = '<div id="LoadingBar"><div class="div txt-c animated fadeIn"><div class="load-container load8"><div class="loader">Loading</div></div><p>啊……一天不抽手就痒了</p><span id="cantwaiting"></span></div></div>';
+//var _LoadingHtml = '<div id="LoadingBar"><div class="div txt-c animated fadeIn"><div class="load-container load8"><div class="loader">Loading</div></div><p>啊……一天不抽手就痒了</p><span id="cantwaiting"></span></div></div>';
 //呈现loading效果
-document.write(_LoadingHtml);
+//document.write(_LoadingHtml);
 var changeloadingtext = setInterval(function(){
 	$("#LoadingBar p").html(msg[Math.floor(Math.random() * msg.length)]);
 },2000)
