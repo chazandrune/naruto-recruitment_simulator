@@ -6,7 +6,7 @@ var msg = ["正在加载图像...","正在读取字体...","正在玩命加载..
 //document.write(_LoadingHtml);
 var changeloadingtext = setInterval(function(){
 	$("#LoadingBar p").html(msg[Math.floor(Math.random() * msg.length)]);
-},1000)
+},2000)
 setTimeout(function(){
 	if($("#LoadingBar").is(":visible")){
 		$("#LoadingBar p").html("服务器几乎睡着了……");
