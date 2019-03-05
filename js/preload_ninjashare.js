@@ -10,7 +10,7 @@ var changeloadingtext = setInterval(function(){
 setTimeout(function(){
 	if($("#LoadingBar").is(":visible")){
 		$("#LoadingBar p").html("服务器几乎睡着了……");
-	}	
+	}
 },20000)
 
 //判断是否是pc

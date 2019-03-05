@@ -29,6 +29,7 @@
 
 
 <body>
+    <style type="text/css" id="ninjacss"></style>
 <div id="LoadingBar">
     <div class="div txt-c">
         <div class="load-container load8">
@@ -162,10 +163,19 @@
 					//$('.loading-current').text(" ");
                     clearInterval(changeloadingtext);
                     setTimeout(function(){
-                        $("#LoadingBar p").html("准备就绪");
+                        $("#LoadingBar p").html("正在进行最后部署");
                     },500)
+                    function fastmode(){
+                        $("#ninjacss").text("body{ font-family: '微软雅黑',Helvetica,Arial;}");
+                    }
+                    setTimeout(function(){
+                        $("#LoadingBar p").html("网络较慢，建议使用<a href='javascript:void(0)' onclick='fastmode();'>极速模式</a>");
+                    },20000)
                     window.onload = function(){
-                        console.log("页面加载完成");
+                        console.log("页面完全加载完成");
+                        setTimeout(function(){
+                            $("#LoadingBar p").html("准备就绪");
+                        },500)
                         setTimeout(function(){
                             $("#LoadingBar").fadeOut(300);
                             $(".loadingbarbox").fadeOut(300);
