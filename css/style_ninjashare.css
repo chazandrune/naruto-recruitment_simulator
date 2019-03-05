@@ -27,7 +27,7 @@ img[src=""]{opacity: 0;}
 li{ list-style:none;}
 input,button,textarea {outline: none; border:0;}
 html{ height: 100%; width: 100%; position:absolute; left: 0; right: 0; top: 0; bottom: 0; overflow:hidden;-moz-user-select: none; -khtml-user-select: none; user-select: none;}
-body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/bg_share.png) no-repeat center; background-size: cover;font-family:"FZYHJW","微软雅黑",Helvetica,Arial; /*letter-spacing:-1px;*/ }
+body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/bg_share.png) no-repeat center; background-size: cover;font-family:/*"FZYHJW",*/"微软雅黑",Helvetica,Arial; /*letter-spacing:-1px;*/ }
 
 .mb10{ margin-bottom: .10rem; }
 .mb20{ margin-bottom: .20rem; }
