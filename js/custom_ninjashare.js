@@ -280,6 +280,7 @@ function tongbu(e,obj){
 	}else{
 		e.html(val)
 	}
+	$youziku.draw();
 }
 
 //定义我的第几个忍者图片数字输出
