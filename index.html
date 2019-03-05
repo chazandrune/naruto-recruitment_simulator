@@ -87,20 +87,26 @@
 					//$('.loading-current').text(" ");
                     clearInterval(changeloadingtext);
                     setTimeout(function(){
-                        $("#LoadingBar p").html("准备就绪");
+                        $("#LoadingBar p").html("还差一点");
                     },500)
-                    setTimeout(function(){
-                        $("#LoadingBar").fadeOut(300);
-                        $(".loadingbarbox").fadeOut(300);
-                    },1000)//5000
-					//指引的浮现
-					setTimeout(function(){
-						$(".guide_wrap").addClass("animated");
-						$(".guide_wrap").show();
-					},6000)
-					setTimeout(function(){
-						$(".guide_wrap").fadeOut(500);
-					},15000)
+                    window.onload = function(){
+                        console.log("页面完全加载完成");
+                        setTimeout(function(){
+                            $("#LoadingBar p").html("准备就绪");
+                        },500)
+                        setTimeout(function(){
+                            $("#LoadingBar").fadeOut(300);
+                            $(".loadingbarbox").fadeOut(300);
+                        },1000)//5000                      
+						//指引的浮现
+						setTimeout(function(){
+							$(".guide_wrap").addClass("animated");
+							$(".guide_wrap").show();
+						},1000)
+						setTimeout(function(){
+							$(".guide_wrap").fadeOut(500);
+						},8000)
+                    }
 				}
 			});
 		}
