@@ -280,8 +280,11 @@ function tongbu(e,obj){
 	}else{
 		e.html(val)
 	}
-	$youziku.load(".user_txt", "5578cf01d15f468c8d75307533698d07", "FZYiHei-M20S");
-	$youziku.draw();
+	$.get("https://service.youziku.com/home/get", function (data) {
+		let partName = "ajax2";
+		$youziku.submit(partName);
+	})
+
 }
 
 //定义我的第几个忍者图片数字输出
