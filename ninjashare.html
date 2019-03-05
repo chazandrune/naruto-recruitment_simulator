@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="icon" type="image/png" href="images/ninja.png">
-<title>恭喜我招募新忍者</title>
+<title>恭喜我招募新忍者-忍者分享图生成器</title>
 <meta name="description" content="虽然我没有这个忍者，但是我可以假装有啊，火影忍者手游招募新忍者分享图生成器来啦">
-<meta name="keywords" content="火影新忍者,招募新忍者,分享图生成,分享图生成器,新忍者分享,恭喜获得新忍者,新忍者分享图,火影忍者手游招募新忍者,火影手游新忍者">
+<meta name="keywords" content="火影新忍者,招募新忍者,忍者分享图生成器,分享图生成,分享图生成器,新忍者分享,恭喜获得新忍者,新忍者分享图,火影忍者手游招募新忍者,火影手游新忍者">
 <meta name="author" content="某熊仔">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -37,7 +37,7 @@
         .browser-tips{ position:fixed; top:0; left:0; right:0; bottom:0;text-align:center;font-size:20px; line-height:30px; color:#fff; background-color:#000; padding-top:300px; z-index:999999999; }
       </sytle>
     <![endif]-->
-
+<div class="loading-logs" style=" position:fixed; left:0; bottom:0; color:#fff; z-index:301;"></div>
 <!-- 图像预加载 -->
 <script>
 // loading
@@ -143,7 +143,7 @@
 				var percent = curNum / total;
 				//console.log(path);
 				//console.log(percent);
-				//$('.loading-logs').append("<p>"+path+"</p>");
+				$('.loading-logs').append("<p>"+path+"</p>");
 				//$('.loading-current span').text(path);
 				$('.loading-num').text(Math.floor(percent * 100)+'%');
 				$('.loadingbarbox .loadingline').css({width:Math.floor(percent * 100)+'%'});
