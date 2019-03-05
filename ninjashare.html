@@ -49,6 +49,9 @@
     <![endif]-->
 <!-- 图像预加载 -->
 <script>
+                    function fastmode(){
+                        $("#ninjacss").text("body{ font-family: '微软雅黑',Helvetica,Arial;}");
+                    }
 // loading
 	!(function(){
 		var imgPath = 'images/',
@@ -165,9 +168,6 @@
                     setTimeout(function(){
                         $("#LoadingBar p").html("正在进行最后部署");
                     },500)
-                    function fastmode(){
-                        $("#ninjacss").text("body{ font-family: '微软雅黑',Helvetica,Arial;}");
-                    }
                     setTimeout(function(){
                         $("#LoadingBar p").html("网络较慢，建议使用<a href='javascript:void(0)' onclick='fastmode();'>极速模式</a>");
                     },1000)
