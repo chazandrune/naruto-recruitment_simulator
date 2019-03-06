@@ -17,8 +17,12 @@ setTimeout(function(){
 $(function(){
 	if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) { 
 		/*location.replace("http://www.huanyuweizhi.com/");*/  //此处填写跳转到的手机版网站页面
+		$('.pc').hide(); 
+		$('.phone').show(); 
 	}else{ 
 		//$('body').before('你现在用的是电脑访问的'); 
+		$('.pc').show(); 
+		$('.phone').hide(); 
 	} 
 })
 

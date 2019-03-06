@@ -349,8 +349,6 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .pop_resultpic .imgbox .txt{ padding: .2rem 0; font-size:.2rem; line-height:.3rem; color: #fff; text-align: center;}
 .pop_resultpic .btns{ position:absolute; bottom:.5rem; left:0; right:0; text-align:center;}
 .pop_resultpic .hints{ position:absolute; bottom:.2rem; left:0; right:0; display:block; width:100%; color:#fff; text-align:center; font-size:.2rem; line-height:.3rem; }
-.pc{ display:block;}
-.phone{ display:none;}
 
 
 
@@ -364,8 +362,6 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 }
 @media (max-width:767px){
 .pop_resultpic{ left:5%; top:5%; right:5%; bottom:5%;}
-.pc{ display:none;}
-.phone{ display:block;}
 
 }
 
