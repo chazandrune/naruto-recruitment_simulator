@@ -172,14 +172,25 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.user_info .user_txt{ font-size:24px;text-shadow: 0 2px #000, .2px 0 #000, -.2px 0 #000, 0 -.2px #000; line-height:38px;}
 .container ul li.user_info .user_txt .level{ color:#fccd08;}
 .container ul li.user_info .user_txt .nickname{ color:#fff;}
-.container ul li.bg_zhanli{ left:36px; top: 190px;}
-.container ul li.txt_wode_zhanli{ left:308px; top: 320px;}
-.container ul li.guildarea_info{ left: 176px; top: 405px; font-size:18px;text-shadow: 0 2px #000, .2px 0 #000, -.2px 0 #000, 0 -.2px #000; line-height:38px; color:#fff;}
+.container ul li.bg_zhanli{ display:none; left:36px; top: 190px;}
+.container ul li.txt_wode_zhanli{ display:none; left:312px; top: 302px; font-size: 0;}
+.container ul li.txt_wode_zhanli img{ font-size: 20px; display:inline-block; margin-left:-16px;}
+.container ul li.guildarea_info{ display:none; left: 176px; top: 405px; font-size:18px;text-shadow: 0 2px #000, .2px 0 #000, -.2px 0 #000, 0 -.2px #000; line-height:38px; color:#fff;}
 .container ul li.guildarea_info p{ position: absolute; top: 0; white-space: nowrap;  }
 .container ul li.guildarea_info .area{ left: 0; }
 .container ul li.guildarea_info .guild_id{ left: 150px; }
 .container ul li.guildarea_info .guild_name{ left: 300px; }
 
+.container .thepic.sharetype_zhanli li.bg_share .bg_ninjashare,
+.container .thepic.sharetype_zhanli li.ninja_name,
+.container .thepic.sharetype_zhanli li.txt_wode,
+.container .thepic.sharetype_zhanli li.txt_wode_num,
+.container .thepic.sharetype_zhanli li.txt_chenggong,
+.container .thepic.sharetype_zhanli li.txt_chenggong_rank,
+.container .thepic.sharetype_zhanli li.bg_huaban{display:none;}
+.container .thepic.sharetype_zhanli li.bg_zhanli,
+.container .thepic.sharetype_zhanli li.txt_wode_zhanli,
+.container .thepic.sharetype_zhanli li.guildarea_info{ display:block;}
 
 
 .btns{ font-size: 0; text-align: center; width: 100%; }

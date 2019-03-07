@@ -271,11 +271,19 @@ var whichshare = 0;
 
 //分享类型的变化
 $("#whichshare_select").on('change',function(){
+	"use strict";
 	whichshare = $(this).val();
-})
+	console.log(whichshare);
+	if( whichshare == 1){
+		$(".thepic").addClass("sharetype_zhanli");
+	}else{
+		$(".thepic").removeClass("sharetype_zhanli");
+	}
+});
 
 //定义我的战力图片数字输出
 function tongbuzhanli(e,obj){
+	"use strict";
 	e.html("");
 	var zhanlinum = $(obj).val();
 	var zhanlinum_0 = $(obj).attr("data-default");
@@ -286,7 +294,7 @@ function tongbuzhanli(e,obj){
     }
 	var zhanli = "";
     for(var i = 0; i < zhanli_split.length; i++) {
-        zhanli += '<img src="images/' + zhanli_split[i] + '.png" />';
+        zhanli += '<img src="images/zl_' + zhanli_split[i] + '.png" />';
     }
     e.html(zhanli);
 }
@@ -452,33 +460,17 @@ function printimg(){
 	canvas.width = 1136;
 	canvas.height = 640;
 	
-	if(whichshare == 0){
-		//忍者分享 whichshare为0
-		html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
-	    		//document.body.appendChild(canvas);
-				//$('#canvas_import').append(canvas);
-	    		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
-	    		//最终结果图片弹出
-				$(".pop_resultpic").addClass("on");
-				$(".pop_resultpic").removeClass("zoomOut");
-				$(".pop_mask").fadeIn(100);
-	    		$(".loadtoast").hide();
-				clearTimeout(shengchengchaoshi);
-		});
-	}else{
-		//战力分享 whichshare为1
-		html2canvas( $('#thepic_zhanli')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
-	    		//document.body.appendChild(canvas);
-				//$('#canvas_import').append(canvas);
-	    		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
-	    		//最终结果图片弹出
-				$(".pop_resultpic").addClass("on");
-				$(".pop_resultpic").removeClass("zoomOut");
-				$(".pop_mask").fadeIn(100);
-	    		$(".loadtoast").hide();
-				clearTimeout(shengchengchaoshi);
-		});
-	}
+	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
+			//document.body.appendChild(canvas);
+			//$('#canvas_import').append(canvas);
+			$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
+			//最终结果图片弹出
+			$(".pop_resultpic").addClass("on");
+			$(".pop_resultpic").removeClass("zoomOut");
+			$(".pop_mask").fadeIn(100);
+			$(".loadtoast").hide();
+			clearTimeout(shengchengchaoshi);
+	});
 
 }
 
