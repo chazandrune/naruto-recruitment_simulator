@@ -266,10 +266,30 @@ var minutes = now.getMinutes();
 var seconds = now.getSeconds();
 var t = hours+":"+minutes+":"+seconds;
 console.log("页面打开时间："+t);
+//分享类型，默认0，是忍者分享，1是战力分享
+var whichshare = 0;
 
+//分享类型的变化
+$("#whichshare_select").on('change',function(){
+	whichshare = $(this).val();
+})
 
-
-
+//定义我的战力图片数字输出
+function tongbuzhanli(e,obj){
+	e.html("");
+	var zhanlinum = $(obj).val();
+	var zhanlinum_0 = $(obj).attr("data-default");
+    if( zhanlinum == "" ){
+	    var zhanli_split = zhanlinum_0.split("");
+    }else{
+	    var zhanli_split = zhanlinum.split("");
+    }
+	var zhanli = "";
+    for(var i = 0; i < zhanli_split.length; i++) {
+        zhanli += '<img src="images/' + zhanli_split[i] + '.png" />';
+    }
+    e.html(zhanli);
+}
 
 //定义用户名称和等级的同步显示
 function tongbu(e,obj){
@@ -280,14 +300,6 @@ function tongbu(e,obj){
 	}else{
 		e.html(val)
 	}
-	//有字库更新文字字体
-	$.get("https://service.youziku.com/home/get", function (data) {
-		let partName = "ajax2";
-		console.log(data);
-		$youziku.submit(partName);
-		return false;
-	})
-
 }
 
 //定义我的第几个忍者图片数字输出
@@ -440,17 +452,34 @@ function printimg(){
 	canvas.width = 1136;
 	canvas.height = 640;
 	
-	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
-    		//document.body.appendChild(canvas);
-			//$('#canvas_import').append(canvas);
-    		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
-    		//最终结果图片弹出
-			$(".pop_resultpic").addClass("on");
-			$(".pop_resultpic").removeClass("zoomOut");
-			$(".pop_mask").fadeIn(100);
-    		$(".loadtoast").hide();
-			clearTimeout(shengchengchaoshi);
-	});
+	if(whichshare == 0){
+		//忍者分享 whichshare为0
+		html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
+	    		//document.body.appendChild(canvas);
+				//$('#canvas_import').append(canvas);
+	    		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
+	    		//最终结果图片弹出
+				$(".pop_resultpic").addClass("on");
+				$(".pop_resultpic").removeClass("zoomOut");
+				$(".pop_mask").fadeIn(100);
+	    		$(".loadtoast").hide();
+				clearTimeout(shengchengchaoshi);
+		});
+	}else{
+		//战力分享 whichshare为1
+		html2canvas( $('#thepic_zl')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
+	    		//document.body.appendChild(canvas);
+				//$('#canvas_import').append(canvas);
+	    		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
+	    		//最终结果图片弹出
+				$(".pop_resultpic").addClass("on");
+				$(".pop_resultpic").removeClass("zoomOut");
+				$(".pop_mask").fadeIn(100);
+	    		$(".loadtoast").hide();
+				clearTimeout(shengchengchaoshi);
+		});
+	}
 
 }
+
 
