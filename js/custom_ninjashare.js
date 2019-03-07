@@ -467,7 +467,7 @@ function printimg(){
 		});
 	}else{
 		//战力分享 whichshare为1
-		html2canvas( $('#thepic_zl')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
+		html2canvas( $('#thepic_zhanli')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
 	    		//document.body.appendChild(canvas);
 				//$('#canvas_import').append(canvas);
 	    		$('#avatar_import').attr( 'src' , canvas.toDataURL() ) ;
