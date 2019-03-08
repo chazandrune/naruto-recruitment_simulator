@@ -278,18 +278,17 @@ function fastmode(){
                     <div class="dd"><input maxscore="135" type="number" name="level" id="input_level" class="input_text" placeholder=" 目前最高135级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="130" /></div>
                 </div>
                 <div class="form_item form_item_zhanli">
-                    <label class="dt">选择系统</label>
-                    <div class="dd"><select name="area_system_select" id="area_system_select" class="select_text" onBlur="tongbu($('#area_system'),this)">
-                        <option value="IOS" data-num="302">苹果(IOS)</option>
-                        <option value="安卓" data-num="580">安卓(android)</option>
-                    </select></div>
-                </div>
-                <div class="form_item form_item_zhanli">
-                    <label class="dt">选择大区</label>
-                    <div class="dd"><select name="area_num_select" id="area_num_select" class="select_text" onBlur="tongbu($('#area_num'),this)">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select></div>
+                    <label class="dt">选择区服</label>
+                    <div class="dd">
+                        <select name="area_system_select" id="area_system_select" class="select_text" style="width: 45%;" onBlur="tongbu($('#area_system'),this)">
+                            <option value="IOS" data-num="302">苹果(IOS)</option>
+                            <option value="安卓" data-num="580">安卓(android)</option>
+                        </select>
+                        <select name="area_num_select" id="area_num_select" class="select_text" style="width: 45%; float: right;" onBlur="tongbu($('#area_num'),this)">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form_item form_item_zhanli">
                     <label class="dt">组织ID</label>
