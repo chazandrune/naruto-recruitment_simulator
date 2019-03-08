@@ -275,9 +275,15 @@ $("#whichshare_select").on('change',function(){
 	whichshare = $(this).val();
 	console.log(whichshare);
 	if( whichshare == 1){
+		//1、战力分享
 		$(".thepic").addClass("sharetype_zhanli");
-	}else{
+		$(".form_item_zhanli").show();
+		$(".form_item_ninja").hide();
+	}else if( whichshare == 0 ){
+		//0、忍者分享
 		$(".thepic").removeClass("sharetype_zhanli");
+		$(".form_item_zhanli").hide();
+		$(".form_item_ninja").show();
 	}
 });
 
