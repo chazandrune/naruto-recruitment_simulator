@@ -284,10 +284,11 @@ function fastmode(){
                             <option value="IOS" data-num="302">苹果(IOS)</option>
                             <option value="安卓" data-num="580">安卓(android)</option>
                         </select>
-                        <select name="area_num_select" id="area_num_select" class="select_text" style="width: 45%; float: right;" onBlur="tongbu($('#area_num'),this)">
+                        <!-- <select name="area_num_select" id="area_num_select" class="select_text" style="width: 45%; float: right;" onBlur="tongbu($('#area_num'),this)">
                             <option value="1">1</option>
                             <option value="2">2</option>
-                        </select>
+                        </select> -->
+                        <input maxlength="3" type="number" name="area_num" id="input_area_num" class="input_text" style="width: 45%; float: right;" placeholder="填写区号" oninput="exeTextKeyUp($(this));" onBlur="tongbu($('#area_num'),this)" data-default="1" />
                     </div>
                 </div>
                 <div class="form_item form_item_zhanli">
