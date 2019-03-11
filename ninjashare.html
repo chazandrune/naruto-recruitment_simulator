@@ -253,10 +253,10 @@ function fastmode(){
             <p style="margin-bottom:.2rem; color:#8c7a6c;">本工具需要自行填写个人相关信息；<br>不填的话我就帮你填了(*￣∇￣*) ~</p>
             <div class="container_form">
                 <div class="form_item">
-                    <label class="dt">分享类型</label>
+                    <label class="dt">图图类型</label>
                     <div class="dd"><select name="whichshare_select" id="whichshare_select" class="select_text">
-                        <option value="0">忍者分享</option>
-                        <option value="1">战力分享</option>
+                        <option value="0">招募图</option>
+                        <option value="1">战力图</option>
                     </select></div>
                 </div>
                 <div class="form_item">
@@ -272,7 +272,7 @@ function fastmode(){
                             <img id="user_avatar2" src="images/blank.png" alt="用户头像">
                             <a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a>
                         </div>
-                        <div style=" float: right; width: 1.6rem;">
+                        <div style=" float: right; width: 1.7rem;">
                             <input maxscore="135" type="number" name="level" id="input_level" class="input_text" placeholder="玩家等级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="130" style="margin-bottom:.13rem;" />
                             <input maxlength="6" type="text" name="nickname" id="input_nickname" class="input_text" placeholder="玩家昵称" oninput="exeTextKeyUp($(this));" onBlur="tongbu($('#nickname'),this)" data-default="某熊仔" />
                         </div>
