@@ -359,6 +359,12 @@ document.body.addEventListener('touchstart', function () { });
 		$(this).hide(500);
 	});
 
+	//加载等不及，点击强行关闭loading
+	$(".cannotwait").on('click',function(){
+		$("#LoadingBar").fadeOut(300);
+		$(".loadingbarbox").fadeOut(300);
+	});
+
 
 
 
