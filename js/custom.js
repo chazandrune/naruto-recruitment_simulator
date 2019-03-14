@@ -408,7 +408,7 @@ var count_nizhenhei = 0;
 var toast_nizhenhei = 0;
 //全局定义新s名称、新a名称，默认给值为 当前忍者配置中默认选中的
 var name_s_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
-var name_a_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
+var name_a_new = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-name");
 
 //忍者配置操作
 //tab切换
@@ -1014,13 +1014,13 @@ function A(){
 		//事件：S首付奖励是否出现
 		ifshowshoufu_s();
 
-		//如果照美冥碎片达到40 出现弹窗
-//		if(num_a_new>=40 && istanchunewninja == 0 ){
-//				playaudio(2);
-//				gongxi("#congratulation","恭喜你成功招募 <span>"+name_a_new+"[五代目水影]</span>");
-//				$(".pop_newninja").addClass("on");
-//				$(".pop_newninja").removeClass("zoomOut");
-//				//$(".pop_mask").fadeIn(100);
-//				istanchunewninja = 1;
-//		}
+		//如果碎片达到40 出现弹窗
+		if(num_a_new>=40 && istanchunewninja == 0 ){
+				playaudio(2);
+				gongxi("#congratulation","恭喜你成功招募 <span>"+name_a_new+"</span>");
+				$(".pop_newninja").addClass("on");
+				$(".pop_newninja").removeClass("zoomOut");
+				//$(".pop_mask").fadeIn(100);
+				istanchunewninja = 1;
+		}
 }
