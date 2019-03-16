@@ -293,13 +293,14 @@ $("#whichshare_select").on('change',function(){
 		$(".thepic").removeClass("sharetype_zhanli");
 		$(".thepic").addClass("sharetype_ninja2");
 		$(".form_item_zhanli").hide();
-		$(".form_item_ninja").show();
+		$(".form_item_ninja").hide();
 		$(".pop_setninja .ninjalist .item_wrap[data-hasnew!='yes']").hide();
 		if( $(".pop_setninja .ninjalist .active").attr("data-hasnew") != 'yes'){
 			//默认选到第一个
 			cache_id = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-id");
 			cache_rank = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-rank");
 			cache_name = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-name");
+			console.log(cache_id)
 			$(".pop_setninja .tabbox_bd_item .item_wrap").removeClass("active");
 			$(".pop_setninja .tabbox_bd_item .item_wrap[data-hasnew='yes']").eq(0).addClass("active");
 			$(".tabbox .tabbox_hd .tabbox_hd_item:eq(0)").addClass("active").siblings().removeClass("active");
@@ -381,7 +382,9 @@ function updateimg(){
 	var ninjaid = cache_id;
 	var ninjarank = cache_rank;
 	var ninjaname = cache_name;
-	$('.bg_ninjashare2 img').attr("src","images/"+ninjaid+"001_BG.jpg");
+	if( $(".pop_setninja .ninjalist .active").attr("data-hasnew") == 'yes'){
+		$('.bg_ninjashare2 img').attr("src","images/"+ninjaid+"001_BG.jpg");
+	}
 	$('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaid+".png");
 	$('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaid+".png");
 	$('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
