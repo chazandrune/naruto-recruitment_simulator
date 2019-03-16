@@ -333,10 +333,10 @@ function tongbu(e,obj){
 	var val_0=$(obj).attr("data-default");
 	if(val==""){
 		e.html(val_0);
-		e.attr("data-text",val_0);
+		$("#"+e.attr("id")+"_shadow").html(val_0);
 	}else{
 		e.html(val)
-		e.attr("data-text",val);
+		$("#"+e.attr("id")+"_shadow").html(val);
 	}
 }
 
