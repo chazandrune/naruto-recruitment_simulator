@@ -206,6 +206,7 @@ function fastmode(){
 <div class="container_box_scroll">
 <div class="container">
     <ul class="thepic" id="thepic">
+        <li class="bg_share bg_ninjashare2"><img src="images/90100001_BG.jpg" alt="新版分享图"></li>
         <li class="bg_share bg_ninjashare"><img src="images/bg_share.png" alt="背景图"></li>
         <li class="bg_share bg_zhanlishare"><img src="images/bg_ShareRoleInfoBgAtlas1.png" alt="背景图"></li>
         <!--忍者立绘-->
@@ -222,6 +223,8 @@ function fastmode(){
         <li class="txt_chenggong_rank"><img src="images/rank_s.png" alt="忍者等级"></li>
         <li class="bg_huaban"><img src="images/bg_huaban.png" alt="花瓣"></li>
         <li class="logo_naruto"><img src="images/logo_naruto.png" alt="logo"></li>
+        <li class="logo_naruto2"><img src="images/logo_naruto2.png" alt="logo2"></li>
+        <li class="copyright_naruto"><img src="images/copyright_naruto.png" alt="copyright"></li>
 		<!--战斗力背景-->
         <li class="bg_zhanli"><img src="images/bg_zhanli.png" alt="战斗力背景图"></li>
         <!--战斗力-->
@@ -243,7 +246,7 @@ function fastmode(){
         <!--用户信息-->
         <li class="user_info">
             <div class="avatar"><img id="user_avatar" class="user_avatar" src="images/user_avatar.png" alt="用户头像"></div>
-            <div class="user_txt"><p class="level">Lv.<span id="level">132</span></p><p class="nickname" id="nickname">某熊仔</p></div>
+            <div class="user_txt"><p class="level"><span data-text="Lv.">Lv.</span><span id="level" data-text="132">132</span></p><p class="nickname" id="nickname" data-text="某熊仔">某熊仔</p></div>
         </li>
     </ul>
 </div>
@@ -261,6 +264,7 @@ function fastmode(){
                     <label class="dt">图图类型</label>
                     <div class="dd"><select name="whichshare_select" id="whichshare_select" class="select_text">
                         <option value="0">招募图</option>
+                        <option value="2">招募图（新版）</option>
                         <option value="1">战力图</option>
                     </select></div>
                 </div>
@@ -351,13 +355,13 @@ function fastmode(){
                     <div class="tabbox_bd">
                         <div class="tabbox_bd_item tabbox_bd_item_s active">
                             <ul class="ninjalist">
-                                <li class="item_wrap btn ease1 active" data-rank="s" data-id="90100" data-name="宇智波斑">
+                                <li class="item_wrap btn ease1 active" data-rank="s" data-id="90100" data-name="宇智波斑" data-hasnew="yes">
                                     <div class="item">
                                         <div class="img" style="background-position:-576px 0;"></div>
                                         <div class="fg"></div>
                                     </div>
                                 </li>
-                                <li class="item_wrap btn ease1" data-rank="s" data-id="90024" data-name="千手柱间">
+                                <li class="item_wrap btn ease1" data-rank="s" data-id="90024" data-name="千手柱间" data-hasnew="yes">
                                     <div class="item">
                                         <div class="img" style="background-position:-504px 0;"></div>
                                         <div class="fg"></div>
@@ -436,13 +440,19 @@ function fastmode(){
                         </div>
                         <div class="tabbox_bd_item tabbox_bd_item_a">
                             <ul class="ninjalist">
-                                <li class="item_wrap btn ease1" data-rank="a" data-id="90061" data-name="照美冥[五代目水影]">
+                                <li class="item_wrap btn ease1" data-rank="a" data-id="90230" data-name="春野樱[百豪]" data-hasnew="yes">
+                                    <div class="item">
+                                        <div class="img" style="background-position:-2088px -72px;"></div>
+                                        <div class="fg"></div>
+                                    </div>
+                                </li>
+                                <li class="item_wrap btn ease1" data-rank="a" data-id="90061" data-name="照美冥[五代目水影]" data-hasnew="yes">
                                     <div class="item">
                                         <div class="img" style="background-position:-432px -72px;"></div>
                                         <div class="fg"></div>
                                     </div>
                                 </li>
-                                <li class="item_wrap btn ease1" data-rank="a" data-id="90059" data-name="宇智波佐助[万花筒写轮眼]">
+                                <li class="item_wrap btn ease1" data-rank="a" data-id="90059" data-name="宇智波佐助[万花筒写轮眼]" data-hasnew="yes">
                                     <div class="item">
                                         <div class="img" style="background-position:-288px -72px;"></div>
                                         <div class="fg"></div>

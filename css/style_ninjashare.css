@@ -159,6 +159,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li img{ vertical-align: top;}
 .container ul li.bg_share{ left:0; right:0; top:0; bottom:0;}
 .container ul li.bg_zhanlishare{ display:none;}
+.container ul li.bg_ninjashare2{ display:none; }
 .container ul li.ninja_avatar{ left:0; right:0; top:0; bottom:0;}
 .container ul li.ninja_name{ left:0; right:0; top:0; bottom:0;}
 .container ul li.txt_wode{ left:162px; top:458px;}
@@ -168,12 +169,17 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.txt_chenggong_rank{ left:328px; top:380px;}
 .container ul li.bg_huaban{  right:0; top:0;}
 .container ul li.logo_naruto{  left:0; top:0;}
+.container ul li.logo_naruto2{  left:0; top:0; display: none;}
+.container ul li.copyright_naruto{ height:40px; left: auto; top: auto; right:0; bottom:0; display: none;}
 .container ul li.user_info{  left:239px; top:26px; padding-left:88px;}
 .container ul li.user_info .avatar{ width:70px; height:70px; padding:3px; background-image:url(../images/bg_avatar.png); background-size:cover; position:absolute; left:0; top:0;}
 .container ul li.user_info .avatar .user_avatar{ width:70px; height:70px; vertical-align:top; position:absolute; top:50%; margin-top:-35px; left:50%; margin-left:-35px;}
-.container ul li.user_info .user_txt{ font-size:24px;text-shadow: 0 2px #000, .2px 0 #000, -.2px 0 #000, 0 -.2px #000; line-height:38px;}
+.container ul li.user_info .user_txt{ font-size:24px;/*text-shadow: 0 2px #000, 2px 0 #000, -2px 0 #000, 0 -2px #000;*/ line-height:38px; }
 .container ul li.user_info .user_txt .level{ color:#fccd08;}
-.container ul li.user_info .user_txt .nickname{ color:#fff;}
+.container ul li.user_info .user_txt .level span{ z-index:0; position: relative; display: inline-block;}
+.container ul li.user_info .user_txt .nickname{ color:#fff;z-index:0; position: relative;}
+.container ul li.user_info .user_txt .level span:after,
+.container ul li.user_info .user_txt .nickname:after{ content:attr(data-text); position: absolute; left: 0; top: 0; z-index: -1;-webkit-text-stroke: 4px #000; }
 .container ul li.bg_zhanli{ display:none; left:36px; top: 190px;}
 .container ul li.txt_wode_zhanli{ display:none; left:312px; top: 302px; font-size: 0;}
 .container ul li.txt_wode_zhanli img{ font-size: 20px; display:inline-block; margin-left:-16px;}
@@ -195,6 +201,18 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container .thepic.sharetype_zhanli li.txt_wode_zhanli,
 .container .thepic.sharetype_zhanli li.guildarea_info{ display:block;}
 
+.container .thepic.sharetype_ninja2 li.bg_ninjashare,
+.container .thepic.sharetype_ninja2 li.ninja_name,
+.container .thepic.sharetype_ninja2 li.ninja_avatar,
+.container .thepic.sharetype_ninja2 li.txt_wode,
+.container .thepic.sharetype_ninja2 li.txt_wode_num,
+.container .thepic.sharetype_ninja2 li.txt_chenggong,
+.container .thepic.sharetype_ninja2 li.txt_chenggong_rank,
+.container .thepic.sharetype_ninja2 li.bg_huaban,
+.container .thepic.sharetype_ninja2 li.logo_naruto{display:none;}
+.container .thepic.sharetype_ninja2 li.bg_ninjashare2,
+.container .thepic.sharetype_ninja2 li.logo_naruto2,
+.container .thepic.sharetype_ninja2 li.copyright_naruto{ display:block;}
 
 .btns{ font-size: 0; text-align: center; width: 100%; }
 .btns .btn{ 
