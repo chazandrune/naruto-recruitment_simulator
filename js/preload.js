@@ -9,7 +9,7 @@ var changeloadingtext = setInterval(function(){
 },2000)
 setTimeout(function(){
 	if($("#LoadingBar").is(":visible")){
-		$("#LoadingBar p").html("服务器几乎睡着了……<a href='javascript:void(0);' class='cannotwait' style='color:##fffd78;'>强行开始</a>");
+		$("#LoadingBar p").html("服务器几乎睡着了……");
 	}	
 },20000)
 
