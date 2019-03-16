@@ -178,16 +178,21 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.user_info .user_txt .level{ color:#fccd08;}
 .container ul li.user_info .user_txt .level span{ z-index:0; position: relative; display: inline-block;}
 .container ul li.user_info .user_txt .nickname{ color:#fff;z-index:0; position: relative;}
-.container ul li.user_info .user_txt .level span:after,
-.container ul li.user_info .user_txt .nickname:after{ content:attr(data-text); position: absolute; left: 0; top: 0; z-index: -1;-webkit-text-stroke: 4px #000; }
 .container ul li.bg_zhanli{ display:none; left:36px; top: 190px;}
 .container ul li.txt_wode_zhanli{ display:none; left:312px; top: 302px; font-size: 0;}
 .container ul li.txt_wode_zhanli img{ font-size: 20px; display:inline-block; margin-left:-16px;}
 .container ul li.guildarea_info{ display:none; left: 176px; top: 405px; font-size:18px;text-shadow: 0 2px #000, .2px 0 #000, -.2px 0 #000, 0 -.2px #000; line-height:38px; color:#fff;}
 .container ul li.guildarea_info p{ position: absolute; top: 0; white-space: nowrap;  }
 .container ul li.guildarea_info .area{ left: 0; }
-.container ul li.guildarea_info .guild_id{ left: 150px; }
-.container ul li.guildarea_info .guild_name{ left: 300px; }
+.container ul li.guildarea_info .area span{ z-index:0; position: relative; display: inline-block; }
+.container ul li.guildarea_info .guild_id{ left: 150px; z-index:0; }
+.container ul li.guildarea_info .guild_name{ left: 300px; z-index:0; }
+.container ul li.user_info .user_txt .level span:after,
+.container ul li.user_info .user_txt .nickname:after,
+.container ul li.guildarea_info .area span:after,
+.container ul li.guildarea_info .guild_id:after,
+.container ul li.guildarea_info .guild_name:after{ content:attr(data-text); position: absolute; left: 0; top: 0; z-index: -1;-webkit-text-stroke: 4px #000; white-space: nowrap; }
+
 
 .container .thepic.sharetype_zhanli li.bg_ninjashare,
 .container .thepic.sharetype_zhanli li.ninja_name,

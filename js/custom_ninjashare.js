@@ -332,9 +332,11 @@ function tongbu(e,obj){
 	var val=$(obj).val();
 	var val_0=$(obj).attr("data-default");
 	if(val==""){
-		e.html(val_0)
+		e.html(val_0);
+		e.attr("data-text",val_0);
 	}else{
 		e.html(val)
+		e.attr("data-text",val);
 	}
 }
 
