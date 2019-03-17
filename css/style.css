@@ -263,6 +263,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_setninja{ background-image:url(../images/setninja.png); }
 .icon_checkbox{ background-image:url(../images/checkbox_off.png);}
 .on>.icon_checkbox{ background-image:url(../images/checkbox_on.png);}
+.icon_dot_red{ background-image:url(../images/dot_red.png); width:.1rem; height: .1rem;}
 .biaoqing{ background: url(../images/biaoqing.png) no-repeat; background-size: 6.4rem .6rem; display: inline-block; width: .8rem; height: .6rem; vertical-align: middle; margin-bottom: .2rem; }
 .biaoqing_01{ background-position: 0 0; }
 .biaoqing_02{ background-position: -.8rem 0; }
@@ -413,6 +414,7 @@ filter: brightness(1.2); }
 .thebtns .btn{ position: relative; cursor: pointer; display: block; width:.6rem;height: .6rem; line-height: .6rem; text-align: center; color: #fff; font-size: .16rem; }
 .thebtns .btn .icon{ position: absolute; left: 50%; top: 50%; width:.5rem; height: .5rem; margin-left: -.25rem; margin-top:-.25rem; }
 .thebtns>.btn>.txt{ white-space:nowrap; display:block; width:.6rem; position:absolute; left:0; right:0; top:.4rem;line-height:.3rem;text-shadow: 0 .02rem #111, .02rem 0 #111, -.02rem 0 #111, 0 -.02rem #111;}
+.thebtns>.btn>.icon_dot_red{ position:absolute; left: auto; bottom:auto; right:.05rem; top:.05rem; width:.18rem; height: .18rem; margin: 0; }
 .thebtns_01{  right:.1rem;}
 .thebtns_02{  right:.7rem; }
 
