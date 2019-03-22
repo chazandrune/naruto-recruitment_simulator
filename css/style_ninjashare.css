@@ -167,6 +167,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.txt_wode_num img{ display:inline-block; margin-left:-5px;}
 .container ul li.txt_chenggong{ left:125px; top:416px;}
 .container ul li.txt_chenggong_rank{ left:328px; top:380px;}
+.container ul li.txt_chenggong_rank_bg{ left:318px; top:398px;}
 .container ul li.bg_huaban{  right:0; top:0;}
 .container ul li.logo_naruto{  left:0; top:0;}
 .container ul li.logo_naruto2{  left:0; top:0; display: none;}
@@ -201,6 +202,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container .thepic.sharetype_zhanli li.txt_wode_num,
 .container .thepic.sharetype_zhanli li.txt_chenggong,
 .container .thepic.sharetype_zhanli li.txt_chenggong_rank,
+.container .thepic.sharetype_zhanli li.txt_chenggong_rank_bg,
 .container .thepic.sharetype_zhanli li.bg_huaban{display:none;}
 .container .thepic.sharetype_zhanli li.bg_zhanlishare,
 .container .thepic.sharetype_zhanli li.bg_zhanli,
@@ -214,6 +216,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container .thepic.sharetype_ninja2 li.txt_wode_num,
 .container .thepic.sharetype_ninja2 li.txt_chenggong,
 .container .thepic.sharetype_ninja2 li.txt_chenggong_rank,
+.container .thepic.sharetype_ninja2 li.txt_chenggong_rank_bg,
 .container .thepic.sharetype_ninja2 li.bg_huaban,
 .container .thepic.sharetype_ninja2 li.logo_naruto{display:none;}
 .container .thepic.sharetype_ninja2 li.bg_ninjashare2,
