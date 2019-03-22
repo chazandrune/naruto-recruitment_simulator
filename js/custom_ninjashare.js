@@ -374,6 +374,13 @@ function updateimg(){
 	// $('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaval+".png");
 	// $('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaval+".png");
 	// $('.txt_chenggong_rank img').attr("src","images/rank_"+ninjarank+".png");
+	if( $(".pop_setninja .ninjalist .active").attr("data-hasnew") == 'yes'){
+		$('.bg_ninjashare2 img').attr("src","");
+	}
+	$('.ninja_avatar img').attr("src","");
+	$('.ninja_name img').attr("src","");
+	$('.txt_chenggong_rank img').attr("");
+
 	$(".loadtoast p").html("正在配置");
 	var gengxinchaoshi = setTimeout(function(){
 		$(".loadtoast p").html('响应较慢<br>你可以继续等待或者<a onclick="location.reload()">点击刷新</a>');
