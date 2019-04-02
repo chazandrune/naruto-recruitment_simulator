@@ -10,6 +10,20 @@ document.body.addEventListener('touchstart', function () {},false);
 //   e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
 // }, {passive: false});
 
+	//判断全面屏
+console.log("屏幕尺寸："+window.screen.width+"*"+window.screen.height);
+var screen_w = window.screen.width;
+var screen_h = window.screen.height;
+var quanmianping = 0;
+if(window.screen.width > window.screen.height){
+	screen_w = window.screen.height;
+	screen_h = window.screen.width;
+}
+if( screen_h / screen_w > 1.9 ){
+	quanmianping = 1;
+	$(".container").addClass("quanmianping");
+	$(".container").css("width","1280px");
+}
 
 	//分辨率适应及横屏竖屏处理
     var adjust = function(){
@@ -498,8 +512,13 @@ function printimg(){
 	},10000)
 
 	var canvas = document.createElement("canvas");
-	canvas.width = 1136;
-	canvas.height = 640;
+	if(quanmianping != 0){
+		canvas.width = 1280;
+		canvas.height = 640;		
+	}else(
+		canvas.width = 1136;
+		canvas.height = 640;		
+	)
 	
 	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
 			//document.body.appendChild(canvas);
