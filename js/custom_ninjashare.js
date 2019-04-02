@@ -19,7 +19,7 @@ if(window.screen.width > window.screen.height){
 	screen_w = window.screen.height;
 	screen_h = window.screen.width;
 }
-if( screen_h / screen_w > 1.9 ){
+if( screen_h / screen_w > 1.8 ){
 	quanmianping = 1;
 	$(".container").addClass("quanmianping");
 	$(".container").css("width",640*screen_h / screen_w+"px");
