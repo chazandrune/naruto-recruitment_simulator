@@ -22,7 +22,7 @@ if(window.screen.width > window.screen.height){
 if( screen_h / screen_w > 1.9 ){
 	quanmianping = 1;
 	$(".container").addClass("quanmianping");
-	$(".container").css("width","1280px");
+	$(".container").css("width",640*screen_h / screen_w+"px");
 }
 
 	//分辨率适应及横屏竖屏处理
@@ -513,7 +513,7 @@ function printimg(){
 
 	var canvas = document.createElement("canvas");
 	if(quanmianping != 0){
-		canvas.width = 1280;
+		canvas.width = 640*screen_h / screen_w;
 		canvas.height = 640;		
 	}else{
 		canvas.width = 1136;
