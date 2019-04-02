@@ -162,12 +162,12 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.bg_ninjashare2{ display:none; }
 .container ul li.ninja_avatar{ left:0; right:0; top:0; bottom:0;}
 .container ul li.ninja_name{ left:0; right:0; top:0; bottom:0;}
-.container ul li.txt_wode{ left:162px; top:458px;}
-.container ul li.txt_wode_num{ left:240px; top:471px; width:55px; text-align:center; font-size:0;}
+.container ul li.txt_wode{ left:50%; margin-left: -404px; top:458px;}
+.container ul li.txt_wode_num{ left:50%; margin-left: -329px; top:471px; width:55px; text-align:center; font-size:0;}
 .container ul li.txt_wode_num img{ display:inline-block; margin-left:-5px;}
-.container ul li.txt_chenggong{ left:125px; top:416px;}
-.container ul li.txt_chenggong_rank{ left:328px; top:380px;}
-.container ul li.txt_chenggong_rank_bg{ left:318px; top:398px;}
+.container ul li.txt_chenggong{ left:50%; margin-left: -445px; top:416px;}
+.container ul li.txt_chenggong_rank{ left:50%; margin-left: -242px; top:380px;}
+.container ul li.txt_chenggong_rank_bg{ left:50%; margin-left: -255px; top:398px;}
 .container ul li.bg_huaban{  right:0; top:0;}
 .container ul li.logo_naruto{  left:0; top:0;}
 .container ul li.logo_naruto2{  left:0; top:0; display: none;}
@@ -180,10 +180,10 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.user_info .user_txt_shadow{color:#000;}
 .container ul li.user_info .user_txt .level{ color:#fccd08;}
 .container ul li.user_info .user_txt .nickname{ color:#fff;}
-.container ul li.bg_zhanli{ display:none; left:36px; top: 190px;}
-.container ul li.txt_wode_zhanli{ display:none; left:312px; top: 302px; font-size: 0;}
+.container ul li.bg_zhanli{ display:none; left:50%; margin-left: -530px; top: 190px;}
+.container ul li.txt_wode_zhanli{ display:none; left:50%; margin-left: -254px; top: 302px; font-size: 0;}
 .container ul li.txt_wode_zhanli img{ font-size: 20px; display:inline-block; margin-left:-16px;}
-.container ul li.guildarea_info{ display:none; left: 176px; top: 405px; font-size:18px; line-height:38px; color:#fff;}
+.container ul li.guildarea_info{ display:none; left: 50%; margin-left:-391px; top: 405px; font-size:18px; line-height:38px; color:#fff;}
 .container ul li.guildarea_info p{ position: absolute; top: 0; white-space: nowrap;  }
 .container ul li.guildarea_info .area,
 .container ul li.guildarea_info .area_shadow{ left: 0; }
