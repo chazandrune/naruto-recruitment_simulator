@@ -404,7 +404,9 @@ function updateimg(){
 	var ninjarank = cache_rank;
 	var ninjaname = cache_name;
 	if( $(".pop_setninja .ninjalist .active").attr("data-hasnew") == 'yes'){
-		$('.bg_ninjashare2 img').attr("src","images/"+ninjaid+"001_BG.jpg");
+		$('.bg_ninjashare2').css({
+			"background-image":"url(images/"+ninjaid+"001_BG.jpg)"
+		});
 	}
 	$('.ninja_avatar img').attr("src","images/ninja/ninja_avatar_"+ninjaid+".png");
 	$('.ninja_name img').attr("src","images/ninja/ninja_name_"+ninjaid+".png");
