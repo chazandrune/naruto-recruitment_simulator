@@ -515,10 +515,10 @@ function printimg(){
 	if(quanmianping != 0){
 		canvas.width = 1280;
 		canvas.height = 640;		
-	}else(
+	}else{
 		canvas.width = 1136;
 		canvas.height = 640;		
-	)
+	}
 	
 	html2canvas( $('#thepic')[0],{scale:2,canvas:canvas,logging:true,useCORS:true} ).then(function(canvas){
 			//document.body.appendChild(canvas);
