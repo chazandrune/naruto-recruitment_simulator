@@ -359,7 +359,7 @@ filter: brightness(1.2); }
 .resultlist .text{ font-size: .16rem;line-height: .30rem;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; text-align: center; white-space: nowrap; }
 .resultlist .item .img,
 .icon.icon_s_new .img,
-.icon.icon_a_new .img{ background-image:url(../images/charactors.png?v2019042601); background-size: 72.00rem 3.60rem; }
+.icon.icon_a_new .img{ background-image:url(../images/charactors.png?v2019051001); background-size: 72.00rem 3.60rem; }
 .resultlist .item_s .img{  background-position: 0 0; }
 .resultlist .item_s .img1,
 .icon.icon_s_new .img{ background-position: -5.76rem 0;  }/*1,9  当前s忍者（宇智波斑）*/
