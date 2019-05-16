@@ -373,7 +373,7 @@ filter: brightness(1.2); }
 .resultlist .item_b .img3{  background-position: -0.72rem -1.44rem; }/*3,2 b忍者3（小樱疾风传）*/
 .resultlist .item_b .img4{  background-position: -2.16rem -1.44rem; }/*3,4 b忍者4（木叶丸疾风传）*/
 .resultlist .item_b .img5{  background-position: -7.92rem -1.44rem; }/*3,12 b忍者5（井野疾风传）*/
-.resultlist .item_b .img6{  background-position: -7.2rem -1.44rem; }/*3,11 b忍者6（君麻吕）*/
+.resultlist .item_b .img6{  background-position: -2.88rem -1.44rem; }/*3,5 b忍者6（惠比寿）*/
 .resultlist .item_c .img{  background-position: 0 -2.16rem; }
 .resultlist .item_c .img1{  background-position: -.72rem -2.16rem; }/*4,2 c忍者1（伊鲁卡）*/
 .resultlist .item_c .img2{  background-position: -1.44rem -2.16rem; }/*4,3 c忍者2（多由也）*/
@@ -385,7 +385,7 @@ filter: brightness(1.2); }
 .resultlist .item_c .img8{  background-position: -8.64rem -2.16rem; }/*4,13 c忍者8（水木）*/
 .resultlist .item_c .img9{  background-position: -0rem -2.16rem; }/*4,1 c忍者9（鸣人）*/
 .resultlist .item_c .img10{  background-position: -6.48rem -2.16rem; }/*4,10 c忍者10（小樱）*/
-.resultlist .item_c .img11{  background-position: -10.08rem -2.16rem; }/*4,15 c忍者11（萨克镫）*/
+.resultlist .item_c .img11{  background-position: -5.04rem -2.16rem; }/*4,8 c忍者11（鸣人学员）*/
 .resultlist .item_c .img12{  background-position: -7.2rem -2.16rem; }/*4,11 c忍者12（静音）*/
 .resultlist .item_s .fg:after{ background-image:url(../images/s.png); }
 .resultlist .item_a .fg:after{ background-image:url(../images/a.png); }
