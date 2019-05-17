@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html class="gray0">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>三周年密令活动-火影忍者手游</title>
+		<meta name="description" content="三周年密令活动，全部密令集合">
+		<meta name="keywords" content="火影忍者,手游,高级招募,欧皇,非酋,十连抽,高级招募模拟器,高招模拟器,模拟器,火影忍者高招模拟器,火影手游高招模拟器,火影高级招募模拟,火影手游模拟高招,火影抽卡模拟器,火影手游抽奖模拟,火影抽奖,火影手游抽奖" />
+		<meta itemprop="image" content="images/juanzhou_gaoji.png" />
+		<meta name="author" content="某熊" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<link rel="icon" type="image/jpeg" href="images/juanzhou_gaoji.png">
+		<script type="text/javascript" src="js/jquery1.111.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=011002">
+		<style>
+			html{ overflow:initial; }
+			::-webkit-scrollbar{display:block;}
+			body{ background: #482a24; font-family: initial; }
+			.miling_box{ /*position:fixed; left: 0; right: 0; bottom: 0; top: 0; overflow: auto; */ color: #fff; padding-bottom: .5rem; width: 100%;}
+			.miling_box .title{ font-size:.32rem; line-height: 1.6;padding: .2rem .2rem 0; }
+			.list{ font-size: .24rem; padding: .2rem; }
+			.list li{ margin-bottom: .1rem; padding-top: .1rem; position:relative; padding-right: 1.2rem; border-bottom: .01rem #653a32 solid; }
+			.list li p{ line-height: 1.6; margin-bottom: .05rem; padding: .1rem 0; text-align: left;}
+			.list li p span{ margin-right:.2rem; color:#fabe15;  }
+			.list .btn{ border:0; border-radius: 5px; padding:5px 0; width: 1.1rem; color: #770d1c; background: #fabe15; position: absolute; right: 0; top: .2rem;  }
+			.pop_info{ width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background: #fff; }
+			.pop_info .text_body{ padding: .1rem; left: .2rem; top: .6rem; right: .2rem; bottom: .6rem; }
+		</style>
+		<script type="text/javascript">
+	//分辨率适应及横屏竖屏处理
+    var adjust = function(){
+		var width = document.documentElement.clientWidth;
+		var height = document.documentElement.clientHeight;
+		var fs = 100;
+        $body = $('body');
+        if( width > height ){
+           //横屏情况
+			if($(window).innerWidth() < 900){
+				fs = $(window).innerWidth()*100/900;
+			}else{
+				fs = 900*100/900;
+			}
+			if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) { 
+	            //横屏下分辨率大于16:9（横向细长）的情况
+	            //适配当下诸如iPhone X 19.488:9 以及其他Android 18:9/21:9的分辨率
+	            if(width/height > 16/9){
+	            	fs = height*100/562;
+	            }
+			}
+        }
+        else{
+           //竖屏情况
+			if(height < 900){
+				fs = height*100/900;
+			}else{
+				fs = 900*100/900;
+			}
+			if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) { 
+	            //竖屏下分辨率大于16:9（竖向细长）的情况
+	            //适配当下诸如iPhone X 19.488:9 以及其他Android 18:9/21:9的分辨率
+	            if(height/width > 16/9){
+	            	fs = width*100/562;
+	            }
+			}
+        }
+		$('html').css('font-size',fs);
+	};
+	adjust();
+	window.onresize = adjust;
+	if ((navigator.userAgent.indexOf('MSIE') >= 0)&& (navigator.userAgent.indexOf('Opera') < 0)){
+		window.attachEvent("onresize",adjust);
+	}			
+		</script>
+	</head>
+
+	<body>
+    <!--[if lt IE 9]>
+      <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
+      <style>
+        .browser-tips{ position:fixed; top:0; left:0; right:0; bottom:0;text-align:center;font-size:20px; line-height:30px; color:#fff; background-color:#000; padding-top:300px; z-index:999999999; }
+      </sytle>
+    <![endif]-->
+		<script type="text/javascript" src="js/clipboard.min.js"></script>
+		<script>
+			var clipboard = new ClipboardJS('.btn');
+			clipboard.on('success',
+			function(e) {
+				if (e.trigger.disabled == false || e.trigger.disabled == undefined) {
+					e.trigger.innerHTML = "复制成功";
+					e.trigger.style.color = "#ffffff";
+					e.trigger.style.backgroundColor = "#6bd675";
+					//e.trigger.style.borderColor = "#9ED29E";
+					//e.clearSelection();
+					//showTooltip(e.trigger,'已经复制！');
+					e.trigger.disabled = true;
+					//2秒后按钮恢复原状
+					setTimeout(function() {
+						e.trigger.innerHTML = "再次复制";
+						e.trigger.style.color = "#ffffff";
+						e.trigger.style.backgroundColor = "#764d45";
+						//e.trigger.style.borderColor = "#f54d23";
+						e.trigger.disabled = false;
+					},
+					2000);
+				}
+			});
+
+			clipboard.on('error',
+			function(e) {
+				e.trigger.innerHTML = "复制失败";
+				e.trigger.style.backgroundColor = "#8f8f8f";
+				e.trigger.style.borderColor = "#8f8f8f";
+			});
+
+	
+		</script>
+		<div class="miling_box">
+			<div class="title">周年密令列表</div>
+			<ul class="list">
+				<li>
+					<p><span>01</span>祝火影忍者手游三周年生日快乐</p>
+					<button class="btn" type="button" data-clipboard-text="祝火影忍者手游三周年生日快乐">点击复制</button>
+				</li>
+				<li>
+					<p><span>02</span>祝火影忍者手游永远是个宝宝</p>
+					<button class="btn" type="button" data-clipboard-text="祝火影忍者手游永远是个宝宝">点击复制</button>
+				</li>
+				<li>
+					<p><span>03</span>新的一年伙伴越来越多</p>
+					<button class="btn" type="button" data-clipboard-text="新的一年伙伴越来越多">点击复制</button>
+				</li>
+				<li>
+					<p><span>04</span>红到发紫，紫到发光</p>
+					<button class="btn" type="button" data-clipboard-text="红到发紫，紫到发光">点击复制</button>
+				</li>
+				<li>
+					<p><span>05</span>火影忍者手游的未来由我来守护</p>
+					<button class="btn" type="button" data-clipboard-text="火影忍者手游的未来由我来守护">点击复制</button>
+				</li>
+				<li>
+					<p><span>06</span>明年今天我们再相聚</p>
+					<button class="btn" type="button" data-clipboard-text="明年今天我们再相聚">点击复制</button>
+				</li>
+				<li>
+					<p><span>07</span>期待四周年的木叶村</p>
+					<button class="btn" type="button" data-clipboard-text="期待四周年的木叶村">点击复制</button>
+				</li>
+				<li>
+					<p><span>08</span>有树叶飞舞的地方就有我们</p>
+					<button class="btn" type="button" data-clipboard-text="有树叶飞舞的地方就有我们">点击复制</button>
+				</li>
+				<li>
+					<p><span>09</span>陪伴是最长情的告白</p>
+					<button class="btn" type="button" data-clipboard-text="陪伴是最长情的告白">点击复制</button>
+				</li>
+				<li>
+					<p><span>10</span>火影忍者手游三周年也是我们的三周年</p>
+					<button class="btn" type="button" data-clipboard-text="火影忍者手游三周年也是我们的三周年">点击复制</button>
+				</li>
+
+				<li>
+					<p><span>11</span>祝火影忍者手游永居C位</p>
+					<button class="btn" type="button" data-clipboard-text="祝火影忍者手游永居C位">点击复制</button>
+				</li>
+				<li>
+					<p><span>12</span>希望火影忍者手游越做越好</p>
+					<button class="btn" type="button" data-clipboard-text="希望火影忍者手游越做越好">点击复制</button>
+				</li>
+				<li>
+					<p><span>13</span>还记得刚玩火影忍者手游的时候我还是个孩子</p>
+					<button class="btn" type="button" data-clipboard-text="还记得刚玩火影忍者手游的时候我还是个孩子">点击复制</button>
+				</li>
+				<li>
+					<p><span>14</span>希望玩火影忍者手游的小伙伴越来越多</p>
+					<button class="btn" type="button" data-clipboard-text="希望玩火影忍者手游的小伙伴越来越多">点击复制</button>
+				</li>
+				<li>
+					<p><span>15</span>不知不觉都三年了啊</p>
+					<button class="btn" type="button" data-clipboard-text="不知不觉都三年了啊">点击复制</button>
+				</li>
+				<li>
+					<p><span>16</span>又有合适的理由开party了</p>
+					<button class="btn" type="button" data-clipboard-text="又有合适的理由开party了">点击复制</button>
+				</li>
+				<li>
+					<p><span>17</span>三周年而已大家不要太激动</p>
+					<button class="btn" type="button" data-clipboard-text="三周年而已大家不要太激动">点击复制</button>
+				</li>
+				<li>
+					<p><span>18</span>这个冬天有火影忍者手游相伴一定超温暖</p>
+					<button class="btn" type="button" data-clipboard-text="这个冬天有火影忍者手游相伴一定超温暖">点击复制</button>
+				</li>
+				<li>
+					<p><span>19</span>不忘初心，热度长存</p>
+					<button class="btn" type="button" data-clipboard-text="不忘初心，热度长存">点击复制</button>
+				</li>
+				<li>
+					<p><span>20</span>震惊！火影忍者手游居然三周年了</p>
+					<button class="btn" type="button" data-clipboard-text="震惊！火影忍者手游居然三周年了">点击复制</button>
+				</li>
+
+				<li>
+					<p><span>21</span>未来的伙伴们，我在木叶等你们</p>
+					<button class="btn" type="button" data-clipboard-text="未来的伙伴们，我在木叶等你们">点击复制</button>
+				</li>
+				<li>
+					<p><span>22</span>去了再多的地方，最后还是会回来</p>
+					<button class="btn" type="button" data-clipboard-text="去了再多的地方，最后还是会回来">点击复制</button>
+				</li>
+				<li>
+					<p><span>23</span>火之意志生生不息，伙伴们加油鸭</p>
+					<button class="btn" type="button" data-clipboard-text="火之意志生生不息，伙伴们加油鸭">点击复制</button>
+				</li>
+				<li>
+					<p><span>24</span>三载一路陪伴，感谢身边有你</p>
+					<button class="btn" type="button" data-clipboard-text="三载一路陪伴，感谢身边有你">点击复制</button>
+				</li>
+				<li>
+					<p><span>25</span>现在许愿，火影四周年的时候我还在</p>
+					<button class="btn" type="button" data-clipboard-text="现在许愿，火影四周年的时候我还在">点击复制</button>
+				</li>
+				<li>
+					<p><span>26</span>三周年了，好想摸摸帕克的肉垫呀</p>
+					<button class="btn" type="button" data-clipboard-text="三周年了，好想摸摸帕克的肉垫呀">点击复制</button>
+				</li>
+				<li>
+					<p><span>27</span>三周年许愿，我要出橙装</p>
+					<button class="btn" type="button" data-clipboard-text="三周年许愿，我要出橙装">点击复制</button>
+				</li>
+				<li>
+					<p><span>28</span>好想穿一件究极橙装过冬</p>
+					<button class="btn" type="button" data-clipboard-text="好想穿一件究极橙装过冬">点击复制</button>
+				</li>
+				<li>
+					<p><span>29</span>将木叶的荣耀传达给更多的伙伴吧</p>
+					<button class="btn" type="button" data-clipboard-text="将木叶的荣耀传达给更多的伙伴吧">点击复制</button>
+				</li>
+				<li>
+					<p><span>30</span>希望火影可以三年又三年，三年又三年</p>
+					<button class="btn" type="button" data-clipboard-text="希望火影可以三年又三年，三年又三年">点击复制</button>
+				</li>
+
+				<li>
+					<p><span>31</span>那些年陪我一起打过秘境的兄弟们，好想你们</p>
+					<button class="btn" type="button" data-clipboard-text="那些年陪我一起打过秘境的兄弟们，好想你们">点击复制</button>
+				</li>
+				<li>
+					<p><span>32</span>火影第四年，我要上超影</p>
+					<button class="btn" type="button" data-clipboard-text="火影第四年，我要上超影">点击复制</button>
+				</li>
+				<li>
+					<p><span>33</span>火影都三岁了呀，我才两岁半</p>
+					<button class="btn" type="button" data-clipboard-text="火影都三岁了呀，我才两岁半">点击复制</button>
+				</li>
+				<li>
+					<p><span>34</span>一路陪伴，感谢有各位</p>
+					<button class="btn" type="button" data-clipboard-text="一路陪伴，感谢有各位">点击复制</button>
+				</li>
+				<li>
+					<p><span>35</span>赌上我的压岁钱，只为出一件橙装</p>
+					<button class="btn" type="button" data-clipboard-text="赌上我的压岁钱，只为出一件橙装">点击复制</button>
+				</li>
+				<li>
+					<p><span>36</span>燃烧忍道，在成为火影之路上奔驰</p>
+					<button class="btn" type="button" data-clipboard-text="燃烧忍道，在成为火影之路上奔驰">点击复制</button>
+				</li>
+				<li>
+					<p><span>37</span>为了超影，我不顾一切</p>
+					<button class="btn" type="button" data-clipboard-text="为了超影，我不顾一切">点击复制</button>
+				</li>
+				<li>
+					<p><span>38</span>据说转发这条信息，可以增加出橙爆率</p>
+					<button class="btn" type="button" data-clipboard-text="据说转发这条信息，可以增加出橙爆率">点击复制</button>
+				</li>
+				<li>
+					<p><span>39</span>爱生活更爱火影忍者手游</p>
+					<button class="btn" type="button" data-clipboard-text="爱生活更爱火影忍者手游">点击复制</button>
+				</li>
+				<li>
+					<p><span>40</span>这一波周年庆福利我觉得还可以</p>
+					<button class="btn" type="button" data-clipboard-text="这一波周年庆福利我觉得还可以">点击复制</button>
+				</li>
+
+				<li>
+					<p><span>41</span>为了不失去羁绊，我将努力前行</p>
+					<button class="btn" type="button" data-clipboard-text="为了不失去羁绊，我将努力前行">点击复制</button>
+				</li>
+				<li>
+					<p><span>42</span>绝不轻言放弃的想法，才会产生出真正的强悍</p>
+					<button class="btn" type="button" data-clipboard-text="绝不轻言放弃的想法，才会产生出真正的强悍">点击复制</button>
+				</li>
+				<li>
+					<p><span>43</span>忍者是指能够忍耐的人</p>
+					<button class="btn" type="button" data-clipboard-text="忍者是指能够忍耐的人">点击复制</button>
+				</li>
+				<li>
+					<p><span>44</span>为了下一个三周年，火之意志将持续绽放</p>
+					<button class="btn" type="button" data-clipboard-text="为了下一个三周年，火之意志将持续绽放">点击复制</button>
+				</li>
+				<li>
+					<p><span>45</span>组织里的小伙伴相信我，我也相信大家</p>
+					<button class="btn" type="button" data-clipboard-text="组织里的小伙伴相信我，我也相信大家">点击复制</button>
+				</li>
+				<li>
+					<p><span>46</span>我就是木叶忍者村最热血的忍者</p>
+					<button class="btn" type="button" data-clipboard-text="我就是木叶忍者村最热血的忍者">点击复制</button>
+				</li>
+				<li>
+					<p><span>47</span>心中萌芽的热切想法就是迈向未来的动力</p>
+					<button class="btn" type="button" data-clipboard-text="心中萌芽的热切想法就是迈向未来的动力">点击复制</button>
+				</li>
+
+			</ul>
+		</div>
+
+<!--返回按钮-->
+<div class="tongjilist_btns">
+    <a href="index.html" class="btn btn_back ease3" title="返回高级招募模拟器"><i class="icon icon_back"></i><span class="txt">返回招募</span></a>
+</div>
+
+<!-- 右上角图标容器 第1列 -->
+		<div class="thebtns thebtns_01">
+        	<div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
+        </div>
+<!-- 关于弹窗 -->
+		<div class="pop pop_info animated zoomIn">
+			<div class="text_wrap">
+				<div class="text_body">
+					<p>使用说明书：</p>
+					<p><br></p>
+					<p>用于快速完成周年密令活动，点击按钮复制文字，切换到游戏中粘贴到下图“点击输入密令”位置中，提交密令</p>
+					<p><br></p>
+					<img src="images/pic_miling.png" alt="密令活动截图">
+					<p><br></p>
+					<p><br></p>
+					<p style="text-align: right;"><a href="http://weibo.com/rune2010" style="color:#111;" target="_blank">爱火影、爱游戏的某熊仔</a></p>
+					<p style="text-align: right;">2019年1月11日</p>
+					<p><br></p>
+					<div class="btns"><a href="http://weibo.com/rune2010" class="btn ease1" title="微博" target="_blank"><i class="icon icon_sina"></i>我是微博</a><a href="javascript:void(0);" class="btn ease1 jump_gzh" title="公众号"><i class="icon icon_weixin"></i>我是公众号</a></div>
+					<p><br></p>
+					<p><br></p>
+				</div>
+			</div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+<!-- 公众号弹窗 -->
+		<div class="pop pop_gzh animated zoomIn">
+			<div class="text_body"><p></p><img src="images/gongzhonghao_erweima.jpg" alt="公众号二维码"></div>
+			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+		</div>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+		//信息弹窗
+	$(".btn_info,.pop_info .btn_close").on('click',function(){
+		if($(".pop_info").hasClass("on")){
+			$(".pop_info").addClass("zoomOut");
+			$(".pop_mask").fadeOut(100);
+			setTimeout(function(){
+				$(".pop_info").removeClass("on");
+			},500);
+		}else{
+			$(".pop_info").addClass("on");
+			$(".pop_info").removeClass("zoomOut");
+			$(".pop_mask").fadeIn(100);
+		}
+	});
+		//公众号弹窗
+	$(".jump_gzh,.pop_gzh .btn_close").on('click',function(){
+		if($(".pop_gzh").hasClass("on")){
+			$(".pop_gzh").addClass("zoomOut");
+			setTimeout(function(){
+				$(".pop_gzh").removeClass("on");
+			},500);
+		}else{
+			$(".pop_gzh").addClass("on");
+			$(".pop_gzh").removeClass("zoomOut");
+		}
+	});
+
+</script>
+
+
+<!-- 流量统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6d63043a90b705c7a27a4319e9e4c52c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
