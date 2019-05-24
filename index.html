@@ -193,7 +193,7 @@
         <div class="thebtns thebtns_02">
         	<a class="btn ease1" href="fengyin.html"><i class="icon icon_fengyinbaoxiang"></i><span class="txt">封印</span></a>
             <a href="ninjashare.html" class="btn btn_ninja ease1"><i class="icon icon_ninja"></i><span class="txt">图图</span><!-- <i class="icon icon_dot_red"></i> --></a>
-        	<a id="btn_miling" class="btn btn_feed ease1" href="copycode.html" target="_blank"><i class="icon icon_feed"></i><span class="txt">密令</span></a>
+        	<!-- <a id="btn_miling" class="btn btn_feed ease1" href="copycode.html" target="_blank"><i class="icon icon_feed"></i><span class="txt">密令</span></a> -->
         	<!-- <a class="btn btn_feed ease1" href="https://www.wjx.cn/jq/27221880.aspx" target="_blank"><i class="icon icon_feed"></i></a> -->
         </div>
 <!-- 弹窗遮罩 -->
@@ -547,9 +547,9 @@
 		</div>
 
 <!-- 指引 -->
-		<div class="guide_wrap fadeInDown">
-        	<div class="guide_small" style="right:1.3rem; top:1.3rem;"><em class="jiao"></em><div class="text_body countdown" style="color:#e94130; text-align: center;">密令活动即将结束<br><span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span></div></div>
-        </div> 
+		<!-- <div class="guide_wrap fadeInDown">
+        	<div class="guide_small" style="right:1.3rem; top:1.3rem;"><em class="jiao"></em><div class="text_body">操作指引</div></div>
+        </div>  -->
 <!-- 恭喜 -->
 		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
 <!-- toast -->
@@ -562,8 +562,14 @@
     document.write('<script type="text/javascript" src="js/custom.js?v='+Math.random()+'"><\/script>');
 </script>
 
+<!-- 倒计时 -->
 <script type="text/javascript" src="js/jquery.downCount.js"></script>
 <script  type="text/javascript">
+	/** 
+		使用方法
+		依赖dom结构，总容器class为countdown（与调用函数中对应即可）
+		总容器下包含4个容器用于放置天、时、分、秒4个数字，class分别为days、hours、minutes、seconds
+	*/
     $('.countdown').downCount({
 		date: '05/23/2019 23:59:59',
 		offset: +8
