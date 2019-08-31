@@ -311,9 +311,9 @@ $("#whichshare_select").on('change',function(){
 		$(".pop_setninja .ninjalist .item_wrap[data-hasnew!='yes']").hide();
 		if( $(".pop_setninja .ninjalist .active").attr("data-hasnew") != 'yes'){
 			//默认选到第一个
-			cache_id = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-id");
-			cache_rank = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-rank");
-			cache_name = $(".pop_setninja .tabbox_bd_item .item_wrap:eq(0)").attr("data-name");
+			cache_id = $(".pop_setninja .tabbox_bd_item .item_wrap[data-hasnew='yes']:eq(0)").attr("data-id");
+			cache_rank = $(".pop_setninja .tabbox_bd_item .item_wrap[data-hasnew='yes']:eq(0)").attr("data-rank");
+			cache_name = $(".pop_setninja .tabbox_bd_item .item_wrap[data-hasnew='yes']:eq(0)").attr("data-name");
 			console.log(cache_id)
 			$(".pop_setninja .tabbox_bd_item .item_wrap").removeClass("active");
 			$(".pop_setninja .tabbox_bd_item .item_wrap[data-hasnew='yes']").eq(0).addClass("active");
