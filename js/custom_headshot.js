@@ -44,7 +44,7 @@ if( screen_h / screen_w > 1.8 ){
 		window.attachEvent("onresize",adjust);
 	};
 	//关于弹窗
-	$(".btn_info,.pop_info .btn_close").on('click',function(){
+	$(".btn_info,.pop_info #btn_close").on('click',function(){
 		if($(".pop_info").hasClass("on")){
 			$(".pop_info").addClass("zoomOut");
 			setTimeout(function(){
