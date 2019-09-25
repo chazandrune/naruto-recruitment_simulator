@@ -206,6 +206,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .icon.icon_weixin{ background-image:url(../images/icon_weixin.png); }
 .icon.icon_jinbi{ background-image:url(../images/coin.png); }
 .icon.icon_70{ background-image:url(../images/70.png); }
+.icon.icon_touxiangkuang{ background-image:url(../images/touxiangkuang.png); }
 .icon.icon_s{ background-image:url(../images/s.png); }
 .icon.icon_a{ background-image:url(../images/a.png); }
 .icon.icon_b{ background-image:url(../images/b.png); }
