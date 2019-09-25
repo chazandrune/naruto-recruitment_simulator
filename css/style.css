@@ -258,6 +258,7 @@ body{ height: 100%; width: 100%; background:#000 url(../images/bg.png) no-repeat
 .icon.icon_setting{ background-image:url(../images/setting.png); }
 .icon.icon_ninja{ background-image:url(../images/ninja.png); }
 .icon.icon_feed{ background-image:url(../images/feed.png); }
+.icon.icon_touxiangkuang{ background-image:url(../images/touxiangkuang.png); }
 .icon.icon_baoxiang{ background-image:url(../images/baoxiang.png); }
 .icon.icon_close{ background-image:url(../images/close.png); }
 .icon.icon_setninja{ background-image:url(../images/setninja.png); }
