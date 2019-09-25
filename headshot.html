@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" type="image/png" href="images/ninja.png">
+<title>头像生成器</title>
+<meta name="description" content="在线生成头像，自选头像框的那种">
+<meta name="keywords" content="头像框,火影新忍者,头像生成器,火影忍者头像框生成,忍者招募图生成器,火影忍者手游招募新忍者,火影手游新忍者">
+<meta itemprop="image" content="images/touxiangkuang.png" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<script>
+    document.write('<link rel="stylesheet" type="text/css" href="css/style_headshot.css?v='+Math.random()+'"/>');
+</script>
+<!-- <link rel="stylesheet" type="text/css" href="css/style_ninjashare.css?v=2019030105"> -->
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script  type="text/javascript">
+    document.write('<script type="text/javascript" src="js/preload_ninjashare.js?v='+Math.random()+'"><\/script>');
+</script>
+<!-- <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script> -->
+<script type="text/javascript" src="js/html2canvas.js"></script>
+<!-- <script type="text/javascript" src="js/preload_ninjashare.js?v=022704"></script> -->
+</head>
+
+
+<body>
+    <style type="text/css" id="ninjacss"></style>
+<div id="LoadingBar">
+    <div class="div txt-c">
+        <div class="load-container load8">
+            <div class="loader">Loading</div>
+        </div>
+        <p>正在加载资源...</p>
+        <span id="cantwaiting"></span>
+    </div>
+</div>
+<div class="loadingbarbox"><div class="loadingline"></div><p><span class="loading-num">0%</span></p></div>
+<div class="loading-logs" style="display:none; position:fixed; left:0; bottom:0; color:#fff; z-index:30000; font-size: .1rem; font-family: '微软雅黑','Arial';"></div>
+    <!--[if lt IE 9]>
+      <div class="browser-tips">我已经不支持远古时代的浏览器了，快快升级吧！</div>
+      <style>
+        .browser-tips{ position:fixed; top:0; left:0; right:0; bottom:0;text-align:center;font-size:20px; line-height:30px; color:#fff; background-color:#000; padding-top:300px; z-index:999999999; }
+      </sytle>
+    <![endif]-->
+<!-- 图像预加载 -->
+<script>
+// 极速模式，取消字体加载
+function fastmode(){
+    $("#ninjacss").text("body{ font-family: '微软雅黑',Helvetica,Arial;}");
+}
+// loading
+	!(function(){
+		var imgPath = 'images/',
+			sourceArr = ['0.png','1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','zl_0.png','zl_1.png','zl_2.png','zl_3.png','zl_4.png','zl_5.png','zl_6.png','zl_7.png','zl_8.png','zl_9.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','bg.png','bg_shu.png','bg_ShareRoleInfoBgAtlas1.jpg','bg_zhanli.png','biaoqing.png','blank.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','copyright_naruto.png','front.png','fengyinbaoxiang.png','gou.png','gou_kuang.png','guide_bg.png','huohua.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.gif','loading.png','loading_bg.png','loading_new.png','logo_naruto.png','logo_naruto2.png','ninja.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','rank_a.png','rank_b.png','rank_c.png','rank_s.png','rank_ss.png','rank_bg.png','s.png','setting.png','shareImage.png','shareImage.jpg','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_notice.png','title_setting.png','txt_chenggong.png','txt_wode.png','user_avatar.png','yanwu.png',
+			];
+		loading();
+		function loading(){
+			for (var i = 0; i < sourceArr.length; i++) {
+				sourceArr[i] = imgPath + sourceArr[i];
+			}
+			var loadImage = function(path, callback) {
+				var img = new Image();
+				img.onload = function() {
+					img.onload = null;
+					callback(path);
+				}
+				img.src = path;
+			}
+			var imgLoader = function(imgs, callback) {
+				var len = imgs.length,
+					i = 0;
+				while (imgs.length) {
+					loadImage(imgs.shift(), function(path) {
+						callback(path, ++i, len);
+					});
+				}
+			}
+			imgLoader(sourceArr, function(path, curNum, total) {
+				var percent = curNum / total;
+				//console.log(path);
+				//console.log(percent);
+				//$('.loading-logs').append("<p>"+path+"</p>");
+				//$('.loading-current span').text(path);
+				$('.loading-num').text(Math.floor(percent * 100)+'%');
+				$('.loadingbarbox .loadingline').css({width:Math.floor(percent * 100)+'%'});
+				if (percent == 1) {
+					//$('#loading').addClass('hide').removeClass('show');
+                    //$('.loadingbarbox').fadeOut(500);
+                    //$('.loading-num').fadeOut(300);
+					//$('.loading-current').text(" ");
+                    clearInterval(changeloadingtext);
+                    setTimeout(function(){
+                        $("#LoadingBar p").html("还差一点");
+                    },500)
+                    window.onload = function(){
+                        console.log("页面完全加载完成");
+                        setTimeout(function(){
+                            $("#LoadingBar p").html("准备就绪");
+                        },500)
+                        setTimeout(function(){
+                            $("#LoadingBar").fadeOut(300);
+                            $(".loadingbarbox").fadeOut(300);
+                        },1000)//5000                      
+                    }
+				}
+			});
+		}
+	})();
+</script>
+<!-- loading 结束 -->
+		<!-- <script type="text/javascript">
+			window.onload=function(){
+                clearInterval(changeloadingtext);
+				setTimeout(function(){
+					$("#LoadingBar p").html("准备就绪");
+				},500)
+				setTimeout(function(){
+					$("#LoadingBar").fadeOut(300);
+                    $(".loadingbarbox").fadeOut(300);
+				},1000)//5000
+			}
+		</script>
+ -->
+
+
+
+<!--忍者分享-->
+<div class="container_box_scroll">
+<div class="container">
+    <ul class="thepic" id="thepic">
+        <!--用户信息-->
+        <li class="avatar">
+            <img id="user_avatar" class="user_avatar" src="images/user_avatar.png" alt="用户头像">
+        </li>
+        <li class="ninja_touxiangkuang"><img src="images/ninja_touxiangkuang_100001.png" alt="默认头像框"></li>
+    </ul>
+</div>
+</div>
+
+	
+<div class="pop_mask"></div>
+<!--表单-->
+<div class="pop pop_smalllong pop_form animated zoomIn on">
+    <div class="title_small">头像生成器v1.0</div>
+    <div class="text_wrap">
+        <div class="text_body">
+            <div class="container_form">
+                <!-- <div class="form_item">
+                    <label class="dt">图图类型</label>
+                    <div class="dd"><select name="whichshare_select" id="whichshare_select" class="select_text">
+                        <option value="0">招募图</option>
+                        <option value="2">招募图(新版)</option>
+                        <option value="1">战力图</option>
+                    </select></div>
+                </div> -->
+                <!-- <div class="form_item form_item_ninja">
+                    <p style="color:#8c7a6c; font-size:.2rem;">本工具需要自行填写个人相关信息；<br>不填的话我就帮你填了(*￣∇￣*) ~</p>
+                </div> -->
+                <div class="form_item" style="margin-top: 1.2rem; position: relative;">
+                        <div class="btn_upload" style="margin: 0 auto;">
+                            <img id="user_avatar2" src="images/blank.png" alt="用户头像">
+                            <div class="ninja_touxiangkuang"><img src="images/ninja_touxiangkuang_100001.png" alt="默认头像框"></div>
+                            <a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a>
+                        </div>
+                        <a href="###" class="btn_arrow btn_prev"><i class="icon icon_back"></i></a>
+                        <a href="###" class="btn_arrow btn_next"><i class="icon icon_next"></i></a>
+                </div>
+                <div class="form_item" style="margin-bottom: 1.2rem;">
+                        <!-- <input type="text" name="ninja" id="input_ninja" class="input_text btn_setninja" placeholder="点击选择" readonly="readonly" /> -->
+                        <div class="btns">
+                            <a class="btn blue btn_setninja ease1" href="javascript:void(0);" id="input_ninja" title="更多头像框">更多头像框</a>
+                        </div>
+                </div>
+                
+                <div class="btns">
+                    <!--<a class="btn ease1" href="javascript:void(0);" id="suijixuan" onClick="suijixuan()">随机选</a>-->
+                    <a class="btn ease1" href="javascript:void(0);" id="btn_import" title="生成">生 成</a>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>-->
+</div>
+<!--表单-->
+
+<!-- 右上角图标容器 第1列 -->
+        <div class="thebtns thebtns_01">
+            <div class="btn btn_info ease1"><i class="icon icon_info"></i></div>
+        </div>
+<!-- 左上角图标容器 第1列 -->
+        <!-- <div class="thebtns thebtns_01_l">
+            <a class="btn ease1" href="index.html"><i class="icon icon_gaozhaoquan"></i><span class="txt">高招</span></a>
+            <a class="btn ease1" href="fengyin.html"><i class="icon icon_fengyinbaoxiang"></i><span class="txt">封印</span></a>
+        </div> -->
+
+
+<!-- 忍者配置弹窗 -->
+        <div class="pop pop_setninja animated zoomIn">
+            <div class="text_wrap">
+                <div class="tabbox">
+                    <ul class="tabbox_hd">
+                        <li class="tabbox_hd_item active"><i class="icon icon_70"></i></li>
+                    </ul>
+                    <div class="tabbox_bd">
+                        <div class="tabbox_bd_item tabbox_bd_item_s active">
+                            <ul class="ninjalist">
+                                <li class="item_wrap btn ease1 active" data-rank="s" data-id="100001" data-name="国庆头像框1">
+                                    <div class="item">
+                                        <div class="img" style="background-position:0px 0;"></div>
+                                    </div>
+                                </li>
+                                <li class="item_wrap btn ease1" data-rank="s" data-id="100002" data-name="国庆头像框2">
+                                    <div class="item">
+                                        <div class="img" style="background-position:-72px 0;"></div>
+                                    </div>
+                                </li>
+                                <li class="item_wrap btn ease1" data-rank="s" data-id="100003" data-name="国庆头像框3">
+                                    <div class="item">
+                                        <div class="img" style="background-position:-144px 0;"></div>
+                                    </div>
+                                </li>
+                                <li class="item_wrap btn ease1" data-rank="s" data-id="100004" data-name="国庆头像框4">
+                                    <div class="item">
+                                        <div class="img" style="background-position:-216px 0;"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="btns"><div class="btn btn_done ease1" title="选好了">选好了</div></div>
+            </div>
+            <div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+        </div>
+
+<!--图像加载loading-->
+<div class="loadtoast"><div class="load-container load8"><div class="loader">Loading</div></div><p>正在生成</p></div>
+
+<!--存放导出canvas的容器-->
+<div id="canvas_import" class="canvas_import"></div>
+
+<!--存放导出图片的容器-->
+<div class="pop pop_resultpic animated zoomIn">
+<div class="imgbox">
+    <img id="avatar_import" src="images/loading.gif" alt="导出图像">
+    <p class="txt phone">长按图片可以保存</p>
+    <p class="txt pc">右键图片可以保存</p>
+</div>
+<div class="btns"><a id="retry" class="btn ease1" href="javascript:void(0);">再来一次</a><a id="refresh" class="btn blue ease1" href="javascript:void(0);">刷新图像</a></div>
+<p class="hints phone"><span style="color:#888">如果出现图像缺失请点击刷新图像</span></p>
+<p class="hints pc"><span style="color:#888">如果出现图像缺失请点击刷新图像</span></p>
+</div>
+
+<!--返回按钮-->
+<!-- <div class="tongjilist_btns">
+    <a href="index.html" class="btn btn_back ease3" title="返回高级招募模拟器"><i class="icon icon_back"></i><span class="txt">返回招募</span></a>
+</div> -->
+
+<!-- 关于弹窗 -->
+        <div class="pop pop_info animated zoomIn">
+            <div class="text_wrap">
+                <div class="text_body">
+                    <p>声明</p>
+                    <p><br></p>
+                    <hr>
+                    <p><br></p>
+                    <p>1、本工具使用的相关图像素材来源于《火影忍者手游》与互联网。</p>
+                    <p><br></p>
+                    <p>2、本工具仅用于个人学习交流使用，不用于任何商业行为。</p>
+                    <p><br></p>
+                    <p>3、在使用本工具时，请务必遵守相关法律法规及道德规范，如违反相关规则而引起的任何后果请自行承担。</p>
+                    <p><br></p>
+                    <!-- <div class="btns"><a href="http://weibo.com/rune2010" class="btn ease1" title="微博" target="_blank"><i class="icon icon_sina"></i>我是微博</a><a href="javascript:void(0);" class="btn ease1 jump_gzh" title="公众号"><i class="icon icon_weixin"></i>我是公众号</a></div> -->
+                    <p><br></p>
+                    <!-- <p>更新日志</p>
+                    <hr>
+                    <p>>>>>>版本v1.0</p>
+                    <p>日期：20190925</p>
+                    <p>1、头像生成器上线。</p> -->
+                    <p><br></p>
+                    <p><br></p>
+                    <p><br></p>
+                    <p style="text-align: right;">By 某熊仔</p>
+                    <p style="text-align: right;">2019年9月25日</p>
+                    <p><br></p>
+                    <p><br></p>
+                </div>
+            </div>
+            <div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+        </div>
+<!-- 公众号弹窗 -->
+        <div class="pop pop_gzh animated zoomIn">
+            <div class="text_body"><p></p><img src="images/gongzhonghao_erweima.jpg" alt="公众号二维码"></div>
+            <div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
+        </div>
+
+
+<!-- <script type="text/javascript" src="js/custom_ninjashare.js?v=022801"></script> -->
+<script type="text/javascript">
+    document.write('<script type="text/javascript" src="js/custom_headshot.js?v='+Math.random()+'"><\/script>');
+</script>
+</body>
+</html>
+
+<!-- 流量统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6d63043a90b705c7a27a4319e9e4c52c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
