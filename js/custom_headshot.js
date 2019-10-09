@@ -369,7 +369,7 @@ function updateimg(){
 	var ninjarank = cache_rank;
 	var ninjaname = cache_name;
 
-	$('.ninja_touxiangkuang img').attr("src","images/ninja_touxiangkuang_"+ninjaid+".png");
+	$('.ninja_touxiangkuang img').attr("src","images/PictureFrames/PictureFrames_"+ninjaid+".png");
 	$('#input_ninja').val(ninjaname);
 	$(".ninja_touxiangkuang img").load(function(){
 		console.log("图片加载完成");
