@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" type="image/png" href="images/touxiangkuang.png">
+<title>头像生成器</title>
+<meta name="description" content="在线生成头像，自选头像框的那种">
+<meta name="keywords" content="头像框,火影新忍者,头像生成器,火影忍者头像框生成,忍者招募图生成器,火影忍者手游招募新忍者,火影手游新忍者">
+<meta itemprop="image" content="images/touxiangkuang.png" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<style lang="scss">
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+.numbox{
+    width:500px;
+    height: 500px;
+    border: 1px #dbdbdb solid;
+}
+.numbox ul{
+    width: 100%;
+}
+.numbox .numitem{
+    float: left;
+    display: block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color:#333;
+}
+.numbox .numitem.light{
+    background-color:#f00;
+    color: #fff;
+}
+</style>
+</head>
+
+
+<body>
+<div class="numbox">
+    <ul>
+        <li class="numitem" data-position="a1"></li>
+        <li class="numitem" data-position="a2"></li>
+        <li class="numitem" data-position="a3"></li>
+        <li class="numitem" data-position="a4"></li>
+        <li class="numitem" data-position="a5"></li>
+
+        <li class="numitem" data-position="b1"></li>
+        <li class="numitem" data-position="b2"></li>
+        <li class="numitem" data-position="b3"></li>
+        <li class="numitem" data-position="b4"></li>
+        <li class="numitem" data-position="b5"></li>
+
+        <li class="numitem" data-position="c1"></li>
+        <li class="numitem" data-position="c2"></li>
+        <li class="numitem" data-position="c3"></li>
+        <li class="numitem" data-position="c4"></li>
+        <li class="numitem" data-position="c5"></li>
+
+        <li class="numitem" data-position="d1"></li>
+        <li class="numitem" data-position="d2"></li>
+        <li class="numitem" data-position="d3"></li>
+        <li class="numitem" data-position="d4"></li>
+        <li class="numitem" data-position="d5"></li>
+
+        <li class="numitem" data-position="e1"></li>
+        <li class="numitem" data-position="e2"></li>
+        <li class="numitem" data-position="e3"></li>
+        <li class="numitem" data-position="e4"></li>
+        <li class="numitem" data-position="e5"></li>
+    </ul>
+</div>
+
+<a href="javascript:void(0);" class="btn" id="do_01" onclick="choujiang();">抽一次</a>
+<a href="javascript:void(0);" class="btn" id="do_10">抽十次</a>
+
+<div class="countNum"><span id="countNum"></span></div>
+
+<script>
+    var numpool = [];//存放随机数的数组
+    var numpoolLen = 25;//数组长度，也用来限制范围
+    var maxnum = 99;
+    var minnum = 1;
+    for(var i=0; i<numpoolLen; i++){
+        var radomNum = parseInt(Math.random() * (maxnum-minnum+1)+minnum ,10);//对利用random生成的随机数处理后得到1~5的整数
+        if(numpool.indexOf(radomNum) == -1){
+            //indexOf返回值为-1表示数组中没有和新随机数重复的值
+            numpool.push(radomNum);
+            $('.numbox .numitem').eq(i).html(radomNum)
+        }else{
+            //有重复值i--，不添加重复的值到数组中，并再循环一次
+            i--;
+        }
+    }
+    console.log(numpool);
+
+
+    var countNum = 0; //抽奖次数
+    // 抽一个数字
+    function choujiang(){
+        countNum++;
+        $('#countNum').html(countNum);
+
+        var radomIndex = Math.floor(Math.random() * numpool.length);
+        var thenum = numpool[radomIndex];
+        console.log(thenum,radomIndex)
+        $('.numbox .numitem').eq(radomIndex).addClass('light');
+    }
+
+</script>
+</body>
+</html>
+
+
+
