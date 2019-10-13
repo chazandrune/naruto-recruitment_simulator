@@ -22,7 +22,7 @@ if(window.screen.width > window.screen.height){
 if( screen_h / screen_w > 1.8 ){
 	quanmianping = 1;
 	$(".container").addClass("quanmianping");
-	$(".container").css("width",640*screen_h / screen_w+"px");
+	//$(".container").css("width",640*screen_h / screen_w+"px");
 }
 
 	//分辨率适应及横屏竖屏处理
@@ -368,6 +368,14 @@ function updateimg(){
 	var ninjaid = cache_id;
 	var ninjarank = cache_rank;
 	var ninjaname = cache_name;
+	console.log(ninjarank)
+	if(ninjarank !='s'){
+		$('#thepic').addClass('game');
+		$('.btn_upload').addClass('game');
+	}else{
+		$('#thepic').removeClass('game');
+		$('.btn_upload').removeClass('game');
+	}
 
 	$('.ninja_touxiangkuang img').attr("src","images/PictureFrames/PictureFrames_"+ninjaid+".png");
 	$('#input_ninja').val(ninjaname);
@@ -515,9 +523,9 @@ function printimg(){
 	},10000)
 
 	var canvas = document.createElement("canvas");
-	if(quanmianping != 0){
-		canvas.width = 300;
-		canvas.height = 300;		
+	if($('#thepic').hasClass('game')){
+		canvas.width = 176;
+		canvas.height = 176;		
 	}else{
 		canvas.width = 300;
 		canvas.height = 300;		
