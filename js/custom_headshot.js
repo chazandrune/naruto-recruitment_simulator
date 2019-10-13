@@ -524,8 +524,8 @@ function printimg(){
 
 	var canvas = document.createElement("canvas");
 	if($('#thepic').hasClass('game')){
-		canvas.width = 176;
-		canvas.height = 176;		
+		canvas.width = 88;
+		canvas.height = 88;		
 	}else{
 		canvas.width = 300;
 		canvas.height = 300;		
