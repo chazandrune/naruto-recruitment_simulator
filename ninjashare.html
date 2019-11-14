@@ -56,7 +56,7 @@ function fastmode(){
 // loading
 	!(function(){
 		var imgPath = 'images/',
-			sourceArr = ['0.png','1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','zl_0.png','zl_1.png','zl_2.png','zl_3.png','zl_4.png','zl_5.png','zl_6.png','zl_7.png','zl_8.png','zl_9.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','bg.png','bg_shu.png','bg_ShareRoleInfoBgAtlas1.jpg','bg_zhanli.png','biaoqing.png','blank.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','copyright_naruto.png','front.png','fengyinbaoxiang.png','gou.png','gou_kuang.png','guide_bg.png','huohua.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.gif','loading.png','loading_bg.png','loading_new.png','logo_naruto.png','logo_naruto2.png','ninja.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','rank_a.png','rank_b.png','rank_c.png','rank_s.png','rank_ss.png','rank_bg.png','s.png','setting.png','shareImage.png','shareImage.jpg','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_notice.png','title_setting.png','txt_chenggong.png','txt_wode.png','user_avatar.png','yanwu.png',
+			sourceArr = ['0.png','1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','zl_0.png','zl_1.png','zl_2.png','zl_3.png','zl_4.png','zl_5.png','zl_6.png','zl_7.png','zl_8.png','zl_9.png','a.png','b.png','back.png','baoxiang.png','baoxiang_big.png','bg.png','bg_shu.png','bg_ShareRoleInfoBgAtlas1.jpg','bg_zhanli.png','biaoqing.png','blank.png','btn_bg.png','c.png','charactors.png','checkbox_off.png','checkbox_on.png','close.png','coin.png','copyright_naruto.png','front.png','fengyinbaoxiang.png','gou.png','gou_kuang.png','guide_bg.png','huohua.png','info.png','juanzhou_gaoji.png','juanzhou_putong.png','juanzhou_xianding.png','loading.gif','loading.png','loading_bg.png','loading_new.png','logo_naruto.png','logo_naruto2.png','ninja.png','piece_bg.png','piece_fg.png','pop_big_bg.png','pop_small_bg.png','pop_smalllong_bg.png','pop_smalllong_bg_h.png','QRCode_wx.png','rank_a.png','rank_b.png','rank_c.png','rank_s.png','rank_ss.png','rank_bg.png','s.png','setting.png','shareImage.png','shareImage.jpg','tips_bg.png','tishi_01.png','tishi_10.png','title_bg.png','title_notice.png','title_setting.png','txt_chenggong.png','txt_wode.png','user_avatar.png','yanwu.png',
 			];
 		loading();
 		function loading(){
@@ -150,6 +150,7 @@ function fastmode(){
         <!--忍者等级-->
         <li class="txt_chenggong_rank"><img src="images/rank_s.png" alt="忍者等级"></li>
         <li class="bg_huaban"><img src="images/bg_huaban.png" alt="花瓣"></li>
+        <li class="QRCode_naruto"><img src="images/QRCode_wx.png" alt="二维码"></li>
         <li class="logo_naruto"><img src="images/logo_naruto.png" alt="logo"></li>
         <li class="logo_naruto2"><img src="images/logo_naruto2.png" alt="logo2"></li>
         <li class="copyright_naruto"><img src="images/copyright_naruto.png" alt="copyright"></li>
@@ -222,7 +223,7 @@ function fastmode(){
                             <a href="###" class="ease1"><input type="file" name="avatar" class="input_file" placeholder="上传玩家头像" onchange="PreviewImage(this,'user_avatar','user_avatar2','divPreview')" /></a>
                         </div>
                         <div style=" float: right; width: 1.7rem;">
-                            <input maxscore="135" type="number" name="level" id="input_level" class="input_text" placeholder="玩家等级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="135" style="margin-bottom:.13rem;" />
+                            <input maxscore="140" type="number" name="level" id="input_level" class="input_text" placeholder="玩家等级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="135" style="margin-bottom:.13rem;" />
                             <input maxlength="16" type="text" name="nickname" id="input_nickname" class="input_text" placeholder="玩家昵称" oninput="exeTextKeyUp($(this));" onBlur="tongbu($('#nickname'),this)" data-default="某熊仔" />
                         </div>
                     </div>
@@ -263,7 +264,7 @@ function fastmode(){
                 </div>
                 <div class="form_item form_item_ninja">
                 	<label class="dt">忍者数量</label>
-                    <div class="dd"><input maxscore="192" type="number" name="ninja_number" id="input_ninja_number" class="input_text" placeholder="最多192个" oninput="MaxScore($(this));" onBlur="tongbuimg($('#txt_wode_num'),this)" data-default="100" /></div>
+                    <div class="dd"><input maxscore="193" type="number" name="ninja_number" id="input_ninja_number" class="input_text" placeholder="最多193个" oninput="MaxScore($(this));" onBlur="tongbuimg($('#txt_wode_num'),this)" data-default="100" /></div>
                 </div>
                 
                 <div class="btns">
@@ -421,6 +422,12 @@ function fastmode(){
                         </div>
                         <div class="tabbox_bd_item tabbox_bd_item_a">
                             <ul class="ninjalist">
+                                <li class="item_wrap btn ease1" data-rank="a" data-id="90240" data-name="我爱罗[忍界大战]" data-hasnew="yes">
+                                    <div class="item">
+                                        <div class="img" style="background-position:-2520px -72px;"></div>
+                                        <div class="fg"></div>
+                                    </div>
+                                </li>
                                 <li class="item_wrap btn ease1" data-rank="a" data-id="90191" data-name="大蛇丸[晓]" data-hasnew="yes">
                                     <div class="item">
                                         <div class="img" style="background-position:-2304px -72px;"></div>
@@ -760,6 +767,12 @@ function fastmode(){
                     <p><br></p>
                     <p>更新日志</p>
                     <hr>
+                    <p>>>>>>版本v2.4</p>
+                    <p>日期：20191114</p>
+                    <p>1、新增我爱罗[忍界大战]</p>
+                    <p>2、修正分享图左上角遗漏的二维码。</p>
+                    <p><br></p>
+                    <p><br></p>
                     <p>>>>>>忍者更新</p>
                     <p>日期：20191031</p>
                     <p>1、日向花火[和服]、鬼童丸[秽土转生]</p>
