@@ -355,6 +355,16 @@ function tongbu(e,obj){
 	}
 }
 
+//定义二维码的同步显示
+function tongbuqrcode(e,obj){
+	var val=$(obj).val();
+	if(val==""){
+		e.html('<img src="images/QRCode_wx.png" alt="二维码">');
+	}else{
+		e.html('<img src="images/QRCode_'+val+'.png" alt="二维码">');
+	}
+}
+
 //定义我的第几个忍者图片数字输出
 function tongbuimg(e,obj){
 	e.html("");

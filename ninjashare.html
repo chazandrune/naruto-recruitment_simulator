@@ -150,7 +150,7 @@ function fastmode(){
         <!--忍者等级-->
         <li class="txt_chenggong_rank"><img src="images/rank_s.png" alt="忍者等级"></li>
         <li class="bg_huaban"><img src="images/bg_huaban.png" alt="花瓣"></li>
-        <li class="QRCode_naruto"><img src="images/QRCode_wx.png" alt="二维码"></li>
+        <li class="QRCode_naruto" id="QRCode_naruto"><img src="images/QRCode_wx.png" alt="二维码"></li>
         <li class="logo_naruto"><img src="images/logo_naruto.png" alt="logo"></li>
         <li class="logo_naruto2"><img src="images/logo_naruto2.png" alt="logo2"></li>
         <li class="copyright_naruto"><img src="images/copyright_naruto.png" alt="copyright"></li>
@@ -193,7 +193,7 @@ function fastmode(){
 <div class="pop_mask"></div>
 <!--表单-->
 <div class="pop pop_smalllong pop_form animated zoomIn on">
-    <div class="title_small">图图生成器v2.4</div>
+    <div class="title_small">图图生成器v2.5</div>
     <div class="text_wrap">
         <div class="text_body">
             <div class="container_form">
@@ -231,22 +231,22 @@ function fastmode(){
                 <!-- <div class="form_item">
                     <label class="dt">玩家昵称</label>
                     <div class="dd"><input maxlength="6" type="text" name="nickname" id="input_nickname" class="input_text" placeholder="最多6个字符" oninput="exeTextKeyUp($(this));" onBlur="tongbu($('#nickname'),this)" data-default="某熊仔" /></div>
-                </div>
-                <div class="form_item">
-                    <label class="dt">玩家等级</label>
-                    <div class="dd"><input maxscore="135" type="number" name="level" id="input_level" class="input_text" placeholder="目前最高135级" oninput="MaxScore($(this));" onBlur="tongbu($('#level'),this)" data-default="130" /></div>
                 </div> -->
+                <div class="form_item">
+                    <label class="dt">选择渠道</label>
+                    <div class="dd"><select name="area_qudao_select" id="area_qudao_select" class="select_text" style="" onBlur="tongbuqrcode($('#QRCode_naruto'),this)">
+                            <option value="wx">微信</option>
+                            <option value="qq">QQ</option>
+                        </select></div>
+                </div>
                 <div class="form_item form_item_zhanli">
                     <label class="dt">选择区服</label>
                     <div class="dd">
-                        <select name="area_system_select" id="area_system_select" class="select_text" style="width: 47%;" onBlur="tongbu($('#area_system'),this)">
+                        <select name="area_system_select" id="area_system_select" class="select_text" style="width: 47%; float:left;" onBlur="tongbu($('#area_system'),this)">
                             <option value="IOS" data-num="302">苹果(IOS)</option>
                             <option value="安卓" data-num="580">安卓(android)</option>
                         </select>
-                        <!-- <select name="area_num_select" id="area_num_select" class="select_text" style="width: 45%; float: right;" onBlur="tongbu($('#area_num'),this)">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select> -->
+                        
                         <input maxlength="4" type="number" name="area_num" id="input_area_num" class="input_text" style="width: 47%; float: right;" placeholder="大区号码" oninput="exeTextKeyUp($(this));" onBlur="tongbu($('#area_num'),this)" data-default="1" />
                     </div>
                 </div>
@@ -863,6 +863,11 @@ function fastmode(){
                     <p><br></p>
                     <p>更新日志</p>
                     <hr>
+                    <p>>>>>>版本v2.5</p>
+                    <p>日期：20191205</p>
+                    <p>1、修正分享图左上角不同渠道（QQ、微信）显示不同的二维码，并增加渠道的选择，感谢 底线. 的指正</p>
+                    <p><br></p>
+                    <p><br></p>
                     <p>>>>>>忍者更新</p>
                     <p>日期：20191128</p>
                     <p>1、新增萨姆依[忍界大战]</p>
