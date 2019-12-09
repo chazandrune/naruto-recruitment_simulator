@@ -191,7 +191,7 @@ body{ height: 100%; width: 100%; overflow-y:auto; background:#000 url(../images/
 .container ul li.guildarea_info .area,
 .container ul li.guildarea_info .area_shadow{ left: 0; }
 .container ul li.guildarea_info .guild_id,
-.container ul li.guildarea_info .guild_id_shadow{ left: 150px; z-index:0; }
+.container ul li.guildarea_info .guild_id_shadow{ left: 148px; z-index:0; }
 .container ul li.guildarea_info .guild_name,
 .container ul li.guildarea_info .guild_name_shadow{ left: 300px; z-index:0; }
 .container ul li.guildarea_info .area_shadow,
