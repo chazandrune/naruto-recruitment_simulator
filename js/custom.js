@@ -214,6 +214,21 @@ document.body.addEventListener('touchstart', function () { });
 	// 	$(".luckystars_warp").hide();
 	// }
 
+	//隐藏机制开关
+	$(".btn_yincangjizhi").on("click",function(){
+		//playaudio(2);
+		if($(this).hasClass("on")){
+			playaudio(2);
+			$(this).removeClass("on");
+			chongzhi();
+		}else{
+			playaudio(2);
+			$(this).addClass("on");
+			chongzhi();
+		}
+		toast("#toast","招募次数已重置！");
+	});
+
 	//幸运模式开关
 	$(".btn_luckystar").on("click",function(){
 		//playaudio(2);
@@ -415,6 +430,9 @@ var toast_nizhenhei = 0;
 //全局定义新s名称、新a名称，默认给值为 当前忍者配置中默认选中的
 var name_s_new = $(".pop_setninja .tabbox_bd_item_s .item_wrap:eq(0)").attr("data-name");
 var name_a_new = $(".pop_setninja .tabbox_bd_item_a .item_wrap:eq(0)").attr("data-name");
+//全局定义50抽必出一组s忍碎片、40抽必出一组新a忍隐形机制计数
+var count_invisible_s = 0;
+var count_invisible_a = 0;
 
 //忍者配置操作
 //tab切换
@@ -509,8 +527,17 @@ $('#clik').on('click',function() {
 		//必出S，让raNum在0~3.5范围内即可
 		raNum = 1;
 	}else{
-		//随机数生成
-		raNum = Math.random()*100;
+		//判断隐形机制s计数是否到50；
+		if($(".btn_yincangjizhi").hasClass("on") && count_invisible_s >= 50){
+			//必出S，让raNum在0~3.5范围内即可
+			raNum = 1;
+		}else if($(".btn_yincangjizhi").hasClass("on") && count_invisible_a >= 40){
+			//必出a，让raNum在3.5~11.5范围内即可
+			raNum = 4;
+		}else{
+			//随机数生成
+			raNum = Math.random()*100;
+		}
 	}
 	i++;
 	$("#cishu").html(i);
@@ -569,8 +596,18 @@ $('#clik10').on('click',function() {
 				//必出S，让raNum在0~3.5范围内即可
 				raNum = 1;
 			}else{
-				//随机数生成
-				raNum = Math.random()*100;
+				//判断隐形机制s计数是否到50；
+				if($(".btn_yincangjizhi").hasClass("on") && count_invisible_s >= 50){
+					//必出S，让raNum在0~3.5范围内即可
+					raNum = 1;
+				}else if($(".btn_yincangjizhi").hasClass("on") && count_invisible_a >= 40){
+					//必出a，让raNum在3.5~11.5范围内即可
+					raNum = 4;
+				}else{
+					//随机数生成
+					raNum = Math.random()*100;
+				}
+				
 			}
 			i++;
 			$("#cishu").html(i);
@@ -620,6 +657,10 @@ function chongzhi(){
 	//重新判断首付奖励按钮是否出现
 	ifshowshoufu_s();
 	ifshowshoufu_a();
+	//重置隐形机制计数
+	count_invisible_s = 0;
+	count_invisible_a = 0;
+
 }
 $('#reset').on('click',function() {
 	playaudio(4);
@@ -913,18 +954,28 @@ function A(){
 	
 	console.log("随机数="+raNum+",次数="+i+",");
 	if(0 < raNum && raNum <= gailv_s ){
-			//S忍 出现5片和1片的概率，先判断是否抽到第10次，若是第10次则必出1片
-			if( parseInt(i%10) == 0 ){
+			//S忍 先判断是否抽到第10次，若是第10次则必出1片
+			if($(".btn_bisong").hasClass("on") && parseInt(i%10) == 0 ){
+				// 判断为第十次，必出1片，让n不能等于1，并且不重置幸运值
 				var n = 2;
 			}else{
-				var n = parseInt(Math.random()*(2-1+1)+1,10);
-				//幸运值重置，10次必出的s，不会重置幸运值
+				// 判断为不是第十次，
+				// 判断隐形机制是否达到50
+				if($(".btn_yincangjizhi").hasClass("on") && count_invisible_s >= 50){
+					var n = 1;
+				}else{
+					// 出现5片和1片的概率，目前设置为各50%
+					var n = parseInt(Math.random()*(2-1+1)+1,10);
+				}
+				// 非比松抽到s，幸运值重置
 				luckystar = -1;
 				sad = -1;
 			}
 			if(n==1){
 				num_this = 5;
 				num_s = num_s+5;
+				//抽到5片s，重置隐性机制计数
+				count_invisible_s = -1;
 			}else{
 				num_this = 1;
 				num_s++;
@@ -940,8 +991,18 @@ function A(){
 			gongxi("#congratulation","恭喜你获得 <span>"+name_s_new+"碎片 × "+num_this+"</span>");
 			//return;
 		}else if(gailv_s < raNum && raNum <= gailv_s+gailv_a){
-			//A忍 出现4片和1片的概率
-			var n = parseInt(Math.random()*(2-1+1)+1,10);
+			//判断隐性机制计数是否达到40
+			if($(".btn_yincangjizhi").hasClass("on") && count_invisible_a >= 40){
+				//必出4片
+				var n=1;
+				var m=1;
+			}else{
+				//A忍 出现4片和1片的概率
+				var n = parseInt(Math.random()*(2-1+1)+1,10);
+				//随机出现某个忍者 取值范围1-2，1为新a，2为副a，目前两a概率各50%
+				var m = parseInt(Math.random()*(2-1+1)+1,10);
+			}
+			
 			if(n==1){
 				num_this = 4;
 				num_a = num_a+4;
@@ -949,12 +1010,9 @@ function A(){
 				num_this = 1;
 				num_a++;
 			}
-			//随机出现某个忍者 1-2
-			//var m = parseInt(Math.random()*10);
-			var m = parseInt(Math.random()*(2-1+1)+1,10);
 			writelog("A碎片 × "+num_this,"a",num_this,m);
 			$("#num_a").html(num_a);
-			//这里判断是否为新A，m值需要与css设定相对应，目前两a概率各50%
+			//这里判断是否为新A，m值需要与css设定相对应，
 			if(m == 1){
 				//是新a，恭喜公告出现，并且额外计入新a计数器
 				gongxi("#congratulation","恭喜你获得 <span>"+name_a_new+"碎片 × "+num_this+"</span>");
@@ -964,6 +1022,10 @@ function A(){
 				//幸运值重置
 				luckystar = -1;
 				sad = -1;
+				if(n==1){
+					//若是抽到一组新a，重置隐性机制计数
+					count_invisible_a = -1;
+				}
 			}
 			//return;
 		}else if(gailv_s+gailv_a < raNum && raNum <= gailv_s+gailv_a+gailv_b){
@@ -1014,16 +1076,21 @@ function A(){
 		doluckyevent();
 		console.log("幸运值为"+luckystar+"；s概率目前为"+gailv_s+"；a目前概率为"+gailv_a+"；b目前概率为"+gailv_b+"；c目前概率为"+gailv_c);
 		
+		//隐形机制体现，如果没抽到1组s、1组a，计数增加1
+		count_invisible_a++;
+		count_invisible_s++;
+		console.log("隐形机制：a计数--"+count_invisible_a+"；s计数--"+count_invisible_s);
+
 		//事件：A首付奖励是否出现
 		ifshowshoufu_a();
 
 		//事件：S首付奖励是否出现
 		ifshowshoufu_s();
 
-		//如果碎片达到40 出现弹窗
-		if(num_a_new>=40 && istanchunewninja == 0 ){
+		//如果碎片达到100 出现弹窗
+		if(num_s_new>=100 && istanchunewninja == 0 ){
 				playaudio(2);
-				gongxi("#congratulation","恭喜你成功招募 <span>"+name_a_new+"</span>");
+				gongxi("#congratulation","恭喜你成功招募 <span>"+name_s_new+"</span>");
 				$(".pop_newninja").addClass("on");
 				$(".pop_newninja").removeClass("zoomOut");
 				//$(".pop_mask").fadeIn(100);

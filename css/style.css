@@ -360,10 +360,10 @@ filter: brightness(1.2); }
 .resultlist .text{ font-size: .16rem;line-height: .30rem;text-shadow: 0 .02rem #000, .02rem 0 #000, -.02rem 0 #000, 0 -.02rem #000; text-align: center; white-space: nowrap; }
 .resultlist .item .img,
 .icon.icon_s_new .img,
-.icon.icon_a_new .img{ background-image:url(../images/charactors.png?v2019111401); background-size: 72.00rem 3.60rem; }
+.icon.icon_a_new .img{ background-image:url(../images/charactors.png?v2020010201); background-size: 72.00rem 3.60rem; }
 .resultlist .item_s .img{  background-position: 0 0; }
 .resultlist .item_s .img1,
-.icon.icon_s_new .img{ background-position: -11.52rem 0;  }/*1,16  当前s忍者（秽土三代）*/
+.icon.icon_s_new .img{ background-position: -12.96rem 0;  }/*1,18  当前s忍者（秽土水门）*/
 .resultlist .item_a .img{  background-position: 0rem -.72rem; }
 .resultlist .item_a .img1,
 .icon.icon_a_new .img{  background-position: -25.20rem -.72rem; }/*2,36 当前新a忍者（我爱罗忍界）*/
@@ -462,12 +462,13 @@ filter: brightness(1.2); }
 .btn_switch .icon,
 .btn_audio .icon,
 .btn_bgm .icon,
-.btn_bisong .icon{ position:absolute; left: .1rem; top: 50%; margin-top: -.2rem;}
+.btn_bisong .icon{ position:absolute; left: .1rem; top: 50%; margin-top: -.16rem;}
 .btn_switch .txt,
 .btn_audio .txt,
 .btn_bgm .txt,
 .btn_bisong .txt{ padding-left:.5rem; padding-right:.2rem;letter-spacing: 0;}
 .btn_switch.disabled{ opacity: .3; }
+.btn_switch .subtxt{ opacity: .5; line-height: .2rem; font-size: .16rem; letter-spacing: 0; display: block; padding-left: .5rem;}
 .btns .btn_setninja{ position: relative; color: #faf3bc;letter-spacing: 0;}
 .btns .btn_setninja .icon{ height: .5rem; width: .5rem;line-height: .8rem; font-size: .18rem; position: absolute; left: .15rem; top: 50%; margin-top: -.25rem; }
 .btns .btn_setninja .txt{ padding-left: .5rem; letter-spacing: 0;}

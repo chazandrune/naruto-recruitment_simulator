@@ -131,7 +131,7 @@
 
 
 <!-- 版本 -->
-		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.7.1</a></p></div>
+		<div class="copyright"><p><a href="logs.html" title="高级招募模拟器">高级招募模拟器v1.8</a></p></div>
 <!-- main -->
 		<div class="box">
 			<div class="tishi">
@@ -185,7 +185,7 @@
 		<div class="thebtns thebtns_01">
         	<div class="btn btn_notice ease1"><i class="icon icon_notice"></i><span class="txt">公告</span></div>
         	<div class="btn btn_info ease1"><i class="icon icon_info"></i><span class="txt">关于</span></div>
-            <div class="btn btn_setting ease1"><i class="icon icon_setting"></i><span class="txt">设置</span></div>
+            <div class="btn btn_setting ease1"><i class="icon icon_setting"></i><span class="txt">设置</span><i class="icon icon_dot_red"></i></div>
             <div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
 			<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
         </div>
@@ -198,20 +198,21 @@
         	<!-- <a class="btn btn_feed ease1" href="https://www.wjx.cn/jq/27221880.aspx" target="_blank"><i class="icon icon_feed"></i></a> -->
         </div>
 <!-- 弹窗遮罩 -->
-<div class="pop_mask"></div>
+<div class="pop_mask" style="display: block;"></div>
 <!-- 重要通知 -->
-		<div class="pop pop_big pop_notice animated zoomIn">
+		<div class="pop pop_big pop_notice animated zoomIn on">
 			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
 			<div class="text_wrap">
 				<div class="text_body">
 					<p><font color="#e94130"></font><font color="#6bd675"></font><!-- <i class="biaoqing biaoqing_07"></i> --></p>
-					<p><font color="#e94130">忍者更新</font></p>
-					<p>1、上架我爱罗[忍界大战]、旗木卡卡西[暗部]、金·槌；下架大蛇丸[晓]、惠比寿、日向花火。</p>
-					<p>2、图图生成器同步更新我爱罗[忍界大战]。<a href="ninjashare.html" title="图图生成器" target="_blank"><font color="#6bd675">立即前往>></font></a></p>
+					<p><font color="#e94130">>>>>版本v1.8</font></p>
+					<p>1、上架波风水门[秽土转生]。</p>
+					<p>2、图图生成器同步更新波风水门[秽土转生]。<a href="ninjashare.html" title="图图生成器" target="_blank"><font color="#6bd675">立即前往>></font></a></p>
+					<p>3、新增“隐藏机制”功能开关，开启后，招募50次以内至少出一组S忍碎片，招募40次以内至少出一组A忍碎片。可根据需要自行在设置中开启或关闭，开启或关闭时会重置招募次数。</p>
 					<p><br></p>
 					<p><br></p>
 					<p style="text-align: right;">爱火影、爱游戏的某熊仔</p>
-					<p style="text-align: right;">2019年11月14日</p>
+					<p style="text-align: right;">2020年01月02日</p>
 					<p><br></p>
 					<div class="btns"><a href="http://weibo.com/rune2010" class="btn ease1" title="微博" target="_blank"><i class="icon icon_sina"></i>我是微博</a><a href="javascript:void(0);" class="btn ease1 jump_gzh" title="公众号"><i class="icon icon_weixin"></i>我是公众号</a></div>
 				</div>
@@ -260,6 +261,28 @@
 	                        <i class="icon icon_checkbox"></i><span class="txt">脸黑反馈</span>
 	                    </div>
 	                    <div>
+		                    <div class="btn btn_switch btn_shoufu_s ease1 on" style="line-height: .3rem;">
+		                        <i class="icon icon_checkbox"></i><span class="txt">S首付奖励</span><span class="subtxt">招募达到100次时出现</span>
+		                    </div>
+		                </div>
+		                <div>
+		                    <div class="btn btn_switch btn_shoufu_a ease1" style="line-height: .3rem;">
+		                        <i class="icon icon_checkbox"></i><span class="txt">A首付奖励</span><span class="subtxt">招募达到50次时出现</span>
+		                    </div>
+		                </div>
+		                <div>
+		                    <div class="btn btn_switch btn_yincangjizhi ease1 on" style="line-height: .3rem;">
+		                        <i class="icon icon_checkbox"></i><span class="txt">隐藏机制</span><span class="subtxt">50抽至少出一组S，40抽至少出一组A</span>
+		                    </div>
+		                </div>
+		                <div>
+		                    <div class="btn btn_switch btn_luckystar ease1 disabled" style="line-height: .3rem;">
+		                        <i class="icon icon_checkbox"></i><span class="txt">欧皇模式</span><span class="subtxt">非常无聊的功能</span>
+		                    </div>
+	                    </div>
+                	</div>
+                	<div class="part_r">
+	                    <div>
 	                    	<div class="btn btn_switch btn_audio ease1 on">
 		                        <i class="icon icon_checkbox"></i><span class="txt">音效</span>
 		                    </div>
@@ -267,23 +290,6 @@
 		                        <i class="icon icon_checkbox"></i><span class="txt">音乐</span>
 		                    </div>
 	                    </div>
-	                    <div>
-		                    <div class="btn btn_switch btn_shoufu_s ease1">
-		                        <i class="icon icon_checkbox"></i><span class="txt">S首付奖励(高招100次出现)</span>
-		                    </div>
-		                </div>
-		                <div>
-		                    <div class="btn btn_switch btn_shoufu_a ease1 on">
-		                        <i class="icon icon_checkbox"></i><span class="txt">A首付奖励(高招50次出现)</span>
-		                    </div>
-		                </div>
-		                <div>
-		                    <div class="btn btn_switch btn_luckystar ease1 disabled">
-		                        <i class="icon icon_checkbox"></i><span class="txt">欧皇模式</span>
-		                    </div>
-	                    </div>
-                	</div>
-                	<div class="part_r">
 	                    <div class="btns">
 	                    	<div id="btn_setninja" class="btn btn_setninja ease1" title="忍者配置"><i class="icon icon_setninja"></i><span class="txt">忍者配置</span></div>
 	                    </div>
@@ -303,7 +309,13 @@
 					<div class="tabbox_bd">
 						<div class="tabbox_bd_item tabbox_bd_item_s active">
 							<ul class="ninjalist">
-								<li class="item_wrap btn ease1 active" data-x="-11.52rem" data-y="0" data-name="猿飞日斩[秽土转生]">
+								<li class="item_wrap btn ease1 active" data-x="-12.96rem" data-y="0" data-name="波风水门[秽土转生]">
+									<div class="item">
+										<div class="img" style="background-position:-12.96rem 0;"></div>
+										<div class="fg"></div>
+									</div>
+								</li>
+								<li class="item_wrap btn ease1" data-x="-11.52rem" data-y="0" data-name="猿飞日斩[秽土转生]">
 									<div class="item">
 										<div class="img" style="background-position:-11.52rem 0;"></div>
 										<div class="fg"></div>
@@ -561,7 +573,7 @@
 		</div>
 <!-- 新忍者弹窗 -->
 		<div class="pop pop_newninja animated bounceIn">
-			<div class="text_body"><p></p><img src="images/90230001_BG.jpg" alt="百豪樱招募图"></div>
+			<div class="text_body"><p></p><img src="images/90101001_BG.jpg" alt="秽土水门招募图"></div>
 			<div class="btn btn_close ease1"><i class="icon icon_close"></i></div>
 		</div>
 
