@@ -219,10 +219,12 @@ document.body.addEventListener('touchstart', function () { });
 		//playaudio(2);
 		if($(this).hasClass("on")){
 			playaudio(2);
+			$(".yincangjizhi_text").hide();
 			$(this).removeClass("on");
 			chongzhi();
 		}else{
 			playaudio(2);
+			$(".yincangjizhi_text").show();
 			$(this).addClass("on");
 			chongzhi();
 		}
