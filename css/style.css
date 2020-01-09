@@ -371,13 +371,13 @@ filter: brightness(1.2); }
 .resultlist .item_a .img2{  background-position: -1.44rem -.72rem; }/*2,3 当前副a忍者（飞段）*/
 .resultlist .item_b .img{  background-position: 0 -1.44rem; }
 .resultlist .item_b .img1{  background-position: -0rem -1.44rem; }/*3,1 b忍者1（鸣人疾风传）*/
-.resultlist .item_b .img2{  background-position: -1.44rem -1.44rem; }/*3,3 b忍者2（日向雏田疾风传）*/
+.resultlist .item_b .img2{  background-position: -18.72rem -1.44rem; }/*3,27 b忍者2（少年卡卡西）*/
 .resultlist .item_b .img3{  background-position: -0.72rem -1.44rem; }/*3,2 b忍者3（小樱疾风传）*/
 .resultlist .item_b .img4{  background-position: -4.32rem -1.44rem; }/*3,7 b忍者4（大和）*/
 .resultlist .item_b .img5{  background-position: -7.92rem -1.44rem; }/*3,12 b忍者5（井野疾风传）*/
 .resultlist .item_b .img6{  background-position: -6.48rem -1.44rem; }/*3,10 b忍者6（卡卡西暗部）*/
 .resultlist .item_c .img{  background-position: 0 -2.16rem; }
-.resultlist .item_c .img1{  background-position: -.72rem -2.16rem; }/*4,2 c忍者1（伊鲁卡）*/
+.resultlist .item_c .img1{  background-position: -8.64rem -2.16rem; }/*4,13 c忍者1（咒印水木）*/
 .resultlist .item_c .img2{  background-position: -14.4rem -2.16rem; }/*4,21 c忍者2（秋道丁次）*/
 .resultlist .item_c .img3{  background-position: -15.84rem -2.16rem; }/*4,23 c忍者3（犬冢牙）*/
 .resultlist .item_c .img4{  background-position: -7.92rem -2.16rem; }/*4,12 c忍者4（金槌）*/
