@@ -187,7 +187,7 @@
 		<div class="thebtns thebtns_01">
         	<div class="btn btn_notice ease1"><i class="icon icon_notice"></i><span class="txt">公告</span></div>
         	<div class="btn btn_info ease1"><i class="icon icon_info"></i><span class="txt">关于</span></div>
-            <div class="btn btn_setting ease1"><i class="icon icon_setting"></i><span class="txt">设置</span><i class="icon icon_dot_red"></i></div>
+            <div class="btn btn_setting ease1"><i class="icon icon_setting"></i><span class="txt">设置</span></div>
             <div class="btn btn_baoxiang ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">S首付奖励</span></div>
 			<div class="btn btn_baoxiang_a ease1 animated tada infinite"><i class="icon icon_baoxiang"></i><span class="txt">A首付奖励</span></div>
         </div>
@@ -195,26 +195,29 @@
         <div class="thebtns thebtns_02">
         	<a class="btn ease1" href="fengyin.html"><i class="icon icon_fengyinbaoxiang"></i><span class="txt">封印</span></a>
             <a href="ninjashare.html" class="btn btn_ninja ease1"><i class="icon icon_ninja"></i><span class="txt">图图</span><!-- <i class="icon icon_dot_red"></i> --></a>
-            <!-- <a href="headshot.html" class="btn btn_ninja ease1"><i class="icon icon_touxiangkuang"></i><span class="txt">头像</span></a> -->
-        	<!-- <a id="btn_miling" class="btn btn_feed ease1" href="copycode.html" target="_blank"><i class="icon icon_feed"></i><span class="txt">密令</span></a> -->
+         	<a id="btn_miling" class="btn btn_feed ease1" href="copycode.html" target="_blank"><i class="icon icon_feed"></i><span class="txt">密令</span><i class="icon icon_dot_red"></i></a>
+           <!-- <a href="headshot.html" class="btn btn_ninja ease1"><i class="icon icon_touxiangkuang"></i><span class="txt">头像</span></a> -->
         	<!-- <a class="btn btn_feed ease1" href="https://www.wjx.cn/jq/27221880.aspx" target="_blank"><i class="icon icon_feed"></i></a> -->
         </div>
 <!-- 弹窗遮罩 -->
-<div class="pop_mask" style="display: block;"></div>
+<div class="pop_mask"></div>
 <!-- 重要通知 -->
-		<div class="pop pop_big pop_notice animated zoomIn on">
+		<div class="pop pop_big pop_notice animated zoomIn">
 			<div class="title"><img class="title_bg" src="images/title_bg.png" alt=""><img class="title_txt" src="images/title_notice.png" alt="公告"></div>
 			<div class="text_wrap">
 				<div class="text_body">
 					<p><font color="#e94130"></font><font color="#6bd675"></font><!-- <i class="biaoqing biaoqing_07"></i> --></p>
-					<p><font color="#e94130">>>>>版本v1.8</font></p>
-					<p>1、上架波风水门[秽土转生]。</p>
-					<p>2、图图生成器同步更新波风水门[秽土转生]。<a href="ninjashare.html" title="图图生成器" target="_blank"><font color="#6bd675">立即前往>></font></a></p>
-					<p>3、新增“隐藏机制”功能开关，开启后，招募50次以内至少出一组S忍碎片，招募40次以内至少出一组A忍碎片。可根据需要自行在设置中开启或关闭，开启或关闭时会重置招募次数。</p>
+					<p><font color="#e94130">>>>>本次更新</font></p>
+					<p>1、“四周年密令”已开启，一键复制密令，快速完成任务！活动时间1月17日-1月24日。<a href="copycode.html" title="四周年密令" target="_blank"><font color="#6bd675">立即前往>></font></a></p>
+					<p><br></p>
+					<p><br></p>
+					<p><font color="#e94130">>>>>近期重要更新</font></p>
+					<p>1、更新波风水门[秽土转生]。</p>
+					<p>2、新增“隐藏机制”功能开关，开启后，招募50次以内至少出一组S忍碎片，招募40次以内至少出一组A忍碎片。可根据需要自行在设置中开启或关闭，开启或关闭时会重置招募次数。</p>
 					<p><br></p>
 					<p><br></p>
 					<p style="text-align: right;">爱火影、爱游戏的某熊仔</p>
-					<p style="text-align: right;">2020年01月02日</p>
+					<p style="text-align: right;">2020年01月17日</p>
 					<p><br></p>
 					<div class="btns"><a href="http://weibo.com/rune2010" class="btn ease1" title="微博" target="_blank"><i class="icon icon_sina"></i>我是微博</a><a href="javascript:void(0);" class="btn ease1 jump_gzh" title="公众号"><i class="icon icon_weixin"></i>我是公众号</a></div>
 				</div>
@@ -580,9 +583,9 @@
 		</div>
 
 <!-- 指引 -->
-		<!-- <div class="guide_wrap fadeInDown">
-        	<div class="guide_small" style="right:1.3rem; top:1.3rem;"><em class="jiao"></em><div class="text_body">操作指引</div></div>
-        </div>  -->
+		<div class="guide_wrap fadeInDown">
+        	<div class="guide_small" style="right:1.3rem; top:1.3rem;"><em class="jiao"></em><div class="text_body"><p class="countdown">还剩<br><span class="days"></span>天<span class="hours"></span>时<span class="minutes"></span>分<span class="seconds"></span>秒</p></div></div>
+        </div> 
 <!-- 恭喜 -->
 		<div class="congratulation_wrap"><span class="congratulation" id="congratulation"></span></div>
 <!-- toast -->
@@ -604,7 +607,7 @@
 		总容器下包含4个容器用于放置天、时、分、秒4个数字，class分别为days、hours、minutes、seconds
 	*/
     $('.countdown').downCount({
-		date: '05/23/2019 23:59:59',
+		date: '01/24/2020 05:00:00',
 		offset: +8
 	}, function () {
 		$("#btn_miling").remove();
