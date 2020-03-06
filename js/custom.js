@@ -1090,12 +1090,12 @@ function A(){
 		ifshowshoufu_s();
 
 		//如果碎片达到100 出现弹窗
-		if(num_s_new>=100 && istanchunewninja == 0 ){
-				playaudio(2);
-				gongxi("#congratulation","恭喜你成功招募 <span>"+name_s_new+"</span>");
-				$(".pop_newninja").addClass("on");
-				$(".pop_newninja").removeClass("zoomOut");
-				//$(".pop_mask").fadeIn(100);
-				istanchunewninja = 1;
-		}
+		// if(num_s_new>=100 && istanchunewninja == 0 ){
+		// 		playaudio(2);
+		// 		gongxi("#congratulation","恭喜你成功招募 <span>"+name_s_new+"</span>");
+		// 		$(".pop_newninja").addClass("on");
+		// 		$(".pop_newninja").removeClass("zoomOut");
+		// 		//$(".pop_mask").fadeIn(100);
+		// 		istanchunewninja = 1;
+		// }
 }
