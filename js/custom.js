@@ -969,7 +969,7 @@ function A(){
 					// 出现5片和1片的概率，目前设置为各50%
 					var n = parseInt(Math.random()*(2-1+1)+1,10);
 				}
-				// 非比松抽到s，幸运值重置
+				// 非必送抽到s，幸运值重置
 				luckystar = -1;
 				sad = -1;
 			}
