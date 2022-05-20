@@ -1056,9 +1056,9 @@ function A(){
 				num_this = 1;
 				num_c++;
 			}
-			//随机出现某个忍者 1-12
+			//随机出现某个忍者 1-14
 			//var m = parseInt(Math.random()*10);
-			var m = parseInt(Math.random()*(12-1+1)+1,10);
+			var m = parseInt(Math.random()*(14-1+1)+1,10);
 			writelog("C碎片 × "+num_this,"c",num_this,m);
 			$("#num_c").html(num_c);
 			//return;
