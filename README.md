@@ -1,6 +1,6 @@
 # naruto-recruitment_simulator
 ## 火影忍者高级招募模拟器
-
+[预览地址](https://chazandrune.github.io/naruto-recruitment_simulator/)
 
 ### 更新日志
 
