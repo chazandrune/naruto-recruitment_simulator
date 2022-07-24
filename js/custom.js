@@ -382,6 +382,11 @@ document.body.addEventListener('touchstart', function () { });
 		$(".loadingbarbox").fadeOut(300);
 	});
 
+	//点击进入 界面
+	$(".btn_enter").on('click',function(){
+		$(".video_wrap").fadeOut(300);
+	})
+
 
 
 
